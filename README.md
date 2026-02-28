@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# 🌍 ভ্রমণ.কম (bhromondotcom)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/React-18-blue?logo=react)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-38BDF8?logo=tailwindcss)
+![Framer Motion](https://img.shields.io/badge/Framer-Motion-purple)
+![Netlify](https://img.shields.io/badge/Deployed-Netlify-00C7B7?logo=netlify)
+![Status](https://img.shields.io/badge/Status-Live-success)
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🌐 Live Website
 
-### `npm start`
+🔗 **Visit Now:**  
+(https://bhromondotcom.vercel.app/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🖼️ Website Preview
 
-### `npm test`
+### 💻 Desktop View
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Desktop Preview](desktopview.jpeg)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 📱 Mobile View
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Mobile Preview](mobileview.jpeg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📌 About The Project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ভ্রমণ.কম একটি আধুনিক ভ্রমণ তথ্যভিত্তিক প্ল্যাটফর্ম।
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+বাংলাদেশের জনপ্রিয় পর্যটন স্থান, ট্যুর প্যাকেজ, ভ্রমণ টিপস ও গন্তব্য সম্পর্কিত তথ্য এক জায়গায় পাওয়া যায়।
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+⚠️ এটি কোনো সরকারি সংস্থা বা ট্রাভেল কোম্পানির অফিসিয়াল সাইট নয়।  
+আমরা শুধুমাত্র তথ্য প্রদান করি।
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🚀 Key Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 🏠 Responsive Modern UI
+- 📦 বিভাগভিত্তিক ট্যুর প্যাকেজ
+- 📍 জনপ্রিয় গন্তব্য ডিটেইলস
+- 🏢 কোম্পানি তালিকা
+- 📰 ব্লগ সেকশন
+- 📱 Fully Mobile Friendly
+- 🎬 Smooth Animation (Framer Motion)
+- ⚡ SEO Friendly Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🛠️ Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Technology | Purpose |
+|------------|----------|
+| React.js | Frontend Framework |
+| Tailwind CSS | Styling |
+| Framer Motion | Animation |
+| React Router DOM | Routing |
+| Heroicons | Icons |
+| Netlify | Deployment |
+| GitHub | Version Control
