@@ -1,0 +1,168 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import Button from "../ui/Button";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+const Hero = () => {
+  const navigate = useNavigate();
+const [searchTerm, setSearchTerm] = useState("");
+
+const handleSearch = () => {
+  if (searchTerm.trim()) {
+    navigate(`/search?q=${searchTerm}`);
+  }
+};
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+  };
+
+  return (
+    <section className="relative w-full min-h-screen overflow-hidden">
+
+      {/* Background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/bg1.jpg')" }}
+      />
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-blue-900/60" />
+
+      {/* Main Content */}
+      <div className="relative z-10 min-h-screen flex items-center pt-28 md:pt-32">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="max-w-3xl text-left"
+          >
+
+            {/* Heading */}
+            <motion.h1
+              variants={itemVariants}
+              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
+            >
+              আপনার স্বপ্নের
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
+                ভ্রমণ শুরু হোক
+              </span>
+            </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              variants={itemVariants}
+              className="text-base sm:text-lg md:text-xl text-gray-200 mb-8 leading-relaxed"
+            >
+              দেশের সেরা ট্যুর প্যাকেজ সেরা মূল্যে।
+              আমাদের সাথে আপনার ভ্রমণ হোক স্মরণীয়।
+            </motion.p>
+
+            {/* Buttons */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-4 mt-6"
+            >
+              <Link
+                to="/packages"
+                className="w-full sm:w-auto text-center px-8 py-4 rounded-xl font-semibold text-white 
+                           bg-gradient-to-r from-blue-600 to-indigo-600
+                           hover:from-blue-700 hover:to-indigo-700
+                           shadow-lg shadow-blue-500/30
+                           transition-all duration-300"
+              >
+                প্যাকেজ দেখুন
+              </Link>
+            </motion.div>
+
+            {/* Search Bar */}
+           <motion.div
+  variants={itemVariants}
+  className="mt-10 bg-white/10 backdrop-blur-md rounded-2xl p-4 max-w-3xl mx-auto"
+>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+               <input
+  type="text"
+  placeholder="লোকেশন, প্যাকেজ বা কোম্পানি..."
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+  className="w-full px-4 py-3 bg-white/20 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white sm:col-span-2"
+/>
+
+
+             <button
+  onClick={handleSearch}
+  className="w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transition-all duration-200 flex items-center justify-center space-x-2"
+>
+  <MagnifyingGlassIcon className="w-5 h-5" />
+  <span>খুঁজুন</span>
+</button>
+              </div>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              variants={itemVariants}
+              className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left"
+            >
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">৫০০+</h3>
+                <p className="text-gray-300 text-sm">ট্যুর প্যাকেজ</p>
+              </div>
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">১০,০০০+</h3>
+                <p className="text-gray-300 text-sm">খুশি গ্রাহক</p>
+              </div>
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">১০০+</h3>
+                <p className="text-gray-300 text-sm">গন্তব্য</p>
+              </div>
+              <div>
+              </div>
+            </motion.div>
+
+          </motion.div>
+
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+      >
+        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-bounce" />
+        </div>
+      </motion.div>
+
+    </section>
+  );
+};
+
+export default Hero;

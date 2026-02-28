@@ -1,0 +1,118 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { MapPinIcon } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
+
+const destinations = [
+  {
+    id: 1,
+    slug: "coxsbazar",
+    name: "কক্সবাজার",
+    location: "চট্টগ্রাম",
+    image: "/images/destinations/coxsbazar.jpg",
+  },
+  {
+    id: 2,
+    slug: "saintmartin",
+    name: "সেন্টমার্টিন",
+    location: "কক্সবাজার",
+    image: "/images/destinations/saintmartin.jpg",
+  },
+  {
+    id: 3,
+    slug: "sajek",
+    name: "সাজেক ভ্যালি",
+    location: "রাঙ্গামাটি",
+    image: "/images/destinations/sajekvelly.jpg",
+  },
+  {
+    id: 4,
+    slug: "bandarban",
+    name: "বান্দরবান",
+    location: "বান্দরবান",
+    image: "/images/destinations/bandarban.jpg",
+  },
+  {
+    id: 5,
+    slug: "sreemangal",
+    name: "শ্রীমঙ্গল",
+    location: "সিলেট",
+    image: "/images/destinations/sreemangal.jpg",
+  },
+  {
+    id: 6,
+    slug: "sundarban",
+    name: "সুন্দরবন",
+    location: "খুলনা",
+    image: "/images/destinations/sundarban.jpg",
+  },
+];
+
+const Destinations = () => {
+  return (
+    <section className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            জনপ্রিয় গন্তব্য
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            বাংলাদেশের সেরা ভ্রমণ স্থানগুলো আবিষ্কার করুন এবং আপনার পরবর্তী সফরের পরিকল্পনা করুন।
+          </p>
+        </motion.div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {destinations.map((destination, index) => (
+            <Link
+              key={destination.id}
+              to={`/destination/${destination.slug}`}
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+                className="group rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 bg-white"
+              >
+                {/* Image */}
+                <div className="relative h-72 overflow-hidden">
+                  <img
+                    src={destination.image}
+                    alt={destination.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">
+                    {destination.name}
+                  </h3>
+
+                  <div className="flex items-center text-gray-500 text-sm">
+                    <MapPinIcon className="w-4 h-4 mr-2 text-blue-500" />
+                    {destination.location}
+                  </div>
+                </div>
+              </motion.div>
+            </Link>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default Destinations;
