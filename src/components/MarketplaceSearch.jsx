@@ -1,0 +1,64 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import destinationsData from "../data/destinationsData";
+import packagesData from "../data/packagesData";
+import placesData from "../data/placesData";
+
+const MarketplaceSearch = () => {
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    const destination = destinationsData.find(d =>
+      d.name.toLowerCase().includes(query.toLowerCase())
+    );
+
+    if (destination) {
+      navigate(`/destination/${destination.slug}`);
+      return;
+    }
+
+    const place = placesData.find(p =>
+      p.name.toLowerCase().includes(query.toLowerCase())
+    );
+
+    if (place) {
+      navigate(`/places/${place.slug}`);
+      return;
+    }
+
+    const pkg = packagesData.find(p =>
+      p.title.toLowerCase().includes(query.toLowerCase())
+    );
+
+    if (pkg) {
+      navigate(`/package/${pkg.id}`);
+      return;
+    }
+
+    alert("কিছু পাওয়া যায়নি");
+  };
+
+  return (
+    <form onSubmit={handleSearch} className="flex gap-3">
+      <input
+        type="text"
+        placeholder="গন্তব্য, স্থান বা প্যাকেজ খুঁজুন..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        className="px-4 py-2 rounded-lg border w-72"
+      />
+
+      <button
+        type="submit"
+        className="bg-blue-600 text-white px-5 py-2 rounded-lg"
+      >
+        খুঁজুন
+      </button>
+    </form>
+  );
+};
+
+export default MarketplaceSearch;
