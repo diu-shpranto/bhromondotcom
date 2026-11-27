@@ -6,6 +6,7 @@ import {
   MapPinIcon,
   CalendarIcon,
   ClockIcon,
+  ArrowRightIcon,
 } from "@heroicons/react/24/outline";
 import blogData, { BLOG_CATEGORY_LABELS } from "../data/blogData";
 import destinationsData from "../data/destinationsData";
@@ -29,6 +30,12 @@ const BlogPage = () => {
   });
 
   const popularBlogs = blogData.slice(0, 4);
+
+  const isFiltering = search.trim() !== "" || category !== "All";
+  const clearFilters = () => {
+    setSearch("");
+    setCategory("All");
+  };
 
   return (
     <div className="bg-sand min-h-screen">
@@ -75,8 +82,8 @@ const BlogPage = () => {
                 </div>
               </div>
 
-              {/* Categories */}
-              <div className="bg-white rounded-3xl shadow-sm ring-1 ring-stone-100 overflow-hidden">
+              {/* Categories — desktop sidebar list only */}
+              <div className="bg-white rounded-3xl shadow-sm ring-1 ring-stone-100 overflow-hidden hidden lg:block">
                 <div className="flex items-center gap-3 px-6 pt-6 pb-4">
                   <span className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
                     <TagIcon className="w-5 h-5" />
@@ -183,6 +190,49 @@ const BlogPage = () => {
           {/* MAIN BLOG */}
           <div className="order-2 lg:order-1 lg:col-span-2">
 
+            {/* Mobile category chips — horizontal scroll, replaces the
+                sidebar list below lg so the list starts sooner */}
+            <div className="lg:hidden flex gap-2 overflow-x-auto pb-1 mb-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {categories.map((cat) => {
+                const count =
+                  cat === "All"
+                    ? blogData.length
+                    : blogData.filter((b) => b.category === cat).length;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setCategory(cat)}
+                    className={`shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition ring-1 ${
+                      category === cat
+                        ? "bg-emerald-600 text-white ring-emerald-600 shadow-md shadow-emerald-600/25"
+                        : "bg-white text-stone-700 ring-stone-200 hover:ring-emerald-500 hover:text-emerald-700"
+                    }`}
+                  >
+                    {BLOG_CATEGORY_LABELS[cat] ?? cat}
+                    <span
+                      className={`text-xs px-1.5 py-0.5 rounded-full ${
+                        category === cat
+                          ? "bg-white/20 text-white"
+                          : "bg-stone-100 text-stone-500"
+                      }`}
+                    >
+                      {count.toLocaleString("bn-BD")}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Filtered result count */}
+            {isFiltering && filteredBlogs.length > 0 && (
+              <p className="text-sm text-stone-500 mb-6">
+                <span className="font-semibold text-forest">
+                  {filteredBlogs.length.toLocaleString("bn-BD")}টি ব্লগ
+                </span>{" "}
+                পাওয়া গেছে
+              </p>
+            )}
+
             {filteredBlogs.length === 0 ? (
               <div className="bg-white rounded-3xl shadow-sm ring-1 ring-stone-100 px-6 py-16 text-center">
                 <span className="inline-flex w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 items-center justify-center">
@@ -194,6 +244,12 @@ const BlogPage = () => {
                 <p className="text-stone-500 mt-2">
                   অন্য কিছু খুঁজে দেখুন, বা ক্যাটাগরি বদলে আবার চেষ্টা করুন।
                 </p>
+                <button
+                  onClick={clearFilters}
+                  className="mt-6 inline-flex items-center gap-2 bg-emerald-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-emerald-700 transition"
+                >
+                  ফিল্টার পরিষ্কার করুন
+                </button>
               </div>
             ) : (
               <div className="grid md:grid-cols-2 gap-10">
@@ -201,37 +257,43 @@ const BlogPage = () => {
                   <Link
                     key={blog.id}
                     to={`/blog/${blog.slug}`}
-                    className="group bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-500"
+                    className="group bg-white rounded-3xl shadow-sm ring-1 ring-stone-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-300"
                   >
                     <div className="overflow-hidden">
                       <img
                         src={blog.coverImage}
                         alt={blog.title}
-                        className="h-52 w-full object-cover group-hover:scale-110 transition duration-700"
+                        className="h-52 w-full object-cover group-hover:scale-105 transition duration-500"
                        loading="lazy" decoding="async" />
                     </div>
 
                     <div className="p-6">
-                      <span className="text-xs bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full font-medium">
+                      <span className="text-xs bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-semibold">
                         {BLOG_CATEGORY_LABELS[blog.category] ?? blog.category}
                       </span>
 
-                      <h3 className="font-display text-xl font-bold mt-4 group-hover:text-emerald-600 transition">
+                      <h3 className="font-display text-xl font-bold mt-4 leading-snug group-hover:text-emerald-700 transition">
                         {blog.title}
                       </h3>
 
-                      <p className="text-stone-500 mt-3">
+                      <p className="text-stone-500 mt-3 leading-relaxed">
                         {blog.excerpt}
                       </p>
 
-                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-stone-400 mt-4">
-                        <span className="inline-flex items-center gap-1.5">
-                          <CalendarIcon className="w-4 h-4" />
-                          {blog.publishDate}
-                        </span>
-                        <span className="inline-flex items-center gap-1.5">
-                          <ClockIcon className="w-4 h-4" />
-                          {blog.readTime}
+                      <div className="flex items-center justify-between gap-3 border-t border-stone-100 pt-4 mt-5">
+                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-stone-400">
+                          <span className="inline-flex items-center gap-1.5">
+                            <CalendarIcon className="w-4 h-4" />
+                            {blog.publishDate}
+                          </span>
+                          <span className="inline-flex items-center gap-1.5">
+                            <ClockIcon className="w-4 h-4" />
+                            {blog.readTime}
+                          </span>
+                        </div>
+                        <span className="inline-flex items-center gap-1 text-sm font-semibold text-emerald-600 group-hover:gap-2 transition-all shrink-0">
+                          পড়ুন
+                          <ArrowRightIcon className="w-4 h-4" />
                         </span>
                       </div>
                     </div>
