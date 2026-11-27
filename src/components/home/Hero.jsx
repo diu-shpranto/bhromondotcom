@@ -80,7 +80,7 @@ const handleSearch = () => {
               variants={itemVariants}
               className="text-base sm:text-lg md:text-xl text-gray-200 mb-8 leading-relaxed"
             >
-              BTG আর ভ্রমণ বাড়ির যাচাই করা ট্যুর — সাজেক, সেন্টমার্টিন,
+              ৪টি যাচাই করা কোম্পানির ট্যুর — সাজেক, সেন্টমার্টিন,
               কক্সবাজার, সুন্দরবন। দাম আর ছাড়ার তারিখ ওদের নিজের
               Facebook পেজ থেকে নেওয়া, তাই যা দেখছেন সেটাই আসল।
             </motion.p>
@@ -156,16 +156,6 @@ const handleSearch = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-      >
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-bounce" />
-        </div>
-      </motion.div>
 
     </section>
   );
