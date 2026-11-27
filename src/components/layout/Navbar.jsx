@@ -314,7 +314,7 @@ const Navbar = () => {
               {/* Scrollable body: navigation + promo + footer */}
               <div className="flex-1 overflow-y-auto">
                 {/* Navigation Links */}
-                <nav className="px-4 pt-5 pb-2 space-y-2.5">
+                <nav className="px-4 pt-5 pb-5 space-y-2.5">
                   {navLinks.map((link) => {
                     const Icon = mobileNavIcons[link.name];
                     const isActive = isMobileActive(link);
@@ -424,26 +424,23 @@ const Navbar = () => {
                     );
                   })}
                 </nav>
+              </div>
 
-                {/* Footer */}
-                <div className="px-5 pt-3 pb-5">
-                  <div className="border-t border-stone-100 pt-4">
-                    <p className="text-xs text-stone-400 text-center">
-                      © 2026 ভ্রমণ.কম - সমস্ত অধিকার সংরক্ষিত
-                    </p>
-                    <p className="text-[11px] text-emerald-600 font-semibold text-center mt-1.5">
-                      A XolveKart Product
-                    </p>
-                  </div>
-                  {/* Bangladesh-inspired decorative strip */}
-                  <div className="relative mt-4 h-16 rounded-2xl overflow-hidden">
-                    <img
-                      src="/images/jatiyo.jpg"
-                      alt=""
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#006B46]/70 via-[#006B46]/20 to-transparent" />
-                  </div>
+              {/* Footer — pinned to the bottom, full-bleed monument banner */}
+              <div className="relative shrink-0 h-28 overflow-hidden">
+                <img
+                  src="/images/jatiyo.jpg"
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#006B46]/85 via-[#006B46]/35 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 px-5 pb-4 text-center">
+                  <p className="text-xs text-white font-medium">
+                    © 2026 ভ্রমণ.কম - সমস্ত অধিকার সংরক্ষিত
+                  </p>
+                  <p className="text-[11px] text-emerald-100 font-semibold mt-1">
+                    A XolveKart Product
+                  </p>
                 </div>
               </div>
             </motion.div>
