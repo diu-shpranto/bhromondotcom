@@ -10,9 +10,7 @@ import {
   BriefcaseIcon,
   MapPinIcon,
   BuildingOfficeIcon,
-  NewspaperIcon,
-  ShoppingBagIcon,
-  ArrowRightIcon
+  NewspaperIcon
 } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 
@@ -417,29 +415,6 @@ const Navbar = () => {
                     );
                   })}
                 </nav>
-
-                {/* Promotional Banner */}
-                <div className="px-4 pt-3 pb-2">
-                  <div className="relative overflow-hidden rounded-[20px] bg-gradient-to-br from-[#00A86B] via-[#008F5A] to-[#006B46] p-5 text-white shadow-lg shadow-emerald-900/20">
-                    <div className="absolute -right-6 -bottom-8 w-28 h-28 rounded-full bg-white/10" />
-                    <div className="absolute right-16 -top-8 w-20 h-20 rounded-full bg-white/10" />
-                    <div className="absolute right-4 top-4 w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center rotate-6">
-                      <ShoppingBagIcon className="w-7 h-7 text-white" />
-                    </div>
-                    <div className="relative pr-16">
-                      <h3 className="font-bold text-lg leading-snug">সহজে অর্ডার করুন</h3>
-                      <p className="text-sm text-[#D1F2E3] mt-1">নিরাপদ ও নির্ভরযোগ্য সেবা</p>
-                      <Link
-                        to="/packages"
-                        onClick={() => setIsOpen(false)}
-                        className="mt-4 inline-flex items-center gap-1.5 bg-white text-[#006B46] font-bold text-sm px-4 py-2.5 rounded-full shadow hover:bg-emerald-50 active:scale-95 transition"
-                      >
-                        এখনই কিনুন
-                        <ArrowRightIcon className="w-4 h-4" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
 
                 {/* Footer */}
                 <div className="px-5 pt-3 pb-5">
