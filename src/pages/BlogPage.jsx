@@ -29,7 +29,7 @@ const BlogPage = () => {
   const popularBlogs = blogData.slice(0, 4);
 
   return (
-    <div className="bg-gray-50 min-h-screen py-20">
+    <div className="bg-stone-50 min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="grid lg:grid-cols-3 gap-12">
@@ -59,8 +59,8 @@ const BlogPage = () => {
                     onClick={() => setCategory(cat)}
                     className={`text-left px-4 py-2 rounded-xl transition ${
                       category === cat
-                        ? "bg-blue-600 text-white"
-                        : "hover:bg-gray-100"
+                        ? "bg-emerald-600 text-white"
+                        : "hover:bg-stone-100"
                     }`}
                   >
                     {cat}
@@ -85,10 +85,10 @@ const BlogPage = () => {
                       alt=""
                     />
                     <div>
-                      <p className="text-sm font-semibold group-hover:text-blue-600 transition">
+                      <p className="text-sm font-semibold group-hover:text-emerald-600 transition">
                         {blog.title}
                       </p>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-stone-400">
                         {blog.readTime}
                       </p>
                     </div>
@@ -105,7 +105,7 @@ const BlogPage = () => {
                   <Link
                     key={dest.id}
                     to={`/destination/${dest.slug}`}
-                    className="px-4 py-2 bg-gray-100 rounded-full text-sm hover:bg-blue-600 hover:text-white transition"
+                    className="px-4 py-2 bg-stone-100 rounded-full text-sm hover:bg-emerald-600 hover:text-white transition"
                   >
                     {dest.name}
                   </Link>
@@ -138,19 +138,19 @@ const BlogPage = () => {
                   </div>
 
                   <div className="p-6">
-                    <span className="text-xs bg-blue-100 text-blue-600 px-3 py-1 rounded-full">
+                    <span className="text-xs bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full">
                       {blog.category}
                     </span>
 
-                    <h3 className="text-xl font-bold mt-4 group-hover:text-blue-600 transition">
+                    <h3 className="text-xl font-bold mt-4 group-hover:text-emerald-600 transition">
                       {blog.title}
                     </h3>
 
-                    <p className="text-gray-500 mt-3">
+                    <p className="text-stone-500 mt-3">
                       {blog.excerpt}
                     </p>
 
-                    <p className="text-sm text-gray-400 mt-4">
+                    <p className="text-sm text-stone-400 mt-4">
                       {blog.readTime}
                     </p>
                   </div>

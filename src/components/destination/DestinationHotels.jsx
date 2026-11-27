@@ -7,7 +7,7 @@ const DestinationHotels = ({ hotels }) => {
         {hotels.map((hotel, index) => (
           <div key={index} className="bg-white p-6 rounded-xl shadow">
             <h3 className="font-semibold">{hotel.name}</h3>
-            <p className="text-blue-600">{hotel.price}</p>
+            <p className="text-emerald-700">{hotel.price}</p>
           </div>
         ))}
       </div>

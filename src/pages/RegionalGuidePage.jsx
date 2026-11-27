@@ -1198,12 +1198,12 @@ const RegionalGuidePage = () => {
   // রেটিং দেখানোর জন্য স্টার জেনারেটর
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
       {/* হিরো সেকশন */}
-      <section className="relative bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 pt-24 pb-16 overflow-hidden">
+      <section className="relative bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container-custom relative z-10">
@@ -1231,7 +1231,7 @@ const RegionalGuidePage = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-2 -right-2 bg-green-500 w-6 h-6 rounded-full border-4 border-white"></div>
+              <div className="absolute -bottom-2 -right-2 bg-emerald-500 w-6 h-6 rounded-full border-4 border-white"></div>
             </div>
             
             <div className="flex-1 text-center md:text-left">
@@ -1242,14 +1242,14 @@ const RegionalGuidePage = () => {
                 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-3 tracking-tight"
               >
                 {guideData.bnName}
-                <span className="block text-2xl md:text-3xl font-light text-blue-200 mt-1">ভ্রমণ গাইড</span>
+                <span className="block text-2xl md:text-3xl font-light text-emerald-200 mt-1">ভ্রমণ গাইড</span>
               </motion.h1>
               
               <motion.p 
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-lg text-blue-100 mb-4 max-w-2xl mx-auto md:mx-0 leading-relaxed"
+                className="text-lg text-emerald-100 mb-4 max-w-2xl mx-auto md:mx-0 leading-relaxed"
               >
                 {guideData.description}
               </motion.p>
@@ -1279,7 +1279,7 @@ const RegionalGuidePage = () => {
       </section>
 
       {/* ট্যাব নেভিগেশন */}
-      <section className="sticky top-16 z-40 bg-white/80 backdrop-blur-xl border-b border-gray-200/50 shadow-sm">
+      <section className="sticky top-16 z-40 bg-white/80 backdrop-blur-xl border-b border-stone-200/50 shadow-sm">
         <div className="container-custom">
           <div className="flex overflow-x-auto py-4 gap-2 scrollbar-hide">
             {[
@@ -1299,11 +1299,11 @@ const RegionalGuidePage = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center px-5 py-2.5 rounded-xl font-medium transition-all whitespace-nowrap ${
                     activeTab === tab.id 
-                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/30' 
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-500/30' 
+                      : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
                   }`}
                 >
-                  <Icon className={`w-5 h-5 mr-2 ${activeTab === tab.id ? 'text-white' : 'text-gray-500'}`} />
+                  <Icon className={`w-5 h-5 mr-2 ${activeTab === tab.id ? 'text-white' : 'text-stone-500'}`} />
                   {tab.label}
                 </motion.button>
               );
@@ -1323,7 +1323,7 @@ const RegionalGuidePage = () => {
               exit={{ opacity: 0 }}
             >
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent">
                   📍 দর্শনীয় স্থানসমূহ
                 </h2>
                 <Badge variant="primary" size="lg">
@@ -1339,7 +1339,7 @@ const RegionalGuidePage = () => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ y: -5 }}
-                    className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                    className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-stone-100"
                   >
                     <div className="md:flex">
                       <div className="md:w-72 h-64 md:h-auto relative overflow-hidden">
@@ -1349,7 +1349,7 @@ const RegionalGuidePage = () => {
                           className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                         />
                         <div className="absolute top-4 left-4">
-                          <Badge variant="primary" size="sm" className="bg-white/90 text-blue-600">
+                          <Badge variant="primary" size="sm" className="bg-white/90 text-emerald-600">
                             {place.type}
                           </Badge>
                         </div>
@@ -1357,25 +1357,25 @@ const RegionalGuidePage = () => {
                       
                       <div className="p-8 flex-1">
                         <div className="flex justify-between items-start mb-4">
-                          <h3 className="text-2xl font-bold text-gray-900">{place.name}</h3>
+                          <h3 className="text-2xl font-bold text-stone-900">{place.name}</h3>
 
                         </div>
                         
-                        <p className="text-gray-600 mb-6 leading-relaxed">{place.description}</p>
+                        <p className="text-stone-600 mb-6 leading-relaxed">{place.description}</p>
                         
                         <div className="grid md:grid-cols-2 gap-6">
                           <div className="space-y-3">
                             <div className="flex items-start space-x-3">
-                              <MapPinIcon className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                              <MapPinIcon className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                               <div>
-                                <p className="text-sm font-medium text-gray-500">অবস্থান</p>
+                                <p className="text-sm font-medium text-stone-500">অবস্থান</p>
                                 <p className="font-semibold">{place.location}</p>
                               </div>
                             </div>
                             <div className="flex items-start space-x-3">
-                              <ClockIcon className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                              <ClockIcon className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                               <div>
-                                <p className="text-sm font-medium text-gray-500">সময়</p>
+                                <p className="text-sm font-medium text-stone-500">সময়</p>
                                 <p className="font-semibold">{place.time}</p>
                               </div>
                             </div>
@@ -1383,24 +1383,24 @@ const RegionalGuidePage = () => {
                           
                           <div className="space-y-3">
                             <div className="flex items-start space-x-3">
-                              <CurrencyDollarIcon className="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" />
+                              <CurrencyDollarIcon className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                               <div>
-                                <p className="text-sm font-medium text-gray-500">প্রবেশ মূল্য</p>
+                                <p className="text-sm font-medium text-stone-500">প্রবেশ মূল্য</p>
                                 <p className="font-semibold">{place.entryFee}</p>
                               </div>
                             </div>
                             <div className="flex items-start space-x-3">
-                              <TruckIcon className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                              <TruckIcon className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                               <div>
-                                <p className="text-sm font-medium text-gray-500">কিভাবে যাবেন</p>
+                                <p className="text-sm font-medium text-stone-500">কিভাবে যাবেন</p>
                                 <p className="text-sm">{place.howToGo}</p>
                               </div>
                             </div>
                           </div>
                         </div>
                         
-                        <div className="mt-6 bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-xl border border-blue-100">
-                          <p className="text-sm text-blue-800 flex items-start">
+                        <div className="mt-6 bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                          <p className="text-sm text-emerald-800 flex items-start">
                             <span className="font-bold mr-2">💡 টিপস:</span>
                             {place.tips}
                           </p>
@@ -1420,13 +1420,13 @@ const RegionalGuidePage = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent mb-8">
                 🍽️ স্থানীয় খাবার ও রেস্টুরেন্ট
               </h2>
               
-              <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 mb-8 border border-orange-100">
+              <div className="bg-emerald-50 rounded-2xl p-8 mb-8 border border-emerald-100">
                 <h3 className="text-xl font-bold mb-4 flex items-center">
-                  <CakeIcon className="w-6 h-6 text-orange-500 mr-2" />
+                  <CakeIcon className="w-6 h-6 text-emerald-500 mr-2" />
                   বিখ্যাত স্থানীয় খাবার
                 </h3>
                 <div className="flex flex-wrap gap-3">
@@ -1434,7 +1434,7 @@ const RegionalGuidePage = () => {
                     <motion.span
                       key={idx}
                       whileHover={{ scale: 1.05, y: -2 }}
-                      className="px-5 py-2.5 bg-white text-orange-700 rounded-full text-sm font-medium shadow-sm border border-orange-200"
+                      className="px-5 py-2.5 bg-white text-emerald-700 rounded-full text-sm font-medium shadow-sm border border-emerald-200"
                     >
                       {food}
                     </motion.span>
@@ -1451,18 +1451,18 @@ const RegionalGuidePage = () => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: idx * 0.1 }}
                     whileHover={{ y: -5, scale: 1.02 }}
-                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-100"
+                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-stone-100"
                   >
                     <div className="flex justify-between items-start mb-3">
-                      <h4 className="text-xl font-bold text-gray-900">{restaurant.name}</h4>
+                      <h4 className="text-xl font-bold text-stone-900">{restaurant.name}</h4>
 
                     </div>
-                    <p className="text-gray-500 mb-2 flex items-center">
+                    <p className="text-stone-500 mb-2 flex items-center">
                       <MapPinIcon className="w-4 h-4 mr-1" />
                       {restaurant.area}
                     </p>
-                    <p className="text-gray-700 mb-3 font-medium">🍳 {restaurant.specialty}</p>
-                    <p className="text-blue-600 font-bold text-lg">{restaurant.price}</p>
+                    <p className="text-stone-700 mb-3 font-medium">🍳 {restaurant.specialty}</p>
+                    <p className="text-emerald-700 font-bold text-lg">{restaurant.price}</p>
                   </motion.div>
                 ))}
               </div>
@@ -1476,7 +1476,7 @@ const RegionalGuidePage = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent mb-8">
                 🏨 হোটেল ও থাকার ব্যবস্থা
               </h2>
               
@@ -1488,28 +1488,28 @@ const RegionalGuidePage = () => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: idx * 0.1 }}
                     whileHover={{ y: -5 }}
-                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border border-gray-100"
+                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border border-stone-100"
                   >
                     <div className="flex justify-between items-start mb-4">
                       <div>
-                        <h4 className="text-xl font-bold text-gray-900">{hotel.name}</h4>
-                        <p className="text-gray-500 flex items-center mt-1">
+                        <h4 className="text-xl font-bold text-stone-900">{hotel.name}</h4>
+                        <p className="text-stone-500 flex items-center mt-1">
                           <MapPinIcon className="w-4 h-4 mr-1" />
                           {hotel.area}
                         </p>
                       </div>
-                      <Badge variant="primary" size="md" className="bg-gradient-to-r from-blue-600 to-blue-700">
+                      <Badge variant="primary" size="md" className="bg-emerald-600">
                         {hotel.type}
                       </Badge>
                     </div>
                     
                     <div className="flex items-center justify-between mb-4">
 
-                      <span className="text-2xl font-bold text-blue-600">{hotel.price}</span>
+                      <span className="text-2xl font-bold text-emerald-700">{hotel.price}</span>
                     </div>
                     
-                    <div className="flex items-center text-gray-600 bg-gray-50 p-3 rounded-lg">
-                      <PhoneIcon className="w-4 h-4 mr-2 text-gray-500" />
+                    <div className="flex items-center text-stone-600 bg-stone-50 p-3 rounded-lg">
+                      <PhoneIcon className="w-4 h-4 mr-2 text-stone-500" />
                       <span>{hotel.contact}</span>
                     </div>
                   </motion.div>
@@ -1525,7 +1525,7 @@ const RegionalGuidePage = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent mb-8">
                 🚌 কিভাবে যাবেন ও চলাফেরা
               </h2>
               
@@ -1533,17 +1533,17 @@ const RegionalGuidePage = () => {
                 {/* বাস */}
                 <motion.div
                   whileHover={{ y: -5 }}
-                  className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-100"
+                  className="bg-emerald-50 rounded-xl p-6 shadow-lg border border-emerald-100"
                 >
-                  <div className="bg-blue-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
+                  <div className="bg-emerald-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
                     <TruckIcon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-4">বাস</h3>
                   <div className="space-y-3">
                     {guideData.transportation.bus.map((item, idx) => (
                       <div key={idx} className="bg-white p-3 rounded-lg">
-                        <p className="font-semibold text-gray-800">{item.name}</p>
-                        <p className="text-sm text-gray-600 mt-1">{item.details}</p>
+                        <p className="font-semibold text-stone-800">{item.name}</p>
+                        <p className="text-sm text-stone-600 mt-1">{item.details}</p>
                       </div>
                     ))}
                   </div>
@@ -1552,17 +1552,17 @@ const RegionalGuidePage = () => {
                 {/* ট্রেন */}
                 <motion.div
                   whileHover={{ y: -5 }}
-                  className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-100"
+                  className="bg-emerald-50 rounded-xl p-6 shadow-lg border border-emerald-100"
                 >
-                  <div className="bg-green-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
+                  <div className="bg-emerald-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
                     <BuildingOfficeIcon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-4">ট্রেন</h3>
                   <div className="space-y-3">
                     {guideData.transportation.train.map((item, idx) => (
                       <div key={idx} className="bg-white p-3 rounded-lg">
-                        <p className="font-semibold text-gray-800">{item.name}</p>
-                        <p className="text-sm text-gray-600 mt-1">{item.details}</p>
+                        <p className="font-semibold text-stone-800">{item.name}</p>
+                        <p className="text-sm text-stone-600 mt-1">{item.details}</p>
                       </div>
                     ))}
                   </div>
@@ -1571,17 +1571,17 @@ const RegionalGuidePage = () => {
                 {/* বিমান */}
                 <motion.div
                   whileHover={{ y: -5 }}
-                  className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 shadow-lg border border-purple-100"
+                  className="bg-emerald-50 rounded-xl p-6 shadow-lg border border-emerald-100"
                 >
-                  <div className="bg-purple-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
+                  <div className="bg-emerald-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
                     <PaperAirplaneIcon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-4">বিমান</h3>
                   <div className="space-y-3">
                     {guideData.transportation.air.map((item, idx) => (
                       <div key={idx} className="bg-white p-3 rounded-lg">
-                        <p className="font-semibold text-gray-800">{item.name}</p>
-                        <p className="text-sm text-gray-600 mt-1">{item.details}</p>
+                        <p className="font-semibold text-stone-800">{item.name}</p>
+                        <p className="text-sm text-stone-600 mt-1">{item.details}</p>
                       </div>
                     ))}
                   </div>
@@ -1597,7 +1597,7 @@ const RegionalGuidePage = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent mb-8">
                 🛍️ শপিং ও মার্কেট
               </h2>
               
@@ -1609,15 +1609,15 @@ const RegionalGuidePage = () => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: idx * 0.1 }}
                     whileHover={{ y: -5 }}
-                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl border border-gray-100"
+                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl border border-stone-100"
                   >
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">{shop.name}</h4>
-                    <p className="text-gray-500 mb-3 flex items-center">
+                    <h4 className="text-xl font-bold text-stone-900 mb-2">{shop.name}</h4>
+                    <p className="text-stone-500 mb-3 flex items-center">
                       <MapPinIcon className="w-4 h-4 mr-1" />
                       {shop.area}
                     </p>
-                    <p className="text-gray-700 mb-3">{shop.items}</p>
-                    <div className="flex items-center text-blue-600 bg-blue-50 p-3 rounded-lg">
+                    <p className="text-stone-700 mb-3">{shop.items}</p>
+                    <div className="flex items-center text-emerald-600 bg-emerald-50 p-3 rounded-lg">
                       <ClockIcon className="w-4 h-4 mr-2" />
                       <span className="font-medium">⏰ {shop.bestTime}</span>
                     </div>
@@ -1673,10 +1673,10 @@ const RegionalGuidePage = () => {
                 {/* হাসপাতাল */}
                 <motion.div
                   whileHover={{ y: -5 }}
-                  className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-100"
+                  className="bg-emerald-50 rounded-xl p-6 shadow-lg border border-emerald-100"
                 >
-                  <h3 className="text-xl font-bold mb-4 flex items-center text-blue-700">
-                    <span className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-2">
+                  <h3 className="text-xl font-bold mb-4 flex items-center text-emerald-700">
+                    <span className="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center mr-2">
                       🏥
                     </span>
                     হাসপাতাল
@@ -1696,31 +1696,31 @@ const RegionalGuidePage = () => {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-8 shadow-lg border border-yellow-100"
+                className="bg-amber-50 rounded-xl p-8 shadow-lg border border-amber-100"
               >
-                <h3 className="text-2xl font-bold mb-6 flex items-center text-yellow-700">
-                  <span className="w-10 h-10 bg-yellow-100 rounded-xl flex items-center justify-center mr-3">
+                <h3 className="text-2xl font-bold mb-6 flex items-center text-amber-700">
+                  <span className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center mr-3">
                     💡
                   </span>
                   ভ্রমণ টিপস
                 </h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <h4 className="font-semibold text-green-600 mb-3 flex items-center">
-                      <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-2">✅</span>
+                    <h4 className="font-semibold text-emerald-600 mb-3 flex items-center">
+                      <span className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center mr-2">✅</span>
                       করণীয়
                     </h4>
                     <ul className="space-y-2">
-                      <li className="flex items-center text-gray-700">
-                        <span className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span>
+                      <li className="flex items-center text-stone-700">
+                        <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></span>
                         আগে থেকে হোটেল বুক করুন (পিক সিজনে)
                       </li>
-                      <li className="flex items-center text-gray-700">
-                        <span className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span>
+                      <li className="flex items-center text-stone-700">
+                        <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></span>
                         পাহাড়ি এলাকায় স্থানীয় গাইড নিন
                       </li>
-                      <li className="flex items-center text-gray-700">
-                        <span className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span>
+                      <li className="flex items-center text-stone-700">
+                        <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></span>
                         প্রয়োজনীয় ওষুধ সাথে রাখুন
                       </li>
                     </ul>
@@ -1731,15 +1731,15 @@ const RegionalGuidePage = () => {
                       বর্জনীয়
                     </h4>
                     <ul className="space-y-2">
-                      <li className="flex items-center text-gray-700">
+                      <li className="flex items-center text-stone-700">
                         <span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2"></span>
                         একা রাতে বের হবেন না
                       </li>
-                      <li className="flex items-center text-gray-700">
+                      <li className="flex items-center text-stone-700">
                         <span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2"></span>
                         স্থানীয় সংস্কৃতিকে অসম্মান করবেন না
                       </li>
-                      <li className="flex items-center text-gray-700">
+                      <li className="flex items-center text-stone-700">
                         <span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2"></span>
                         পরিবেশ নোংরা করবেন না
                       </li>

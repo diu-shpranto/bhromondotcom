@@ -133,7 +133,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
           >
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
               {/* Header */}
-              <div className="relative bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-8 text-white text-center">
+              <div className="relative bg-gradient-to-r from-emerald-600 to-emerald-800 px-6 py-8 text-white text-center">
                 <button
                   onClick={handleClose}
                   className="absolute right-4 top-4 p-1 hover:bg-white/20 rounded-lg transition-colors"
@@ -148,7 +148,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                 <h2 className="text-2xl font-bold mb-2">
                   {isLogin ? 'স্বাগতম!' : 'নতুন অ্যাকাউন্ট'}
                 </h2>
-                <p className="text-blue-100">
+                <p className="text-emerald-100">
                   {isLogin 
                     ? 'আপনার অ্যাকাউন্টে লগইন করুন' 
                     : 'রেজিস্টার করে ভ্রমণ শুরু করুন'}
@@ -159,18 +159,18 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
               <form onSubmit={handleSubmit} className="p-6">
                 {!isLogin && (
                   <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-stone-700 mb-2">
                       আপনার নাম
                     </label>
                     <div className="relative">
-                      <UserIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <UserIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
                       <input
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="আপনার নাম লিখুন"
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full pl-10 pr-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                         required={!isLogin}
                       />
                     </div>
@@ -178,36 +178,36 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                 )}
 
                 <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-stone-700 mb-2">
                     ইমেইল ঠিকানা
                   </label>
                   <div className="relative">
-                    <EnvelopeIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <EnvelopeIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="your@email.com"
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                       required
                     />
                   </div>
                 </div>
 
                 <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-stone-700 mb-2">
                     পাসওয়ার্ড
                   </label>
                   <div className="relative">
-                    <LockClosedIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <LockClosedIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
                     <input
                       type="password"
                       name="password"
                       value={formData.password}
                       onChange={handleInputChange}
                       placeholder="••••••••"
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                       required
                     />
                   </div>
@@ -215,18 +215,18 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
 
                 {!isLogin && (
                   <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-stone-700 mb-2">
                       পাসওয়ার্ড আবার দিন
                     </label>
                     <div className="relative">
-                      <LockClosedIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <LockClosedIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
                       <input
                         type="password"
                         name="confirmPassword"
                         value={formData.confirmPassword}
                         onChange={handleInputChange}
                         placeholder="••••••••"
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full pl-10 pr-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                         required={!isLogin}
                       />
                     </div>
@@ -248,7 +248,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                   fullWidth
                   size="lg"
                   disabled={loading}
-                  className="bg-gradient-to-r from-blue-600 to-blue-700 text-white mb-4"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white mb-4"
                 >
                   {loading ? (
                     <div className="flex items-center justify-center">
@@ -262,39 +262,39 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
 
                 {/* Demo Accounts */}
                 <div className="mb-4">
-                  <p className="text-center text-sm text-gray-500 mb-3">
+                  <p className="text-center text-sm text-stone-500 mb-3">
                     ডেমো অ্যাকাউন্ট
                   </p>
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       type="button"
                       onClick={() => fillDemoCredentials('user')}
-                      className="p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+                      className="p-3 border border-stone-200 rounded-lg hover:bg-stone-50 transition-colors"
                     >
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <span className="text-blue-600 font-bold">U</span>
+                      <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span className="text-emerald-600 font-bold">U</span>
                       </div>
                       <p className="text-xs font-medium">ব্যবহারকারী</p>
-                      <p className="text-xs text-gray-500">user@bhromon.com</p>
+                      <p className="text-xs text-stone-500">user@bhromon.com</p>
                     </button>
                     
                     <button
                       type="button"
                       onClick={() => fillDemoCredentials('admin')}
-                      className="p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+                      className="p-3 border border-stone-200 rounded-lg hover:bg-stone-50 transition-colors"
                     >
-                      <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <span className="text-purple-600 font-bold">A</span>
+                      <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span className="text-emerald-600 font-bold">A</span>
                       </div>
                       <p className="text-xs font-medium">অ্যাডমিন</p>
-                      <p className="text-xs text-gray-500">admin@bhromon.com</p>
+                      <p className="text-xs text-stone-500">admin@bhromon.com</p>
                     </button>
                   </div>
                 </div>
 
                 {/* Toggle between Login/Register */}
                 <div className="text-center">
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-stone-600">
                     {isLogin ? 'একাউন্ট নেই? ' : 'ইতিমধ্যে একাউন্ট আছে? '}
                     <button
                       type="button"
@@ -302,7 +302,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                         setIsLogin(!isLogin);
                         setError('');
                       }}
-                      className="text-blue-600 hover:text-blue-700 font-medium"
+                      className="text-emerald-600 hover:text-emerald-700 font-medium"
                     >
                       {isLogin ? 'রেজিস্টার করুন' : 'লগইন করুন'}
                     </button>
@@ -311,12 +311,12 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
               </form>
 
               {/* Footer */}
-              <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
-                <p className="text-xs text-center text-gray-500">
+              <div className="px-6 py-4 bg-stone-50 border-t border-stone-200">
+                <p className="text-xs text-center text-stone-500">
                   লগইন করে আপনি আমাদের 
-                  <a href="/terms" className="text-blue-600 hover:underline mx-1">শর্তাবলী</a>
+                  <a href="/terms" className="text-emerald-600 hover:underline mx-1">শর্তাবলী</a>
                   এবং 
-                  <a href="/privacy" className="text-blue-600 hover:underline mx-1">গোপনীয়তা নীতি</a>
+                  <a href="/privacy" className="text-emerald-600 hover:underline mx-1">গোপনীয়তা নীতি</a>
                   মেনে নিচ্ছেন।
                 </p>
               </div>

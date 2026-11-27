@@ -65,11 +65,11 @@ const BlogDetailPage = () => {
   `;
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-stone-50 min-h-screen">
 
       {/* ================= Progress Bar ================= */}
       <div
-        className="fixed top-0 left-0 h-1 bg-blue-600 z-50 transition-all"
+        className="fixed top-0 left-0 h-1 bg-emerald-600 z-50 transition-all"
         style={{ width: `${progress}%` }}
       />
 
@@ -91,7 +91,7 @@ const BlogDetailPage = () => {
               {blog.title}
             </h1>
 
-            <p className="mt-4 text-gray-200">
+            <p className="mt-4 text-stone-200">
               {blog.readTime}
             </p>
           </div>
@@ -107,7 +107,7 @@ const BlogDetailPage = () => {
         <div className="lg:col-span-2 space-y-12">
 
           {/* AI Summary Box */}
-          <div className="bg-blue-50 p-6 rounded-2xl shadow">
+          <div className="bg-emerald-50 p-6 rounded-2xl shadow">
             <h3 className="font-bold mb-3">
             সারাংশ
             </h3>
@@ -117,7 +117,7 @@ const BlogDetailPage = () => {
           </div>
 
           {/* Blog Content */}
-          <div className="bg-white p-8 rounded-3xl shadow leading-relaxed whitespace-pre-line text-gray-700 text-lg">
+          <div className="bg-white p-8 rounded-3xl shadow leading-relaxed whitespace-pre-line text-stone-700 text-lg">
             {blog.content}
           </div>
 
@@ -126,7 +126,7 @@ const BlogDetailPage = () => {
             {blog.tags?.map((tag, i) => (
               <span
                 key={i}
-                className="px-4 py-2 bg-gray-100 rounded-full text-sm"
+                className="px-4 py-2 bg-stone-100 rounded-full text-sm"
               >
                 #{tag}
               </span>
@@ -155,7 +155,7 @@ const BlogDetailPage = () => {
                       <h3 className="font-semibold">
                         {pkg.title}
                       </h3>
-                      <p className="text-blue-600 font-bold">
+                      <p className="text-emerald-700 font-bold">
                         ৳{pkg.pricing?.perPerson}
                       </p>
                     </div>
@@ -177,12 +177,12 @@ const BlogDetailPage = () => {
               <h3 className="font-bold mb-4">
                 গন্তব্য তথ্য
               </h3>
-              <p className="text-sm text-gray-600 mb-3">
+              <p className="text-sm text-stone-600 mb-3">
                 সেরা সময়: {destination.bestTime}
               </p>
               <Link
                 to={`/destination/${destination.slug}`}
-                className="text-blue-600 hover:underline text-sm"
+                className="text-emerald-600 hover:underline text-sm"
               >
                 বিস্তারিত দেখুন →
               </Link>
@@ -201,7 +201,7 @@ const BlogDetailPage = () => {
                   <Link
                     key={b.id}
                     to={`/blog/${b.slug}`}
-                    className="block hover:text-blue-600 transition"
+                    className="block hover:text-emerald-600 transition"
                   >
                     {b.title}
                   </Link>
@@ -211,7 +211,7 @@ const BlogDetailPage = () => {
           )}
 
           {/* Conversion CTA */}
-          <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 rounded-3xl shadow-lg">
+          <div className="bg-gradient-to-r from-emerald-600 to-emerald-800 text-white p-6 rounded-3xl shadow-lg">
             <h3 className="font-bold mb-3">
               ভ্রমণে যেতে চান?
             </h3>

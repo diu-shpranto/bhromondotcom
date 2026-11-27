@@ -24,7 +24,7 @@ const CompanyProfilePage = () => {
   );
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen pb-32">
+    <div className="bg-gradient-to-b from-stone-50 to-white min-h-screen pb-32">
 
       {/* ================= HEADER ================= */}
       <div className="max-w-6xl mx-auto px-6 pt-16">
@@ -38,7 +38,7 @@ const CompanyProfilePage = () => {
               className="w-28 h-28 rounded-full object-cover shadow-md"
             />
           ) : (
-            <div className="w-28 h-28 flex items-center justify-center bg-indigo-600 text-white text-5xl font-bold rounded-full shadow-md">
+            <div className="w-28 h-28 flex items-center justify-center bg-emerald-600 text-white text-5xl font-bold rounded-full shadow-md">
               {company.name.charAt(0)}
             </div>
           )}
@@ -49,17 +49,17 @@ const CompanyProfilePage = () => {
               {company.name}
             </h1>
 
-            <p className="text-gray-600 mb-2">
+            <p className="text-stone-600 mb-2">
               📍 {company.location}
             </p>
 
             {company.rating && (
-              <p className="text-yellow-500 font-semibold mb-4">
+              <p className="text-amber-500 font-semibold mb-4">
                 ⭐ {company.rating} Rating
               </p>
             )}
 
-            <p className="text-gray-700 max-w-2xl">
+            <p className="text-stone-700 max-w-2xl">
               {company.description}
             </p>
 
@@ -71,7 +71,7 @@ const CompanyProfilePage = () => {
                   href={company.contact.whatsapp}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-5 py-2 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-600 transition"
+                  className="px-5 py-2 rounded-lg bg-emerald-500 text-white font-semibold hover:bg-emerald-600 transition"
                 >
                   WhatsApp
                 </a>
@@ -82,7 +82,7 @@ const CompanyProfilePage = () => {
                   href={company.contact.messenger}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-5 py-2 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+                  className="px-5 py-2 rounded-lg bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition"
                 >
                   Messenger
                 </a>
@@ -102,7 +102,7 @@ const CompanyProfilePage = () => {
         </h2>
 
         {companyPackages.length === 0 ? (
-          <p className="text-center text-gray-500">
+          <p className="text-center text-stone-500">
             বর্তমানে কোনো প্যাকেজ পাওয়া যায়নি।
           </p>
         ) : (
@@ -124,7 +124,7 @@ const CompanyProfilePage = () => {
                       className="h-56 w-full object-cover"
                     />
                   ) : (
-                    <div className="h-56 w-full bg-gradient-to-r from-teal-500 to-blue-600" />
+                    <div className="h-56 w-full bg-gradient-to-r from-emerald-500 to-emerald-600" />
                   )}
 
                   {/* Content */}
@@ -134,18 +134,18 @@ const CompanyProfilePage = () => {
                       {pkg.title}
                     </h3>
 
-                    <p className="text-gray-500 text-sm mb-2">
+                    <p className="text-stone-500 text-sm mb-2">
                       📍 {pkg.location}
                     </p>
 
-                    <p className="text-gray-500 text-sm mb-4">
+                    <p className="text-stone-500 text-sm mb-4">
                       ⏳ {pkg.duration}
                     </p>
 
-                    <p className="text-blue-600 font-bold text-lg">
+                    <p className="text-emerald-700 font-bold text-lg">
                       ৳{pkg.pricing?.perPerson}
                       {pkg.pricing?.couplePrice && (
-                        <span className="text-sm text-gray-500 ml-2">
+                        <span className="text-sm text-stone-500 ml-2">
                           Couple: ৳{pkg.pricing.couplePrice}
                         </span>
                       )}

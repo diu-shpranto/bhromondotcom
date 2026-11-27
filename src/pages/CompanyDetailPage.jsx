@@ -34,7 +34,7 @@ const CompanyDetailPage = () => {
             className="w-full h-64 object-cover"
           />
         ) : (
-          <div className="w-full h-64 bg-gradient-to-r from-indigo-500 to-purple-600" />
+          <div className="w-full h-64 bg-gradient-to-r from-emerald-500 to-emerald-600" />
         )}
         <div className="absolute inset-0 bg-black/40" />
       </div>
@@ -50,7 +50,7 @@ const CompanyDetailPage = () => {
               className="w-24 h-24 object-contain bg-white rounded-full shadow-lg border"
             />
           ) : (
-            <div className="w-24 h-24 flex items-center justify-center bg-indigo-600 text-white text-4xl font-bold rounded-full shadow-lg border">
+            <div className="w-24 h-24 flex items-center justify-center bg-emerald-600 text-white text-4xl font-bold rounded-full shadow-lg border">
               {company.name.charAt(0)}
             </div>
           )}
@@ -59,28 +59,28 @@ const CompanyDetailPage = () => {
             <h1 className="text-3xl font-bold flex items-center gap-2">
               {company.name}
               {company.verified && (
-                <span className="text-blue-600 text-lg">✔</span>
+                <span className="text-emerald-600 text-lg">✔</span>
               )}
             </h1>
 
-            <p className="text-gray-500 mt-2">
+            <p className="text-stone-500 mt-2">
               📍 {company.location}
             </p>
 
             {company.rating && (
-              <p className="text-yellow-500 mt-1">
+              <p className="text-amber-500 mt-1">
                 ⭐ {company.rating}
               </p>
             )}
           </div>
         </div>
 
-        <p className="text-gray-700 mb-10 max-w-3xl">
+        <p className="text-stone-700 mb-10 max-w-3xl">
           {company.description}
         </p>
 
         {/* CONTACT INFO */}
-        <div className="grid md:grid-cols-2 gap-6 mb-16 text-gray-600">
+        <div className="grid md:grid-cols-2 gap-6 mb-16 text-stone-600">
           {(company.phone || company.contact?.phone) && (
             <p>📞 {company.phone || company.contact.phone}</p>
           )}
@@ -100,7 +100,7 @@ const CompanyDetailPage = () => {
           {company.name} এর প্যাকেজসমূহ
         </h2>
 
-        <p className="text-gray-500 mb-8">
+        <p className="text-stone-500 mb-8">
           {companyPackages.length} টি প্যাকেজ পাওয়া গেছে
         </p>
 
@@ -118,7 +118,7 @@ const CompanyDetailPage = () => {
                   className="w-full h-48 object-cover"
                 />
               ) : (
-                <div className="w-full h-48 bg-gradient-to-r from-teal-500 to-blue-600" />
+                <div className="w-full h-48 bg-gradient-to-r from-emerald-500 to-emerald-600" />
               )}
 
               <div className="p-6">
@@ -126,11 +126,11 @@ const CompanyDetailPage = () => {
                   {pkg.title}
                 </h3>
 
-                <p className="text-gray-500 text-sm mb-2">
+                <p className="text-stone-500 text-sm mb-2">
                   {pkg.duration}
                 </p>
 
-                <p className="text-blue-600 font-bold">
+                <p className="text-emerald-700 font-bold">
                   ৳{pkg.pricing?.perPerson}
                 </p>
               </div>

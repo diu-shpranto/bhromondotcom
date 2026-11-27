@@ -69,7 +69,7 @@ const PackagesPage = () => {
         <h1 className="text-4xl font-bold mb-2">
           সব প্যাকেজ
         </h1>
-        <p className="text-gray-500">
+        <p className="text-stone-500">
           {filteredPackages.length} টি প্যাকেজ পাওয়া গেছে
         </p>
       </div>
@@ -79,7 +79,7 @@ const PackagesPage = () => {
   className={`sticky top-20 z-40 rounded-2xl p-5 mb-14 transition-all duration-500
   ${
     scrolled
-      ? "bg-white/95 backdrop-blur-xl shadow-xl border border-gray-100"
+      ? "bg-white/95 backdrop-blur-xl shadow-xl border border-stone-100"
       : "bg-white shadow-md"
   }`}
 >
@@ -91,7 +91,7 @@ const PackagesPage = () => {
       placeholder="প্যাকেজ খুঁজুন..."
       value={search}
       onChange={(e) => setSearch(e.target.value)}
-      className="w-full border border-gray-300 rounded-xl px-5 py-3 focus:ring-2 focus:ring-blue-500"
+      className="w-full border border-stone-300 rounded-xl px-5 py-3 focus:ring-2 focus:ring-emerald-500"
     />
 
     {/* Category Pills */}
@@ -110,7 +110,7 @@ const PackagesPage = () => {
             {isActive && (
               <motion.div
                 layoutId="activeCategory"
-                className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-500 rounded-full"
+                className="absolute inset-0 bg-emerald-600 rounded-full"
                 transition={{
                   type: "spring",
                   stiffness: 300,
@@ -121,7 +121,7 @@ const PackagesPage = () => {
 
             <span
               className={`relative z-10 ${
-                isActive ? "text-white" : "text-gray-700"
+                isActive ? "text-white" : "text-stone-700"
               }`}
             >
               {cat}
@@ -135,7 +135,7 @@ const PackagesPage = () => {
     <select
       value={sort}
       onChange={(e) => setSort(e.target.value)}
-      className="w-full border border-gray-300 rounded-xl px-4 py-3"
+      className="w-full border border-stone-300 rounded-xl px-4 py-3"
     >
       <option value="default">Sort</option>
       <option value="low">Price Low → High</option>
@@ -169,7 +169,7 @@ const PackagesPage = () => {
           className="w-full h-64 object-cover transition duration-700 group-hover:scale-110"
         />
       ) : (
-        <div className="w-full h-64 bg-gradient-to-r from-teal-500 to-blue-600" />
+        <div className="w-full h-64 bg-gradient-to-r from-emerald-500 to-emerald-600" />
       )}
 
       {/* Overlay */}

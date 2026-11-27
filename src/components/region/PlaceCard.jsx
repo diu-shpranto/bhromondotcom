@@ -14,11 +14,11 @@ const PlaceCard = ({ place }) => {
           {place.name}
         </h3>
 
-        <p className="text-gray-600">
+        <p className="text-stone-600">
           {place.description}
         </p>
 
-        <div className="text-sm text-gray-500 space-y-2">
+        <div className="text-sm text-stone-500 space-y-2">
           <p><strong>বিখ্যাত:</strong> {place.famousFor}</p>
           <p><strong>কিভাবে যাবেন:</strong> {place.howToGo}</p>
           <p><strong>খরচ:</strong> {place.cost}</p>
@@ -32,7 +32,7 @@ const PlaceCard = ({ place }) => {
         />
 
         {/* Tips */}
-        <div className="bg-yellow-50 p-4 rounded-lg">
+        <div className="bg-amber-50 p-4 rounded-lg">
           <p className="font-semibold mb-2">
             ভ্রমণ টিপস:
           </p>

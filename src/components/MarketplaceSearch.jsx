@@ -53,7 +53,7 @@ const MarketplaceSearch = () => {
 
       <button
         type="submit"
-        className="bg-blue-600 text-white px-5 py-2 rounded-lg"
+        className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-lg"
       >
         খুঁজুন
       </button>

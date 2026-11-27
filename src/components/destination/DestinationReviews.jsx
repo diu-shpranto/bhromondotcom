@@ -23,14 +23,14 @@ const DestinationReviews = () => {
         />
         <button
           onClick={addReview}
-          className="bg-blue-600 text-white px-6 rounded-xl"
+          className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 rounded-xl"
         >
           Add
         </button>
       </div>
 
       {reviews.map((review, index) => (
-        <div key={index} className="bg-gray-100 p-4 rounded-xl mb-4">
+        <div key={index} className="bg-stone-100 p-4 rounded-xl mb-4">
           {review.text}
         </div>
       ))}

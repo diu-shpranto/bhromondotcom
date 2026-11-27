@@ -29,7 +29,7 @@ const Card = ({
 };
 
 export const CardHeader = ({ children, className = '' }) => (
-  <div className={clsx('border-b border-gray-200 pb-4 mb-4', className)}>
+  <div className={clsx('border-b border-stone-200 pb-4 mb-4', className)}>
     {children}
   </div>
 );
@@ -41,7 +41,7 @@ export const CardBody = ({ children, className = '' }) => (
 );
 
 export const CardFooter = ({ children, className = '' }) => (
-  <div className={clsx('border-t border-gray-200 pt-4 mt-4', className)}>
+  <div className={clsx('border-t border-stone-200 pt-4 mt-4', className)}>
     {children}
   </div>
 );

@@ -12,7 +12,7 @@ const AiTravelGuide = ({ destination }) => {
       viewport={{ once: true }}
       className="max-w-6xl mx-auto px-6 pb-24"
     >
-      <div className="bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+      <div className="bg-gradient-to-br from-emerald-700 to-emerald-950 text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
 
         {/* Glass overlay effect */}
         <div className="absolute inset-0 bg-white/5 backdrop-blur-lg" />

@@ -33,7 +33,7 @@ const DestinationDetailsPage = () => {
   );
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
+    <div className="bg-gradient-to-b from-stone-50 to-white min-h-screen">
 
       {/* HERO SECTION */}
       <div
@@ -52,7 +52,7 @@ const DestinationDetailsPage = () => {
             {destination.name}
           </motion.h1>
 
-          <p className="text-gray-200 text-lg md:text-xl max-w-2xl">
+          <p className="text-stone-200 text-lg md:text-xl max-w-2xl">
             {destination.description}
           </p>
         </div>
@@ -68,10 +68,10 @@ const DestinationDetailsPage = () => {
           viewport={{ once: true }}
           className="bg-white p-8 rounded-3xl shadow-xl text-center hover:-translate-y-2 transition"
         >
-          <h3 className="text-4xl font-bold text-blue-600">
+          <h3 className="text-4xl font-bold text-emerald-600">
             <CountUp end={relatedPackages.length} duration={2} />
           </h3>
-          <p className="mt-2 text-gray-600">Available Packages</p>
+          <p className="mt-2 text-stone-600">Available Packages</p>
         </motion.div>
 
         <motion.div
@@ -81,10 +81,10 @@ const DestinationDetailsPage = () => {
           viewport={{ once: true }}
           className="bg-white p-8 rounded-3xl shadow-xl text-center hover:-translate-y-2 transition"
         >
-          <h3 className="text-4xl font-bold text-orange-500">
+          <h3 className="text-4xl font-bold text-emerald-500">
             <CountUp end={5000} duration={2} />
           </h3>
-          <p className="mt-2 text-gray-600">Monthly Visitors</p>
+          <p className="mt-2 text-stone-600">Monthly Visitors</p>
         </motion.div>
 
         <motion.div
@@ -94,10 +94,10 @@ const DestinationDetailsPage = () => {
           viewport={{ once: true }}
           className="bg-white p-8 rounded-3xl shadow-xl text-center hover:-translate-y-2 transition"
         >
-          <h3 className="text-xl font-bold text-green-600">
+          <h3 className="text-xl font-bold text-emerald-600">
             {destination.bestTime}
           </h3>
-          <p className="mt-2 text-gray-600">Best Time</p>
+          <p className="mt-2 text-stone-600">Best Time</p>
         </motion.div>
       </div>
 
@@ -172,7 +172,7 @@ const DestinationDetailsPage = () => {
                   <h3 className="font-semibold mb-2">
                     {pkg.title}
                   </h3>
-                  <p className="text-blue-600 font-bold text-lg">
+                  <p className="text-emerald-700 font-bold text-lg">
                     ৳{pkg.pricing?.perPerson}
                   </p>
                 </div>

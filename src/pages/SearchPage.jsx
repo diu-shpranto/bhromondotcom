@@ -126,7 +126,7 @@ const SearchPage = () => {
       {matchedPackages.length === 0 &&
         matchedDestinations.length === 0 &&
         matchedCompanies.length === 0 && (
-          <p className="text-gray-500">
+          <p className="text-stone-500">
             কোন ফলাফল পাওয়া যায়নি
           </p>
         )}

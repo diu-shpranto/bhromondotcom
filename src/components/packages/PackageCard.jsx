@@ -28,46 +28,46 @@ const PackageCard = ({ pkg }) => {
 
         {/* Discount Badge */}
         {pkg.discount && (
-          <div className="absolute top-3 left-3 bg-red-500 text-white text-xs px-3 py-1 rounded-full shadow">
+          <div className="absolute top-3 left-3 bg-emerald-600 text-white text-xs px-3 py-1 rounded-full shadow">
             {pkg.discount}% ছাড়
           </div>
         )}
 
         {/* Wishlist Button */}
-        <button className="absolute top-3 right-3 bg-white p-2 rounded-full shadow hover:bg-blue-50 transition">
-          <HeartIcon className="w-5 h-5 text-gray-600 hover:text-red-500" />
+        <button className="absolute top-3 right-3 bg-white p-2 rounded-full shadow hover:bg-emerald-50 transition">
+          <HeartIcon className="w-5 h-5 text-stone-600 hover:text-emerald-600" />
         </button>
       </div>
 
       {/* Content Section */}
       <div className="p-5">
         {/* Location + Rating */}
-        <div className="flex justify-between items-center mb-2 text-sm text-gray-500">
+        <div className="flex justify-between items-center mb-2 text-sm text-stone-500">
           <div className="flex items-center space-x-1">
-            <MapPinIcon className="w-4 h-4 text-blue-500" />
+            <MapPinIcon className="w-4 h-4 text-emerald-600" />
             <span>{pkg.location}</span>
           </div>
 
           <div className="flex items-center space-x-1">
-            <StarIcon className="w-4 h-4 text-yellow-400" />
+            <StarIcon className="w-4 h-4 text-amber-400" />
             <span className="font-medium">{pkg.rating}</span>
-            <span className="text-gray-400">({pkg.reviews})</span>
+            <span className="text-stone-400">({pkg.reviews})</span>
           </div>
         </div>
 
         {/* Title */}
-        <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2">
+        <h3 className="text-lg font-bold text-stone-800 mb-2 line-clamp-2">
           {pkg.title}
         </h3>
 
         {/* Description */}
-        <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+        <p className="text-sm text-stone-600 mb-3 line-clamp-2">
           {pkg.description}
         </p>
 
         {/* Duration */}
-        <div className="flex items-center text-sm text-gray-500 mb-3">
-          <ClockIcon className="w-4 h-4 mr-1 text-blue-500" />
+        <div className="flex items-center text-sm text-stone-500 mb-3">
+          <ClockIcon className="w-4 h-4 mr-1 text-emerald-600" />
           {pkg.duration}
         </div>
 
@@ -76,7 +76,7 @@ const PackageCard = ({ pkg }) => {
           {pkg.highlights?.slice(0, 3).map((item, index) => (
             <span
               key={index}
-              className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full"
+              className="bg-stone-100 text-stone-600 text-xs px-2 py-1 rounded-full"
             >
               {item}
             </span>
@@ -87,20 +87,20 @@ const PackageCard = ({ pkg }) => {
         <div className="flex justify-between items-center">
           <div>
             {pkg.oldPrice && (
-              <span className="text-gray-400 line-through text-sm mr-2">
+              <span className="text-stone-400 line-through text-sm mr-2">
                 ৳{pkg.oldPrice}
               </span>
             )}
-            <span className="text-xl font-bold text-blue-600">
+            <span className="text-xl font-bold text-emerald-700">
               ৳{pkg.price}
             </span>
           </div>
 
           <div className="flex space-x-2">
-            <button className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg text-sm hover:bg-blue-50 transition">
+            <button className="px-4 py-2 border border-emerald-600 text-emerald-600 rounded-lg text-sm hover:bg-emerald-50 transition">
               বিস্তারিত
             </button>
-            <button className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700 transition shadow-md">
+            <button className="px-4 py-2 bg-emerald-600 text-white rounded-lg text-sm hover:bg-emerald-700 transition shadow-md">
               বুক করুন
             </button>
           </div>

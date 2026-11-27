@@ -212,7 +212,7 @@ const RegionalDetails = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-16 bg-gradient-to-b from-stone-50 to-white">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -224,13 +224,13 @@ const RegionalDetails = () => {
           <Badge variant="primary" size="lg" className="mb-4">
             বাংলাদেশের বিভাগসমূহ
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4">
             বিভাগভিত্তিক{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-800">
               ভ্রমণ গাইড
             </span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-stone-600 max-w-2xl mx-auto">
             বাংলাদেশের ৮টি বিভাগের ভ্রমণ তথ্য, দর্শনীয় স্থান, খাবার ও আবহাওয়া সম্পর্কে বিস্তারিত জানুন
           </p>
         </motion.div>
@@ -246,8 +246,8 @@ const RegionalDetails = () => {
                 onClick={() => setSelectedDivision(division)}
                 className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   selectedDivision.id === division.id
-                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/30'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                    ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-500/30'
+                    : 'bg-white text-stone-700 hover:bg-stone-100 border border-stone-200'
                 }`}
               >
                 {division.bnName}
@@ -299,14 +299,14 @@ const RegionalDetails = () => {
             </div>
 
             {/* Content Tabs */}
-            <div className="border-b border-gray-200">
+            <div className="border-b border-stone-200">
               <div className="flex space-x-4 px-8">
                 <button
                   onClick={() => setActiveTab('overview')}
                   className={`py-4 px-2 font-medium transition-all duration-300 border-b-2 ${
                     activeTab === 'overview'
-                      ? 'border-blue-600 text-blue-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700'
+                      ? 'border-emerald-600 text-emerald-600'
+                      : 'border-transparent text-stone-500 hover:text-stone-700'
                   }`}
                 >
                   সারসংক্ষেপ
@@ -315,8 +315,8 @@ const RegionalDetails = () => {
                   onClick={() => setActiveTab('attractions')}
                   className={`py-4 px-2 font-medium transition-all duration-300 border-b-2 ${
                     activeTab === 'attractions'
-                      ? 'border-blue-600 text-blue-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700'
+                      ? 'border-emerald-600 text-emerald-600'
+                      : 'border-transparent text-stone-500 hover:text-stone-700'
                   }`}
                 >
                   দর্শনীয় স্থান
@@ -325,8 +325,8 @@ const RegionalDetails = () => {
                   onClick={() => setActiveTab('food')}
                   className={`py-4 px-2 font-medium transition-all duration-300 border-b-2 ${
                     activeTab === 'food'
-                      ? 'border-blue-600 text-blue-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700'
+                      ? 'border-emerald-600 text-emerald-600'
+                      : 'border-transparent text-stone-500 hover:text-stone-700'
                   }`}
                 >
                   স্থানীয় খাবার
@@ -335,8 +335,8 @@ const RegionalDetails = () => {
                   onClick={() => setActiveTab('travel-tips')}
                   className={`py-4 px-2 font-medium transition-all duration-300 border-b-2 ${
                     activeTab === 'travel-tips'
-                      ? 'border-blue-600 text-blue-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700'
+                      ? 'border-emerald-600 text-emerald-600'
+                      : 'border-transparent text-stone-500 hover:text-stone-700'
                   }`}
                 >
                   ভ্রমণ টিপস
@@ -358,10 +358,10 @@ const RegionalDetails = () => {
                     className="grid md:grid-cols-2 gap-8"
                   >
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                      <h3 className="text-2xl font-bold text-stone-900 mb-4">
                         {selectedDivision.bnName} সম্পর্কে
                       </h3>
-                      <p className="text-gray-600 mb-6 leading-relaxed">
+                      <p className="text-stone-600 mb-6 leading-relaxed">
                         {selectedDivision.description}
                       </p>
                     </div>
@@ -376,7 +376,7 @@ const RegionalDetails = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                    <h3 className="text-2xl font-bold text-stone-900 mb-6">
                       জনপ্রিয় দর্শনীয় স্থান
                     </h3>
 
@@ -385,7 +385,7 @@ const RegionalDetails = () => {
                         <motion.div
                           key={index}
                           whileHover={{ y: -5 }}
-                          className="bg-gray-50 rounded-xl p-5"
+                          className="bg-stone-50 rounded-xl p-5"
                         >
                           <div className="flex justify-between items-start mb-2">
                             <h4 className="font-semibold">
@@ -397,7 +397,7 @@ const RegionalDetails = () => {
                             </Badge>
                           </div>
 
-                          <p className="text-sm text-gray-500">
+                          <p className="text-sm text-stone-500">
                             {attraction.type}
                           </p>
                         </motion.div>
@@ -414,7 +414,7 @@ const RegionalDetails = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                    <h3 className="text-2xl font-bold text-stone-900 mb-6">
                       বিখ্যাত স্থানীয় খাবার
                     </h3>
 
@@ -423,9 +423,9 @@ const RegionalDetails = () => {
                         <motion.div
                           key={index}
                           whileHover={{ scale: 1.05 }}
-                          className="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-xl text-center"
+                          className="bg-emerald-50 p-6 rounded-xl text-center"
                         >
-                          <CakeIcon className="w-10 h-10 text-orange-500 mx-auto mb-3" />
+                          <CakeIcon className="w-10 h-10 text-emerald-600 mx-auto mb-3" />
                           <p className="font-semibold">{food}</p>
                         </motion.div>
                       ))}
@@ -441,16 +441,16 @@ const RegionalDetails = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                    <h3 className="text-2xl font-bold text-stone-900 mb-6">
                       ভ্রমণ টিপস
                     </h3>
 
                     <div className="grid md:grid-cols-2 gap-6">
-                      <div className="bg-blue-50 p-6 rounded-xl">
-                        <h4 className="font-semibold text-blue-800 mb-3">
+                      <div className="bg-emerald-50 p-6 rounded-xl">
+                        <h4 className="font-semibold text-emerald-800 mb-3">
                           ✅ করণীয়
                         </h4>
-                        <ul className="space-y-2 text-gray-700">
+                        <ul className="space-y-2 text-stone-700">
                           <li>• আগে থেকে হোটেল বুক করুন</li>
                           <li>• স্থানীয় গাইড নিন</li>
                           <li>• প্রয়োজনীয় ওষুধ সাথে রাখুন</li>
@@ -461,7 +461,7 @@ const RegionalDetails = () => {
                         <h4 className="font-semibold text-red-800 mb-3">
                           ❌ বর্জনীয়
                         </h4>
-                        <ul className="space-y-2 text-gray-700">
+                        <ul className="space-y-2 text-stone-700">
                           <li>• রাতে একা বের হবেন না</li>
                           <li>• স্থানীয় সংস্কৃতিকে অসম্মান করবেন না</li>
                         </ul>
@@ -477,13 +477,13 @@ const RegionalDetails = () => {
         </AnimatePresence>
 
         {/* ================= FOOTER ACTION ================= */}
-        <div className="p-8 bg-gray-50 border-t border-gray-200">
+        <div className="p-8 bg-stone-50 border-t border-stone-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
               <h4 className="text-lg font-semibold">
                 {selectedDivision.bnName} ভ্রমণ গাইড
               </h4>
-              <p className="text-gray-600">
+              <p className="text-stone-600">
                 {selectedDivision.attractions.length}টি দর্শনীয় স্থান
               </p>
             </div>
@@ -502,12 +502,12 @@ const RegionalDetails = () => {
             <Link
               key={division.id}
               to={`/guide/${getDivisionEnglishName(division.bnName)}`}
-              className="p-3 bg-white rounded-lg border border-gray-200 hover:border-blue-500 hover:shadow-md transition-all text-center"
+              className="p-3 bg-white rounded-lg border border-stone-200 hover:border-emerald-500 hover:shadow-md transition-all text-center"
             >
-              <p className="font-medium text-gray-800">
+              <p className="font-medium text-stone-800">
                 {division.bnName}
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-stone-500">
                 {division.attractions.length}টি স্থান
               </p>
             </Link>

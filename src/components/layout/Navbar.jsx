@@ -94,8 +94,8 @@ const Navbar = () => {
   ];
 
   // Text color based on scroll and page
-  const textColor = scrolled || !isHome ? 'text-gray-800' : 'text-white';
-  const hoverColor = scrolled || !isHome ? 'hover:text-blue-600' : 'hover:text-blue-200';
+  const textColor = scrolled || !isHome ? 'text-stone-800' : 'text-white';
+  const hoverColor = scrolled || !isHome ? 'hover:text-emerald-600' : 'hover:text-emerald-200';
   const bgColor = scrolled || !isHome 
     ? 'bg-white/90 backdrop-blur-xl shadow-lg' 
     : 'bg-transparent';
@@ -123,7 +123,7 @@ const Navbar = () => {
                 className={clsx(
                   "w-10 h-10 rounded-lg flex items-center justify-center shadow-lg transition-all duration-300",
                   scrolled || !isHome
-                    ? "bg-gradient-to-r from-blue-600 to-blue-800"
+                    ? "bg-gradient-to-r from-emerald-600 to-emerald-800"
                     : "bg-white/20 backdrop-blur-md border border-white/30"
                 )}
               >
@@ -134,13 +134,13 @@ const Navbar = () => {
               <span
                 className={clsx(
                   "text-xl sm:text-2xl font-extrabold tracking-wide transition-colors duration-300",
-                  scrolled || !isHome ? "text-gray-900" : "text-white"
+                  scrolled || !isHome ? "text-stone-900" : "text-white"
                 )}
               >
                 ভ্রমণ
                 <span className={clsx(
                   "ml-1",
-                  scrolled || !isHome ? "text-blue-600" : "text-yellow-400"
+                  scrolled || !isHome ? "text-emerald-600" : "text-amber-300"
                 )}>
                   .কম
                 </span>
@@ -163,7 +163,7 @@ const Navbar = () => {
                       "relative px-4 py-2 font-medium rounded-lg transition-all duration-300 flex items-center space-x-2",
                       textColor,
                       hoverColor,
-                      location.pathname === link.path && (scrolled || !isHome ? "text-blue-600" : "text-yellow-400"),
+                      location.pathname === link.path && (scrolled || !isHome ? "text-emerald-600" : "text-amber-300"),
                       "hover:bg-white/10"
                     )}
                   >
@@ -186,20 +186,20 @@ const Navbar = () => {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl overflow-hidden z-30 border border-gray-100"
+                          className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl overflow-hidden z-30 border border-stone-100"
                         >
                           <div className="py-1">
                             {link.dropdown.map((item, index) => (
                               <React.Fragment key={item.path}>
                                 <Link
                                   to={item.path}
-                                  className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                                  className="block px-4 py-2.5 text-sm text-stone-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200"
                                   onClick={() => setActiveDropdown(null)}
                                 >
                                   {item.name}
                                 </Link>
                                 {index < link.dropdown.length - 1 && (
-                                  <div className="border-t border-gray-100 mx-2" />
+                                  <div className="border-t border-stone-100 mx-2" />
                                 )}
                               </React.Fragment>
                             ))}
@@ -218,7 +218,7 @@ const Navbar = () => {
               className={clsx(
                 "lg:hidden p-2 rounded-lg transition-colors duration-300",
                 scrolled || !isHome
-                  ? "hover:bg-gray-100"
+                  ? "hover:bg-stone-100"
                   : "hover:bg-white/20"
               )}
               aria-label="Toggle menu"
@@ -226,12 +226,12 @@ const Navbar = () => {
               {isOpen ? (
                 <XMarkIcon className={clsx(
                   "w-6 h-6",
-                  scrolled || !isHome ? "text-gray-700" : "text-white"
+                  scrolled || !isHome ? "text-stone-700" : "text-white"
                 )} />
               ) : (
                 <Bars3Icon className={clsx(
                   "w-6 h-6",
-                  scrolled || !isHome ? "text-gray-700" : "text-white"
+                  scrolled || !isHome ? "text-stone-700" : "text-white"
                 )} />
               )}
             </button>
@@ -262,7 +262,7 @@ const Navbar = () => {
               className="fixed top-0 left-0 h-screen w-[280px] sm:w-[320px] bg-white z-[100] shadow-2xl overflow-y-auto"
             >
               {/* Drawer Header */}
-              <div className="bg-gradient-to-r from-blue-600 to-blue-800 p-6 text-white">
+              <div className="bg-gradient-to-r from-emerald-600 to-emerald-800 p-6 text-white">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
@@ -270,7 +270,7 @@ const Navbar = () => {
                     </div>
                     <div>
                       <h2 className="text-lg font-bold">ভ্রমণ.কম</h2>
-                      <p className="text-xs text-blue-100">আপনার ভ্রমণ সঙ্গী</p>
+                      <p className="text-xs text-emerald-100">আপনার ভ্রমণ সঙ্গী</p>
                     </div>
                   </div>
                   <button
@@ -295,8 +295,8 @@ const Navbar = () => {
                             className={clsx(
                               "w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200",
                               location.pathname === link.path || location.pathname.includes(link.path)
-                                ? "bg-blue-50 text-blue-600"
-                                : "hover:bg-gray-50 text-gray-700"
+                                ? "bg-emerald-50 text-emerald-600"
+                                : "hover:bg-stone-50 text-stone-700"
                             )}
                           >
                             <div className="flex items-center space-x-3">
@@ -306,7 +306,7 @@ const Navbar = () => {
                             <ChevronDownIcon
                               className={clsx(
                                 "w-5 h-5 transition-transform duration-200",
-                                mobileOpen === link.name && "rotate-180 text-blue-600"
+                                mobileOpen === link.name && "rotate-180 text-emerald-600"
                               )}
                             />
                           </button>
@@ -321,13 +321,13 @@ const Navbar = () => {
                                 transition={{ duration: 0.2 }}
                                 className="overflow-hidden"
                               >
-                                <div className="ml-4 mt-2 space-y-1 border-l-2 border-blue-200 pl-3">
+                                <div className="ml-4 mt-2 space-y-1 border-l-2 border-emerald-200 pl-3">
                                   {link.dropdown.map((item) => (
                                     <Link
                                       key={item.path}
                                       to={item.path}
                                       onClick={() => setIsOpen(false)}
-                                      className="block px-4 py-2.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
+                                      className="block px-4 py-2.5 text-sm text-stone-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all duration-200"
                                     >
                                       {item.name}
                                     </Link>
@@ -344,8 +344,8 @@ const Navbar = () => {
                           className={clsx(
                             "flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200",
                             location.pathname === link.path
-                              ? "bg-blue-50 text-blue-600 font-medium"
-                              : "text-gray-700 hover:bg-gray-50"
+                              ? "bg-emerald-50 text-emerald-600 font-medium"
+                              : "text-stone-700 hover:bg-stone-50"
                           )}
                         >
                           {Icon && <Icon className="w-5 h-5" />}
@@ -359,7 +359,7 @@ const Navbar = () => {
 
               {/* Footer */}
               <div className="p-4 border-t mt-4">
-                <p className="text-xs text-gray-500 text-center">
+                <p className="text-xs text-stone-500 text-center">
                   © 2026 ভ্রমণ.কম - সমস্ত অধিকার সংরক্ষিত
                 </p>
               </div>

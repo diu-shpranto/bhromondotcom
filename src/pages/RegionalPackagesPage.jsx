@@ -403,18 +403,18 @@ const RegionalPackagesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-stone-50">
       {/* হিরো সেকশন */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 py-16">
+      <section className="relative bg-gradient-to-r from-emerald-900 to-emerald-700 py-16">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl" />
         </div>
         
         <div className="container-custom relative z-10">
           <button
             onClick={() => navigate('/packages')}
-            className="flex items-center text-white mb-6 hover:text-blue-200 transition-colors"
+            className="flex items-center text-white mb-6 hover:text-emerald-200 transition-colors"
           >
             <ChevronLeftIcon className="w-5 h-5 mr-1" />
             <span>সব প্যাকেজে ফিরুন</span>
@@ -432,7 +432,7 @@ const RegionalPackagesPage = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
                 {divisionData.bnName}
               </h1>
-              <p className="text-xl text-blue-100 mb-4">
+              <p className="text-xl text-emerald-100 mb-4">
                 {divisionData.description}
               </p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
@@ -460,8 +460,8 @@ const RegionalPackagesPage = () => {
                   onClick={() => setFilterType(type.value)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                     filterType === type.value
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-emerald-600 text-white'
+                      : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
                   }`}
                 >
                   {type.label}
@@ -473,7 +473,7 @@ const RegionalPackagesPage = () => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-emerald-500"
             >
               <option value="popular">জনপ্রিয়</option>
               <option value="rating">রেটিং</option>
@@ -527,7 +527,7 @@ const RegionalPackagesPage = () => {
                         {isInWishlist ? (
                           <HeartIconSolid className="w-5 h-5 text-red-500" />
                         ) : (
-                          <HeartIcon className="w-5 h-5 text-gray-600" />
+                          <HeartIcon className="w-5 h-5 text-stone-600" />
                         )}
                       </button>
                     </div>
@@ -536,13 +536,13 @@ const RegionalPackagesPage = () => {
                     <div className="p-6">
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center space-x-1">
-                          <MapPinIcon className="w-4 h-4 text-gray-400" />
-                          <span className="text-sm text-gray-600">{pkg.location}</span>
+                          <MapPinIcon className="w-4 h-4 text-stone-400" />
+                          <span className="text-sm text-stone-600">{pkg.location}</span>
                         </div>
                         <div className="flex items-center space-x-1">
-                          <StarIcon className="w-4 h-4 text-yellow-400" />
+                          <StarIcon className="w-4 h-4 text-amber-400" />
                           <span className="font-semibold">{pkg.rating}</span>
-                          <span className="text-sm text-gray-500">({pkg.reviews})</span>
+                          <span className="text-sm text-stone-500">({pkg.reviews})</span>
                         </div>
                       </div>
 
@@ -550,22 +550,22 @@ const RegionalPackagesPage = () => {
                         {pkg.name}
                       </h3>
 
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                      <p className="text-stone-600 text-sm mb-4 line-clamp-2">
                         {pkg.description}
                       </p>
 
                       <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center space-x-1 text-gray-500">
+                        <div className="flex items-center space-x-1 text-stone-500">
                           <ClockIcon className="w-4 h-4" />
                           <span className="text-sm">{pkg.duration}</span>
                         </div>
                         <div>
                           {pkg.discount > 0 && (
-                            <span className="text-sm text-gray-400 line-through mr-2">
+                            <span className="text-sm text-stone-400 line-through mr-2">
                               ৳{pkg.price}
                             </span>
                           )}
-                          <span className="text-2xl font-bold text-blue-600">
+                          <span className="text-2xl font-bold text-emerald-700">
                             ৳{discountedPrice}
                           </span>
                         </div>
@@ -576,13 +576,13 @@ const RegionalPackagesPage = () => {
                         {pkg.includes.slice(0, 3).map((item, i) => (
                           <span
                             key={i}
-                            className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"
+                            className="px-2 py-1 bg-stone-100 text-stone-600 text-xs rounded-full"
                           >
                             {item}
                           </span>
                         ))}
                         {pkg.includes.length > 3 && (
-                          <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                          <span className="px-2 py-1 bg-stone-100 text-stone-600 text-xs rounded-full">
                             +{pkg.includes.length - 3}
                           </span>
                         )}
@@ -614,10 +614,10 @@ const RegionalPackagesPage = () => {
               className="text-center py-20"
             >
               <div className="text-6xl mb-4">🏝️</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              <h3 className="text-2xl font-bold text-stone-900 mb-2">
                 এই বিভাগে কোনো প্যাকেজ নেই
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-stone-600 mb-6">
                 অন্য বিভাগ দেখুন বা ফিল্টার পরিবর্তন করুন
               </p>
               <Button variant="primary" onClick={() => navigate('/packages')}>

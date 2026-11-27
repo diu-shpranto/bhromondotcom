@@ -47,12 +47,12 @@ const DestinationDetailsPage = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-stone-50 min-h-screen">
 
       {/* ================= HERO ================= */}
 
       <div
-        className={`relative h-[520px] bg-cover bg-center ${destination.gallery?.[0] ? "" : "bg-gradient-to-r from-teal-500 to-blue-600"}`}
+        className={`relative h-[520px] bg-cover bg-center ${destination.gallery?.[0] ? "" : "bg-gradient-to-r from-emerald-500 to-emerald-600"}`}
         style={
           destination.gallery?.[0]
             ? { backgroundImage: `url(${destination.gallery[0]})` }
@@ -67,7 +67,7 @@ const DestinationDetailsPage = () => {
               {destination.name}
             </h1>
 
-            <p className="text-gray-200 max-w-2xl text-lg">
+            <p className="text-stone-200 max-w-2xl text-lg">
               {destination.description}
             </p>
 
@@ -129,7 +129,7 @@ const DestinationDetailsPage = () => {
                     {place.name}
                   </h3>
 
-                  <p className="text-sm text-gray-500 mt-2">
+                  <p className="text-sm text-stone-500 mt-2">
                     বিস্তারিত দেখুন →
                   </p>
                 </div>
@@ -194,24 +194,24 @@ const DestinationDetailsPage = () => {
                         {pkg.title}
                       </h3>
 
-                      <div className="flex justify-between text-sm text-gray-500 mb-2">
+                      <div className="flex justify-between text-sm text-stone-500 mb-2">
                         <span>⏳ {pkg.duration}</span>
                         <span>🗓 {pkg.tourStart}</span>
                       </div>
 
-                      <p className="text-blue-600 font-bold text-lg">
+                      <p className="text-emerald-700 font-bold text-lg">
                         ৳{pkg.pricing.perPerson}
                       </p>
 
                       {company && (
-                        <p className="text-sm text-gray-500 mt-3">
+                        <p className="text-sm text-stone-500 mt-3">
                           পরিচালনায়: {company.name}
                         </p>
                       )}
 
                       <Link
                         to={`/package/${pkg.id}`}
-                        className="mt-4 block text-center bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+                        className="mt-4 block text-center bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 transition"
                       >
                         বিস্তারিত দেখুন
                       </Link>
@@ -250,7 +250,7 @@ const DestinationDetailsPage = () => {
                       {company.name}
                     </h3>
 
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-stone-500">
                       ⭐ {company.rating}
                     </p>
                   </div>

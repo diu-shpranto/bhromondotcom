@@ -42,15 +42,15 @@ const regions = [
 
 const RegionGuide = () => {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-stone-50">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Section Title */}
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+          <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
             বাংলাদেশের জেলা ভ্রমণ গাইড
           </h2>
-          <p className="text-gray-500 mt-3">
+          <p className="text-stone-500 mt-3">
             বিভাগভিত্তিক ভ্রমণ তথ্য এক নজরে
           </p>
         </div>
@@ -80,10 +80,10 @@ const RegionGuide = () => {
                   <h3 className="text-xl font-semibold">
                     {region.name}
                   </h3>
-                  <p className="text-sm text-gray-200 mt-1">
+                  <p className="text-sm text-stone-200 mt-1">
                     {region.highlight}
                   </p>
-                  <span className="mt-3 text-sm text-blue-200 group-hover:text-white transition">
+                  <span className="mt-3 text-sm text-emerald-200 group-hover:text-white transition">
                     গাইড দেখুন →
                   </span>
                 </div>

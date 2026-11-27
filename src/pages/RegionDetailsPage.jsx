@@ -29,7 +29,7 @@ const RegionDetailsPage = () => {
 
   return (
     
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-stone-50 min-h-screen">
 
       {/* HERO */}
       <div
@@ -43,10 +43,10 @@ const RegionDetailsPage = () => {
             <h1 className="text-5xl font-bold text-white mb-4">
               {region.name}
             </h1>
-            <p className="text-gray-200 max-w-xl">
+            <p className="text-stone-200 max-w-xl">
               {region.description}
             </p>
-            <p className="mt-4 text-blue-200">
+            <p className="mt-4 text-emerald-200">
               সেরা সময়: {region.bestTime}
             </p>
           </div>
@@ -111,7 +111,7 @@ const RegionDetailsPage = () => {
                     <h3 className="font-semibold">
                       {pkg.title}
                     </h3>
-                    <p className="text-blue-600 font-bold mt-2">
+                    <p className="text-emerald-700 font-bold mt-2">
                       ৳{pkg.pricing?.perPerson}
                     </p>
                   </div>

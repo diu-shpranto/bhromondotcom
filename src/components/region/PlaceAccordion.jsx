@@ -16,7 +16,7 @@ const PlaceAccordion = ({ place }) => {
           <h3 className="text-lg font-semibold">
             {place.name}
           </h3>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-stone-500">
             {place.famousFor}
           </p>
         </div>
@@ -38,7 +38,7 @@ const PlaceAccordion = ({ place }) => {
             className="w-full h-60 object-cover rounded-xl"
           />
 
-          <p className="text-gray-700">
+          <p className="text-stone-700">
             {place.description}
           </p>
 
@@ -53,7 +53,7 @@ const PlaceAccordion = ({ place }) => {
             loading="lazy"
           />
 
-          <div className="bg-yellow-50 p-4 rounded-lg">
+          <div className="bg-amber-50 p-4 rounded-lg">
             <p className="font-semibold mb-2">
               ভ্রমণ টিপস:
             </p>

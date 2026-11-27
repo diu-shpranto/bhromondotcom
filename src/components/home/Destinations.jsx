@@ -64,7 +64,7 @@ const destinations = [
 
 const Destinations = () => {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-stone-50">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Section Header */}
@@ -78,7 +78,7 @@ const Destinations = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             জনপ্রিয় গন্তব্য
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-stone-600 max-w-2xl mx-auto">
             প্রতিটা জায়গার ভেতরে গেলে পাবেন কোন কোম্পানির ট্যুর কবে ছাড়ছে,
             দাম কত, কী কী থাকছে — আর যাওয়ার আগে যা জানা দরকার।
           </p>
@@ -115,8 +115,8 @@ const Destinations = () => {
                     {destination.name}
                   </h3>
 
-                  <div className="flex items-center text-gray-500 text-sm">
-                    <MapPinIcon className="w-4 h-4 mr-2 text-blue-500" />
+                  <div className="flex items-center text-stone-500 text-sm">
+                    <MapPinIcon className="w-4 h-4 mr-2 text-emerald-600" />
                     {destination.location}
                   </div>
                 </div>

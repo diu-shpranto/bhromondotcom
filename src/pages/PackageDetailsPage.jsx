@@ -23,11 +23,11 @@ const PackageDetailPage = () => {
   );
 
   return (
-    <div className="bg-gray-50 min-h-screen pb-32">
+    <div className="bg-stone-50 min-h-screen pb-32">
 
       {/* ================= HERO ================= */}
       <div
-        className={`relative h-[450px] md:h-[550px] bg-cover bg-center ${pkg.image ? "" : "bg-gradient-to-r from-teal-500 to-blue-600"}`}
+        className={`relative h-[450px] md:h-[550px] bg-cover bg-center ${pkg.image ? "" : "bg-gradient-to-r from-emerald-500 to-emerald-600"}`}
         style={pkg.image ? { backgroundImage: `url(${pkg.image})` } : undefined}
       >
         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
@@ -38,7 +38,7 @@ const PackageDetailPage = () => {
               {pkg.title}
             </h1>
 
-            <div className="flex flex-wrap gap-6 text-gray-200 text-lg">
+            <div className="flex flex-wrap gap-6 text-stone-200 text-lg">
               <span>📍 {pkg.location}</span>
               <span>⏳ {pkg.duration}</span>
               {pkg.tourStart && (
@@ -60,7 +60,7 @@ const PackageDetailPage = () => {
             <h2 className="text-2xl font-bold mb-6">
               প্যাকেজ বিবরণ
             </h2>
-            <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+            <p className="text-stone-700 leading-relaxed whitespace-pre-line">
               {pkg.description}
             </p>
           </section>
@@ -69,13 +69,13 @@ const PackageDetailPage = () => {
           <section className="grid md:grid-cols-2 gap-8">
 
             <div className="bg-white p-6 rounded-2xl shadow">
-              <h3 className="text-lg font-semibold text-green-600 mb-4">
+              <h3 className="text-lg font-semibold text-emerald-600 mb-4">
                 যা যা থাকছে
               </h3>
               <ul className="space-y-2">
                 {pkg.included?.map((item, i) => (
                   <li key={i} className="flex gap-2">
-                    <span className="text-green-500">✔</span>
+                    <span className="text-emerald-500">✔</span>
                     {item}
                   </li>
                 ))}
@@ -110,21 +110,21 @@ const PackageDetailPage = () => {
       {pkg.tourPlan.map((day, index) => (
         <div
           key={index}
-          className="relative bg-white p-8 rounded-2xl shadow-lg border border-gray-100"
+          className="relative bg-white p-8 rounded-2xl shadow-lg border border-stone-100"
         >
           {/* Step Indicator */}
           <div className="absolute -left-6 top-8">
-            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold shadow-md">
+            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-emerald-600 text-white font-bold shadow-md">
               {index + 1}
             </div>
           </div>
 
           <div className="pl-10">
-            <h3 className="text-xl font-semibold text-blue-700 mb-3">
+            <h3 className="text-xl font-semibold text-emerald-700 mb-3">
               {day.day}
             </h3>
 
-            <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+            <p className="text-stone-700 leading-relaxed whitespace-pre-line">
               {day.details}
             </p>
           </div>
@@ -174,15 +174,15 @@ const PackageDetailPage = () => {
           <div className="bg-white rounded-3xl shadow-xl p-8 space-y-6">
 
             <div>
-              <h3 className="text-lg text-gray-500">
+              <h3 className="text-lg text-stone-500">
                 জনপ্রতি মূল্য
               </h3>
-              <p className="text-3xl font-bold text-blue-600">
+              <p className="text-3xl font-bold text-emerald-700">
                 ৳{pkg.pricing?.perPerson}
               </p>
 
               {pkg.pricing?.couplePrice && (
-                <p className="text-gray-600 mt-2">
+                <p className="text-stone-600 mt-2">
                   Couple: ৳{pkg.pricing.couplePrice}
                 </p>
               )}
@@ -198,7 +198,7 @@ const PackageDetailPage = () => {
 
                 <Link
                   to={`/company/${company.id}`}
-                  className="text-blue-600 font-bold hover:underline"
+                  className="text-emerald-600 font-bold hover:underline"
                 >
                   {company.name}
                 </Link>
@@ -210,7 +210,7 @@ const PackageDetailPage = () => {
                       href={company.contact.whatsapp}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex-1 text-center bg-green-500 text-white py-2 rounded-lg text-sm font-semibold hover:bg-green-600 transition"
+                      className="flex-1 text-center bg-emerald-500 text-white py-2 rounded-lg text-sm font-semibold hover:bg-emerald-600 transition"
                     >
                       WhatsApp
                     </a>
@@ -221,7 +221,7 @@ const PackageDetailPage = () => {
                       href={company.contact.messenger}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex-1 text-center bg-blue-600 text-white py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition"
+                      className="flex-1 text-center bg-emerald-600 text-white py-2 rounded-lg text-sm font-semibold hover:bg-emerald-700 transition"
                     >
                       Messenger
                     </a>

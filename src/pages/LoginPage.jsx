@@ -27,7 +27,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-600 to-blue-800">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-600 to-emerald-800">
       <LoginModal
         isOpen={isModalOpen}
         onClose={handleClose}

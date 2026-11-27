@@ -24,7 +24,7 @@ const PlaceDetailsPage = () => {
   );
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-stone-50 min-h-screen">
 
       {/* HERO SECTION */}
       {/* HERO SECTION */}
@@ -47,7 +47,7 @@ const PlaceDetailsPage = () => {
         {place.name}
       </h1>
 
-      <p className="text-gray-200 mt-4 max-w-xl">
+      <p className="text-stone-200 mt-4 max-w-xl">
         {place.overview}
       </p>
     </div>
@@ -58,7 +58,7 @@ const PlaceDetailsPage = () => {
             <h1 className="text-5xl font-bold text-white">
               {place.name}
             </h1>
-            <p className="text-gray-200 mt-4 max-w-xl">
+            <p className="text-stone-200 mt-4 max-w-xl">
               {place.overview}
             </p>
           </div>
@@ -73,7 +73,7 @@ const PlaceDetailsPage = () => {
           <h2 className="text-2xl font-bold mb-4">
             কেন বিখ্যাত
           </h2>
-          <p className="text-gray-700">
+          <p className="text-stone-700">
             {place.famousFor}
           </p>
         </section>
@@ -141,11 +141,11 @@ const PlaceDetailsPage = () => {
                       {pkg.title}
                     </h3>
 
-                    <p className="text-sm text-gray-500 mb-2">
+                    <p className="text-sm text-stone-500 mb-2">
                       ⏳ {pkg.duration}
                     </p>
 
-                    <p className="text-blue-600 font-bold">
+                    <p className="text-emerald-700 font-bold">
                       ৳{pkg.pricing?.perPerson}
                     </p>
                   </div>

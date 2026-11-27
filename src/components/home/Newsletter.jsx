@@ -29,13 +29,13 @@ const Newsletter = () => {
           alt="Newsletter Background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/95 to-blue-800/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/95 to-emerald-900/90" />
       </div>
 
       {/* Animated Shapes */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl animate-pulse" />
       </div>
 
       <div className="container-custom relative z-10">
@@ -49,7 +49,7 @@ const Newsletter = () => {
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            className="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-8"
+            className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-8"
           >
             <EnvelopeIcon className="w-10 h-10 text-white" />
           </motion.div>
@@ -57,7 +57,7 @@ const Newsletter = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             সেরা অফার পান ইনবক্সে
           </h2>
-          <p className="text-xl text-gray-200 mb-8">
+          <p className="text-xl text-stone-200 mb-8">
             সাবস্ক্রাইব করুন এবং পান বিশেষ ছাড়, নতুন প্যাকেজ ও ভ্রমণ টিপস
           </p>
 
@@ -68,7 +68,7 @@ const Newsletter = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="আপনার ইমেইল"
               required
-              className="flex-1 px-6 py-4 bg-white/10 backdrop-blur-md rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white"
+              className="flex-1 px-6 py-4 bg-white/10 backdrop-blur-md rounded-xl text-white placeholder-stone-300 focus:outline-none focus:ring-2 focus:ring-white"
             />
             <Button
               type="submit"
@@ -81,7 +81,7 @@ const Newsletter = () => {
             </Button>
           </form>
 
-          <p className="text-sm text-gray-300 mt-4">
+          <p className="text-sm text-stone-300 mt-4">
             সপ্তাহে ২টি ইমেইল। যেকোনো সময় আনসাবস্ক্রাইব করতে পারবেন।
           </p>
         </motion.div>

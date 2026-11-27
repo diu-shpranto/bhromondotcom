@@ -53,14 +53,14 @@ const LoginButton = ({ scrolled, isHome }) => {
           />
           <span className={clsx(
             "hidden md:inline font-medium",
-            scrolled || !isHome ? "text-gray-700" : "text-white"
+            scrolled || !isHome ? "text-stone-700" : "text-white"
           )}>
             {user.name}
           </span>
           <ChevronDownIcon className={clsx(
             "w-4 h-4 transition-transform duration-300",
             isOpen && "rotate-180",
-            scrolled || !isHome ? "text-gray-700" : "text-white"
+            scrolled || !isHome ? "text-stone-700" : "text-white"
           )} />
         </motion.button>
 
@@ -75,46 +75,46 @@ const LoginButton = ({ scrolled, isHome }) => {
               className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl overflow-hidden z-50"
             >
               {/* User Info */}
-              <div className="p-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+              <div className="p-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
                 <p className="font-semibold">{user.name}</p>
-                <p className="text-sm text-blue-100">{user.email}</p>
+                <p className="text-sm text-emerald-100">{user.email}</p>
               </div>
 
               {/* Menu Items */}
               <div className="py-2">
                 <Link
                   to="/profile"
-                  className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-blue-50 transition-colors"
+                  className="flex items-center space-x-3 px-4 py-3 text-stone-700 hover:bg-emerald-50 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  <UserIcon className="w-5 h-5 text-gray-500" />
+                  <UserIcon className="w-5 h-5 text-stone-500" />
                   <span>প্রোফাইল</span>
                 </Link>
 
                 <Link
                   to="/bookings"
-                  className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-blue-50 transition-colors"
+                  className="flex items-center space-x-3 px-4 py-3 text-stone-700 hover:bg-emerald-50 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  <ClockIcon className="w-5 h-5 text-gray-500" />
+                  <ClockIcon className="w-5 h-5 text-stone-500" />
                   <span>আমার বুকিং</span>
                 </Link>
 
                 <Link
                   to="/wishlist"
-                  className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-blue-50 transition-colors"
+                  className="flex items-center space-x-3 px-4 py-3 text-stone-700 hover:bg-emerald-50 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  <HeartIcon className="w-5 h-5 text-gray-500" />
+                  <HeartIcon className="w-5 h-5 text-stone-500" />
                   <span>পছন্দের তালিকা</span>
                 </Link>
 
                 <Link
                   to="/settings"
-                  className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-blue-50 transition-colors"
+                  className="flex items-center space-x-3 px-4 py-3 text-stone-700 hover:bg-emerald-50 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Cog6ToothIcon className="w-5 h-5 text-gray-500" />
+                  <Cog6ToothIcon className="w-5 h-5 text-stone-500" />
                   <span>সেটিংস</span>
                 </Link>
 
@@ -150,8 +150,8 @@ const LoginButton = ({ scrolled, isHome }) => {
           className={clsx(
             "px-5 transition-all duration-300 border font-medium",
             scrolled || !isHome
-              ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white border-blue-600 hover:shadow-lg hover:shadow-blue-500/30"
-              : "bg-white/20 text-white border-white/30 backdrop-blur-md hover:bg-white hover:text-blue-600"
+              ? "bg-emerald-600 text-white border-emerald-600 hover:shadow-lg hover:shadow-emerald-500/30"
+              : "bg-white/20 text-white border-white/30 backdrop-blur-md hover:bg-white hover:text-emerald-600"
           )}
         >
           লগইন
@@ -171,7 +171,7 @@ const LoginButton = ({ scrolled, isHome }) => {
           className={clsx(
             "px-5 transition-all duration-300",
             scrolled || !isHome
-              ? "border-gray-300 text-gray-700 hover:bg-gray-100"
+              ? "border-stone-300 text-stone-700 hover:bg-stone-100"
               : "border-white text-white hover:bg-white/20"
           )}
         >

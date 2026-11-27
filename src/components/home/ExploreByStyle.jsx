@@ -43,14 +43,14 @@ const styles = [
 
 const ExploreByStyle = () => {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-stone-50">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">
             আপনার ভ্রমণের স্টাইল বেছে নিন
           </h2>
-          <p className="text-gray-600">
+          <p className="text-stone-600">
             আপনার পছন্দ অনুযায়ী curated প্যাকেজ দেখুন
           </p>
         </div>
