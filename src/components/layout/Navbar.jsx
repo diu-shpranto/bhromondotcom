@@ -10,7 +10,12 @@ import {
   BriefcaseIcon,
   MapPinIcon,
   BuildingOfficeIcon,
-  NewspaperIcon
+  NewspaperIcon,
+  UserIcon,
+  UsersIcon,
+  UserGroupIcon,
+  HeartIcon,
+  BoltIcon
 } from '@heroicons/react/24/outline';
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import clsx from 'clsx';
@@ -118,6 +123,15 @@ const Navbar = () => {
     'গন্তব্য': MapPinIcon,
     'কোম্পানি': BuildingOfficeIcon,
     'ব্লগ': NewspaperIcon,
+  };
+
+  // Icons for submenu pills — destinations fall back to MapPinIcon
+  const submenuIcons = {
+    'সিঙ্গেল প্যাকেজ': UserIcon,
+    'ফ্যামিলি প্যাকেজ': UsersIcon,
+    'কাপল প্যাকেজ': HeartIcon,
+    'অ্যাডভেঞ্চার': BoltIcon,
+    'গ্রুপ প্যাকেজ': UserGroupIcon,
   };
 
   // Active state for a top-level mobile item
@@ -352,23 +366,30 @@ const Navbar = () => {
                                   transition={{ duration: 0.25, ease: "easeInOut" }}
                                   className="overflow-hidden"
                                 >
-                                  <div className="ml-9 mt-2 mb-1 grid grid-cols-2 gap-1.5">
+                                  <div className="ml-9 mt-2 mb-1 rounded-2xl bg-stone-50/80 p-2 grid grid-cols-2 gap-2">
                                     {link.dropdown.map((item) => {
                                       const subActive =
                                         location.pathname + location.search === item.path;
+                                      const SubIcon = submenuIcons[item.name] || MapPinIcon;
                                       return (
                                         <Link
                                           key={item.path}
                                           to={item.path}
                                           onClick={() => setIsOpen(false)}
                                           className={clsx(
-                                            "flex items-center gap-1.5 px-2 py-2 text-xs whitespace-nowrap rounded-lg transition-all duration-200",
+                                            "flex items-center gap-1.5 px-1.5 py-1.5 text-[11px] whitespace-nowrap rounded-xl border transition-all duration-200",
                                             subActive
-                                              ? "bg-[#E8F8F0] text-[#006B46] font-semibold"
-                                              : "text-stone-600 hover:text-[#006B46] hover:bg-[#E8F8F0]/60"
+                                              ? "bg-[#E8F8F0] border-[#BFE9D6] text-[#006B46] font-semibold"
+                                              : "bg-white border-stone-100 text-stone-700 hover:border-emerald-200 hover:bg-[#E8F8F0]/50 hover:text-[#006B46]"
                                           )}
                                         >
-                                          {item.name}
+                                          <span className={clsx(
+                                            "w-5 h-5 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-200",
+                                            subActive ? "bg-[#008F5A] text-white" : "bg-[#E8F8F0] text-[#008F5A]"
+                                          )}>
+                                            <SubIcon className="w-3 h-3" />
+                                          </span>
+                                          <span className="truncate">{item.name}</span>
                                         </Link>
                                       );
                                     })}
