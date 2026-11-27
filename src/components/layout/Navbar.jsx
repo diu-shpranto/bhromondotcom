@@ -12,7 +12,25 @@ import {
   BuildingOfficeIcon,
   NewspaperIcon
 } from '@heroicons/react/24/outline';
+import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import clsx from 'clsx';
+
+// Designed brand mark — gradient tile, glossy top light, white ring,
+// and a small plane badge. Used in the navbar and the mobile drawer.
+const LogoMark = ({ className }) => (
+  <div
+    className={clsx(
+      "relative shrink-0 flex items-center justify-center bg-gradient-to-br from-[#00C078] via-[#008F5A] to-[#006B46] shadow-lg shadow-emerald-900/30 ring-1 ring-white/40",
+      className
+    )}
+  >
+    <span className="absolute inset-0 rounded-[inherit] bg-gradient-to-b from-white/25 via-transparent to-black/10" />
+    <span className="relative text-white font-bold text-lg leading-none">ভ্র</span>
+    <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-md ring-1 ring-emerald-100">
+      <PaperAirplaneIcon className="w-3 h-3 text-[#008F5A]" />
+    </span>
+  </div>
+);
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -136,16 +154,9 @@ const Navbar = () => {
               <motion.div
                 whileHover={{ rotate: 360, scale: 1.1 }}
                 transition={{ duration: 0.5 }}
-                className={clsx(
-                  "w-10 h-10 rounded-lg flex items-center justify-center shadow-lg transition-all duration-300",
-                  scrolled || !isHome
-                    ? "bg-gradient-to-r from-emerald-600 to-emerald-800"
-                    : "bg-white/20 backdrop-blur-md border border-white/30"
-                )}
+                className="shrink-0"
               >
-                <span className="text-white font-bold text-lg group-hover:scale-110 transition-transform">
-                  ভ্র
-                </span>
+                <LogoMark className="w-10 h-10 rounded-xl" />
               </motion.div>
               <span
                 className={clsx(
@@ -284,9 +295,7 @@ const Navbar = () => {
                 <div className="absolute -left-8 -bottom-12 w-24 h-24 rounded-full bg-[#006B46]/50" />
                 <div className="relative flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-900/20">
-                      <span className="text-white font-bold text-lg">ভ্র</span>
-                    </div>
+                    <LogoMark className="w-11 h-11 rounded-2xl" />
                     <div>
                       <h2 className="text-lg font-bold leading-tight">ভ্রমণ.কম</h2>
                       <p className="text-xs text-[#D1F2E3]">আপনার ভ্রমণ সঙ্গী</p>
