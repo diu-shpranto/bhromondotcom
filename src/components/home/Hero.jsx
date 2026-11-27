@@ -101,19 +101,11 @@ const Hero = () => {
             {/* Heading */}
             <motion.h1
               variants={itemVariants}
-              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4"
+              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 md:mb-8"
             >
               এবার কোথায়
               <span className="block text-amber-300">যাবেন?</span>
             </motion.h1>
-
-            <motion.p
-              variants={itemVariants}
-              className="text-stone-200 text-base md:text-lg mb-8 max-w-xl"
-            >
-              আসল দাম, আসল তারিখ, যাচাই করা কোম্পানি — সিদ্ধান্ত নিন ৫
-              মিনিটে।
-            </motion.p>
 
             {/* Trip Finder */}
             <motion.div

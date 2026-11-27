@@ -1,9 +1,14 @@
 import { useSearchParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { HeartIcon } from "@heroicons/react/24/solid";
 import packagesData from "../data/packagesData";
 import destinationsData from "../data/destinationsData";
 import { isInSeason, monthLabel } from "../utils/season";
+import { useSaved } from "../utils/saved";
+import SavedHeart from "../components/packages/SavedHeart";
+import CompareTray from "../components/packages/CompareTray";
+import CompareDialog from "../components/packages/CompareDialog";
 
 const categoriesList = [
   "All",
@@ -52,6 +57,28 @@ const PackagesPage = () => {
   const [priceRange, setPriceRange] = useState(validPrice);
   const [sort, setSort] = useState("default");
   const [scrolled, setScrolled] = useState(false);
+
+  // "পরে দেখব" (localStorage) + তুলনা (সর্বোচ্চ ৩টি)
+  const { savedIds, savedCount } = useSaved();
+  const [savedOnly, setSavedOnly] = useState(false);
+  const [compareIds, setCompareIds] = useState([]);
+  const [compareOpen, setCompareOpen] = useState(false);
+  const [compareNotice, setCompareNotice] = useState("");
+
+  const toggleCompare = (id) => {
+    setCompareNotice("");
+    if (compareIds.includes(id)) {
+      setCompareIds(compareIds.filter((x) => x !== id));
+    } else if (compareIds.length >= 3) {
+      setCompareNotice("সর্বোচ্চ ৩টি প্যাকেজ একসঙ্গে তুলনা করা যায়");
+    } else {
+      setCompareIds([...compareIds, id]);
+    }
+  };
+
+  const comparePackages = compareIds
+    .map((id) => packagesData.find((p) => p.id === id))
+    .filter(Boolean);
 
   useEffect(() => {
     setCategory(categoryFromNav || "All");
@@ -111,7 +138,9 @@ const PackagesPage = () => {
       .toLowerCase()
       .includes(search.toLowerCase());
 
-    return matchCategory && matchDestination && matchMonth && matchPrice && matchSearch;
+    const matchSaved = !savedOnly || savedIds.includes(pkg.id);
+
+    return matchCategory && matchDestination && matchMonth && matchPrice && matchSearch && matchSaved;
   });
 
   if (sort === "low") {
@@ -260,11 +289,53 @@ const PackagesPage = () => {
       })}
     </div>
 
+    {/* Saved only — "পরে দেখব" তালিকা */}
+    <div className="flex flex-wrap gap-2.5">
+      <button
+        onClick={() => setSavedOnly(!savedOnly)}
+        aria-pressed={savedOnly}
+        className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors duration-200 ${
+          savedOnly
+            ? "bg-rose-600 text-white shadow-sm"
+            : "bg-rose-50 text-rose-700 hover:bg-rose-100"
+        }`}
+      >
+        <HeartIcon className="w-4 h-4" />
+        পরে দেখব
+        <span
+          className={`min-w-5 h-5 px-1 flex items-center justify-center rounded-full text-xs font-bold ${
+            savedOnly ? "bg-white text-rose-600" : "bg-rose-600 text-white"
+          }`}
+        >
+          {savedCount}
+        </span>
+      </button>
+      {savedOnly && savedCount > 0 && (
+        <span className="self-center text-xs text-stone-500">
+          সেভ করা {savedCount}টি প্যাকেজ দেখানো হচ্ছে
+        </span>
+      )}
+    </div>
+
   </div>
 </div>
 
+      {/* Empty state — saved view */}
+      {savedOnly && savedCount === 0 && (
+        <div className="text-center py-16 bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm">
+          <p className="text-lg font-semibold text-stone-800 mb-1">এখনো কিছু সেভ করেননি</p>
+          <p className="text-stone-500 text-sm mb-5">প্যাকেজ কার্ডের হার্ট চাপলে সেটা এখানে জমা হবে</p>
+          <button
+            onClick={() => setSavedOnly(false)}
+            className="px-5 py-2.5 rounded-xl bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-700 transition"
+          >
+            সব প্যাকেজ দেখুন
+          </button>
+        </div>
+      )}
+
       {/* Empty state */}
-      {filteredPackages.length === 0 && (
+      {filteredPackages.length === 0 && !(savedOnly && savedCount === 0) && (
         <div className="text-center py-16 bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm">
           <p className="text-lg font-semibold text-stone-800 mb-1">কোনো প্যাকেজ পাওয়া যায়নি</p>
           <p className="text-stone-500 text-sm">খোঁজ বা ফিল্টার বদলে আবার চেষ্টা করুন</p>
@@ -274,54 +345,98 @@ const PackagesPage = () => {
       {/* PREMIUM CARD GRID */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        {filteredPackages.map((pkg) => (
+        {filteredPackages.map((pkg) => {
+          const inCompare = compareIds.includes(pkg.id);
+          return (
           <motion.div
-  key={pkg.id}
-  whileHover={{ y: -8 }}
-  transition={{ duration: 0.3 }}
-  className="group"
->
-  <Link
-    to={`/package/${pkg.id}`}
-    className="block bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl transition overflow-hidden"
-  >
-    <div className="relative overflow-hidden">
+            key={pkg.id}
+            whileHover={{ y: -8 }}
+            transition={{ duration: 0.3 }}
+            className="group"
+          >
+            <div className="block bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl transition overflow-hidden">
+              <div className="relative overflow-hidden">
+                <Link to={`/package/${pkg.id}`} className="block">
+                  {/* Image */}
+                  {pkg.image ? (
+                    <img
+                      src={pkg.image}
+                      alt={pkg.title}
+                      className="w-full h-64 object-cover transition duration-700 group-hover:scale-105"
+                      loading="lazy" decoding="async" />
+                  ) : (
+                    <div className="w-full h-64 bg-gradient-to-r from-emerald-500 to-emerald-600" />
+                  )}
 
-      {/* Image */}
-      {pkg.image ? (
-        <img
-          src={pkg.image}
-          alt={pkg.title}
-          className="w-full h-64 object-cover transition duration-700 group-hover:scale-105"
-         loading="lazy" decoding="async" />
-      ) : (
-        <div className="w-full h-64 bg-gradient-to-r from-emerald-500 to-emerald-600" />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
+
+                  {/* Title Over Image */}
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <h3 className="text-xl font-bold drop-shadow">
+                      {pkg.title}
+                    </h3>
+                    <p className="text-sm opacity-90">
+                      ⏳ {pkg.duration}
+                    </p>
+                  </div>
+
+                  {/* Price Badge */}
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-4 py-1 rounded-full text-sm font-bold text-emerald-700 shadow">
+                    ৳{pkg.pricing?.perPerson}
+                  </div>
+                </Link>
+
+                {/* Save for later */}
+                <SavedHeart pkgId={pkg.id} className="absolute top-3 left-3" />
+              </div>
+
+              {/* Card actions */}
+              <div className="flex items-center justify-between gap-2 px-4 py-3">
+                <button
+                  onClick={() => toggleCompare(pkg.id)}
+                  aria-pressed={inCompare}
+                  className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-semibold transition ${
+                    inCompare
+                      ? "bg-emerald-600 text-white"
+                      : "bg-stone-100 text-stone-700 hover:bg-emerald-50 hover:text-emerald-700"
+                  }`}
+                >
+                  {inCompare ? "✓ তুলনায় আছে" : "⚖ তুলনা করুন"}
+                </button>
+                <Link
+                  to={`/package/${pkg.id}`}
+                  className="px-3 py-2 text-sm font-semibold text-emerald-700 hover:text-emerald-800"
+                >
+                  বিস্তারিত →
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+          );
+        })}
+
+      </div>
+
+      {/* Compare tray + dialog */}
+      <CompareTray
+        selected={comparePackages}
+        onOpen={() => setCompareOpen(true)}
+        onRemove={(id) => setCompareIds(compareIds.filter((x) => x !== id))}
+        onClear={() => { setCompareIds([]); setCompareNotice(""); }}
+        notice={compareNotice}
+      />
+      {compareOpen && comparePackages.length >= 2 && (
+        <CompareDialog
+          packages={comparePackages}
+          onClose={() => setCompareOpen(false)}
+          onRemove={(id) => {
+            const next = compareIds.filter((x) => x !== id);
+            setCompareIds(next);
+            if (next.length < 2) setCompareOpen(false);
+          }}
+        />
       )}
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-
-      {/* Title Over Image */}
-      <div className="absolute bottom-4 left-4 text-white">
-        <h3 className="text-xl font-bold drop-shadow">
-          {pkg.title}
-        </h3>
-        <p className="text-sm opacity-90">
-          ⏳ {pkg.duration}
-        </p>
-      </div>
-
-      {/* Price Badge */}
-      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-4 py-1 rounded-full text-sm font-bold text-emerald-700 shadow">
-        ৳{pkg.pricing?.perPerson}
-      </div>
-
-    </div>
-  </Link>
-</motion.div>
-        ))}
-
-      </div>
     </div>
     </div>
   );

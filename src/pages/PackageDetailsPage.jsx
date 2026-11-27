@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import packagesData from "../data/packagesData";
 import companiesData from "../data/companiesData";
 import { motion } from "framer-motion";
+import { useSaved } from "../utils/saved";
 
 const PackageDetailPage = () => {
   const { id } = useParams();
@@ -22,8 +23,12 @@ const PackageDetailPage = () => {
     (c) => c.id === pkg.companyId
   );
 
+  const { isSaved, toggle } = useSaved();
+  const saved = isSaved(pkg.id);
+  const companyPhone = company?.contact?.phone || company?.phone;
+
   return (
-    <div className="bg-stone-50 min-h-screen pb-32">
+    <div className="bg-sand min-h-screen pb-32">
 
       {/* ================= HERO ================= */}
       <div
@@ -34,7 +39,7 @@ const PackageDetailPage = () => {
 
         <div className="relative z-10 h-full flex items-center max-w-7xl mx-auto px-6">
           <div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+            <h1 className="font-display text-4xl md:text-6xl font-bold text-white mb-4">
               {pkg.title}
             </h1>
 
@@ -188,6 +193,19 @@ const PackageDetailPage = () => {
               )}
             </div>
 
+            {/* Save for later */}
+            <button
+              onClick={() => toggle(pkg.id)}
+              aria-pressed={saved}
+              className={`w-full py-2.5 rounded-xl text-sm font-semibold border transition ${
+                saved
+                  ? "bg-rose-50 border-rose-200 text-rose-600"
+                  : "border-stone-200 text-stone-700 hover:border-rose-300 hover:text-rose-600"
+              }`}
+            >
+              {saved ? "♥ পরে দেখব-এ রাখা আছে" : "♡ পরে দেখব-এ রাখুন"}
+            </button>
+
             {/* COMPANY BOOKING */}
             {company && (
               <div className="border-t pt-6">
@@ -203,29 +221,40 @@ const PackageDetailPage = () => {
                   {company.name}
                 </Link>
 
-                <div className="flex gap-3 mt-4">
+                <div className="flex flex-col gap-3 mt-4">
 
                   {company.contact?.whatsapp && (
                     <a
                       href={company.contact.whatsapp}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex-1 text-center bg-emerald-600 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-emerald-700 transition"
+                      className="w-full text-center bg-emerald-600 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-emerald-700 transition"
                     >
-                      WhatsApp
+                      WhatsApp-এ বুক করুন
                     </a>
                   )}
 
-                  {company.contact?.messenger && (
-                    <a
-                      href={company.contact.messenger}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex-1 text-center bg-emerald-600 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-emerald-700 transition"
-                    >
-                      Messenger
-                    </a>
-                  )}
+                  <div className="flex gap-3">
+                    {companyPhone && (
+                      <a
+                        href={`tel:${companyPhone}`}
+                        className="flex-1 text-center border border-emerald-600 text-emerald-700 py-2.5 rounded-xl text-sm font-semibold hover:bg-emerald-50 transition"
+                      >
+                        📞 কল করুন
+                      </a>
+                    )}
+
+                    {company.contact?.messenger && (
+                      <a
+                        href={company.contact.messenger}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex-1 text-center border border-emerald-600 text-emerald-700 py-2.5 rounded-xl text-sm font-semibold hover:bg-emerald-50 transition"
+                      >
+                        Messenger
+                      </a>
+                    )}
+                  </div>
 
                 </div>
 
@@ -236,6 +265,36 @@ const PackageDetailPage = () => {
 
         </div>
 
+      </div>
+
+      {/* ============ MOBILE STICKY BOOKING BAR ============ */}
+      <div className="fixed bottom-0 inset-x-0 z-50 lg:hidden bg-white/95 backdrop-blur border-t border-stone-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] pb-[env(safe-area-inset-bottom)]">
+        <div className="flex items-center gap-3 px-4 py-3">
+          <div className="shrink-0">
+            <p className="text-[11px] text-stone-500 leading-none mb-1">জনপ্রতি</p>
+            <p className="text-lg font-bold text-emerald-700 leading-none">
+              ৳{pkg.pricing?.perPerson}
+            </p>
+          </div>
+          {companyPhone && (
+            <a
+              href={`tel:${companyPhone}`}
+              className="flex-1 text-center border border-emerald-600 text-emerald-700 py-2.5 rounded-xl text-sm font-semibold hover:bg-emerald-50 transition"
+            >
+              📞 কল করুন
+            </a>
+          )}
+          {company?.contact?.whatsapp && (
+            <a
+              href={company.contact.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              className="flex-1 text-center bg-emerald-600 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-emerald-700 transition"
+            >
+              WhatsApp
+            </a>
+          )}
+        </div>
       </div>
 
     </div>

@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import packagesData from "../data/packagesData";
 import companiesData from "../data/companiesData";
 import { motion } from "framer-motion";
+import SavedHeart from "../components/packages/SavedHeart";
 
 const CompanyProfilePage = () => {
   const { id } = useParams();
@@ -24,7 +25,7 @@ const CompanyProfilePage = () => {
   );
 
   return (
-    <div className="bg-stone-50 min-h-screen pb-32">
+    <div className="bg-sand min-h-screen pb-32">
 
       {/* ================= HEADER ================= */}
       <div className="max-w-7xl mx-auto px-6 pt-16">
@@ -45,12 +46,18 @@ const CompanyProfilePage = () => {
 
           {/* Info */}
           <div className="flex-1 text-center md:text-left">
-            <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-2">
+            <h1 className="font-display text-3xl md:text-4xl font-bold text-stone-900 mb-2">
               {company.name}
               {company.verified && (
                 <span className="text-emerald-600 text-2xl ml-2 align-middle">✔</span>
               )}
             </h1>
+
+            {company.verified && (
+              <span className="inline-block bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full mb-3">
+                ✔ যাচাইকৃত কোম্পানি
+              </span>
+            )}
 
             <p className="text-stone-600 mb-2">
               📍 {company.location}
@@ -97,11 +104,49 @@ const CompanyProfilePage = () => {
         </div>
       </div>
 
+      {/* ================= TRUST STRIP ================= */}
+      <div className="max-w-7xl mx-auto px-6 pt-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm px-4 py-4 text-center">
+            <p className="text-2xl font-bold text-emerald-700">{companyPackages.length}</p>
+            <p className="text-xs text-stone-500 mt-1">টি প্যাকেজ</p>
+          </div>
+          <div className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm px-4 py-4 text-center">
+            <p className="text-2xl font-bold text-emerald-700">{company.destinations?.length ?? 0}</p>
+            <p className="text-xs text-stone-500 mt-1">টি গন্তব্য</p>
+          </div>
+          {company.verified ? (
+            <div className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm px-4 py-4 text-center">
+              <p className="text-2xl font-bold text-emerald-700">✔</p>
+              <p className="text-xs text-stone-500 mt-1">যাচাইকৃত কোম্পানি</p>
+            </div>
+          ) : (
+            <div className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm px-4 py-4 text-center">
+              <p className="text-2xl font-bold text-emerald-700">📘</p>
+              <p className="text-xs text-stone-500 mt-1">Facebook পেজ আছে</p>
+            </div>
+          )}
+          {(company.contact?.website || company.website) ? (
+            <div className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm px-4 py-4 text-center">
+              <p className="text-2xl font-bold text-emerald-700">🌐</p>
+              <p className="text-xs text-stone-500 mt-1 truncate">
+                {(company.contact?.website || company.website).replace(/^https?:\/\//, "")}
+              </p>
+            </div>
+          ) : (
+            <div className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm px-4 py-4 text-center">
+              <p className="text-2xl font-bold text-emerald-700">📞</p>
+              <p className="text-xs text-stone-500 mt-1">ফোনে বুকিং</p>
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* ================= CONTACT ================= */}
       {(company.contact?.phone || company.phone || company.contact?.email || company.email || company.contact?.website || company.website || company.contact?.facebookPage || company.facebook) && (
         <div className="max-w-7xl mx-auto px-6 pt-10">
           <div className="bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm p-6 md:p-8">
-            <h2 className="text-xl font-bold text-stone-900 mb-5">যোগাযোগ</h2>
+            <h2 className="font-display text-xl font-bold text-stone-900 mb-5">যোগাযোগ</h2>
             <div className="grid sm:grid-cols-2 gap-5 text-stone-600">
               {(company.contact?.phone || company.phone) && (
                 <div>
@@ -148,7 +193,7 @@ const CompanyProfilePage = () => {
       {/* ================= PACKAGE SECTION ================= */}
       <div className="max-w-7xl mx-auto px-6 pt-20">
 
-        <h2 className="text-3xl font-bold text-stone-900 mb-4 text-center">
+        <h2 className="font-display text-3xl font-bold text-stone-900 mb-4 text-center">
           এই কোম্পানির সকল প্যাকেজ
         </h2>
         <div className="mx-auto mb-10 h-1 w-16 rounded-full bg-emerald-600" />
@@ -164,8 +209,9 @@ const CompanyProfilePage = () => {
               <motion.div
                 key={pkg.id}
                 whileHover={{ y: -5 }}
-                className="group bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition"
+                className="group relative bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition"
               >
+                <SavedHeart pkgId={pkg.id} className="absolute top-3 left-3 z-10" />
                 <Link to={`/package/${pkg.id}`}>
 
                   {/* Image */}

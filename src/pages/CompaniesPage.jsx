@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import companiesData from "../data/companiesData";
 import packagesData from "../data/packagesData";
+import destinationsData from "../data/destinationsData";
 
 const CompaniesPage = () => {
   const [search, setSearch] = useState("");
@@ -27,13 +28,13 @@ const CompaniesPage = () => {
   });
 
   return (
-    <div className="bg-stone-50">
+    <div className="bg-sand">
     <div className="max-w-7xl mx-auto px-6 py-16">
 
       {/* HEADER */}
       <div className="flex flex-col md:flex-row justify-between gap-4 mb-12">
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-stone-900">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-stone-900">
             ট্যুর কোম্পানি সমূহ
           </h2>
           <div className="h-1 w-16 rounded-full bg-emerald-600 mt-4 mb-4" />
@@ -71,7 +72,7 @@ const CompaniesPage = () => {
           >
 
             {/* BOLD COLOR HEADER */}
-            <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 flex justify-center py-10">
+            <div className="bg-forest flex justify-center py-10">
               {company.logo ? (
                 <img
                   src={company.logo}
@@ -96,7 +97,13 @@ const CompaniesPage = () => {
                 )}
               </h3>
 
-              <p className="text-stone-600 text-sm mt-1">
+              {company.verified && (
+                <span className="inline-block mt-2 bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+                  ✔ যাচাইকৃত কোম্পানি
+                </span>
+              )}
+
+              <p className="text-stone-600 text-sm mt-3">
                 📍 {company.location}
               </p>
 
@@ -111,6 +118,28 @@ const CompaniesPage = () => {
                   📦 {getPackageCount(company.id)} প্যাকেজ
                 </span>
               </div>
+
+              {/* Destinations */}
+              {company.destinations?.length > 0 && (
+                <div className="flex flex-wrap gap-1.5 mt-4">
+                  {company.destinations.slice(0, 4).map((slug) => {
+                    const dest = destinationsData.find((d) => d.slug === slug);
+                    return dest ? (
+                      <span
+                        key={slug}
+                        className="bg-stone-100 text-stone-600 text-xs px-2.5 py-1 rounded-full"
+                      >
+                        {dest.name}
+                      </span>
+                    ) : null;
+                  })}
+                  {company.destinations.length > 4 && (
+                    <span className="bg-stone-100 text-stone-600 text-xs px-2.5 py-1 rounded-full">
+                      +{company.destinations.length - 4} আরও
+                    </span>
+                  )}
+                </div>
+              )}
 
               <p className="text-stone-600 text-sm mt-4 leading-relaxed line-clamp-3">
                 {company.description}
