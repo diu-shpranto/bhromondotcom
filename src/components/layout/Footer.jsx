@@ -189,8 +189,14 @@ const Footer = () => {
             © 2026 ভ্রমণ.কম — সর্বস্ব সংরক্ষিত
           </p>
           <div className="flex items-center gap-4">
-            {/* Mother-brand lockup */}
-            <div className="flex items-center gap-2.5">
+            {/* Mother-brand lockup — links to the XolveKart site */}
+            <a
+              href="https://xolvekart.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="XolveKart — মাদার ব্র্যান্ডের ওয়েবসাইট (নতুন ট্যাবে খুলবে)"
+              className="flex items-center gap-2.5 rounded-xl transition hover:opacity-85 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+            >
               <span className="w-9 h-9 rounded-xl overflow-hidden ring-1 ring-white/15 shadow-lg shrink-0">
                 <img
                   src="/images/xolvekart-emblem.png"
@@ -206,7 +212,7 @@ const Footer = () => {
                   Ideas to Innovation.
                 </span>
               </span>
-            </div>
+            </a>
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               aria-label="উপরে যান"
