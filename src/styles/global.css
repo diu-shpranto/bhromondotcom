@@ -21,7 +21,10 @@
     color: var(--text-primary);
     background-color: var(--bg-primary);
     line-height: 1.6;
-    overflow-x: hidden;
+    /* overflow-x: clip (not hidden) — hidden forces overflow-y to auto,
+       which turns #root into a scroll container and breaks position: sticky
+       sidebars. clip hides horizontal overflow without breaking sticky. */
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -133,5 +136,5 @@ html, body, #root {
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
