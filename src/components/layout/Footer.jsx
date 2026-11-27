@@ -5,6 +5,19 @@ import {
   ArrowUpIcon,
 } from "@heroicons/react/24/outline";
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube,
+} from "react-icons/fa";
+
+const xolveKartSocials = [
+  { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61596943981974", Icon: FaFacebookF },
+  { name: "Instagram", href: "https://www.instagram.com/xolvekart/", Icon: FaInstagram },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/xolvekart-company-256471452/", Icon: FaLinkedinIn },
+  { name: "YouTube", href: "https://www.youtube.com/@xolvekart", Icon: FaYoutube },
+];
 
 const destinations = [
   { name: "কক্সবাজার", to: "/destination/coxsbazar" },
@@ -98,6 +111,25 @@ const Footer = () => {
                 <EnvelopeIcon className="w-4 h-4 text-emerald-400" />
               </span>
               <span className="text-stone-300">legal@bhramon.com</span>
+            </div>
+
+            {/* XolveKart social accounts */}
+            <p className="text-xs text-stone-500 mt-7 mb-3">
+              মাদার ব্র্যান্ড XolveKart-কে ফলো করুন
+            </p>
+            <div className="flex items-center gap-3">
+              {xolveKartSocials.map(({ name, href, Icon }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`XolveKart ${name}`}
+                  className="w-10 h-10 rounded-full bg-white/5 ring-1 ring-white/10 flex items-center justify-center text-stone-300 hover:bg-[#008F5A] hover:text-white hover:ring-[#008F5A] transition-colors duration-200"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
 
