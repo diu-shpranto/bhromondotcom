@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  EllipsisVerticalIcon,
+  Bars3Icon,
   XMarkIcon,
   ChevronDownIcon,
   HomeIcon,
@@ -255,7 +255,7 @@ const Navbar = () => {
                   scrolled || !isHome ? "text-stone-700" : "text-white"
                 )} />
               ) : (
-                <EllipsisVerticalIcon className={clsx(
+                <Bars3Icon className={clsx(
                   "w-6 h-6",
                   scrolled || !isHome ? "text-stone-700" : "text-white"
                 )} />
