@@ -1,7 +1,8 @@
 import { useSearchParams, Link } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HeartIcon } from "@heroicons/react/24/solid";
+import { ScaleIcon, CheckIcon } from "@heroicons/react/24/outline";
 import packagesData from "../data/packagesData";
 import destinationsData from "../data/destinationsData";
 import { isInSeason, monthLabel } from "../utils/season";
@@ -107,18 +108,7 @@ const PackagesPage = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // On mobile the chip rows scroll horizontally — keep the active chip in view
-  const categoryRowRef = useRef(null);
-  const priceRowRef = useRef(null);
-  const centerActiveChip = (row) => {
-    if (!row) return;
-    const active = row.querySelector('[data-active="true"]');
-    if (active) {
-      row.scrollTo({ left: active.offsetLeft - (row.clientWidth - active.clientWidth) / 2, behavior: "smooth" });
-    }
-  };
-  useEffect(() => { centerActiveChip(categoryRowRef.current); }, [category]);
-  useEffect(() => { centerActiveChip(priceRowRef.current); }, [priceRange]);
+  // Chip rows wrap on all widths — every chip visible at a glance, none cut off
 
   let filteredPackages = packagesData.filter((pkg) => {
     const matchCategory =
@@ -247,7 +237,7 @@ const PackagesPage = () => {
     </div>
 
     {/* Category Pills */}
-    <div ref={categoryRowRef} className="flex flex-nowrap gap-2.5 overflow-x-auto scrollbar-hide pb-0.5 md:flex-wrap md:overflow-visible md:pb-0">
+    <div className="flex flex-wrap gap-2.5">
 
       {categoriesList.map((cat) => {
         const isActive = category === cat.value;
@@ -255,7 +245,6 @@ const PackagesPage = () => {
         return (
           <motion.button
             key={cat.value}
-            data-active={isActive || undefined}
             onClick={() => setCategory(cat.value)}
             whileTap={{ scale: 0.95 }}
             className="relative px-3.5 py-1.5 rounded-full text-[12.5px] leading-5 font-medium whitespace-nowrap flex-shrink-0 bg-stone-100"
@@ -285,13 +274,12 @@ const PackagesPage = () => {
     </div>
 
     {/* Price Range Chips */}
-    <div ref={priceRowRef} className="flex flex-nowrap gap-2.5 overflow-x-auto scrollbar-hide pb-0.5 md:flex-wrap md:overflow-visible md:pb-0">
+    <div className="flex flex-wrap gap-2.5">
       {priceRanges.map((range) => {
         const isActive = priceRange === range.id;
         return (
           <button
             key={range.id}
-            data-active={isActive || undefined}
             onClick={() => setPriceRange(range.id)}
             className={`px-3 py-1.5 rounded-full text-[12.5px] leading-5 font-medium whitespace-nowrap flex-shrink-0 transition-colors duration-200 ${
               isActive
@@ -418,7 +406,15 @@ const PackagesPage = () => {
                       : "bg-stone-100 text-stone-700 hover:bg-emerald-50 hover:text-emerald-700"
                   }`}
                 >
-                  {inCompare ? "✓ তুলনায় আছে" : "⚖ তুলনা করুন"}
+                  {inCompare ? (
+                    <>
+                      <CheckIcon className="w-4 h-4" /> তুলনায় আছে
+                    </>
+                  ) : (
+                    <>
+                      <ScaleIcon className="w-4 h-4" /> তুলনা করুন
+                    </>
+                  )}
                 </button>
                 <Link
                   to={`/package/${pkg.id}`}
