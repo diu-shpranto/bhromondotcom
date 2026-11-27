@@ -196,7 +196,7 @@ const Footer = () => {
                   src="/images/xolvekart-emblem.png"
                   alt="XolveKart"
                   className="w-full h-full object-cover"
-                />
+                 loading="lazy" decoding="async" />
               </span>
               <span className="text-left leading-tight">
                 <span className="block text-sm font-semibold text-white">

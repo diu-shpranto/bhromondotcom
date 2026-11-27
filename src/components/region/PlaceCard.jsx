@@ -7,7 +7,7 @@ const PlaceCard = ({ place }) => {
           src={place.image}
           alt={place.name}
           className="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
-        />
+         loading="lazy" decoding="async" />
       </div>
 
       <div className="p-6 space-y-4">

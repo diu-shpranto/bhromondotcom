@@ -10,7 +10,7 @@ const DestinationGallery = ({ images }) => {
             src={img}
             alt="gallery"
             className="w-full h-full object-cover rounded-2xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl hover:scale-105 transition"
-          />
+           loading="lazy" decoding="async" />
         ))}
       </div>
     </div>

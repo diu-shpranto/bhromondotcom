@@ -66,9 +66,9 @@ const ExploreByStyle = () => {
             return (
               <motion.div
                 key={style.name}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: Math.min(index, 3) * 0.06 }}
                 viewport={{ once: true }}
               >
                 <Link
@@ -79,7 +79,7 @@ const ExploreByStyle = () => {
                     src={style.image}
                     alt={style.label}
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700"
-                  />
+                   loading="lazy" decoding="async" />
 
                   <div className="absolute inset-0 bg-black/50 backdrop-blur-sm group-hover:bg-black/60 transition" />
 

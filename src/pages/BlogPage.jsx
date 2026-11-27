@@ -126,7 +126,7 @@ const BlogPage = () => {
                           src={blog.coverImage}
                           className="w-20 h-16 object-cover rounded-2xl group-hover:scale-105 transition"
                           alt=""
-                        />
+                         loading="lazy" decoding="async" />
                         <span className="absolute -top-2 -left-2 w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center shadow">
                           {(i + 1).toLocaleString("bn-BD")}
                         </span>
@@ -190,7 +190,7 @@ const BlogPage = () => {
                       src={blog.coverImage}
                       alt={blog.title}
                       className="h-52 w-full object-cover group-hover:scale-110 transition duration-700"
-                    />
+                     loading="lazy" decoding="async" />
                   </div>
 
                   <div className="p-6">

@@ -36,7 +36,7 @@ const PlaceAccordion = ({ place }) => {
             src={place.image}
             alt={place.name}
             className="w-full h-60 object-cover rounded-2xl"
-          />
+           loading="lazy" decoding="async" />
 
           <p className="text-stone-600">
             {place.description}

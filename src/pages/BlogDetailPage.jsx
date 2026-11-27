@@ -156,7 +156,7 @@ const BlogDetailPage = () => {
                     <img
                       src={pkg.image}
                       className="h-40 w-full object-cover"
-                    />
+                     loading="lazy" decoding="async" />
                     <div className="p-4">
                       <h3 className="font-semibold">
                         {pkg.title}
@@ -246,7 +246,7 @@ const BlogDetailPage = () => {
                       src={b.coverImage}
                       className="w-20 h-16 object-cover rounded-2xl shrink-0 group-hover:scale-105 transition"
                       alt=""
-                    />
+                     loading="lazy" decoding="async" />
                     <div className="min-w-0">
                       <p className="text-xs font-semibold text-emerald-700">
                         {b.category}

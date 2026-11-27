@@ -28,7 +28,7 @@ const Newsletter = () => {
           src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
           alt="Newsletter Background"
           className="w-full h-full object-cover"
-        />
+         loading="lazy" decoding="async" />
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/95 to-emerald-900/90" />
       </div>
 

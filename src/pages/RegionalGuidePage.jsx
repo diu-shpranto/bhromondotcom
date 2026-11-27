@@ -1229,7 +1229,7 @@ const RegionalGuidePage = () => {
                   src={guideData.image} 
                   alt={guideData.bnName}
                   className="w-full h-full object-cover"
-                />
+                 loading="lazy" decoding="async" />
               </div>
               <div className="absolute -bottom-2 -right-2 bg-emerald-500 w-6 h-6 rounded-full border-4 border-white"></div>
             </div>
@@ -1337,7 +1337,7 @@ const RegionalGuidePage = () => {
                     key={index}
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: Math.min(index, 3) * 0.06 }}
                     whileHover={{ y: -5 }}
                     className="group bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm overflow-hidden hover:shadow-xl transition-all duration-300"
                   >
@@ -1347,7 +1347,7 @@ const RegionalGuidePage = () => {
                           src={place.image} 
                           alt={place.name}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
+                         loading="lazy" decoding="async" />
                         <div className="absolute top-4 left-4">
                           <Badge variant="primary" size="sm" className="bg-white/90 text-emerald-600">
                             {place.type}

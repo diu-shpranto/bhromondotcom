@@ -69,9 +69,9 @@ const Destinations = () => {
 
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -92,9 +92,9 @@ const Destinations = () => {
               to={`/destination/${destination.slug}`}
             >
               <motion.div
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: Math.min(index, 3) * 0.06 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
                 className="group rounded-3xl overflow-hidden ring-1 ring-stone-100 shadow-sm hover:shadow-xl transition duration-500 bg-white"
@@ -105,7 +105,7 @@ const Destinations = () => {
                     src={destination.image}
                     alt={destination.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
-                  />
+                   loading="lazy" decoding="async" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 </div>
 

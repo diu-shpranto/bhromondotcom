@@ -36,7 +36,7 @@ const CompanyProfilePage = () => {
               src={company.logo}
               alt={company.name}
               className="w-28 h-28 rounded-full object-cover shadow-md"
-            />
+             loading="lazy" decoding="async" />
           ) : (
             <div className="w-28 h-28 flex items-center justify-center bg-emerald-600 text-white text-5xl font-bold rounded-full shadow-md">
               {company.name.charAt(0)}
@@ -123,7 +123,7 @@ const CompanyProfilePage = () => {
                       src={pkg.image}
                       alt={pkg.title}
                       className="h-56 w-full object-cover group-hover:scale-105 transition duration-300"
-                    />
+                     loading="lazy" decoding="async" />
                   ) : (
                     <div className="h-56 w-full bg-gradient-to-r from-emerald-500 to-emerald-600" />
                   )}

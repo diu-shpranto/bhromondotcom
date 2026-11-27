@@ -24,7 +24,7 @@ const PackageCard = ({ pkg }) => {
             e.target.src =
               "https://via.placeholder.com/900x600?text=Travel+Image";
           }}
-        />
+         loading="lazy" decoding="async" />
 
         {/* Discount Badge */}
         {pkg.discount && (

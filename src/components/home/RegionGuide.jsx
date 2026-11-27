@@ -60,9 +60,9 @@ const RegionGuide = () => {
           {regions.map((region, index) => (
             <motion.div
               key={region.slug}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: Math.min(index, 3) * 0.06 }}
               viewport={{ once: true }}
             >
               <Link

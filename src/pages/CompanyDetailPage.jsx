@@ -32,7 +32,7 @@ const CompanyDetailPage = () => {
             src={company.coverImage}
             alt={company.name}
             className="w-full h-64 object-cover"
-          />
+           loading="lazy" decoding="async" />
         ) : (
           <div className="w-full h-64 bg-gradient-to-r from-emerald-500 to-emerald-600" />
         )}
@@ -48,7 +48,7 @@ const CompanyDetailPage = () => {
               src={company.logo}
               alt={company.name}
               className="w-24 h-24 object-contain bg-white rounded-full ring-1 ring-stone-100 shadow-sm"
-            />
+             loading="lazy" decoding="async" />
           ) : (
             <div className="w-24 h-24 flex items-center justify-center bg-emerald-600 text-white text-4xl font-bold rounded-full ring-1 ring-stone-100 shadow-sm">
               {company.name.charAt(0)}
@@ -116,7 +116,7 @@ const CompanyDetailPage = () => {
                   src={pkg.image}
                   alt={pkg.title}
                   className="w-full h-48 object-cover group-hover:scale-105 transition"
-                />
+                 loading="lazy" decoding="async" />
               ) : (
                 <div className="w-full h-48 bg-gradient-to-r from-emerald-500 to-emerald-600" />
               )}

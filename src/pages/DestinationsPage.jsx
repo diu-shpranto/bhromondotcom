@@ -21,7 +21,7 @@ const DestinationsPage = () => {
               src={destination.gallery?.[0]}
               alt={destination.name}
               className="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
-            />
+             loading="lazy" decoding="async" />
             <div className="p-5">
               <h3 className="font-semibold text-lg text-stone-900">
                 {destination.name}

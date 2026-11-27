@@ -37,7 +37,7 @@ const StyleDetailsPage = () => {
               src={pkg.image}
               alt={pkg.title}
               className="h-40 w-full object-cover rounded-xl mb-4 group-hover:scale-105 transition"
-            />
+             loading="lazy" decoding="async" />
             <h3 className="font-semibold text-stone-900 mb-2">
               {pkg.title}
             </h3>

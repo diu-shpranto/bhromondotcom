@@ -426,7 +426,7 @@ const RegionalPackagesPage = () => {
                 src={divisionData.image} 
                 alt={divisionData.bnName}
                 className="w-full h-full object-cover"
-              />
+               loading="lazy" decoding="async" />
             </div>
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
@@ -498,7 +498,7 @@ const RegionalPackagesPage = () => {
                     key={pkg.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: Math.min(index, 3) * 0.06 }}
                     whileHover={{ y: -10 }}
                     className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm overflow-hidden group hover:shadow-xl transition-all duration-300"
                   >
@@ -508,7 +508,7 @@ const RegionalPackagesPage = () => {
                         src={pkg.image}
                         alt={pkg.name}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
+                       loading="lazy" decoding="async" />
                       
                       {/* ডিসকাউন্ট ব্যাজ */}
                       {pkg.discount > 0 && (

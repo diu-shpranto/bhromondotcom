@@ -52,7 +52,7 @@ const LoginButton = ({ scrolled, isHome }) => {
             src={user.avatar}
             alt={user.name}
             className="w-9 h-9 rounded-full border-2 border-white shadow-lg object-cover"
-          />
+           loading="lazy" decoding="async" />
           <span className={clsx(
             "hidden md:inline font-medium",
             scrolled || !isHome ? "text-stone-700" : "text-white"

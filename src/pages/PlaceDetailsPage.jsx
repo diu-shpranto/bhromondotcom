@@ -34,7 +34,7 @@ const PlaceDetailsPage = () => {
     src={place.image}
     alt={place.name}
     className="absolute inset-0 w-full h-full object-cover scale-110 blur-md"
-  />
+   loading="lazy" decoding="async" />
 
   {/* Dark Overlay */}
   <div className="absolute inset-0 bg-black/60" />
@@ -122,7 +122,7 @@ const PlaceDetailsPage = () => {
                     src={pkg.image}
                     alt={pkg.title}
                     className="h-48 w-full object-cover group-hover:scale-105 transition"
-                  />
+                   loading="lazy" decoding="async" />
 
                   <div className="p-5">
                     <h3 className="font-semibold text-stone-900 mb-2">

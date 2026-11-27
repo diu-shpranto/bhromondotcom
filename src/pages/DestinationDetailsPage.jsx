@@ -243,7 +243,7 @@ const DestinationDetailsPage = () => {
                     alt={company.name}
                     onError={handleImgError}
                     className="w-16 h-16 rounded-full object-cover"
-                  />
+                   loading="lazy" decoding="async" />
 
                   <div>
                     <h3 className="font-semibold text-stone-900">

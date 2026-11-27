@@ -106,7 +106,7 @@ const RegionDetailsPage = () => {
                     src={pkg.image}
                     alt={pkg.title}
                     className="h-48 w-full object-cover group-hover:scale-105 transition"
-                  />
+                   loading="lazy" decoding="async" />
                   <div className="p-5">
                     <h3 className="font-semibold text-stone-900">
                       {pkg.title}

@@ -77,7 +77,7 @@ const CompaniesPage = () => {
                   src={company.logo}
                   alt={company.name}
                   className="w-24 h-24 object-cover rounded-full border-4 border-white shadow-xl"
-                />
+                 loading="lazy" decoding="async" />
               ) : (
                 <div className="w-24 h-24 flex items-center justify-center bg-white text-emerald-600 text-4xl font-bold rounded-full border-4 border-white shadow-xl">
                   {company.name.charAt(0)}

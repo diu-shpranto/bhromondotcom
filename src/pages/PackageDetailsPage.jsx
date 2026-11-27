@@ -153,7 +153,7 @@ const PackageDetailPage = () => {
                       src={place.image}
                       alt={place.name}
                       className="h-48 w-full object-cover group-hover:scale-105 transition"
-                    />
+                     loading="lazy" decoding="async" />
 
                     <div className="p-4">
                       <h4 className="font-semibold text-stone-900">
