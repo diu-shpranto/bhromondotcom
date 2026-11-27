@@ -47,6 +47,9 @@ const CompanyProfilePage = () => {
           <div className="flex-1 text-center md:text-left">
             <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-2">
               {company.name}
+              {company.verified && (
+                <span className="text-emerald-600 text-2xl ml-2 align-middle">✔</span>
+              )}
             </h1>
 
             <p className="text-stone-600 mb-2">
@@ -93,6 +96,54 @@ const CompanyProfilePage = () => {
 
         </div>
       </div>
+
+      {/* ================= CONTACT ================= */}
+      {(company.contact?.phone || company.phone || company.contact?.email || company.email || company.contact?.website || company.website || company.contact?.facebookPage || company.facebook) && (
+        <div className="max-w-7xl mx-auto px-6 pt-10">
+          <div className="bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm p-6 md:p-8">
+            <h2 className="text-xl font-bold text-stone-900 mb-5">যোগাযোগ</h2>
+            <div className="grid sm:grid-cols-2 gap-5 text-stone-600">
+              {(company.contact?.phone || company.phone) && (
+                <div>
+                  <p className="text-sm font-semibold text-stone-900 mb-1">📞 ফোন</p>
+                  <a href={`tel:${company.contact?.phone || company.phone}`} className="block text-emerald-700 hover:underline break-all">
+                    {company.contact?.phone || company.phone}
+                  </a>
+                  {(company.contact?.phone2 || company.phone2) && (
+                    <a href={`tel:${company.contact?.phone2 || company.phone2}`} className="block text-emerald-700 hover:underline break-all">
+                      {company.contact?.phone2 || company.phone2}
+                    </a>
+                  )}
+                </div>
+              )}
+              {(company.contact?.email || company.email) && (
+                <div>
+                  <p className="text-sm font-semibold text-stone-900 mb-1">📧 ইমেইল</p>
+                  <a href={`mailto:${company.contact?.email || company.email}`} className="block text-emerald-700 hover:underline break-all">
+                    {company.contact?.email || company.email}
+                  </a>
+                </div>
+              )}
+              {(company.contact?.website || company.website) && (
+                <div>
+                  <p className="text-sm font-semibold text-stone-900 mb-1">🌐 ওয়েবসাইট</p>
+                  <a href={company.contact?.website || company.website} target="_blank" rel="noreferrer" className="block text-emerald-700 hover:underline break-all">
+                    {(company.contact?.website || company.website).replace(/^https?:\/\//, "")}
+                  </a>
+                </div>
+              )}
+              {(company.contact?.facebookPage || company.facebook) && (
+                <div>
+                  <p className="text-sm font-semibold text-stone-900 mb-1">📘 Facebook পেজ</p>
+                  <a href={company.contact?.facebookPage || company.facebook} target="_blank" rel="noreferrer" className="block text-emerald-700 hover:underline break-all">
+                    Facebook-এ দেখুন
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ================= PACKAGE SECTION ================= */}
       <div className="max-w-7xl mx-auto px-6 pt-20">

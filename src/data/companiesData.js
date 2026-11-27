@@ -11,17 +11,19 @@ const companiesData = [
 
     contact: {
       phone: "+8801986003601",
-      email: "info@bangladeshtourgroupbtg.com",
-      whatsapp: "https://wa.me/8801986003601",
+      email: "bangladeshtourgroupbtg@gmail.com",
+      whatsapp: "https://wa.me/8801886943888",
       messenger: "https://m.me/bangladeshtourgroupbtg2.0",
       facebookPage: "https://www.facebook.com/bangladeshtourgroupbtg2.0",
       facebookGroup: "https://www.facebook.com/groups/bangladeshtourgroupbtg",
+      website: "https://bangladeshtourgroupbtg.com",
     },
 
-    location: "Tikatuli, Dhaka",
+    location: "Kader Shopping Mall, 3rd floor, Shop 51, Hatkhola Road, Tikatuli, Dhaka",
     logo: "/images/company/btg/logo.jpg",
     phone: "+8801986003601",
-    email: "info@bangladeshtourgroupbtg.com",
+    email: "bangladeshtourgroupbtg@gmail.com",
+    website: "https://bangladeshtourgroupbtg.com",
     facebook: "https://www.facebook.com/bangladeshtourgroupbtg2.0",
 
     // 🔥 relation
@@ -30,7 +32,7 @@ const companiesData = [
       "saintmartin",
       "sajek",
       "bandarban",
-      "sreemangal",
+      "rangamati",
       "sundarban"
     ]
   },
@@ -47,6 +49,7 @@ const companiesData = [
 
     contact: {
       phone: "+8801533096809",
+      phone2: "+8801601096806",
       email: "vromonbaritravelgroup@gmail.com",
       whatsapp: "https://wa.me/8801533096809",
       messenger: "https://m.me/100083138951935",
@@ -58,13 +61,17 @@ const companiesData = [
       "Saydabad Super Market, Dhaka",
     logo: "/images/company/vromonbari/logo.jpg",
     phone: "+8801533096809",
+    phone2: "+8801601096806",
     email: "vromonbaritravelgroup@gmail.com",
     facebook: "https://www.facebook.com/profile.php?id=100083138951935",
 
     destinations: [
       "coxsbazar",
+      "saintmartin",
+      "sylhet",
       "bandarban",
-      "sajek"
+      "rangamati",
+      "sreemangal"
     ]
   },
 
@@ -86,6 +93,7 @@ const companiesData = [
     },
 
     location: "RH Home Centre, Green Road, Farmgate, Dhaka",
+    logo: "/images/company/durjatra/logo.jpg",
     phone: "+8801907780410",
     email: "durjatra.bd@gmail.com",
     website: "https://durjatratravels.com",
@@ -103,17 +111,20 @@ const companiesData = [
     verified: false,
 
     description:
-      "সাভারিয়ান ট্যুর এন্ড ট্রাভেল গ্রুপ — সাভারভিত্তিক ট্রাভেল কোম্পানি। কক্সবাজার, শ্রীমঙ্গল আর সেন্টমার্টিনের বাজেট ট্যুর আয়োজন করে।",
+      "সাভারিয়ান ট্যুর এন্ড ট্রাভেল গ্রুপ — সাভারভিত্তিক ট্রাভেল কোম্পানি (সাভার, পল্লী বিদ্যুৎ ও ধামরাইয়ে ৩টি অফিস)। কক্সবাজার, শ্রীমঙ্গল আর সেন্টমার্টিনের বাজেট ট্যুর আয়োজন করে।",
 
     contact: {
       phone: "+8801819466681",
+      phone2: "+8801635023478",
       email: "ahripon32@gmail.com",
       whatsapp: "https://wa.me/8801819466681",
       facebookPage: "https://www.facebook.com/Savariantourgroup01"
     },
 
     location: "Savar, Dhaka",
+    logo: "/images/company/savarian/logo.jpg",
     phone: "+8801819466681",
+    phone2: "+8801635023478",
     email: "ahripon32@gmail.com",
     facebook: "https://www.facebook.com/Savariantourgroup01",
 
