@@ -14,7 +14,7 @@ const DestinationDetailsPage = () => {
 
   if (!destination) {
     return (
-      <div className="py-32 text-center text-2xl font-semibold">
+      <div className="bg-stone-50 min-h-screen py-32 text-center text-2xl font-semibold text-stone-900">
         Destination Not Found
       </div>
     );
@@ -61,7 +61,7 @@ const DestinationDetailsPage = () => {
       >
         <div className="absolute inset-0 bg-black/60" />
 
-        <div className="relative z-10 h-full flex items-center max-w-6xl mx-auto px-6">
+        <div className="relative z-10 h-full flex items-center max-w-7xl mx-auto px-6">
           <div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
               {destination.name}
@@ -81,12 +81,12 @@ const DestinationDetailsPage = () => {
 
       {/* ================= CONTENT ================= */}
 
-      <div className="max-w-6xl mx-auto px-6 py-20">
+      <div className="max-w-7xl mx-auto px-6 py-20">
 
         {/* ================= WHY VISIT ================= */}
 
         <div className="mb-20">
-          <h2 className="text-3xl font-bold mb-8">
+          <h2 className="text-3xl font-bold text-stone-900 mb-8">
             কেন {destination.name} বিখ্যাত?
           </h2>
 
@@ -94,7 +94,7 @@ const DestinationDetailsPage = () => {
             {destination.famousFor?.map((item, i) => (
               <div
                 key={i}
-                className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition"
+                className="bg-white p-6 rounded-2xl ring-1 ring-stone-100 shadow-sm text-stone-600 hover:shadow-xl hover:-translate-y-0.5 transition"
               >
                 {item}
               </div>
@@ -105,7 +105,7 @@ const DestinationDetailsPage = () => {
         {/* ================= POPULAR PLACES ================= */}
 
         <div className="mb-24">
-          <h2 className="text-3xl font-bold mb-10">
+          <h2 className="text-3xl font-bold text-stone-900 mb-10">
             জনপ্রিয় স্থানসমূহ
           </h2>
 
@@ -114,22 +114,22 @@ const DestinationDetailsPage = () => {
               <Link
                 key={place.slug}
                 to={`/places/${place.slug}`}
-                className="bg-white rounded-2xl shadow hover:shadow-xl transition overflow-hidden"
+                className="group bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition overflow-hidden"
               >
                 <img
                   src={place.image}
                   alt={place.name}
                   onError={handleImgError}
                   loading="lazy"
-                  className="h-52 w-full object-cover"
+                  className="h-52 w-full object-cover group-hover:scale-105 transition"
                 />
 
                 <div className="p-5">
-                  <h3 className="font-semibold text-lg">
+                  <h3 className="font-semibold text-lg text-stone-900">
                     {place.name}
                   </h3>
 
-                  <p className="text-sm text-stone-500 mt-2">
+                  <p className="text-sm text-emerald-700 font-semibold mt-2">
                     বিস্তারিত দেখুন →
                   </p>
                 </div>
@@ -140,12 +140,12 @@ const DestinationDetailsPage = () => {
 
         {/* ================= FILTER ================= */}
 
-        <div className="bg-white p-6 rounded-2xl shadow mb-16">
-          <h2 className="text-xl font-semibold mb-4">
+        <div className="bg-white p-6 rounded-2xl ring-1 ring-stone-100 shadow-sm mb-16">
+          <h2 className="text-xl font-semibold text-stone-900 mb-4">
             মূল্য অনুযায়ী ফিল্টার
           </h2>
 
-          <label className="block mb-2 text-sm">
+          <label className="block mb-2 text-sm text-stone-600">
             সর্বোচ্চ মূল্য: ৳{maxPrice}
           </label>
 
@@ -156,19 +156,19 @@ const DestinationDetailsPage = () => {
             step="500"
             value={maxPrice}
             onChange={(e) => setMaxPrice(e.target.value)}
-            className="w-full"
+            className="w-full accent-emerald-600"
           />
         </div>
 
         {/* ================= PACKAGES ================= */}
 
         <div className="mb-24">
-          <h2 className="text-3xl font-bold mb-10">
+          <h2 className="text-3xl font-bold text-stone-900 mb-10">
             উপলব্ধ প্যাকেজ
           </h2>
 
           {filteredPackages.length === 0 ? (
-            <p>কোন প্যাকেজ পাওয়া যায়নি</p>
+            <p className="text-stone-600">কোন প্যাকেজ পাওয়া যায়নি</p>
           ) : (
             <div className="grid md:grid-cols-3 gap-8">
               {filteredPackages.map((pkg) => {
@@ -179,7 +179,7 @@ const DestinationDetailsPage = () => {
                 return (
                   <div
                     key={pkg.id}
-                    className="bg-white rounded-2xl shadow hover:shadow-xl transition overflow-hidden"
+                    className="group bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition overflow-hidden"
                   >
                     <img
                       src={pkg.image}
@@ -190,11 +190,11 @@ const DestinationDetailsPage = () => {
                     />
 
                     <div className="p-5">
-                      <h3 className="font-semibold mb-2">
+                      <h3 className="font-semibold text-stone-900 mb-2">
                         {pkg.title}
                       </h3>
 
-                      <div className="flex justify-between text-sm text-stone-500 mb-2">
+                      <div className="flex justify-between text-sm text-stone-600 mb-2">
                         <span>⏳ {pkg.duration}</span>
                         <span>🗓 {pkg.tourStart}</span>
                       </div>
@@ -204,14 +204,14 @@ const DestinationDetailsPage = () => {
                       </p>
 
                       {company && (
-                        <p className="text-sm text-stone-500 mt-3">
+                        <p className="text-sm text-stone-600 mt-3">
                           পরিচালনায়: {company.name}
                         </p>
                       )}
 
                       <Link
                         to={`/package/${pkg.id}`}
-                        className="mt-4 block text-center bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 transition"
+                        className="mt-4 block text-center bg-emerald-600 text-white py-2.5 rounded-xl font-semibold hover:bg-emerald-700 transition"
                       >
                         বিস্তারিত দেখুন
                       </Link>
@@ -226,7 +226,7 @@ const DestinationDetailsPage = () => {
         {/* ================= COMPANIES ================= */}
 
         <div>
-          <h2 className="text-3xl font-bold mb-10">
+          <h2 className="text-3xl font-bold text-stone-900 mb-10">
             এই গন্তব্যে কার্যরত কোম্পানি
           </h2>
 
@@ -235,7 +235,7 @@ const DestinationDetailsPage = () => {
               <Link
                 key={company.id}
                 to={`/company/${company.id}`}
-                className="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition"
+                className="bg-white p-6 rounded-2xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition"
               >
                 <div className="flex items-center gap-4">
                   <img
@@ -246,11 +246,11 @@ const DestinationDetailsPage = () => {
                   />
 
                   <div>
-                    <h3 className="font-semibold">
+                    <h3 className="font-semibold text-stone-900">
                       {company.name}
                     </h3>
 
-                    <p className="text-sm text-stone-500">
+                    <p className="text-sm text-stone-600">
                       ⭐ {company.rating}
                     </p>
                   </div>

@@ -43,11 +43,11 @@ const styles = [
 
 const ExploreByStyle = () => {
   return (
-    <section className="py-24 bg-stone-50">
+    <section className="py-20 bg-stone-50">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-4xl font-bold text-stone-900 mb-4">
             আপনার ভ্রমণের স্টাইল বেছে নিন
           </h2>
           <p className="text-stone-600">
@@ -73,12 +73,12 @@ const ExploreByStyle = () => {
               >
                 <Link
                   to={`/style/${style.name}`}
-                  className="group relative h-72 rounded-3xl overflow-hidden shadow-xl"
+                  className="group relative block h-72 rounded-3xl overflow-hidden ring-1 ring-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition"
                 >
                   <img
                     src={style.image}
                     alt={style.label}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700"
                   />
 
                   <div className="absolute inset-0 bg-black/50 backdrop-blur-sm group-hover:bg-black/60 transition" />

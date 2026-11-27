@@ -62,14 +62,16 @@ const PackagesPage = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16">
+    <div className="bg-stone-50">
+    <div className="max-w-7xl mx-auto px-6 py-16">
 
       {/* Header */}
       <div className="mb-10">
-        <h1 className="text-4xl font-bold mb-2">
+        <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-2">
           সব প্যাকেজ
         </h1>
-        <p className="text-stone-500">
+        <div className="h-1 w-16 rounded-full bg-emerald-600 mb-4" />
+        <p className="text-stone-600">
           {filteredPackages.length} টি প্যাকেজ পাওয়া গেছে
         </p>
       </div>
@@ -79,8 +81,8 @@ const PackagesPage = () => {
   className={`sticky top-20 z-40 rounded-2xl p-5 mb-14 transition-all duration-500
   ${
     scrolled
-      ? "bg-white/95 backdrop-blur-xl shadow-xl border border-stone-100"
-      : "bg-white shadow-md"
+      ? "bg-white/95 backdrop-blur-xl shadow-xl ring-1 ring-stone-100"
+      : "bg-white ring-1 ring-stone-100 shadow-sm"
   }`}
 >
   <div className="flex flex-col gap-6">
@@ -91,7 +93,7 @@ const PackagesPage = () => {
       placeholder="প্যাকেজ খুঁজুন..."
       value={search}
       onChange={(e) => setSearch(e.target.value)}
-      className="w-full border border-stone-300 rounded-xl px-5 py-3 focus:ring-2 focus:ring-emerald-500"
+      className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
     />
 
     {/* Category Pills */}
@@ -105,7 +107,7 @@ const PackagesPage = () => {
             key={cat}
             onClick={() => setCategory(cat)}
             whileTap={{ scale: 0.95 }}
-            className="relative px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap flex-shrink-0"
+            className="relative px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap flex-shrink-0 bg-stone-100"
           >
             {isActive && (
               <motion.div
@@ -135,7 +137,7 @@ const PackagesPage = () => {
     <select
       value={sort}
       onChange={(e) => setSort(e.target.value)}
-      className="w-full border border-stone-300 rounded-xl px-4 py-3"
+      className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
     >
       <option value="default">Sort</option>
       <option value="low">Price Low → High</option>
@@ -146,7 +148,7 @@ const PackagesPage = () => {
 </div>
 
       {/* PREMIUM CARD GRID */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
         {filteredPackages.map((pkg) => (
           <motion.div
@@ -157,7 +159,7 @@ const PackagesPage = () => {
 >
   <Link
     to={`/package/${pkg.id}`}
-    className="block bg-white rounded-3xl shadow-md hover:shadow-2xl transition overflow-hidden"
+    className="block bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl transition overflow-hidden"
   >
     <div className="relative overflow-hidden">
 
@@ -166,7 +168,7 @@ const PackagesPage = () => {
         <img
           src={pkg.image}
           alt={pkg.title}
-          className="w-full h-64 object-cover transition duration-700 group-hover:scale-110"
+          className="w-full h-64 object-cover transition duration-700 group-hover:scale-105"
         />
       ) : (
         <div className="w-full h-64 bg-gradient-to-r from-emerald-500 to-emerald-600" />
@@ -186,7 +188,7 @@ const PackagesPage = () => {
       </div>
 
       {/* Price Badge */}
-      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-4 py-1 rounded-full text-sm font-semibold shadow">
+      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-4 py-1 rounded-full text-sm font-bold text-emerald-700 shadow">
         ৳{pkg.pricing?.perPerson}
       </div>
 
@@ -196,6 +198,7 @@ const PackagesPage = () => {
         ))}
 
       </div>
+    </div>
     </div>
   );
 };

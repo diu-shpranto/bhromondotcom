@@ -15,9 +15,9 @@ const AboutPage = () => {
       </div>
 
       {/* Content Card */}
-      <div className="max-w-5xl mx-auto px-6 py-20 bg-white -mt-16 rounded-3xl shadow-xl">
+      <div className="max-w-5xl mx-auto px-6 py-16 md:py-20 bg-white -mt-16 rounded-3xl ring-1 ring-stone-100 shadow-sm">
 
-        <h2 className="text-2xl font-semibold mb-4">আমাদের লক্ষ্য</h2>
+        <h2 className="text-2xl font-bold text-stone-900 mb-4">আমাদের লক্ষ্য</h2>
         <p className="text-stone-600 leading-relaxed mb-8">
           ঘুরতে যাওয়ার আগে সবার একটাই ঝামেলা — দামটা আসল কি না, তারিখটা
           ঠিক আছে কি না। তাই আমরা BTG আর ভ্রমণ বাড়ির মতো যাচাই করা
@@ -25,7 +25,7 @@ const AboutPage = () => {
           সাজাই। কিছু বদলালে সেটাও আপডেট করি।
         </p>
 
-        <h2 className="text-2xl font-semibold mb-4">তথ্য কোথা থেকে আসে</h2>
+        <h2 className="text-2xl font-bold text-stone-900 mb-4">তথ্য কোথা থেকে আসে</h2>
         <p className="text-stone-600 leading-relaxed mb-8">
           এই সাইটের দাম, তারিখ আর প্যাকেজের বিবরণ সংশ্লিষ্ট কোম্পানির
           নিজের পোস্ট থেকে নেওয়া — আমরা নিজে থেকে দাম বানাই না। কোনো
@@ -34,7 +34,7 @@ const AboutPage = () => {
           আমরা মাঝখানে টাকা নিই না।
         </p>
 
-        <h2 className="text-2xl font-semibold mb-4">আমরা কী করি</h2>
+        <h2 className="text-2xl font-bold text-stone-900 mb-4">আমরা কী করি</h2>
         <ul className="list-disc pl-6 text-stone-600 space-y-2 mb-16">
           <li>BTG ও ভ্রমণ বাড়ির যাচাই করা ট্যুর প্যাকেজ — দাম, তারিখ, কী কী থাকছে</li>
           <li>৮ বিভাগের ভ্রমণ গাইড — কোথায় যাবেন, কখন যাবেন, কী খাবেন</li>
@@ -48,7 +48,7 @@ const AboutPage = () => {
       <div className="bg-stone-100">
         <div className="max-w-5xl mx-auto px-6 py-20">
 
-          <h2 className="text-2xl font-bold mb-6">
+          <h2 className="text-2xl font-bold text-stone-900 mb-6">
             স্বাধীন তথ্যভিত্তিক প্ল্যাটফর্ম
           </h2>
 

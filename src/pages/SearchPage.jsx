@@ -84,18 +84,22 @@ const SearchPage = () => {
   );
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-20">
+    <div className="bg-stone-50">
+    <div className="max-w-7xl mx-auto px-6 py-16">
 
-      <h1 className="text-3xl font-bold mb-10">
-        "{query}" এর জন্য ফলাফল
-      </h1>
+      <div className="mb-10">
+        <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-2">
+          "{query}" এর জন্য ফলাফল
+        </h1>
+        <div className="h-1 w-16 rounded-full bg-emerald-600" />
+      </div>
 
       {/* DESTINATIONS */}
       {matchedDestinations.map((d) => (
         <Link
           key={d.id}
           to={`/destination/${d.slug}`}
-          className="block mb-4 p-4 bg-white rounded shadow hover:shadow-lg transition"
+          className="block mb-4 p-4 bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition font-medium text-stone-900"
         >
           📍 {d.name}
         </Link>
@@ -106,7 +110,7 @@ const SearchPage = () => {
         <Link
           key={p.id}
           to={`/package/${p.id}`}
-          className="block mb-4 p-4 bg-white rounded shadow hover:shadow-lg transition"
+          className="block mb-4 p-4 bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition font-medium text-stone-900"
         >
           📦 {p.title}
         </Link>
@@ -117,7 +121,7 @@ const SearchPage = () => {
         <Link
           key={c.id}
           to={`/company/${c.id}`}
-          className="block mb-4 p-4 bg-white rounded shadow hover:shadow-lg transition"
+          className="block mb-4 p-4 bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition font-medium text-stone-900"
         >
           🏢 {c.name}
         </Link>
@@ -126,10 +130,13 @@ const SearchPage = () => {
       {matchedPackages.length === 0 &&
         matchedDestinations.length === 0 &&
         matchedCompanies.length === 0 && (
-          <p className="text-stone-500">
-            কোন ফলাফল পাওয়া যায়নি
-          </p>
+          <div className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm p-8 text-center">
+            <p className="text-stone-600">
+              কোন ফলাফল পাওয়া যায়নি
+            </p>
+          </div>
         )}
+    </div>
     </div>
   );
 };

@@ -129,14 +129,14 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md z-50"
+            className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md px-4 z-50"
           >
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-2xl overflow-hidden">
               {/* Header */}
               <div className="relative bg-gradient-to-r from-emerald-600 to-emerald-800 px-6 py-8 text-white text-center">
                 <button
                   onClick={handleClose}
-                  className="absolute right-4 top-4 p-1 hover:bg-white/20 rounded-lg transition-colors"
+                  className="absolute right-4 top-4 p-1 hover:bg-white/20 rounded-xl transition-colors"
                 >
                   <XMarkIcon className="w-6 h-6" />
                 </button>
@@ -170,7 +170,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="আপনার নাম লিখুন"
-                        className="w-full pl-10 pr-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                        className="w-full pl-10 pr-4 py-3 border border-stone-200 bg-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
                         required={!isLogin}
                       />
                     </div>
@@ -189,7 +189,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="your@email.com"
-                      className="w-full pl-10 pr-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 border border-stone-200 bg-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
                       required
                     />
                   </div>
@@ -207,7 +207,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                       value={formData.password}
                       onChange={handleInputChange}
                       placeholder="••••••••"
-                      className="w-full pl-10 pr-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 border border-stone-200 bg-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
                       required
                     />
                   </div>
@@ -226,7 +226,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                         value={formData.confirmPassword}
                         onChange={handleInputChange}
                         placeholder="••••••••"
-                        className="w-full pl-10 pr-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                        className="w-full pl-10 pr-4 py-3 border border-stone-200 bg-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
                         required={!isLogin}
                       />
                     </div>
@@ -237,7 +237,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg"
+                    className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl"
                   >
                     <p className="text-red-600 text-sm">{error}</p>
                   </motion.div>
@@ -269,7 +269,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                     <button
                       type="button"
                       onClick={() => fillDemoCredentials('user')}
-                      className="p-3 border border-stone-200 rounded-lg hover:bg-stone-50 transition-colors"
+                      className="p-3 border border-stone-200 rounded-2xl hover:bg-stone-50 transition-colors"
                     >
                       <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2">
                         <span className="text-emerald-600 font-bold">U</span>
@@ -281,7 +281,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                     <button
                       type="button"
                       onClick={() => fillDemoCredentials('admin')}
-                      className="p-3 border border-stone-200 rounded-lg hover:bg-stone-50 transition-colors"
+                      className="p-3 border border-stone-200 rounded-2xl hover:bg-stone-50 transition-colors"
                     >
                       <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2">
                         <span className="text-emerald-600 font-bold">A</span>

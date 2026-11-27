@@ -68,7 +68,7 @@ const Newsletter = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="আপনার ইমেইল"
               required
-              className="flex-1 px-6 py-4 bg-white/10 backdrop-blur-md rounded-xl text-white placeholder-stone-300 focus:outline-none focus:ring-2 focus:ring-white"
+              className="flex-1 px-6 py-4 bg-white/10 backdrop-blur-md rounded-2xl text-white placeholder-stone-300 focus:outline-none focus:ring-2 focus:ring-white"
             />
             <Button
               type="submit"

@@ -24,11 +24,11 @@ const CompanyProfilePage = () => {
   );
 
   return (
-    <div className="bg-gradient-to-b from-stone-50 to-white min-h-screen pb-32">
+    <div className="bg-stone-50 min-h-screen pb-32">
 
       {/* ================= HEADER ================= */}
-      <div className="max-w-6xl mx-auto px-6 pt-16">
-        <div className="bg-white rounded-3xl shadow-xl p-10 flex flex-col md:flex-row items-center gap-8">
+      <div className="max-w-7xl mx-auto px-6 pt-16">
+        <div className="bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm p-6 md:p-10 flex flex-col md:flex-row items-center gap-8">
 
           {/* Logo */}
           {company.logo ? (
@@ -45,7 +45,7 @@ const CompanyProfilePage = () => {
 
           {/* Info */}
           <div className="flex-1 text-center md:text-left">
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-2">
               {company.name}
             </h1>
 
@@ -59,7 +59,7 @@ const CompanyProfilePage = () => {
               </p>
             )}
 
-            <p className="text-stone-700 max-w-2xl">
+            <p className="text-stone-600 max-w-2xl">
               {company.description}
             </p>
 
@@ -71,7 +71,7 @@ const CompanyProfilePage = () => {
                   href={company.contact.whatsapp}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-5 py-2 rounded-lg bg-emerald-500 text-white font-semibold hover:bg-emerald-600 transition"
+                  className="px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition"
                 >
                   WhatsApp
                 </a>
@@ -82,7 +82,7 @@ const CompanyProfilePage = () => {
                   href={company.contact.messenger}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-5 py-2 rounded-lg bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition"
+                  className="px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition"
                 >
                   Messenger
                 </a>
@@ -95,14 +95,15 @@ const CompanyProfilePage = () => {
       </div>
 
       {/* ================= PACKAGE SECTION ================= */}
-      <div className="max-w-6xl mx-auto px-6 pt-20">
+      <div className="max-w-7xl mx-auto px-6 pt-20">
 
-        <h2 className="text-3xl font-bold mb-10 text-center">
+        <h2 className="text-3xl font-bold text-stone-900 mb-4 text-center">
           এই কোম্পানির সকল প্যাকেজ
         </h2>
+        <div className="mx-auto mb-10 h-1 w-16 rounded-full bg-emerald-600" />
 
         {companyPackages.length === 0 ? (
-          <p className="text-center text-stone-500">
+          <p className="text-center text-stone-600">
             বর্তমানে কোনো প্যাকেজ পাওয়া যায়নি।
           </p>
         ) : (
@@ -112,7 +113,7 @@ const CompanyProfilePage = () => {
               <motion.div
                 key={pkg.id}
                 whileHover={{ y: -5 }}
-                className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition"
+                className="group bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition"
               >
                 <Link to={`/package/${pkg.id}`}>
 
@@ -121,7 +122,7 @@ const CompanyProfilePage = () => {
                     <img
                       src={pkg.image}
                       alt={pkg.title}
-                      className="h-56 w-full object-cover"
+                      className="h-56 w-full object-cover group-hover:scale-105 transition duration-300"
                     />
                   ) : (
                     <div className="h-56 w-full bg-gradient-to-r from-emerald-500 to-emerald-600" />
@@ -130,15 +131,15 @@ const CompanyProfilePage = () => {
                   {/* Content */}
                   <div className="p-6">
 
-                    <h3 className="text-lg font-semibold mb-2">
+                    <h3 className="text-lg font-semibold text-stone-900 mb-2">
                       {pkg.title}
                     </h3>
 
-                    <p className="text-stone-500 text-sm mb-2">
+                    <p className="text-stone-600 text-sm mb-2">
                       📍 {pkg.location}
                     </p>
 
-                    <p className="text-stone-500 text-sm mb-4">
+                    <p className="text-stone-600 text-sm mb-4">
                       ⏳ {pkg.duration}
                     </p>
 

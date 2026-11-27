@@ -10,19 +10,21 @@ const AiTravelGuide = ({ destination }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="max-w-6xl mx-auto px-6 pb-24"
+      className="max-w-7xl mx-auto px-6 pb-24"
     >
-      <div className="bg-gradient-to-br from-emerald-700 to-emerald-950 text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+      <div className="bg-gradient-to-br from-emerald-700 to-emerald-950 text-white p-8 md:p-10 rounded-3xl ring-1 ring-emerald-900/20 shadow-xl relative overflow-hidden">
 
         {/* Glass overlay effect */}
         <div className="absolute inset-0 bg-white/5 backdrop-blur-lg" />
 
         <div className="relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             🧠 AI Travel Guide
           </h2>
 
-          <p className="text-lg leading-relaxed whitespace-pre-line">
+          <div className="h-1 w-16 rounded-full bg-emerald-400 mb-6" />
+
+          <p className="text-lg leading-relaxed text-emerald-50 whitespace-pre-line">
             {guideText}
           </p>
         </div>

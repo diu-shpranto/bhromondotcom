@@ -12,14 +12,14 @@ const PackageCard = ({ pkg }) => {
     <motion.div
       whileHover={{ y: -8 }}
       transition={{ duration: 0.3 }}
-      className="bg-white rounded-2xl shadow-lg overflow-hidden group"
+      className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl overflow-hidden group"
     >
       {/* Image Section */}
-      <div className="relative">
+      <div className="relative overflow-hidden">
         <img
           src={pkg.image}
           alt={pkg.title}
-          className="w-full h-56 object-cover object-center group-hover:scale-110 transition-transform duration-500"
+          className="w-full h-56 object-cover object-center group-hover:scale-105 transition-transform duration-500"
           onError={(e) => {
             e.target.src =
               "https://via.placeholder.com/900x600?text=Travel+Image";
@@ -28,7 +28,7 @@ const PackageCard = ({ pkg }) => {
 
         {/* Discount Badge */}
         {pkg.discount && (
-          <div className="absolute top-3 left-3 bg-emerald-600 text-white text-xs px-3 py-1 rounded-full shadow">
+          <div className="absolute top-3 left-3 bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full shadow">
             {pkg.discount}% ছাড়
           </div>
         )}
@@ -56,7 +56,7 @@ const PackageCard = ({ pkg }) => {
         </div>
 
         {/* Title */}
-        <h3 className="text-lg font-bold text-stone-800 mb-2 line-clamp-2">
+        <h3 className="text-lg font-bold text-stone-900 mb-2 line-clamp-2">
           {pkg.title}
         </h3>
 
@@ -97,10 +97,10 @@ const PackageCard = ({ pkg }) => {
           </div>
 
           <div className="flex space-x-2">
-            <button className="px-4 py-2 border border-emerald-600 text-emerald-600 rounded-lg text-sm hover:bg-emerald-50 transition">
+            <button className="px-4 py-2 border border-emerald-600 text-emerald-700 rounded-xl text-sm font-semibold hover:bg-emerald-50 transition">
               বিস্তারিত
             </button>
-            <button className="px-4 py-2 bg-emerald-600 text-white rounded-lg text-sm hover:bg-emerald-700 transition shadow-md">
+            <button className="px-4 py-2 bg-emerald-600 text-white rounded-xl text-sm font-semibold hover:bg-emerald-700 transition shadow-sm">
               বুক করুন
             </button>
           </div>

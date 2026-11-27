@@ -3,9 +3,9 @@ import clsx from 'clsx';
 
 const Badge = ({ children, variant = 'primary', size = 'md', className = '' }) => {
   const variants = {
-    primary: 'bg-emerald-100 text-emerald-800',
-    secondary: 'bg-stone-100 text-stone-800',
-    success: 'bg-emerald-100 text-emerald-800',
+    primary: 'bg-emerald-50 text-emerald-700',
+    secondary: 'bg-stone-100 text-stone-700',
+    success: 'bg-emerald-50 text-emerald-700',
     danger: 'bg-red-100 text-red-800',
     warning: 'bg-amber-100 text-amber-800',
   };

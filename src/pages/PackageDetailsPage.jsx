@@ -12,7 +12,7 @@ const PackageDetailPage = () => {
 
   if (!pkg) {
     return (
-      <div className="py-40 text-center text-2xl font-semibold">
+      <div className="bg-stone-50 min-h-screen py-40 text-center text-2xl font-semibold text-stone-900">
         Package Not Found
       </div>
     );
@@ -32,7 +32,7 @@ const PackageDetailPage = () => {
       >
         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
 
-        <div className="relative z-10 h-full flex items-center max-w-6xl mx-auto px-6">
+        <div className="relative z-10 h-full flex items-center max-w-7xl mx-auto px-6">
           <div>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
               {pkg.title}
@@ -50,17 +50,17 @@ const PackageDetailPage = () => {
       </div>
 
       {/* ================= MAIN CONTENT ================= */}
-      <div className="max-w-6xl mx-auto px-6 pt-16 grid lg:grid-cols-3 gap-12">
+      <div className="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-3 gap-12">
 
         {/* LEFT SIDE */}
         <div className="lg:col-span-2 space-y-16">
 
           {/* DESCRIPTION */}
           <section>
-            <h2 className="text-2xl font-bold mb-6">
+            <h2 className="text-2xl font-bold text-stone-900 mb-6">
               প্যাকেজ বিবরণ
             </h2>
-            <p className="text-stone-700 leading-relaxed whitespace-pre-line">
+            <p className="text-stone-600 leading-relaxed whitespace-pre-line">
               {pkg.description}
             </p>
           </section>
@@ -68,8 +68,8 @@ const PackageDetailPage = () => {
           {/* INCLUDED / EXCLUDED */}
           <section className="grid md:grid-cols-2 gap-8">
 
-            <div className="bg-white p-6 rounded-2xl shadow">
-              <h3 className="text-lg font-semibold text-emerald-600 mb-4">
+            <div className="bg-white p-6 rounded-2xl ring-1 ring-stone-100 shadow-sm">
+              <h3 className="text-lg font-semibold text-emerald-700 mb-4">
                 যা যা থাকছে
               </h3>
               <ul className="space-y-2">
@@ -82,7 +82,7 @@ const PackageDetailPage = () => {
               </ul>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl shadow">
+            <div className="bg-white p-6 rounded-2xl ring-1 ring-stone-100 shadow-sm">
               <h3 className="text-lg font-semibold text-red-600 mb-4">
                 যা যা থাকছে না
               </h3>
@@ -101,7 +101,7 @@ const PackageDetailPage = () => {
         {/* ================= PREMIUM TIMELINE ================= */}
 {pkg.tourPlan && pkg.tourPlan.length > 0 && (
   <section>
-    <h2 className="text-3xl font-bold mb-12">
+    <h2 className="text-3xl font-bold text-stone-900 mb-12">
       ভ্রমণ পরিকল্পনা
     </h2>
 
@@ -110,7 +110,7 @@ const PackageDetailPage = () => {
       {pkg.tourPlan.map((day, index) => (
         <div
           key={index}
-          className="relative bg-white p-8 rounded-2xl shadow-lg border border-stone-100"
+          className="relative bg-white p-8 rounded-2xl ring-1 ring-stone-100 shadow-sm"
         >
           {/* Step Indicator */}
           <div className="absolute -left-6 top-8">
@@ -124,7 +124,7 @@ const PackageDetailPage = () => {
               {day.day}
             </h3>
 
-            <p className="text-stone-700 leading-relaxed whitespace-pre-line">
+            <p className="text-stone-600 leading-relaxed whitespace-pre-line">
               {day.details}
             </p>
           </div>
@@ -138,7 +138,7 @@ const PackageDetailPage = () => {
           {/* PLACES */}
           {pkg.places && (
             <section>
-              <h2 className="text-2xl font-bold mb-8">
+              <h2 className="text-2xl font-bold text-stone-900 mb-8">
                 যেসব স্থান ঘুরবেন
               </h2>
 
@@ -147,16 +147,16 @@ const PackageDetailPage = () => {
                   <motion.div
                     key={index}
                     whileHover={{ y: -5 }}
-                    className="bg-white rounded-2xl shadow overflow-hidden"
+                    className="group bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition overflow-hidden"
                   >
                     <img
                       src={place.image}
                       alt={place.name}
-                      className="h-48 w-full object-cover"
+                      className="h-48 w-full object-cover group-hover:scale-105 transition"
                     />
 
                     <div className="p-4">
-                      <h4 className="font-semibold">
+                      <h4 className="font-semibold text-stone-900">
                         {place.name}
                       </h4>
                     </div>
@@ -171,10 +171,10 @@ const PackageDetailPage = () => {
         {/* RIGHT SIDE PRICE CARD */}
         <div className="lg:sticky lg:top-24 h-fit">
 
-          <div className="bg-white rounded-3xl shadow-xl p-8 space-y-6">
+          <div className="bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm p-8 space-y-6">
 
             <div>
-              <h3 className="text-lg text-stone-500">
+              <h3 className="text-lg text-stone-600">
                 জনপ্রতি মূল্য
               </h3>
               <p className="text-3xl font-bold text-emerald-700">
@@ -192,7 +192,7 @@ const PackageDetailPage = () => {
             {company && (
               <div className="border-t pt-6">
 
-                <p className="font-semibold mb-3">
+                <p className="font-semibold text-stone-900 mb-3">
                   এই প্যাকেজটি পরিচালনা করছে:
                 </p>
 
@@ -210,7 +210,7 @@ const PackageDetailPage = () => {
                       href={company.contact.whatsapp}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex-1 text-center bg-emerald-500 text-white py-2 rounded-lg text-sm font-semibold hover:bg-emerald-600 transition"
+                      className="flex-1 text-center bg-emerald-600 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-emerald-700 transition"
                     >
                       WhatsApp
                     </a>
@@ -221,7 +221,7 @@ const PackageDetailPage = () => {
                       href={company.contact.messenger}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex-1 text-center bg-emerald-600 text-white py-2 rounded-lg text-sm font-semibold hover:bg-emerald-700 transition"
+                      className="flex-1 text-center bg-emerald-600 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-emerald-700 transition"
                     >
                       Messenger
                     </a>

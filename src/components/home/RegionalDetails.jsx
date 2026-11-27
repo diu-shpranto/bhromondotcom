@@ -212,8 +212,8 @@ const RegionalDetails = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
   return (
-    <section className="py-16 bg-gradient-to-b from-stone-50 to-white">
-      <div className="container-custom">
+    <section className="py-16 md:py-20 bg-stone-50">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -244,10 +244,10 @@ const RegionalDetails = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setSelectedDivision(division)}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                   selectedDivision.id === division.id
                     ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-500/30'
-                    : 'bg-white text-stone-700 hover:bg-stone-100 border border-stone-200'
+                    : 'bg-white text-stone-700 hover:bg-emerald-50 hover:text-emerald-700 border border-stone-200'
                 }`}
               >
                 {division.bnName}
@@ -264,14 +264,14 @@ const RegionalDetails = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="bg-white rounded-3xl shadow-2xl overflow-hidden"
+            className="bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm overflow-hidden"
           >
             {/* Hero Image with Stats */}
-            <div className="relative h-72 md:h-96">
+            <div className="relative h-72 md:h-96 overflow-hidden group">
               <img
                 src={selectedDivision.image}
                 alt={selectedDivision.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
               
@@ -300,7 +300,7 @@ const RegionalDetails = () => {
 
             {/* Content Tabs */}
             <div className="border-b border-stone-200">
-              <div className="flex space-x-4 px-8">
+              <div className="flex space-x-4 px-6 md:px-8">
                 <button
                   onClick={() => setActiveTab('overview')}
                   className={`py-4 px-2 font-medium transition-all duration-300 border-b-2 ${
@@ -345,7 +345,7 @@ const RegionalDetails = () => {
             </div>
 
           {/* Tab Content */}
-            <div className="p-8">
+            <div className="p-6 md:p-8">
               <AnimatePresence mode="wait">
 
                 {/* ================= OVERVIEW ================= */}
@@ -385,10 +385,10 @@ const RegionalDetails = () => {
                         <motion.div
                           key={index}
                           whileHover={{ y: -5 }}
-                          className="bg-stone-50 rounded-xl p-5"
+                          className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm p-5 hover:shadow-xl hover:-translate-y-0.5 transition"
                         >
                           <div className="flex justify-between items-start mb-2">
-                            <h4 className="font-semibold">
+                            <h4 className="font-semibold text-stone-900">
                               {attraction.name}
                             </h4>
 
@@ -397,7 +397,7 @@ const RegionalDetails = () => {
                             </Badge>
                           </div>
 
-                          <p className="text-sm text-stone-500">
+                          <p className="text-sm text-stone-600">
                             {attraction.type}
                           </p>
                         </motion.div>
@@ -423,7 +423,7 @@ const RegionalDetails = () => {
                         <motion.div
                           key={index}
                           whileHover={{ scale: 1.05 }}
-                          className="bg-emerald-50 p-6 rounded-xl text-center"
+                          className="bg-emerald-50 p-6 rounded-2xl ring-1 ring-emerald-100 shadow-sm text-center"
                         >
                           <CakeIcon className="w-10 h-10 text-emerald-600 mx-auto mb-3" />
                           <p className="font-semibold">{food}</p>
@@ -446,7 +446,7 @@ const RegionalDetails = () => {
                     </h3>
 
                     <div className="grid md:grid-cols-2 gap-6">
-                      <div className="bg-emerald-50 p-6 rounded-xl">
+                      <div className="bg-emerald-50 p-6 rounded-2xl ring-1 ring-emerald-100 shadow-sm">
                         <h4 className="font-semibold text-emerald-800 mb-3">
                           ✅ করণীয়
                         </h4>
@@ -457,7 +457,7 @@ const RegionalDetails = () => {
                         </ul>
                       </div>
 
-                      <div className="bg-red-50 p-6 rounded-xl">
+                      <div className="bg-red-50 p-6 rounded-2xl ring-1 ring-red-100 shadow-sm">
                         <h4 className="font-semibold text-red-800 mb-3">
                           ❌ বর্জনীয়
                         </h4>
@@ -477,10 +477,10 @@ const RegionalDetails = () => {
         </AnimatePresence>
 
         {/* ================= FOOTER ACTION ================= */}
-        <div className="p-8 bg-stone-50 border-t border-stone-200">
+        <div className="mt-8 p-6 md:p-8 bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
-              <h4 className="text-lg font-semibold">
+              <h4 className="text-lg font-semibold text-stone-900">
                 {selectedDivision.bnName} ভ্রমণ গাইড
               </h4>
               <p className="text-stone-600">
@@ -502,12 +502,12 @@ const RegionalDetails = () => {
             <Link
               key={division.id}
               to={`/guide/${getDivisionEnglishName(division.bnName)}`}
-              className="p-3 bg-white rounded-lg border border-stone-200 hover:border-emerald-500 hover:shadow-md transition-all text-center"
+              className="p-3 bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-0.5 hover:border-emerald-500 transition-all text-center"
             >
-              <p className="font-medium text-stone-800">
+              <p className="font-medium text-stone-900">
                 {division.bnName}
               </p>
-              <p className="text-sm text-stone-500">
+              <p className="text-sm text-stone-600">
                 {division.attractions.length}টি স্থান
               </p>
             </Link>

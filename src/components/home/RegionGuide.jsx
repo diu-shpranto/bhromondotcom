@@ -47,10 +47,10 @@ const RegionGuide = () => {
 
         {/* Section Title */}
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
+          <h2 className="text-3xl md:text-4xl font-bold text-stone-900">
             বাংলাদেশের জেলা ভ্রমণ গাইড
           </h2>
-          <p className="text-stone-500 mt-3">
+          <p className="text-stone-600 mt-3">
             বিভাগভিত্তিক ভ্রমণ তথ্য এক নজরে
           </p>
         </div>
@@ -67,10 +67,10 @@ const RegionGuide = () => {
             >
               <Link
                 to={`/region/${region.slug}`}
-                className="group relative h-56 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+                className="group relative block h-56 rounded-2xl overflow-hidden ring-1 ring-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
               >
                 <div
-                  className="absolute inset-0 bg-cover bg-center"
+                  className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition duration-500"
                   style={{ backgroundImage: `url(${region.image})` }}
                 />
 

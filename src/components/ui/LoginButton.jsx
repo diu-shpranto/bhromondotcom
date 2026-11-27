@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import clsx from 'clsx';
 import { 
   UserCircleIcon,
   ArrowRightOnRectangleIcon,
   UserIcon,
   Cog6ToothIcon,
   ClockIcon,
-  HeartIcon
+  HeartIcon,
+  ChevronDownIcon
 } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 import Button from './Button';
@@ -72,7 +74,7 @@ const LoginButton = ({ scrolled, isHome }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.2 }}
-              className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl overflow-hidden z-50"
+              className="absolute right-0 mt-2 w-64 bg-white rounded-2xl ring-1 ring-stone-100 shadow-xl overflow-hidden z-50"
             >
               {/* User Info */}
               <div className="p-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">

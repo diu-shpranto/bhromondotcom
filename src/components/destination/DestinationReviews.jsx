@@ -11,26 +11,26 @@ const DestinationReviews = () => {
   };
 
   return (
-    <div className="container mx-auto py-16">
-      <h2 className="text-3xl font-bold mb-6">User Reviews</h2>
+    <div className="max-w-7xl mx-auto px-6 py-16">
+      <h2 className="text-3xl font-bold text-stone-900 mb-6">User Reviews</h2>
 
-      <div className="flex gap-4 mb-6">
+      <div className="flex flex-col sm:flex-row gap-4 mb-6">
         <input
           value={text}
           onChange={(e) => setText(e.target.value)}
-          className="border px-4 py-2 rounded-xl w-full"
+          className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
           placeholder="আপনার মতামত লিখুন..."
         />
         <button
           onClick={addReview}
-          className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 rounded-xl"
+          className="shrink-0 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-2xl transition"
         >
           Add
         </button>
       </div>
 
       {reviews.map((review, index) => (
-        <div key={index} className="bg-stone-100 p-4 rounded-xl mb-4">
+        <div key={index} className="bg-white p-5 rounded-2xl ring-1 ring-stone-100 shadow-sm mb-4 text-stone-600">
           {review.text}
         </div>
       ))}

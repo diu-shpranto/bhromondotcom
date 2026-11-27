@@ -27,15 +27,17 @@ const CompaniesPage = () => {
   });
 
   return (
-    <div className="container-apple py-20">
+    <div className="bg-stone-50">
+    <div className="max-w-7xl mx-auto px-6 py-16">
 
       {/* HEADER */}
       <div className="flex flex-col md:flex-row justify-between gap-4 mb-12">
         <div>
-          <h2 className="text-3xl font-bold">
+          <h2 className="text-3xl md:text-4xl font-bold text-stone-900">
             ট্যুর কোম্পানি সমূহ
           </h2>
-          <p className="text-stone-500">
+          <div className="h-1 w-16 rounded-full bg-emerald-600 mt-4 mb-4" />
+          <p className="text-stone-600">
             {filteredCompanies.length} টি কোম্পানি পাওয়া গেছে
           </p>
         </div>
@@ -45,13 +47,13 @@ const CompaniesPage = () => {
           placeholder="কোম্পানি খুঁজুন..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border px-4 py-2 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none"
+          className="w-full md:w-64 rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
         />
 
         <select
           value={ratingFilter}
           onChange={(e) => setRatingFilter(e.target.value)}
-          className="border px-4 py-2 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none"
+          className="w-full md:w-48 rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
         >
           <option value="all">সব রেটিং</option>
           <option value="4">৪⭐ এর উপরে</option>
@@ -60,12 +62,12 @@ const CompaniesPage = () => {
       </div>
 
       {/* GRID */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredCompanies.map((company) => (
           <Link
             key={company.id}
             to={`/company/${company.id}`}
-            className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden"
+            className="group bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition duration-300 overflow-hidden"
           >
 
             {/* BOLD COLOR HEADER */}
@@ -85,16 +87,16 @@ const CompaniesPage = () => {
 
             {/* CONTENT */}
             <div className="p-6">
-              <h3 className="text-xl font-semibold">
+              <h3 className="text-xl font-semibold text-stone-900">
                 {company.name}
                 {company.verified && (
-                  <span className="ml-2 text-emerald-600 text-sm">
+                  <span className="ml-2 text-emerald-700 text-sm">
                     ✔
                   </span>
                 )}
               </h3>
 
-              <p className="text-stone-500 text-sm mt-1">
+              <p className="text-stone-600 text-sm mt-1">
                 📍 {company.location}
               </p>
 
@@ -105,7 +107,7 @@ const CompaniesPage = () => {
                   </span>
                 )}
 
-                <span className="text-emerald-600 text-sm font-medium">
+                <span className="bg-emerald-50 text-emerald-700 text-sm font-medium px-3 py-1 rounded-full">
                   📦 {getPackageCount(company.id)} প্যাকেজ
                 </span>
               </div>
@@ -117,6 +119,7 @@ const CompaniesPage = () => {
           </Link>
         ))}
       </div>
+    </div>
     </div>
   );
 };

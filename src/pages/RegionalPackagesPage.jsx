@@ -405,13 +405,13 @@ const RegionalPackagesPage = () => {
   return (
     <div className="min-h-screen bg-stone-50">
       {/* হিরো সেকশন */}
-      <section className="relative bg-gradient-to-r from-emerald-900 to-emerald-700 py-16">
+      <section className="relative bg-gradient-to-r from-[#006B46] to-[#008F5A] py-16">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl" />
         </div>
         
-        <div className="container-custom relative z-10">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <button
             onClick={() => navigate('/packages')}
             className="flex items-center text-white mb-6 hover:text-emerald-200 transition-colors"
@@ -450,7 +450,7 @@ const RegionalPackagesPage = () => {
 
       {/* ফিল্টার ও সর্ট সেকশন */}
       <section className="py-8 bg-white shadow-sm">
-        <div className="container-custom">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* ফিল্টার */}
             <div className="flex flex-wrap gap-2">
@@ -458,9 +458,9 @@ const RegionalPackagesPage = () => {
                 <button
                   key={type.value}
                   onClick={() => setFilterType(type.value)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                     filterType === type.value
-                      ? 'bg-emerald-600 text-white'
+                      ? 'bg-emerald-600 text-white hover:bg-emerald-700'
                       : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
                   }`}
                 >
@@ -473,7 +473,7 @@ const RegionalPackagesPage = () => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-emerald-500"
+              className="w-full md:w-auto rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
             >
               <option value="popular">জনপ্রিয়</option>
               <option value="rating">রেটিং</option>
@@ -485,8 +485,8 @@ const RegionalPackagesPage = () => {
       </section>
 
       {/* প্যাকেজ গ্রিড */}
-      <section className="py-12">
-        <div className="container-custom">
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-6">
           {sortedPackages.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {sortedPackages.map((pkg, index) => {
@@ -500,20 +500,20 @@ const RegionalPackagesPage = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ y: -10 }}
-                    className="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300"
+                    className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm overflow-hidden group hover:shadow-xl transition-all duration-300"
                   >
                     {/* ইমেজ */}
                     <div className="relative h-56 overflow-hidden">
                       <img
                         src={pkg.image}
                         alt={pkg.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       
                       {/* ডিসকাউন্ট ব্যাজ */}
                       {pkg.discount > 0 && (
                         <div className="absolute top-4 left-4">
-                          <Badge variant="danger" size="sm">
+                          <Badge variant="primary" size="sm">
                             {pkg.discount}% ছাড়
                           </Badge>
                         </div>
@@ -525,7 +525,7 @@ const RegionalPackagesPage = () => {
                         className="absolute top-4 right-4 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
                       >
                         {isInWishlist ? (
-                          <HeartIconSolid className="w-5 h-5 text-red-500" />
+                          <HeartIconSolid className="w-5 h-5 text-emerald-600" />
                         ) : (
                           <HeartIcon className="w-5 h-5 text-stone-600" />
                         )}
@@ -546,7 +546,7 @@ const RegionalPackagesPage = () => {
                         </div>
                       </div>
 
-                      <h3 className="text-xl font-bold mb-2 line-clamp-1">
+                      <h3 className="text-xl font-bold text-stone-900 mb-2 line-clamp-1">
                         {pkg.name}
                       </h3>
 
@@ -611,7 +611,7 @@ const RegionalPackagesPage = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-center py-20"
+              className="text-center py-20 bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm px-6"
             >
               <div className="text-6xl mb-4">🏝️</div>
               <h3 className="text-2xl font-bold text-stone-900 mb-2">

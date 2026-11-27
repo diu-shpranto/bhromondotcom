@@ -75,7 +75,7 @@ const Destinations = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4">
             জনপ্রিয় গন্তব্য
           </h2>
           <p className="text-stone-600 max-w-2xl mx-auto">
@@ -97,25 +97,25 @@ const Destinations = () => {
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
-                className="group rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 bg-white"
+                className="group rounded-3xl overflow-hidden ring-1 ring-stone-100 shadow-sm hover:shadow-xl transition duration-500 bg-white"
               >
                 {/* Image */}
                 <div className="relative h-72 overflow-hidden">
                   <img
                     src={destination.image}
                     alt={destination.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-xl font-bold text-stone-900 mb-2">
                     {destination.name}
                   </h3>
 
-                  <div className="flex items-center text-stone-500 text-sm">
+                  <div className="flex items-center text-stone-600 text-sm">
                     <MapPinIcon className="w-4 h-4 mr-2 text-emerald-600" />
                     {destination.location}
                   </div>

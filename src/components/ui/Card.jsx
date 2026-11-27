@@ -16,8 +16,8 @@ const Card = ({
       viewport={{ once: true }}
       whileHover={hover ? { y: -10 } : {}}
       className={clsx(
-        'bg-white rounded-xl shadow-lg overflow-hidden',
-        hover && 'transition-all duration-300 hover:shadow-2xl',
+        'bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm overflow-hidden',
+        hover && 'transition-all duration-300 hover:shadow-xl',
         padding && 'p-6',
         className
       )}

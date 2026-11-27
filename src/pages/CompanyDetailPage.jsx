@@ -16,14 +16,14 @@ const CompanyDetailPage = () => {
 
   if (!company) {
     return (
-      <div className="container-apple py-20 text-center text-2xl">
+      <div className="bg-stone-50 min-h-screen max-w-7xl mx-auto px-6 py-20 text-center text-2xl font-semibold text-stone-900">
         Company Not Found
       </div>
     );
   }
 
   return (
-    <div>
+    <div className="bg-stone-50 min-h-screen">
 
       {/* COVER SECTION */}
       <div className="relative">
@@ -40,30 +40,30 @@ const CompanyDetailPage = () => {
       </div>
 
       {/* COMPANY INFO */}
-      <div className="container-apple py-12">
+      <div className="max-w-7xl mx-auto px-6 py-16">
 
         <div className="flex items-center gap-6 mb-8">
           {company.logo ? (
             <img
               src={company.logo}
               alt={company.name}
-              className="w-24 h-24 object-contain bg-white rounded-full shadow-lg border"
+              className="w-24 h-24 object-contain bg-white rounded-full ring-1 ring-stone-100 shadow-sm"
             />
           ) : (
-            <div className="w-24 h-24 flex items-center justify-center bg-emerald-600 text-white text-4xl font-bold rounded-full shadow-lg border">
+            <div className="w-24 h-24 flex items-center justify-center bg-emerald-600 text-white text-4xl font-bold rounded-full ring-1 ring-stone-100 shadow-sm">
               {company.name.charAt(0)}
             </div>
           )}
 
           <div>
-            <h1 className="text-3xl font-bold flex items-center gap-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-stone-900 flex items-center gap-2">
               {company.name}
               {company.verified && (
                 <span className="text-emerald-600 text-lg">✔</span>
               )}
             </h1>
 
-            <p className="text-stone-500 mt-2">
+            <p className="text-stone-600 mt-2">
               📍 {company.location}
             </p>
 
@@ -75,32 +75,32 @@ const CompanyDetailPage = () => {
           </div>
         </div>
 
-        <p className="text-stone-700 mb-10 max-w-3xl">
+        <p className="text-stone-600 mb-10 max-w-3xl">
           {company.description}
         </p>
 
         {/* CONTACT INFO */}
         <div className="grid md:grid-cols-2 gap-6 mb-16 text-stone-600">
           {(company.phone || company.contact?.phone) && (
-            <p>📞 {company.phone || company.contact.phone}</p>
+            <p className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm px-5 py-4">📞 {company.phone || company.contact.phone}</p>
           )}
           {(company.email || company.contact?.email) && (
-            <p>📧 {company.email || company.contact.email}</p>
+            <p className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm px-5 py-4">📧 {company.email || company.contact.email}</p>
           )}
           {(company.website || company.contact?.website) && (
-            <p>🌐 {company.website || company.contact.website}</p>
+            <p className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm px-5 py-4">🌐 {company.website || company.contact.website}</p>
           )}
           {(company.facebook || company.contact?.facebookPage) && (
-            <p>📘 {company.facebook || company.contact.facebookPage}</p>
+            <p className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm px-5 py-4">📘 {company.facebook || company.contact.facebookPage}</p>
           )}
         </div>
 
         {/* COMPANY PACKAGES */}
-        <h2 className="text-2xl font-bold mb-6">
+        <h2 className="text-2xl font-bold text-stone-900 mb-6">
           {company.name} এর প্যাকেজসমূহ
         </h2>
 
-        <p className="text-stone-500 mb-8">
+        <p className="text-stone-600 mb-8">
           {companyPackages.length} টি প্যাকেজ পাওয়া গেছে
         </p>
 
@@ -109,24 +109,24 @@ const CompanyDetailPage = () => {
             <Link
               key={pkg.id}
               to={`/package/${pkg.id}`}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition"
+              className="group bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition"
             >
               {pkg.image ? (
                 <img
                   src={pkg.image}
                   alt={pkg.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-cover group-hover:scale-105 transition"
                 />
               ) : (
                 <div className="w-full h-48 bg-gradient-to-r from-emerald-500 to-emerald-600" />
               )}
 
               <div className="p-6">
-                <h3 className="text-lg font-semibold mb-2">
+                <h3 className="text-lg font-semibold text-stone-900 mb-2">
                   {pkg.title}
                 </h3>
 
-                <p className="text-stone-500 text-sm mb-2">
+                <p className="text-stone-600 text-sm mb-2">
                   {pkg.duration}
                 </p>
 

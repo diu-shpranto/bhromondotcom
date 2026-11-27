@@ -5,7 +5,7 @@ const PlaceAccordion = ({ place }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden border">
+    <div className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm overflow-hidden hover:shadow-xl transition">
 
       {/* Header */}
       <button
@@ -13,16 +13,16 @@ const PlaceAccordion = ({ place }) => {
         className="w-full flex justify-between items-center p-5 text-left"
       >
         <div>
-          <h3 className="text-lg font-semibold">
+          <h3 className="text-lg font-semibold text-stone-900">
             {place.name}
           </h3>
-          <p className="text-sm text-stone-500">
+          <p className="text-sm text-stone-600">
             {place.famousFor}
           </p>
         </div>
 
         <ChevronDownIcon
-          className={`w-5 h-5 transition-transform ${
+          className={`w-5 h-5 text-emerald-700 transition-transform ${
             open ? "rotate-180" : ""
           }`}
         />
@@ -30,34 +30,34 @@ const PlaceAccordion = ({ place }) => {
 
       {/* Content */}
       {open && (
-        <div className="p-6 border-t space-y-4">
+        <div className="p-6 border-t border-stone-100 space-y-4">
 
           <img
             src={place.image}
             alt={place.name}
-            className="w-full h-60 object-cover rounded-xl"
+            className="w-full h-60 object-cover rounded-2xl"
           />
 
-          <p className="text-stone-700">
+          <p className="text-stone-600">
             {place.description}
           </p>
 
-          <div className="text-sm space-y-2">
-            <p><strong>কিভাবে যাবেন:</strong> {place.howToGo}</p>
-            <p><strong>খরচ:</strong> {place.cost}</p>
+          <div className="text-sm text-stone-600 space-y-2">
+            <p><strong className="text-stone-900">কিভাবে যাবেন:</strong> {place.howToGo}</p>
+            <p><strong className="text-stone-900">খরচ:</strong> {place.cost}</p>
           </div>
 
           <iframe
             src={`https://www.google.com/maps?q=${place.mapQuery}&output=embed`}
-            className="w-full h-64 rounded-xl"
+            className="w-full h-64 rounded-2xl ring-1 ring-stone-100"
             loading="lazy"
           />
 
-          <div className="bg-amber-50 p-4 rounded-lg">
-            <p className="font-semibold mb-2">
+          <div className="bg-emerald-50 p-4 rounded-2xl">
+            <p className="font-semibold text-stone-900 mb-2">
               ভ্রমণ টিপস:
             </p>
-            <ul className="text-sm space-y-1">
+            <ul className="text-sm text-stone-600 space-y-1">
               {place.tips.map((tip, i) => (
                 <li key={i}>• {tip}</li>
               ))}

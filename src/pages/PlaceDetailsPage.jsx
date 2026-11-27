@@ -12,7 +12,7 @@ const PlaceDetailsPage = () => {
 
   if (!place) {
     return (
-      <div className="py-32 text-center text-2xl font-semibold">
+      <div className="bg-stone-50 min-h-screen py-32 text-center text-2xl font-semibold text-stone-900">
         Place Not Found
       </div>
     );
@@ -27,7 +27,6 @@ const PlaceDetailsPage = () => {
     <div className="bg-stone-50 min-h-screen">
 
       {/* HERO SECTION */}
-      {/* HERO SECTION */}
 <div className="relative h-[500px] md:h-[600px] overflow-hidden">
 
   {/* Background Image */}
@@ -41,7 +40,7 @@ const PlaceDetailsPage = () => {
   <div className="absolute inset-0 bg-black/60" />
 
   {/* Content */}
-  <div className="relative z-10 h-full flex items-center max-w-6xl mx-auto px-6">
+  <div className="relative z-10 h-full flex items-center max-w-7xl mx-auto px-6">
     <div>
       <h1 className="text-5xl font-bold text-white">
         {place.name}
@@ -52,38 +51,27 @@ const PlaceDetailsPage = () => {
       </p>
     </div>
   </div>
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10 h-full flex items-center max-w-6xl mx-auto px-6">
-          <div>
-            <h1 className="text-5xl font-bold text-white">
-              {place.name}
-            </h1>
-            <p className="text-stone-200 mt-4 max-w-xl">
-              {place.overview}
-            </p>
-          </div>
-        </div>
       </div>
 
       {/* CONTENT */}
-      <div className="max-w-6xl mx-auto px-6 py-20 space-y-16">
+      <div className="max-w-7xl mx-auto px-6 py-20 space-y-16">
 
         {/* WHY FAMOUS */}
-        <section>
-          <h2 className="text-2xl font-bold mb-4">
+        <section className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm p-6 md:p-8">
+          <h2 className="text-2xl font-bold text-stone-900 mb-4">
             কেন বিখ্যাত
           </h2>
-          <p className="text-stone-700">
+          <p className="text-stone-600">
             {place.famousFor}
           </p>
         </section>
 
         {/* THINGS TO DO */}
-        <section>
-          <h2 className="text-2xl font-bold mb-4">
+        <section className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm p-6 md:p-8">
+          <h2 className="text-2xl font-bold text-stone-900 mb-4">
             কী করবেন
           </h2>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul className="list-disc pl-6 space-y-2 text-stone-600">
             {place.thingsToDo?.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
@@ -91,11 +79,11 @@ const PlaceDetailsPage = () => {
         </section>
 
         {/* FOOD */}
-        <section>
-          <h2 className="text-2xl font-bold mb-4">
+        <section className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm p-6 md:p-8">
+          <h2 className="text-2xl font-bold text-stone-900 mb-4">
             কী খাবেন
           </h2>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul className="list-disc pl-6 space-y-2 text-stone-600">
             {place.foodSuggestions?.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
@@ -103,11 +91,11 @@ const PlaceDetailsPage = () => {
         </section>
 
         {/* TIPS */}
-        <section>
-          <h2 className="text-2xl font-bold mb-4">
+        <section className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm p-6 md:p-8">
+          <h2 className="text-2xl font-bold text-stone-900 mb-4">
             ভ্রমণ টিপস
           </h2>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul className="list-disc pl-6 space-y-2 text-stone-600">
             {place.tips?.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
@@ -116,32 +104,32 @@ const PlaceDetailsPage = () => {
 
         {/* RELATED PACKAGES */}
         <section>
-          <h2 className="text-3xl font-bold mb-8">
+          <h2 className="text-3xl font-bold text-stone-900 mb-8">
             এই জায়গার প্যাকেজসমূহ
           </h2>
 
           {relatedPackages.length === 0 ? (
-            <p>এই স্থানের জন্য কোন প্যাকেজ পাওয়া যায়নি</p>
+            <p className="text-stone-600">এই স্থানের জন্য কোন প্যাকেজ পাওয়া যায়নি</p>
           ) : (
             <div className="grid md:grid-cols-3 gap-8">
               {relatedPackages.map((pkg) => (
                 <Link
                   key={pkg.id}
                   to={`/package/${pkg.id}`}
-                  className="bg-white rounded-2xl shadow hover:shadow-xl transition overflow-hidden"
+                  className="group bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition overflow-hidden"
                 >
                   <img
                     src={pkg.image}
                     alt={pkg.title}
-                    className="h-48 w-full object-cover"
+                    className="h-48 w-full object-cover group-hover:scale-105 transition"
                   />
 
                   <div className="p-5">
-                    <h3 className="font-semibold mb-2">
+                    <h3 className="font-semibold text-stone-900 mb-2">
                       {pkg.title}
                     </h3>
 
-                    <p className="text-sm text-stone-500 mb-2">
+                    <p className="text-sm text-stone-600 mb-2">
                       ⏳ {pkg.duration}
                     </p>
 
