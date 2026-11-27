@@ -151,14 +151,29 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-14 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-5">
           <p className="text-sm text-stone-500 text-center sm:text-left">
             © 2026 ভ্রমণ.কম — সর্বস্ব সংরক্ষিত
           </p>
           <div className="flex items-center gap-4">
-            <p className="text-xs text-emerald-400 font-semibold">
-              A XolveKart Product
-            </p>
+            {/* Mother-brand lockup */}
+            <div className="flex items-center gap-2.5">
+              <span className="w-9 h-9 rounded-xl overflow-hidden ring-1 ring-white/15 shadow-lg shrink-0">
+                <img
+                  src="/images/xolvekart-emblem.png"
+                  alt="XolveKart"
+                  className="w-full h-full object-cover"
+                />
+              </span>
+              <span className="text-left leading-tight">
+                <span className="block text-sm font-semibold text-white">
+                  A XolveKart Product
+                </span>
+                <span className="block text-[11px] text-stone-500">
+                  Ideas to Innovation.
+                </span>
+              </span>
+            </div>
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               aria-label="উপরে যান"
