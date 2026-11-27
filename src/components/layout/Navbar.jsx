@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Bars3Icon,
+  EllipsisVerticalIcon,
   XMarkIcon,
   ChevronDownIcon,
   HomeIcon,
@@ -16,7 +16,7 @@ import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import clsx from 'clsx';
 
 // Designed brand mark — gradient tile, glossy top light, white ring,
-// and a small plane badge. Used in the navbar and the mobile drawer.
+// and a small plane badge. Used in the navbar.
 const LogoMark = ({ className }) => (
   <div
     className={clsx(
@@ -255,7 +255,7 @@ const Navbar = () => {
                   scrolled || !isHome ? "text-stone-700" : "text-white"
                 )} />
               ) : (
-                <Bars3Icon className={clsx(
+                <EllipsisVerticalIcon className={clsx(
                   "w-6 h-6",
                   scrolled || !isHome ? "text-stone-700" : "text-white"
                 )} />
@@ -265,55 +265,34 @@ const Navbar = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu — hanging dropdown below the header */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop */}
+            {/* Transparent overlay below the header — tap outside to close */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.15 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[80]"
+              className="fixed inset-x-0 top-[64px] bottom-0 z-[80]"
             />
 
-            {/* Drawer */}
+            {/* Dropdown panel */}
             <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 h-screen w-[280px] sm:w-[320px] bg-white z-[100] shadow-2xl flex flex-col overflow-hidden rounded-r-[28px]"
+              initial={{ opacity: 0, y: -12, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -12, scale: 0.97 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              style={{ transformOrigin: "top right" }}
+              className="fixed top-[72px] inset-x-4 sm:left-auto sm:right-4 sm:w-[340px] z-[100] rounded-[24px] bg-white shadow-2xl ring-1 ring-stone-100"
             >
-              {/* Drawer Header — green gradient, curved decorations */}
-              <div className="relative overflow-hidden bg-gradient-to-br from-[#00A86B] via-[#008F5A] to-[#006B46] px-5 pt-5 pb-5 text-white shrink-0">
-                <div className="absolute -right-10 -top-14 w-40 h-40 rounded-full bg-white/10" />
-                <div className="absolute right-20 -bottom-10 w-28 h-28 rounded-full bg-white/10" />
-                <div className="absolute -left-8 -bottom-12 w-24 h-24 rounded-full bg-[#006B46]/50" />
-                <div className="relative flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <LogoMark className="w-11 h-11 rounded-full" />
-                    <div>
-                      <h2 className="text-lg font-bold leading-tight">ভ্রমণ.কম</h2>
-                      <p className="text-xs text-[#D1F2E3]">আপনার ভ্রমণ সঙ্গী</p>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    aria-label="মেনু বন্ধ করুন"
-                    className="p-2.5 bg-white/15 hover:bg-white/25 rounded-full transition-colors"
-                  >
-                    <XMarkIcon className="w-5 h-5 text-white" />
-                  </button>
-                </div>
-              </div>
+              {/* Caret pointing up to the 3-dot button */}
+              <span className="absolute -top-[7px] right-5 w-3.5 h-3.5 bg-white rotate-45 border-t border-l border-stone-100" />
 
-              {/* Body: navigation — fixed, centered, never scrolls */}
-              <div className="flex-1 flex flex-col justify-center min-h-0">
                 {/* Navigation Links */}
-                <nav className="px-4 py-4 space-y-2.5">
+                <nav className="relative px-3 py-3 space-y-2">
                   {navLinks.map((link) => {
                     const Icon = mobileNavIcons[link.name];
                     const isActive = isMobileActive(link);
@@ -417,25 +396,6 @@ const Navbar = () => {
                     );
                   })}
                 </nav>
-              </div>
-
-              {/* Footer — pinned to the bottom, full-bleed monument banner */}
-              <div className="relative shrink-0 h-24 overflow-hidden">
-                <img
-                  src="/images/jatiyo.jpg"
-                  alt=""
-                  className="w-full h-full object-cover"
-                 loading="lazy" decoding="async" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#006B46]/85 via-[#006B46]/35 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 px-5 pb-4 text-center">
-                  <p className="text-xs text-white font-medium">
-                    © 2026 ভ্রমণ.কম - সমস্ত অধিকার সংরক্ষিত
-                  </p>
-                  <p className="text-[11px] text-emerald-100 font-semibold mt-1">
-                    A XolveKart Product
-                  </p>
-                </div>
-              </div>
             </motion.div>
           </>
         )}
