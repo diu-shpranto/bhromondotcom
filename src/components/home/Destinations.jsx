@@ -46,6 +46,20 @@ const destinations = [
     location: "খুলনা",
     image: "/images/destinations/sundarban.jpg",
   },
+  {
+    id: 7,
+    slug: "sylhet",
+    name: "সিলেট",
+    location: "সিলেট",
+    image: "/images/6.-Sylhet-.webp",
+  },
+  {
+    id: 8,
+    slug: "rangamati",
+    name: "রাঙ্গামাটি",
+    location: "রাঙ্গামাটি",
+    image: "/images/rangamati.jpg",
+  },
 ];
 
 const Destinations = () => {

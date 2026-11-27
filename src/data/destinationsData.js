@@ -93,6 +93,37 @@ const destinationsData = [
       "/images/destinations/sundarban/2.jpg",
       "/images/destinations/sundarban/3.jpg"
     ]
+  },
+
+  {
+    id: 7,
+    slug: "sylhet",
+    name: "সিলেট",
+    location: "সিলেট",
+    description: "চা বাগান, জাফলংয়ের পাথর আর ভোলাগঞ্জের সাদা পাথর — শীতে সিলেট সবচেয়ে সুন্দর।",
+    bestTime: "অক্টোবর – মার্চ",
+    famousFor: ["জাফলং", "ভোলাগঞ্জ সাদা পাথর", "রাতারগুল"],
+    gallery: [
+      "/images/6.-Sylhet-.webp",
+      "/images/jaflon.webp",
+      "/images/bichanakandi.jpg",
+      "/images/destinations/sreemangal.jpg"
+    ]
+  },
+
+  {
+    id: 8,
+    slug: "rangamati",
+    name: "রাঙ্গামাটি",
+    location: "চট্টগ্রাম",
+    description: "কাপ্তাই লেকের নীল পানি আর পাহাড়ের মাঝখানে ঝুলন্ত ব্রিজ — রাঙ্গামাটি একদিনের ট্যুরের জন্য দারুণ।",
+    bestTime: "অক্টোবর – মার্চ",
+    famousFor: ["কাপ্তাই লেক", "ঝুলন্ত ব্রিজ", "শুভলং ঝর্ণা"],
+    gallery: [
+      "/images/rangamati.jpg",
+      "/images/places/kaptai.jpg",
+      "/images/company/btg/packages/rangamati/btg-rangamati.jpg"
+    ]
   }
 ];
 
