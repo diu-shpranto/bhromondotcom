@@ -1,4 +1,10 @@
 import { useParams, Link } from "react-router-dom";
+import {
+  MapPinIcon,
+  ClockIcon,
+  DocumentTextIcon,
+  ArrowRightIcon,
+} from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import blogData from "../data/blogData";
 import packagesData from "../data/packagesData";
@@ -169,41 +175,89 @@ const BlogDetailPage = () => {
 
         {/* ================= SIDEBAR ================= */}
 
-        <div className="space-y-8">
+        <div className="space-y-6 lg:sticky lg:top-24 self-start">
 
           {/* Destination Info */}
           {destination && (
-            <div className="bg-white p-6 rounded-3xl shadow">
-              <h3 className="font-bold mb-4">
-                গন্তব্য তথ্য
-              </h3>
-              <p className="text-sm text-stone-600 mb-3">
-                সেরা সময়: {destination.bestTime}
-              </p>
-              <Link
-                to={`/destination/${destination.slug}`}
-                className="text-emerald-600 hover:underline text-sm"
-              >
-                বিস্তারিত দেখুন →
-              </Link>
+            <div className="bg-white rounded-3xl shadow-sm ring-1 ring-stone-100 overflow-hidden">
+              <div className="flex items-center gap-3 px-6 pt-6 pb-4">
+                <span className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                  <MapPinIcon className="w-5 h-5" />
+                </span>
+                <h3 className="font-bold text-lg">
+                  গন্তব্য তথ্য
+                </h3>
+              </div>
+              <div className="px-6 pb-6 space-y-3">
+                <div className="flex items-start gap-3 text-sm">
+                  <MapPinIcon className="w-5 h-5 text-emerald-600 shrink-0" />
+                  <span className="text-stone-700">
+                    {destination.location}
+                  </span>
+                </div>
+                <div className="flex items-start gap-3 text-sm">
+                  <ClockIcon className="w-5 h-5 text-emerald-600 shrink-0" />
+                  <span className="text-stone-700">
+                    সেরা সময়: {destination.bestTime}
+                  </span>
+                </div>
+                {destination.famousFor && (
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {destination.famousFor.map((f) => (
+                      <span
+                        key={f}
+                        className="px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full text-xs font-medium"
+                      >
+                        {f}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <Link
+                  to={`/destination/${destination.slug}`}
+                  className="inline-flex items-center gap-1.5 text-emerald-600 hover:text-emerald-700 font-semibold text-sm pt-1"
+                >
+                  বিস্তারিত দেখুন
+                  <ArrowRightIcon className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
           )}
 
           {/* Related Blogs */}
           {relatedBlogs.length > 0 && (
-            <div className="bg-white p-6 rounded-3xl shadow">
-              <h3 className="font-bold mb-6">
-                সম্পর্কিত ব্লগ
-              </h3>
-
-              <div className="space-y-4">
+            <div className="bg-white rounded-3xl shadow-sm ring-1 ring-stone-100 overflow-hidden">
+              <div className="flex items-center gap-3 px-6 pt-6 pb-4">
+                <span className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                  <DocumentTextIcon className="w-5 h-5" />
+                </span>
+                <h3 className="font-bold text-lg">
+                  সম্পর্কিত ব্লগ
+                </h3>
+              </div>
+              <div className="px-6 pb-6 space-y-5">
                 {relatedBlogs.map((b) => (
                   <Link
                     key={b.id}
                     to={`/blog/${b.slug}`}
-                    className="block hover:text-emerald-600 transition"
+                    className="flex gap-4 group"
                   >
-                    {b.title}
+                    <img
+                      src={b.coverImage}
+                      className="w-20 h-16 object-cover rounded-2xl shrink-0 group-hover:scale-105 transition"
+                      alt=""
+                    />
+                    <div className="min-w-0">
+                      <p className="text-xs font-semibold text-emerald-700">
+                        {b.category}
+                      </p>
+                      <p className="text-sm font-semibold leading-snug group-hover:text-emerald-600 transition">
+                        {b.title}
+                      </p>
+                      <p className="text-xs text-stone-400 mt-1">
+                        {b.readTime}
+                      </p>
+                    </div>
                   </Link>
                 ))}
               </div>
@@ -211,16 +265,21 @@ const BlogDetailPage = () => {
           )}
 
           {/* Conversion CTA */}
-          <div className="bg-gradient-to-r from-emerald-600 to-emerald-800 text-white p-6 rounded-3xl shadow-lg">
-            <h3 className="font-bold mb-3">
-              ভ্রমণে যেতে চান?
-            </h3>
-            <Link
-              to={`/destination/${blog.destinationSlug}`}
-              className="inline-block mt-3 bg-white text-black px-5 py-2 rounded-xl font-semibold"
-            >
-              প্যাকেজ দেখুন
-            </Link>
+          <div className="relative overflow-hidden bg-emerald-700 text-white p-6 rounded-3xl shadow-lg">
+            <div className="absolute -top-10 -right-10 w-36 h-36 rounded-full bg-emerald-600/60" />
+            <div className="absolute -bottom-12 -left-8 w-32 h-32 rounded-full bg-emerald-800/70" />
+            <div className="relative">
+              <h3 className="font-bold text-lg mb-4">
+                ভ্রমণে যেতে চান?
+              </h3>
+              <Link
+                to={`/destination/${blog.destinationSlug}`}
+                className="inline-flex items-center gap-2 bg-white text-emerald-700 px-5 py-2.5 rounded-xl font-semibold hover:bg-emerald-50 transition"
+              >
+                প্যাকেজ দেখুন
+                <ArrowRightIcon className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
 
         </div>
