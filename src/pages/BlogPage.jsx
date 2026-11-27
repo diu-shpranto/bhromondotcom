@@ -4,8 +4,10 @@ import {
   TagIcon,
   FireIcon,
   MapPinIcon,
+  CalendarIcon,
+  ClockIcon,
 } from "@heroicons/react/24/outline";
-import blogData from "../data/blogData";
+import blogData, { BLOG_CATEGORY_LABELS } from "../data/blogData";
 import destinationsData from "../data/destinationsData";
 import { useState } from "react";
 
@@ -13,13 +15,7 @@ const BlogPage = () => {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
 
-  const categories = [
-    "All",
-    "Destination Guide",
-    "Travel Tips",
-    "Adventure",
-    "Budget Travel"
-  ];
+  const categories = ["All", "Destination Guide", "Travel Tips"];
 
   const filteredBlogs = blogData.filter((blog) => {
     const matchSearch = blog.title
@@ -35,8 +31,21 @@ const BlogPage = () => {
   const popularBlogs = blogData.slice(0, 4);
 
   return (
-    <div className="bg-stone-50 min-h-screen py-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="bg-sand min-h-screen">
+      {/* ================= Forest Header Band ================= */}
+      <div className="bg-forest text-white">
+        <div className="max-w-7xl mx-auto px-6 pt-24 pb-14 md:pt-28 md:pb-16">
+          <h1 className="font-display text-4xl md:text-5xl font-bold">
+            ট্রাভেল ব্লগ
+          </h1>
+          <p className="mt-3 text-emerald-100/90 max-w-2xl leading-relaxed">
+            গন্তব্যের গাইড, ভ্রমণ টিপস আর সিজনের আপডেট — মোট{" "}
+            {blogData.length.toLocaleString("bn-BD")}টি ব্লগ, সব এক জায়গায়।
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
 
         <div className="grid lg:grid-cols-3 gap-12">
 
@@ -57,7 +66,7 @@ const BlogPage = () => {
                     <MagnifyingGlassIcon className="w-5 h-5 text-stone-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                     <input
                       type="text"
-                      placeholder="Search..."
+                      placeholder="ব্লগ খুঁজুন..."
                       className="w-full pl-11 pr-4 py-3 bg-stone-50 border border-stone-200 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 placeholder:text-stone-400"
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
@@ -90,7 +99,7 @@ const BlogPage = () => {
                             : "text-stone-700 hover:bg-emerald-50 hover:text-emerald-700"
                         }`}
                       >
-                        <span>{cat}</span>
+                        <span>{BLOG_CATEGORY_LABELS[cat] ?? cat}</span>
                         <span
                           className={`text-xs px-2 py-0.5 rounded-full ${
                             category === cat
@@ -133,7 +142,7 @@ const BlogPage = () => {
                       </div>
                       <div className="min-w-0">
                         <p className="text-xs font-semibold text-emerald-700">
-                          {blog.category}
+                          {BLOG_CATEGORY_LABELS[blog.category] ?? blog.category}
                         </p>
                         <p className="text-sm font-semibold leading-snug group-hover:text-emerald-600 transition">
                           {blog.title}
@@ -172,47 +181,64 @@ const BlogPage = () => {
           </div>
 
           {/* MAIN BLOG */}
-          <div className="order-2 lg:order-1 lg:col-span-2 space-y-12">
+          <div className="order-2 lg:order-1 lg:col-span-2">
 
-            <h1 className="text-4xl font-bold">
-              ট্রাভেল ব্লগ
-            </h1>
+            {filteredBlogs.length === 0 ? (
+              <div className="bg-white rounded-3xl shadow-sm ring-1 ring-stone-100 px-6 py-16 text-center">
+                <span className="inline-flex w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 items-center justify-center">
+                  <MagnifyingGlassIcon className="w-6 h-6" />
+                </span>
+                <h2 className="font-display text-2xl font-bold mt-4">
+                  কোনো ব্লগ পাওয়া যায়নি
+                </h2>
+                <p className="text-stone-500 mt-2">
+                  অন্য কিছু খুঁজে দেখুন, বা ক্যাটাগরি বদলে আবার চেষ্টা করুন।
+                </p>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 gap-10">
+                {filteredBlogs.map((blog) => (
+                  <Link
+                    key={blog.id}
+                    to={`/blog/${blog.slug}`}
+                    className="group bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-500"
+                  >
+                    <div className="overflow-hidden">
+                      <img
+                        src={blog.coverImage}
+                        alt={blog.title}
+                        className="h-52 w-full object-cover group-hover:scale-110 transition duration-700"
+                       loading="lazy" decoding="async" />
+                    </div>
 
-            <div className="grid md:grid-cols-2 gap-10">
-              {filteredBlogs.map((blog) => (
-                <Link
-                  key={blog.id}
-                  to={`/blog/${blog.slug}`}
-                  className="group bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-500"
-                >
-                  <div className="overflow-hidden">
-                    <img
-                      src={blog.coverImage}
-                      alt={blog.title}
-                      className="h-52 w-full object-cover group-hover:scale-110 transition duration-700"
-                     loading="lazy" decoding="async" />
-                  </div>
+                    <div className="p-6">
+                      <span className="text-xs bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full font-medium">
+                        {BLOG_CATEGORY_LABELS[blog.category] ?? blog.category}
+                      </span>
 
-                  <div className="p-6">
-                    <span className="text-xs bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full">
-                      {blog.category}
-                    </span>
+                      <h3 className="font-display text-xl font-bold mt-4 group-hover:text-emerald-600 transition">
+                        {blog.title}
+                      </h3>
 
-                    <h3 className="text-xl font-bold mt-4 group-hover:text-emerald-600 transition">
-                      {blog.title}
-                    </h3>
+                      <p className="text-stone-500 mt-3">
+                        {blog.excerpt}
+                      </p>
 
-                    <p className="text-stone-500 mt-3">
-                      {blog.excerpt}
-                    </p>
-
-                    <p className="text-sm text-stone-400 mt-4">
-                      {blog.readTime}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-            </div>
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-stone-400 mt-4">
+                        <span className="inline-flex items-center gap-1.5">
+                          <CalendarIcon className="w-4 h-4" />
+                          {blog.publishDate}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5">
+                          <ClockIcon className="w-4 h-4" />
+                          {blog.readTime}
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
 
           </div>
 

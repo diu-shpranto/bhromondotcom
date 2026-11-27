@@ -4,9 +4,10 @@ import {
   ClockIcon,
   DocumentTextIcon,
   ArrowRightIcon,
+  CalendarIcon,
 } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import blogData from "../data/blogData";
+import blogData, { BLOG_CATEGORY_LABELS } from "../data/blogData";
 import packagesData from "../data/packagesData";
 import destinationsData from "../data/destinationsData";
 
@@ -61,17 +62,8 @@ const BlogDetailPage = () => {
     (d) => d.slug === blog.destinationSlug
   );
 
-  /* ================= AI Summary ================= */
-
-  const aiSummary = `
-এই ব্লগে আপনি জানতে পারবেন:
-• ${destination?.name} কেন বিখ্যাত
-• সেরা ভ্রমণ সময়
-• কী দেখবেন ও কীভাবে প্রস্তুতি নিবেন
-  `;
-
   return (
-    <div className="bg-stone-50 min-h-screen">
+    <div className="bg-sand min-h-screen">
 
       {/* ================= Progress Bar ================= */}
       <div
@@ -85,21 +77,40 @@ const BlogDetailPage = () => {
         className="relative h-[500px] bg-cover bg-center"
         style={{ backgroundImage: `url(${blog.coverImage})` }}
       >
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#022c22] via-[#022c22]/55 to-transparent" />
 
-        <div className="relative z-10 h-full flex items-center max-w-6xl mx-auto px-6 text-white">
+        <div className="relative z-10 h-full flex items-end max-w-6xl mx-auto px-6 pb-12 text-white">
           <div>
-            <p className="text-sm mb-2">
-              হোম / ব্লগ / {blog.title}
+            <p className="text-sm mb-3 text-emerald-100/90">
+              <Link to="/" className="hover:text-white transition">
+                হোম
+              </Link>
+              {" / "}
+              <Link to="/blog" className="hover:text-white transition">
+                ব্লগ
+              </Link>
+              {" / "}
+              <span className="text-white">{blog.title}</span>
             </p>
 
-            <h1 className="text-4xl md:text-5xl font-bold">
+            <span className="inline-block text-xs bg-white/15 text-white px-3 py-1 rounded-full font-medium backdrop-blur-sm">
+              {BLOG_CATEGORY_LABELS[blog.category] ?? blog.category}
+            </span>
+
+            <h1 className="font-display text-4xl md:text-5xl font-bold mt-4 leading-snug">
               {blog.title}
             </h1>
 
-            <p className="mt-4 text-stone-200">
-              {blog.readTime}
-            </p>
+            <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1 text-emerald-100/90 text-sm">
+              <span className="inline-flex items-center gap-1.5">
+                <CalendarIcon className="w-4 h-4" />
+                {blog.publishDate}
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <ClockIcon className="w-4 h-4" />
+                {blog.readTime}
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -112,13 +123,13 @@ const BlogDetailPage = () => {
 
         <div className="lg:col-span-2 space-y-12">
 
-          {/* AI Summary Box */}
+          {/* Summary Box */}
           <div className="bg-emerald-50 p-6 rounded-2xl shadow">
-            <h3 className="font-bold mb-3">
-            সারাংশ
+            <h3 className="font-display font-bold text-lg mb-3">
+              সারাংশ
             </h3>
-            <p className="whitespace-pre-line">
-              {aiSummary}
+            <p className="leading-relaxed text-stone-700">
+              {blog.summary}
             </p>
           </div>
 
@@ -142,7 +153,7 @@ const BlogDetailPage = () => {
           {/* Related Packages */}
           {relatedPackages.length > 0 && (
             <div>
-              <h2 className="text-2xl font-bold mb-6">
+              <h2 className="font-display text-2xl font-bold mb-6">
                 এই গন্তব্যের প্যাকেজ
               </h2>
 
@@ -249,7 +260,7 @@ const BlogDetailPage = () => {
                      loading="lazy" decoding="async" />
                     <div className="min-w-0">
                       <p className="text-xs font-semibold text-emerald-700">
-                        {b.category}
+                        {BLOG_CATEGORY_LABELS[b.category] ?? b.category}
                       </p>
                       <p className="text-sm font-semibold leading-snug group-hover:text-emerald-600 transition">
                         {b.title}
@@ -265,16 +276,16 @@ const BlogDetailPage = () => {
           )}
 
           {/* Conversion CTA */}
-          <div className="relative overflow-hidden bg-emerald-700 text-white p-6 rounded-3xl shadow-lg">
-            <div className="absolute -top-10 -right-10 w-36 h-36 rounded-full bg-emerald-600/60" />
-            <div className="absolute -bottom-12 -left-8 w-32 h-32 rounded-full bg-emerald-800/70" />
+          <div className="relative overflow-hidden bg-forest text-white p-6 rounded-3xl shadow-lg">
+            <div className="absolute -top-10 -right-10 w-36 h-36 rounded-full bg-emerald-600/30" />
+            <div className="absolute -bottom-12 -left-8 w-32 h-32 rounded-full bg-emerald-800/50" />
             <div className="relative">
-              <h3 className="font-bold text-lg mb-4">
+              <h3 className="font-display font-bold text-lg mb-4">
                 ভ্রমণে যেতে চান?
               </h3>
               <Link
                 to={`/destination/${blog.destinationSlug}`}
-                className="inline-flex items-center gap-2 bg-white text-emerald-700 px-5 py-2.5 rounded-xl font-semibold hover:bg-emerald-50 transition"
+                className="inline-flex items-center gap-2 bg-white text-forest px-5 py-2.5 rounded-xl font-semibold hover:bg-emerald-50 transition"
               >
                 প্যাকেজ দেখুন
                 <ArrowRightIcon className="w-4 h-4" />
