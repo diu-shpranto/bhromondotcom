@@ -187,6 +187,27 @@ const DestinationDetailsPage = () => {
           </div>
         )}
 
+        {/* ================= HOW TO REACH ================= */}
+
+        {destination.howToReach && (
+          <div className="mb-16 md:mb-20">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-stone-900 mb-8">
+              কীভাবে যাবেন
+            </h2>
+
+            <div className="bg-white p-6 md:p-8 rounded-3xl ring-1 ring-stone-100 shadow-sm">
+              <ul className="space-y-3">
+                {destination.howToReach.map((fact, i) => (
+                  <li key={i} className="flex gap-3 text-stone-700">
+                    <CheckCircleIcon className="w-5 h-5 shrink-0 text-emerald-600 mt-0.5" />
+                    <span>{fact}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+
         {/* ================= POPULAR PLACES ================= */}
 
         {placesHere.length > 0 && (
