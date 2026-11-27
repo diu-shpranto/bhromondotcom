@@ -134,7 +134,10 @@ const destinationsData = [
     description: "ভারত মহাসাগরের প্রবাল দ্বীপপুঞ্জ — নীল লেগুন, সাদা বালি আর রিসোর্ট। দূরযাত্রার গ্রুপ ট্যুরে যাওয়া যায়।",
     bestTime: "নভেম্বর – এপ্রিল",
     famousFor: ["নীল লেগুন", "প্রবাল দ্বীপ", "রিসোর্ট"],
-    gallery: []
+    gallery: [
+      "/images/destinations/maldives.jpg",
+      "/images/destinations/maldives-aerial.jpg"
+    ]
   }
 ];
 

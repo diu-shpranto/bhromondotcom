@@ -7,7 +7,7 @@ const companiesData = [
     rating: 4.9,
 
     description:
-      "Bangladesh Tour Group – BTG is a government-approved travel company providing affordable tour packages across Bangladesh.",
+      "বাংলাদেশ ট্যুর গ্রুপ (BTG) — সরকার-অনুমোদিত ট্রাভেল কোম্পানি। সারাদেশে সাশ্রয়ী ট্যুর প্যাকেজের আয়োজন করে।",
 
     contact: {
       phone: "+8801986003601",

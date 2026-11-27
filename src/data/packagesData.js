@@ -49,7 +49,7 @@ categories: ["Single", "Family", "Couple", "Adventure", "Group"],
   {
     id: 802,
     destinationSlug: "rangamati",
-    companyId: 2,
+    companyId: 1,
 categories: ["Single", "Family", "Couple", "Group"],
     title: "লাল পাহাড়ের দেশ - রাঙ্গামাটি",
     location: "রাঙ্গামাটি - কাপ্তাই লেক",
@@ -314,7 +314,7 @@ categories: ["Single", "Family", "Group"],
 {
   id: 907,
   destinationSlug: "sundarban",
-  companyId: 3,
+  companyId: 1,
 
   categories: ["Adventure", "Group"],
 
@@ -672,6 +672,7 @@ categories: ["Single", "Family", "Group"],
   location: "মালদ্বীপ ও শ্রীলঙ্কা",
   duration: "৬ রাত ৭ দিন",
   tourStart: "২১ ডিসেম্বর ২০২৬",
+  image: "/images/destinations/maldives.jpg",
   pricing: { perPerson: 89999, couplePrice: null },
   description:
     "দূরযাত্রার গ্রুপ ট্যুর — ২১ ডিসেম্বর ২০২৬ যাত্রা। ২২ নভেম্বরের পোস্ট অনুযায়ী ৩টি সিট বাকি ছিল। ফিটসএয়ার ফ্লাইট, হোটেল, সকালের নাশতা ও ট্রান্সফার অন্তর্ভুক্ত। শ্রীলঙ্কার ভিসা ফি আলাদা। বুকিং মানি জনপ্রতি ৳৫০,০০০। বুকিং: ০১৯০৭-৭৮০৪১০।",
