@@ -25,6 +25,7 @@ import DMCAPage from "./pages/DMCAPage";
 import ContentRemovalPage from "./pages/ContentRemovalPage";
 import ImagePolicyPage from "./pages/ImagePolicyPage";
 import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import FlightBookingPage from "./pages/FlightBookingPage";
 import HotelBookingPage from "./pages/HotelBookingPage";
 
@@ -70,6 +71,7 @@ function App() {
           {/* ================= AUTH ================= */}
           <Route path="/login" element={<LoginPage />} />
 <Route path="/about" element={<AboutPage />} />
+<Route path="/contact" element={<ContactPage />} />
 
 <Route path="/privacy" element={<PrivacyPage />} />
 <Route path="/terms" element={<TermsPage />} />

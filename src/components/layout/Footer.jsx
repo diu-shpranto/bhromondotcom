@@ -37,6 +37,7 @@ const services = [
 
 const info = [
   { name: "আমাদের সম্পর্কে", to: "/about" },
+  { name: "যোগাযোগ", to: "/contact" },
   { name: "সব গন্তব্য", to: "/destinations" },
   { name: "ব্লগ", to: "/blog" },
 ];
