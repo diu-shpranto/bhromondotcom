@@ -10,7 +10,9 @@ import {
   BriefcaseIcon,
   MapPinIcon,
   BuildingOfficeIcon,
-  NewspaperIcon
+  NewspaperIcon,
+  ShoppingBagIcon,
+  ArrowRightIcon
 } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 
@@ -92,6 +94,22 @@ const Navbar = () => {
       path: '/blog',
     },
   ];
+
+  // Icons for the mobile drawer cards (desktop nav renders no icons)
+  const mobileNavIcons = {
+    'হোম': HomeIcon,
+    'প্যাকেজ': BriefcaseIcon,
+    'গন্তব্য': MapPinIcon,
+    'কোম্পানি': BuildingOfficeIcon,
+    'ব্লগ': NewspaperIcon,
+  };
+
+  // Active state for a top-level mobile item
+  const isMobileActive = (link) =>
+    link.name === 'গন্তব্য'
+      ? location.pathname === link.path ||
+        location.pathname.startsWith('/destination/')
+      : location.pathname === link.path;
 
   // Text color based on scroll and page
   const textColor = scrolled || !isHome ? 'text-stone-800' : 'text-white';
@@ -259,109 +277,187 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 h-screen w-[280px] sm:w-[320px] bg-white z-[100] shadow-2xl overflow-y-auto"
+              className="fixed top-0 left-0 h-screen w-[300px] sm:w-[340px] bg-white z-[100] shadow-2xl flex flex-col overflow-hidden rounded-r-[28px]"
             >
-              {/* Drawer Header */}
-              <div className="bg-gradient-to-r from-emerald-600 to-emerald-800 p-6 text-white">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+              {/* Drawer Header — green gradient, curved decorations */}
+              <div className="relative overflow-hidden bg-gradient-to-br from-[#00A86B] via-[#008F5A] to-[#006B46] px-5 pt-6 pb-7 text-white shrink-0">
+                <div className="absolute -right-10 -top-14 w-40 h-40 rounded-full bg-white/10" />
+                <div className="absolute right-20 -bottom-10 w-28 h-28 rounded-full bg-white/10" />
+                <div className="absolute -left-8 -bottom-12 w-24 h-24 rounded-full bg-[#006B46]/50" />
+                <div className="relative flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-11 h-11 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-900/20">
                       <span className="text-white font-bold text-lg">ভ্র</span>
                     </div>
                     <div>
-                      <h2 className="text-lg font-bold">ভ্রমণ.কম</h2>
-                      <p className="text-xs text-emerald-100">আপনার ভ্রমণ সঙ্গী</p>
+                      <h2 className="text-lg font-bold leading-tight">ভ্রমণ.কম</h2>
+                      <p className="text-xs text-[#D1F2E3]">আপনার ভ্রমণ সঙ্গী</p>
                     </div>
                   </div>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+                    aria-label="মেনু বন্ধ করুন"
+                    className="p-2.5 bg-white/15 hover:bg-white/25 rounded-full transition-colors"
                   >
-                    <XMarkIcon className="w-5 h-5" />
+                    <XMarkIcon className="w-5 h-5 text-white" />
                   </button>
                 </div>
               </div>
 
-              {/* Navigation Links */}
-              <div className="p-4">
-                {navLinks.map((link) => {
-                  const Icon = link.icon;
-                  return (
-                    <div key={link.path} className="mb-2">
-                      {link.dropdown ? (
-                        <>
-                          <button
-                            onClick={() => setMobileOpen(mobileOpen === link.name ? null : link.name)}
-                            className={clsx(
-                              "w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200",
-                              location.pathname === link.path || location.pathname.includes(link.path)
-                                ? "bg-emerald-50 text-emerald-600"
-                                : "hover:bg-stone-50 text-stone-700"
-                            )}
-                          >
-                            <div className="flex items-center space-x-3">
-                              {Icon && <Icon className="w-5 h-5" />}
-                              <span className="font-medium">{link.name}</span>
-                            </div>
-                            <ChevronDownIcon
-                              className={clsx(
-                                "w-5 h-5 transition-transform duration-200",
-                                mobileOpen === link.name && "rotate-180 text-emerald-600"
+              {/* Scrollable body: navigation + promo + footer */}
+              <div className="flex-1 overflow-y-auto">
+                {/* Navigation Links */}
+                <nav className="px-4 pt-5 pb-2 space-y-2.5">
+                  {navLinks.map((link) => {
+                    const Icon = mobileNavIcons[link.name];
+                    const isActive = isMobileActive(link);
+                    const isExpanded = mobileOpen === link.name;
+                    const cardClass = clsx(
+                      "relative flex items-center gap-3.5 w-full px-4 py-3.5 rounded-[20px] border transition-all duration-200 active:scale-[0.98]",
+                      isActive
+                        ? "bg-[#E8F8F0] border-[#BFE9D6] shadow-sm"
+                        : "bg-white border-stone-100 shadow-sm hover:border-emerald-200 hover:bg-emerald-50/40"
+                    );
+                    const iconChipClass = clsx(
+                      "w-10 h-10 rounded-2xl flex items-center justify-center shrink-0 transition-colors duration-200",
+                      isActive ? "bg-[#008F5A] text-white" : "bg-[#E8F8F0] text-[#008F5A]"
+                    );
+                    const labelClass = clsx(
+                      "font-semibold text-[15px] transition-colors duration-200",
+                      isActive ? "text-[#006B46]" : "text-[#242424]"
+                    );
+                    return (
+                      <div key={link.path}>
+                        {link.dropdown ? (
+                          <>
+                            <button
+                              onClick={() => setMobileOpen(isExpanded ? null : link.name)}
+                              aria-expanded={isExpanded}
+                              className={cardClass}
+                            >
+                              {isActive && (
+                                <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-9 rounded-r-full bg-[#008F5A]" />
                               )}
-                            />
-                          </button>
-
-                          {/* Dropdown Items */}
-                          <AnimatePresence>
-                            {mobileOpen === link.name && (
-                              <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.2 }}
-                                className="overflow-hidden"
+                              <span className={iconChipClass}>
+                                {Icon && <Icon className="w-5 h-5" />}
+                              </span>
+                              <span className={labelClass}>{link.name}</span>
+                              <span
+                                className={clsx(
+                                  "ml-auto w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors duration-200",
+                                  isExpanded ? "bg-[#008F5A] text-white" : "bg-stone-100 text-stone-500"
+                                )}
                               >
-                                <div className="ml-4 mt-2 space-y-1 border-l-2 border-emerald-200 pl-3">
-                                  {link.dropdown.map((item) => (
-                                    <Link
-                                      key={item.path}
-                                      to={item.path}
-                                      onClick={() => setIsOpen(false)}
-                                      className="block px-4 py-2.5 text-sm text-stone-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all duration-200"
-                                    >
-                                      {item.name}
-                                    </Link>
-                                  ))}
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </>
-                      ) : (
-                        <Link
-                          to={link.path}
-                          onClick={() => setIsOpen(false)}
-                          className={clsx(
-                            "flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200",
-                            location.pathname === link.path
-                              ? "bg-emerald-50 text-emerald-600 font-medium"
-                              : "text-stone-700 hover:bg-stone-50"
-                          )}
-                        >
-                          {Icon && <Icon className="w-5 h-5" />}
-                          <span>{link.name}</span>
-                        </Link>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
+                                <ChevronDownIcon
+                                  className={clsx(
+                                    "w-4 h-4 transition-transform duration-300",
+                                    isExpanded && "rotate-180"
+                                  )}
+                                />
+                              </span>
+                            </button>
 
-              {/* Footer */}
-              <div className="p-4 border-t mt-4">
-                <p className="text-xs text-stone-500 text-center">
-                  © 2026 ভ্রমণ.কম - সমস্ত অধিকার সংরক্ষিত
-                </p>
+                            {/* Dropdown Items */}
+                            <AnimatePresence initial={false}>
+                              {isExpanded && (
+                                <motion.div
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: "auto", opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                                  className="overflow-hidden"
+                                >
+                                  <div className="ml-9 mt-2 mb-1 space-y-1 border-l-2 border-[#BFE9D6] pl-4">
+                                    {link.dropdown.map((item) => {
+                                      const subActive =
+                                        location.pathname + location.search === item.path;
+                                      return (
+                                        <Link
+                                          key={item.path}
+                                          to={item.path}
+                                          onClick={() => setIsOpen(false)}
+                                          className={clsx(
+                                            "flex items-center gap-2.5 px-3.5 py-2.5 text-sm rounded-xl transition-all duration-200",
+                                            subActive
+                                              ? "bg-[#E8F8F0] text-[#006B46] font-semibold"
+                                              : "text-stone-600 hover:text-[#006B46] hover:bg-[#E8F8F0]/60"
+                                          )}
+                                        >
+                                          <span
+                                            className={clsx(
+                                              "w-1.5 h-1.5 rounded-full shrink-0",
+                                              subActive ? "bg-[#008F5A]" : "bg-emerald-300"
+                                            )}
+                                          />
+                                          {item.name}
+                                        </Link>
+                                      );
+                                    })}
+                                  </div>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </>
+                        ) : (
+                          <Link
+                            to={link.path}
+                            onClick={() => setIsOpen(false)}
+                            className={cardClass}
+                          >
+                            {isActive && (
+                              <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-9 rounded-r-full bg-[#008F5A]" />
+                            )}
+                            <span className={iconChipClass}>
+                              {Icon && <Icon className="w-5 h-5" />}
+                            </span>
+                            <span className={labelClass}>{link.name}</span>
+                          </Link>
+                        )}
+                      </div>
+                    );
+                  })}
+                </nav>
+
+                {/* Promotional Banner */}
+                <div className="px-4 pt-3 pb-2">
+                  <div className="relative overflow-hidden rounded-[20px] bg-gradient-to-br from-[#00A86B] via-[#008F5A] to-[#006B46] p-5 text-white shadow-lg shadow-emerald-900/20">
+                    <div className="absolute -right-6 -bottom-8 w-28 h-28 rounded-full bg-white/10" />
+                    <div className="absolute right-16 -top-8 w-20 h-20 rounded-full bg-white/10" />
+                    <div className="absolute right-4 top-4 w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center rotate-6">
+                      <ShoppingBagIcon className="w-7 h-7 text-white" />
+                    </div>
+                    <div className="relative pr-16">
+                      <h3 className="font-bold text-lg leading-snug">সহজে অর্ডার করুন</h3>
+                      <p className="text-sm text-[#D1F2E3] mt-1">নিরাপদ ও নির্ভরযোগ্য সেবা</p>
+                      <Link
+                        to="/packages"
+                        onClick={() => setIsOpen(false)}
+                        className="mt-4 inline-flex items-center gap-1.5 bg-white text-[#006B46] font-bold text-sm px-4 py-2.5 rounded-full shadow hover:bg-emerald-50 active:scale-95 transition"
+                      >
+                        এখনই কিনুন
+                        <ArrowRightIcon className="w-4 h-4" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer */}
+                <div className="px-5 pt-3 pb-5">
+                  <div className="border-t border-stone-100 pt-4">
+                    <p className="text-xs text-stone-400 text-center">
+                      © 2026 ভ্রমণ.কম - সমস্ত অধিকার সংরক্ষিত
+                    </p>
+                  </div>
+                  {/* Bangladesh-inspired decorative strip */}
+                  <div className="relative mt-4 h-16 rounded-2xl overflow-hidden">
+                    <img
+                      src="/images/jatiyo.jpg"
+                      alt=""
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#006B46]/70 via-[#006B46]/20 to-transparent" />
+                  </div>
+                </div>
               </div>
             </motion.div>
           </>
