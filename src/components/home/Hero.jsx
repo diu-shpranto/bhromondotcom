@@ -75,15 +75,6 @@ const handleSearch = () => {
               </span>
             </motion.h1>
 
-            {/* Description */}
-            <motion.p
-              variants={itemVariants}
-              className="text-base sm:text-lg md:text-xl text-gray-200 mb-8 leading-relaxed"
-            >
-              ৪টি যাচাই করা কোম্পানির ট্যুর — সাজেক, সেন্টমার্টিন,
-              কক্সবাজার, সুন্দরবন। দাম আর ছাড়ার তারিখ ওদের নিজের
-              Facebook পেজ থেকে নেওয়া, তাই যা দেখছেন সেটাই আসল।
-            </motion.p>
 
             {/* Buttons */}
             <motion.div
