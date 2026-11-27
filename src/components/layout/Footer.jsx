@@ -74,11 +74,11 @@ const Footer = () => {
       {/* Gradient top strip */}
       <div className="h-1 bg-gradient-to-r from-[#00C078] via-[#008F5A] to-[#006B46]" />
 
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-6 pt-12 pb-6">
         {/* Top Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           {/* Brand */}
-          <div className="lg:col-span-4">
+          <div className="col-span-2 lg:col-span-4">
             <Link to="/" className="flex items-center gap-3">
               <span className="relative shrink-0">
                 <span className="w-11 h-11 rounded-full bg-gradient-to-br from-[#00C078] via-[#008F5A] to-[#006B46] ring-2 ring-white/20 shadow-lg flex items-center justify-center text-white text-lg font-bold">
@@ -184,7 +184,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-5">
+        <div className="mt-10 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-5">
           <p className="text-sm text-stone-500 text-center sm:text-left">
             © 2026 ভ্রমণ.কম — সর্বস্ব সংরক্ষিত
           </p>
