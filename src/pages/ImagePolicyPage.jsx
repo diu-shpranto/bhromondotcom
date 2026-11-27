@@ -5,7 +5,7 @@ const ImagePolicyPage = () => {
         <div className="bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm p-6 md:p-10">
 
           <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Image Usage Policy</h1>
-          <div className="h-1 w-16 bg-sky-600 rounded-full mb-8"></div>
+          <div className="h-1 w-16 bg-emerald-600 rounded-full mb-8"></div>
 
           <p className="text-stone-600 leading-relaxed mb-6">
             ভ্রমণ.কম শুধুমাত্র উন্মুক্ত উৎস, লাইসেন্সপ্রাপ্ত অথবা

@@ -5,7 +5,7 @@ const TermsPage = () => {
         <div className="bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm p-6 md:p-10">
 
           <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">শর্তাবলী</h1>
-          <div className="h-1 w-16 bg-sky-600 rounded-full mb-8"></div>
+          <div className="h-1 w-16 bg-emerald-600 rounded-full mb-8"></div>
 
           <h2 className="text-xl font-bold text-stone-900 mt-6 mb-3">১. ব্যবহারের নিয়ম</h2>
           <p className="text-stone-600 leading-relaxed mb-6">

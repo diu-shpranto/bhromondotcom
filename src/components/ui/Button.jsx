@@ -18,9 +18,9 @@ const Button = ({
   const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2';
   
   const variants = {
-    primary: 'bg-sky-600 text-white hover:bg-sky-700 focus:ring-sky-500 shadow-lg hover:shadow-xl',
-    secondary: 'border border-sky-600 text-sky-700 hover:bg-sky-50 focus:ring-sky-500',
-    outline: 'border border-sky-600 text-sky-600 hover:bg-sky-50 focus:ring-sky-500',
+    primary: 'bg-emerald-600 text-white hover:bg-emerald-700 focus:ring-emerald-500 shadow-lg hover:shadow-xl',
+    secondary: 'border border-emerald-600 text-emerald-700 hover:bg-emerald-50 focus:ring-emerald-500',
+    outline: 'border border-emerald-600 text-emerald-600 hover:bg-emerald-50 focus:ring-emerald-500',
     ghost: 'text-stone-700 hover:bg-stone-100 focus:ring-stone-500',
     accent: 'bg-amber-500 text-white hover:bg-amber-600 focus:ring-amber-500',
   };

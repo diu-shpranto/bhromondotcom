@@ -18,12 +18,12 @@ const DestinationReviews = () => {
         <input
           value={text}
           onChange={(e) => setText(e.target.value)}
-          className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
+          className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
           placeholder="আপনার মতামত লিখুন..."
         />
         <button
           onClick={addReview}
-          className="shrink-0 bg-sky-600 hover:bg-sky-700 text-white font-semibold px-6 py-3 rounded-2xl transition"
+          className="shrink-0 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-2xl transition"
         >
           Add
         </button>

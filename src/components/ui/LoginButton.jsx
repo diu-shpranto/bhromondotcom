@@ -77,16 +77,16 @@ const LoginButton = ({ scrolled, isHome }) => {
               className="absolute right-0 mt-2 w-64 bg-white rounded-2xl ring-1 ring-stone-100 shadow-xl overflow-hidden z-50"
             >
               {/* User Info */}
-              <div className="p-4 bg-gradient-to-r from-sky-600 to-sky-700 text-white">
+              <div className="p-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
                 <p className="font-semibold">{user.name}</p>
-                <p className="text-sm text-sky-100">{user.email}</p>
+                <p className="text-sm text-emerald-100">{user.email}</p>
               </div>
 
               {/* Menu Items */}
               <div className="py-2">
                 <Link
                   to="/profile"
-                  className="flex items-center space-x-3 px-4 py-3 text-stone-700 hover:bg-sky-50 transition-colors"
+                  className="flex items-center space-x-3 px-4 py-3 text-stone-700 hover:bg-emerald-50 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   <UserIcon className="w-5 h-5 text-stone-500" />
@@ -95,7 +95,7 @@ const LoginButton = ({ scrolled, isHome }) => {
 
                 <Link
                   to="/bookings"
-                  className="flex items-center space-x-3 px-4 py-3 text-stone-700 hover:bg-sky-50 transition-colors"
+                  className="flex items-center space-x-3 px-4 py-3 text-stone-700 hover:bg-emerald-50 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   <ClockIcon className="w-5 h-5 text-stone-500" />
@@ -104,7 +104,7 @@ const LoginButton = ({ scrolled, isHome }) => {
 
                 <Link
                   to="/wishlist"
-                  className="flex items-center space-x-3 px-4 py-3 text-stone-700 hover:bg-sky-50 transition-colors"
+                  className="flex items-center space-x-3 px-4 py-3 text-stone-700 hover:bg-emerald-50 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   <HeartIcon className="w-5 h-5 text-stone-500" />
@@ -113,7 +113,7 @@ const LoginButton = ({ scrolled, isHome }) => {
 
                 <Link
                   to="/settings"
-                  className="flex items-center space-x-3 px-4 py-3 text-stone-700 hover:bg-sky-50 transition-colors"
+                  className="flex items-center space-x-3 px-4 py-3 text-stone-700 hover:bg-emerald-50 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   <Cog6ToothIcon className="w-5 h-5 text-stone-500" />
@@ -152,8 +152,8 @@ const LoginButton = ({ scrolled, isHome }) => {
           className={clsx(
             "px-5 transition-all duration-300 border font-medium",
             scrolled || !isHome
-              ? "bg-sky-600 text-white border-sky-600 hover:shadow-lg hover:shadow-sky-500/30"
-              : "bg-white/20 text-white border-white/30 backdrop-blur-md hover:bg-white hover:text-sky-600"
+              ? "bg-emerald-600 text-white border-emerald-600 hover:shadow-lg hover:shadow-emerald-500/30"
+              : "bg-white/20 text-white border-white/30 backdrop-blur-md hover:bg-white hover:text-emerald-600"
           )}
         >
           লগইন

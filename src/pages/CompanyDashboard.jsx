@@ -40,7 +40,7 @@ const CompanyDashboard = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-stone-900">
           {company.name} Dashboard
         </h1>
-        <div className="mt-4 mb-10 h-1 w-16 rounded-full bg-sky-600" />
+        <div className="mt-4 mb-10 h-1 w-16 rounded-full bg-emerald-600" />
 
         {/* Stats */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -61,7 +61,7 @@ const CompanyDashboard = () => {
 
           <div className="bg-white p-6 rounded-2xl ring-1 ring-stone-100 shadow-sm">
             <h3 className="text-sm font-medium text-stone-600">Total Revenue (Demo)</h3>
-            <p className="text-3xl font-bold text-sky-700 mt-2">
+            <p className="text-3xl font-bold text-emerald-700 mt-2">
               ৳ {totalRevenue}
             </p>
           </div>
@@ -91,7 +91,7 @@ const CompanyDashboard = () => {
                     <td className="p-4 font-medium text-stone-900">{pkg.title}</td>
                     <td className="p-4 text-stone-600">{pkg.location}</td>
                     <td className="p-4 text-stone-600">{pkg.category}</td>
-                    <td className="p-4 text-sky-700 font-bold">৳{pkg.price}</td>
+                    <td className="p-4 text-emerald-700 font-bold">৳{pkg.price}</td>
                     <td className="p-4 text-stone-600">⭐ {pkg.rating}</td>
                   </tr>
                 ))}

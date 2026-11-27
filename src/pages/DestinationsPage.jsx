@@ -7,7 +7,7 @@ const DestinationsPage = () => {
     <div className="max-w-7xl mx-auto px-6 py-16">
       <div className="mb-10">
         <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-2">সব গন্তব্য</h1>
-        <div className="h-1 w-16 rounded-full bg-sky-600" />
+        <div className="h-1 w-16 rounded-full bg-emerald-600" />
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">

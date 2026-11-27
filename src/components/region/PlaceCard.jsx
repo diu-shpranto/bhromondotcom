@@ -34,7 +34,7 @@ const PlaceCard = ({ place }) => {
         />
 
         {/* Tips */}
-        <div className="bg-sky-50 p-4 rounded-2xl">
+        <div className="bg-emerald-50 p-4 rounded-2xl">
           <p className="font-semibold text-stone-900 mb-2">
             ভ্রমণ টিপস:
           </p>

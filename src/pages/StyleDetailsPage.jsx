@@ -24,7 +24,7 @@ const StyleDetailsPage = () => {
         {type} ভ্রমণ
       </h1>
 
-      <div className="h-1 w-16 rounded-full bg-sky-600 mb-6" />
+      <div className="h-1 w-16 rounded-full bg-emerald-600 mb-6" />
 
       <p className="mb-10 text-stone-600">
         {styleDescriptions[type]}
@@ -41,7 +41,7 @@ const StyleDetailsPage = () => {
             <h3 className="font-semibold text-stone-900 mb-2">
               {pkg.title}
             </h3>
-            <p className="text-sky-700 font-bold">
+            <p className="text-emerald-700 font-bold">
               ৳{pkg.pricing?.perPerson}
             </p>
           </div>

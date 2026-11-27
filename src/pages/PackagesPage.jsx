@@ -70,7 +70,7 @@ const PackagesPage = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-2">
           সব প্যাকেজ
         </h1>
-        <div className="h-1 w-16 rounded-full bg-sky-600 mb-4" />
+        <div className="h-1 w-16 rounded-full bg-emerald-600 mb-4" />
         <p className="text-stone-600">
           {filteredPackages.length} টি প্যাকেজ পাওয়া গেছে
         </p>
@@ -93,7 +93,7 @@ const PackagesPage = () => {
       placeholder="প্যাকেজ খুঁজুন..."
       value={search}
       onChange={(e) => setSearch(e.target.value)}
-      className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
+      className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
     />
 
     {/* Category Pills */}
@@ -112,7 +112,7 @@ const PackagesPage = () => {
             {isActive && (
               <motion.div
                 layoutId="activeCategory"
-                className="absolute inset-0 bg-sky-600 rounded-full"
+                className="absolute inset-0 bg-emerald-600 rounded-full"
                 transition={{
                   type: "spring",
                   stiffness: 300,
@@ -137,7 +137,7 @@ const PackagesPage = () => {
     <select
       value={sort}
       onChange={(e) => setSort(e.target.value)}
-      className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
+      className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
     >
       <option value="default">Sort</option>
       <option value="low">Price Low → High</option>
@@ -171,7 +171,7 @@ const PackagesPage = () => {
           className="w-full h-64 object-cover transition duration-700 group-hover:scale-105"
          loading="lazy" decoding="async" />
       ) : (
-        <div className="w-full h-64 bg-gradient-to-r from-sky-500 to-sky-600" />
+        <div className="w-full h-64 bg-gradient-to-r from-emerald-500 to-emerald-600" />
       )}
 
       {/* Overlay */}
@@ -188,7 +188,7 @@ const PackagesPage = () => {
       </div>
 
       {/* Price Badge */}
-      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-4 py-1 rounded-full text-sm font-bold text-sky-700 shadow">
+      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-4 py-1 rounded-full text-sm font-bold text-emerald-700 shadow">
         ৳{pkg.pricing?.perPerson}
       </div>
 
