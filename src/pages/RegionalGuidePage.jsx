@@ -22,7 +22,6 @@ import {
   SunIcon,
   CloudIcon
 } from '@heroicons/react/24/outline';
-import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import Badge from '../components/ui/Badge';
 
@@ -43,7 +42,6 @@ const divisionGuides = {
         name: 'জাতীয় স্মৃতিসৌধ',
         location: 'সাভার',
         type: 'ঐতিহাসিক',
-        rating: 4.8,
         time: 'সকাল ৮টা - বিকাল ৫টা',
         entryFee: '৩০ টাকা',
         description: 'বাংলাদেশের স্বাধীনতা যুদ্ধের শহীদদের স্মরণে নির্মিত স্মৃতিসৌধ',
@@ -55,7 +53,6 @@ const divisionGuides = {
         name: 'লালবাগ কেল্লা',
         location: 'পুরান ঢাকা',
         type: 'ঐতিহাসিক',
-        rating: 4.7,
         time: 'সকাল ১০টা - বিকাল ৫টা (শুক্রবার বন্ধ)',
         entryFee: '৫০ টাকা',
         description: 'মোগল আমলের অসমাপ্ত দুর্গ, পুরান ঢাকার অন্যতম প্রধান দর্শনীয় স্থান',
@@ -67,7 +64,6 @@ const divisionGuides = {
         name: 'আহসান মঞ্জিল',
         location: 'পুরান ঢাকা',
         type: 'জাদুঘর',
-        rating: 4.6,
         time: 'সকাল ১০:৩০ - বিকাল ৫:৩০ (বুধবার বন্ধ)',
         entryFee: '৭৫ টাকা',
         description: 'ঢাকার নবাবদের প্রাসাদ, বর্তমানে জাদুঘর হিসেবে ব্যবহৃত',
@@ -79,7 +75,6 @@ const divisionGuides = {
         name: 'জাতীয় জাদুঘর',
         location: 'শাহবাগ',
         type: 'জাদুঘর',
-        rating: 4.5,
         time: 'সকাল ১০:৩০ - বিকাল ৫:৩০ (বৃহস্পতিবার বন্ধ)',
         entryFee: '৭৫ টাকা',
         description: 'বাংলাদেশের ইতিহাস, সংস্কৃতি ও মুক্তিযুদ্ধের নিদর্শন সমৃদ্ধ জাদুঘর',
@@ -91,7 +86,6 @@ const divisionGuides = {
         name: 'সোনারগাঁও',
         location: 'নারায়ণগঞ্জ',
         type: 'ঐতিহাসিক',
-        rating: 4.7,
         time: 'সকাল ৯টা - বিকাল ৫টা',
         entryFee: '৫০ টাকা',
         description: 'প্রাচীন বাংলার রাজধানী, লোকশিল্প জাদুঘর ও প্রত্নতাত্ত্বিক নিদর্শন',
@@ -123,7 +117,6 @@ const divisionGuides = {
         type: '৫ স্টার',
         price: '১৫,০০০+',
         contact: '০২-৮৩৫১১২২',
-        rating: 4.8
       },
       {
         name: 'রেডিসন ব্লু ঢাকা',
@@ -131,7 +124,6 @@ const divisionGuides = {
         type: '৫ স্টার',
         price: '১২,০০০+',
         contact: '০২-৮৮৩৪৫৫৫',
-        rating: 4.7
       },
       {
         name: 'হোটেল সারিনা',
@@ -139,7 +131,6 @@ const divisionGuides = {
         type: '৫ স্টার',
         price: '১০,০০০+',
         contact: '০২-৮৮৫৬৭৮৯',
-        rating: 4.6
       },
       {
         name: 'হোটেল লা মেরিডিয়ান',
@@ -147,7 +138,6 @@ const divisionGuides = {
         type: '৪ স্টার',
         price: '৮,০০০+',
         contact: '০২-৯৬৬১২৩৪',
-        rating: 4.5
       }
     ],
 
@@ -157,28 +147,24 @@ const divisionGuides = {
         area: 'পুরান ঢাকা',
         specialty: 'বিরিয়ানি, বোরহানি',
         price: '৫০০-৮০০ টাকা',
-        rating: 4.9
       },
       {
         name: 'সুলতানস ডাইন',
         area: 'ধানমন্ডি',
         specialty: 'কাচ্চি বিরিয়ানি',
         price: '৬০০-১০০০ টাকা',
-        rating: 4.8
       },
       {
         name: 'ফুচকা ও চটপটি',
         area: 'নিউ মার্কেট, ঢাকা কলেজ',
         specialty: 'ফুচকা, চটপটি, জিলাপি',
         price: '৫০-২০০ টাকা',
-        rating: 4.7
       },
       {
         name: 'ভোজন রাজ',
         area: 'ধানমন্ডি',
         specialty: 'বাংলাদেশি খাবার',
         price: '৪০০-৭০০ টাকা',
-        rating: 4.6
       }
     ],
 
@@ -231,7 +217,6 @@ const divisionGuides = {
         name: 'কক্সবাজার সমুদ্র সৈকত',
         location: 'কক্সবাজার',
         type: 'প্রাকৃতিক',
-        rating: 4.9,
         time: 'সব সময়',
         entryFee: 'ফ্রি',
         description: 'বিশ্বের দীর্ঘতম সমুদ্র সৈকত, ১২০ কিমি দীর্ঘ',
@@ -243,7 +228,6 @@ const divisionGuides = {
         name: 'সেন্ট মার্টিন দ্বীপ',
         location: 'কক্সবাজার',
         type: 'প্রাকৃতিক',
-        rating: 4.8,
         time: 'নভেম্বর-মার্চ',
         entryFee: 'ফ্রি (বোট ভাড়া আলাদা)',
         description: 'বাংলাদেশের একমাত্র প্রবাল দ্বীপ',
@@ -255,7 +239,6 @@ const divisionGuides = {
         name: 'বান্দরবান',
         location: 'বান্দরবান',
         type: 'পাহাড়ি',
-        rating: 4.8,
         time: 'অক্টোবর-মার্চ',
         entryFee: 'ভিন্ন ভিন্ন',
         description: 'পাহাড়ের শহর, চিম্বুক, নীলগিরি, বুদ্ধ ধাতু জাদি',
@@ -267,7 +250,6 @@ const divisionGuides = {
         name: 'রাঙ্গামাটি',
         location: 'রাঙ্গামাটি',
         type: 'লেক',
-        rating: 4.7,
         time: 'অক্টোবর-মার্চ',
         entryFee: 'ভিন্ন ভিন্ন',
         description: 'কাপ্তাই লেকের পাড়ে শহর, হাউজবোটে রাত্রি যাপন',
@@ -279,7 +261,6 @@ const divisionGuides = {
         name: 'পতেঙ্গা সমুদ্র সৈকত',
         location: 'চট্টগ্রাম',
         type: 'প্রাকৃতিক',
-        rating: 4.5,
         time: 'সব সময়',
         entryFee: 'ফ্রি',
         description: 'চট্টগ্রাম শহরের কাছে সমুদ্র সৈকত',
@@ -309,7 +290,6 @@ const divisionGuides = {
         type: '৫ স্টার',
         price: '৮,০০০+',
         contact: '০১৭১২৩৪৫৬৭৮',
-        rating: 4.8
       },
       {
         name: 'লং বিচ হোটেল',
@@ -317,7 +297,6 @@ const divisionGuides = {
         type: '৫ স্টার',
         price: '৭,০০০+',
         contact: '০১৭১২৩৪৫৬৭৯',
-        rating: 4.7
       },
       {
         name: 'হোটেল আগা',
@@ -325,7 +304,6 @@ const divisionGuides = {
         type: '৩ স্টার',
         price: '৩,০০০+',
         contact: '০১৭১২৩৪৫৬৮০',
-        rating: 4.5
       }
     ],
 
@@ -335,21 +313,18 @@ const divisionGuides = {
         area: 'কক্সবাজার',
         specialty: 'সামুদ্রিক মাছ, লবস্টার',
         price: '৮০০-২০০০ টাকা',
-        rating: 4.9
       },
       {
         name: 'পাহাড়িকা রেস্টুরেন্ট',
         area: 'বান্দরবান',
         specialty: 'স্থানীয় খাবার',
         price: '৪০০-৮০০ টাকা',
-        rating: 4.7
       },
       {
         name: 'মেজবানি ঘর',
         area: 'চট্টগ্রাম',
         specialty: 'মেজবানি গরু, কালাভুনা',
         price: '৫০০-১০০০ টাকা',
-        rating: 4.8
       }
     ],
 
@@ -395,7 +370,6 @@ const divisionGuides = {
         name: 'শ্রীমঙ্গল চা বাগান',
         location: 'শ্রীমঙ্গল',
         type: 'প্রাকৃতিক',
-        rating: 4.8,
         time: 'সকাল ৮টা - বিকাল ৫টা',
         entryFee: '৫০ টাকা',
         description: 'বাংলাদেশের চা-এর রাজধানী, অসংখ্য চা বাগান',
@@ -407,7 +381,6 @@ const divisionGuides = {
         name: 'জাফলং',
         location: 'গোয়াইনঘাট',
         type: 'প্রাকৃতিক',
-        rating: 4.7,
         time: 'সকাল ৮টা - বিকাল ৫টা',
         entryFee: 'ফ্রি',
         description: 'পাথরের নদী, পাহাড়ি এলাকা',
@@ -419,7 +392,6 @@ const divisionGuides = {
         name: 'রাতারগুল',
         location: 'গোয়াইনঘাট',
         type: 'প্রাকৃতিক',
-        rating: 4.6,
         time: 'সকাল ৮টা - বিকাল ৫টা',
         entryFee: '৩০ টাকা',
         description: 'ভাসমান বন, নৌকায় চড়ে ঘোরার ব্যবস্থা',
@@ -431,7 +403,6 @@ const divisionGuides = {
         name: 'বিছানাকান্দি',
         location: 'সিলেট',
         type: 'প্রাকৃতিক',
-        rating: 4.6,
         time: 'সকাল ৮টা - বিকাল ৫টা',
         entryFee: 'ফ্রি',
         description: 'পাথরের নদী ও পাহাড়ের দৃশ্য',
@@ -460,7 +431,6 @@ const divisionGuides = {
         type: '৫ স্টার',
         price: '১০,০০০+',
         contact: '০১৭১২৩৪৫৬৮১',
-        rating: 4.9
       },
       {
         name: 'রোজভিউ হোটেল',
@@ -468,7 +438,6 @@ const divisionGuides = {
         type: '৪ স্টার',
         price: '৬,০০০+',
         contact: '০১৭১২৩৪৫৬৮২',
-        rating: 4.6
       }
     ],
 
@@ -478,14 +447,12 @@ const divisionGuides = {
         area: 'সিলেট',
         specialty: 'টাং, স্থানীয় খাবার',
         price: '৪০০-৮০০ টাকা',
-        rating: 4.7
       },
       {
         name: 'চা বাগান ক্যাফে',
         area: 'শ্রীমঙ্গল',
         specialty: 'সাতকরার চা, পিঠা',
         price: '২০০-৫০০ টাকা',
-        rating: 4.8
       }
     ],
 
@@ -524,7 +491,6 @@ const divisionGuides = {
         name: 'সুন্দরবন',
         location: 'খুলনা',
         type: 'ম্যানগ্রোভ',
-        rating: 4.9,
         time: 'সকাল ৮টা - বিকাল ৫টা',
         entryFee: 'ভিন্ন ভিন্ন',
         description: 'বিশ্বের বৃহত্তম ম্যানগ্রোভ বন, রয়েল বেঙ্গল টাইগারের আবাসস্থল',
@@ -536,7 +502,6 @@ const divisionGuides = {
         name: 'ষাট গম্বুজ মসজিদ',
         location: 'বাগেরহাট',
         type: 'ঐতিহাসিক',
-        rating: 4.8,
         time: 'সকাল ৯টা - বিকাল ৫টা',
         entryFee: '৫০ টাকা',
         description: 'ইউনেস্কো বিশ্ব ঐতিহ্যের অংশ, ষাট গম্বুজ বিশিষ্ট মসজিদ',
@@ -548,7 +513,6 @@ const divisionGuides = {
         name: 'কর্ণফুলী গার্ডেন সিটি',
         location: 'খুলনা',
         type: 'বিনোদন',
-        rating: 4.5,
         time: 'সকাল ১০টা - রাত ৮টা',
         entryFee: '১০০ টাকা',
         description: 'বিনোদন পার্ক, লেক, শিশুদের জন্য রাইড',
@@ -560,7 +524,6 @@ const divisionGuides = {
         name: 'মংলা বন্দর',
         location: 'মংলা',
         type: 'বন্দর',
-        rating: 4.3,
         time: 'সকাল ৯টা - বিকাল ৫টা',
         entryFee: 'ফ্রি',
         description: 'বাংলাদেশের দ্বিতীয় বৃহত্তম সমুদ্র বন্দর',
@@ -590,7 +553,6 @@ const divisionGuides = {
         type: '৪ স্টার',
         price: '৫,০০০+',
         contact: '০৪১-৭২১২৩৪',
-        rating: 4.6
       },
       {
         name: 'হোটেল ওয়েস্ট ইন',
@@ -598,7 +560,6 @@ const divisionGuides = {
         type: '৩ স্টার',
         price: '৩,৫০০+',
         contact: '০৪১-৭২৫৬৭৮',
-        rating: 4.4
       },
       {
         name: 'হোটেল রয়্যাল',
@@ -606,7 +567,6 @@ const divisionGuides = {
         type: '৩ স্টার',
         price: '২,৮০০+',
         contact: '০৪৬৫-৬২৩৪৫',
-        rating: 4.3
       }
     ],
 
@@ -616,21 +576,18 @@ const divisionGuides = {
         area: 'খুলনা',
         specialty: 'চিংড়ি মাছের বিভিন্ন পদ',
         price: '৪০০-৮০০ টাকা',
-        rating: 4.7
       },
       {
         name: 'মিষ্টান্ন ভান্ডার',
         area: 'খুলনা',
         specialty: 'খেজুরের গুড়ের মিষ্টি, পায়েস',
         price: '২০০-৫০০ টাকা',
-        rating: 4.6
       },
       {
         name: 'সুন্দরবন ক্যাফে',
         area: 'মংলা',
         specialty: 'স্থানীয় মাছের পদ',
         price: '৩০০-৬০০ টাকা',
-        rating: 4.5
       }
     ],
 
@@ -675,7 +632,6 @@ const divisionGuides = {
         name: 'পাহাড়পুর বৌদ্ধ বিহার',
         location: 'নওগাঁ',
         type: 'ঐতিহাসিক',
-        rating: 4.8,
         time: 'সকাল ৯টা - বিকাল ৫টা',
         entryFee: '৫০ টাকা',
         description: 'ইউনেস্কো বিশ্ব ঐতিহ্যের অংশ, প্রাচীন বৌদ্ধ বিহার',
@@ -687,7 +643,6 @@ const divisionGuides = {
         name: 'মহাস্থানগড়',
         location: 'বগুড়া',
         type: 'ঐতিহাসিক',
-        rating: 4.7,
         time: 'সকাল ৯টা - বিকাল ৫টা',
         entryFee: '৫০ টাকা',
         description: 'প্রাচীন বাংলার রাজধানী, প্রত্নতাত্ত্বিক নিদর্শন',
@@ -699,7 +654,6 @@ const divisionGuides = {
         name: 'বরেন্দ্র জাদুঘর',
         location: 'রাজশাহী',
         type: 'জাদুঘর',
-        rating: 4.6,
         time: 'সকাল ১০টা - বিকাল ৫টা (শুক্রবার বন্ধ)',
         entryFee: '৩০ টাকা',
         description: 'বাংলাদেশের প্রাচীন জাদুঘর, ঐতিহাসিক নিদর্শন',
@@ -711,7 +665,6 @@ const divisionGuides = {
         name: 'ছোট সোনা মসজিদ',
         location: 'চাঁপাইনবাবগঞ্জ',
         type: 'ঐতিহাসিক',
-        rating: 4.6,
         time: 'সকাল ৯টা - বিকাল ৫টা',
         entryFee: '৩০ টাকা',
         description: 'মোগল আমলের মসজিদ, সোনালি রঙের কারুকাজ',
@@ -742,7 +695,6 @@ const divisionGuides = {
         type: '৪ স্টার',
         price: '৪,৫০০+',
         contact: '০৭২১-৭৭২২৩৩',
-        rating: 4.7
       },
       {
         name: 'হোটেল রিভার ভিউ',
@@ -750,7 +702,6 @@ const divisionGuides = {
         type: '৩ স্টার',
         price: '৩,২০০+',
         contact: '০৭২১-৭৭৩৩৪৪',
-        rating: 4.5
       },
       {
         name: 'হোটেল আম বাগান',
@@ -758,7 +709,6 @@ const divisionGuides = {
         type: '৩ স্টার',
         price: '২,৮০০+',
         contact: '০৭৮২-৫৬৭৮৯',
-        rating: 4.4
       }
     ],
 
@@ -768,21 +718,18 @@ const divisionGuides = {
         area: 'রাজশাহী',
         specialty: 'আমের বিভিন্ন পদ, আমের জুস',
         price: '২০০-৫০০ টাকা',
-        rating: 4.8
       },
       {
         name: 'মিষ্টি ঘর',
         area: 'রাজশাহী',
         specialty: 'রাজশাহীর মিষ্টি, ক্ষীর',
         price: '১৫০-৪০০ টাকা',
-        rating: 4.7
       },
       {
         name: 'সিল্ক সিটি রেস্টুরেন্ট',
         area: 'রাজশাহী',
         specialty: 'বাংলাদেশি ও চাইনিজ খাবার',
         price: '৩০০-৬০০ টাকা',
-        rating: 4.6
       }
     ],
 
@@ -828,7 +775,6 @@ const divisionGuides = {
         name: 'তাজহাট রাজবাড়ি',
         location: 'রংপুর',
         type: 'ঐতিহাসিক',
-        rating: 4.7,
         time: 'সকাল ৯টা - বিকাল ৫টা',
         entryFee: '৩০ টাকা',
         description: 'ঐতিহাসিক রাজবাড়ি, স্থাপত্যকলার অনন্য নিদর্শন',
@@ -840,7 +786,6 @@ const divisionGuides = {
         name: 'কান্তজীর মন্দির',
         location: 'দিনাজপুর',
         type: 'ঐতিহাসিক',
-        rating: 4.8,
         time: 'সকাল ৯টা - বিকাল ৫টা',
         entryFee: '৫০ টাকা',
         description: 'টেরাকোটা স্থাপত্যের অনন্য নিদর্শন, হিন্দু মন্দির',
@@ -852,7 +797,6 @@ const divisionGuides = {
         name: 'তিস্তা ব্যারাজ',
         location: 'নীলফামারী',
         type: 'প্রাকৃতিক',
-        rating: 4.6,
         time: 'সকাল ৮টা - বিকাল ৫টা',
         entryFee: 'ফ্রি',
         description: 'তিস্তা নদীর উপর নির্মিত ব্যারাজ, প্রাকৃতিক দৃশ্য',
@@ -864,7 +808,6 @@ const divisionGuides = {
         name: 'সীতাকোট বিহার',
         location: 'দিনাজপুর',
         type: 'ঐতিহাসিক',
-        rating: 4.5,
         time: 'সকাল ৯টা - বিকাল ৫টা',
         entryFee: '৩০ টাকা',
         description: 'প্রাচীন বৌদ্ধ বিহারের ধ্বংসাবশেষ',
@@ -895,7 +838,6 @@ const divisionGuides = {
         type: '৪ স্টার',
         price: '৪,০০০+',
         contact: '০৫২১-৬১২৩৪',
-        rating: 4.6
       },
       {
         name: 'হোটেল তিস্তা',
@@ -903,7 +845,6 @@ const divisionGuides = {
         type: '৩ স্টার',
         price: '২,৮০০+',
         contact: '০৫৫২-৫৬৭৮৯',
-        rating: 4.4
       },
       {
         name: 'হোটেল উত্তরার হাট',
@@ -911,7 +852,6 @@ const divisionGuides = {
         type: '৩ স্টার',
         price: '৩,০০০+',
         contact: '০৫৩১-৬২৩৪৫',
-        rating: 4.5
       }
     ],
 
@@ -921,21 +861,18 @@ const divisionGuides = {
         area: 'রংপুর',
         specialty: 'মিষ্টি দই, ক্ষীর',
         price: '১৫০-৩০০ টাকা',
-        rating: 4.8
       },
       {
         name: 'তিস্তা ক্যাফে',
         area: 'নীলফামারী',
         specialty: 'তিস্তার ইলিশ, স্থানীয় মাছ',
         price: '৩০০-৭০০ টাকা',
-        rating: 4.6
       },
       {
         name: 'পিঠা পুলি',
         area: 'রংপুর',
         specialty: 'বিভিন্ন ধরনের পিঠা',
         price: '১০০-৩০০ টাকা',
-        rating: 4.7
       }
     ],
 
@@ -981,7 +918,6 @@ const divisionGuides = {
         name: 'কুয়াকাটা সমুদ্র সৈকত',
         location: 'পটুয়াখালী',
         type: 'সমুদ্র সৈকত',
-        rating: 4.8,
         time: 'সব সময়',
         entryFee: 'ফ্রি',
         description: 'সূর্যোদয় ও সূর্যাস্ত দেখা যায় এমন সমুদ্র সৈকত',
@@ -993,7 +929,6 @@ const divisionGuides = {
         name: 'লালকমল নীলকমল',
         location: 'বরিশাল',
         type: 'ঐতিহাসিক',
-        rating: 4.6,
         time: 'সকাল ৯টা - বিকাল ৫টা',
         entryFee: '৩০ টাকা',
         description: 'দুইটি প্রাচীন দীঘি, স্থানীয় কিংবদন্তি',
@@ -1005,7 +940,6 @@ const divisionGuides = {
         name: 'মঠবাড়ি',
         location: 'পিরোজপুর',
         type: 'ঐতিহাসিক',
-        rating: 4.4,
         time: 'সকাল ৯টা - বিকাল ৫টা',
         entryFee: 'ফ্রি',
         description: 'প্রাচীন মঠ, স্থানীয় ইতিহাসের অংশ',
@@ -1017,7 +951,6 @@ const divisionGuides = {
         name: 'দক্ষিণ ডিহি',
         location: 'বরিশাল',
         type: 'প্রাকৃতিক',
-        rating: 4.5,
         time: 'সকাল ৯টা - বিকাল ৫টা',
         entryFee: 'ফ্রি',
         description: 'বড় জলাশয়, নৌকায় ঘোরার ব্যবস্থা',
@@ -1047,7 +980,6 @@ const divisionGuides = {
         type: '৪ স্টার',
         price: '৪,৫০০+',
         contact: '০৪৩১-৬৫৬৭৮',
-        rating: 4.6
       },
       {
         name: 'হোটেল সী ইন',
@@ -1055,7 +987,6 @@ const divisionGuides = {
         type: '৩ স্টার',
         price: '৩,৫০০+',
         contact: '০৪৬৮-৫৬৭৮৯',
-        rating: 4.5
       },
       {
         name: 'হোটেল নদী ভিউ',
@@ -1063,7 +994,6 @@ const divisionGuides = {
         type: '৩ স্টার',
         price: '২,৮০০+',
         contact: '০৪৩১-৬২৩৪৫',
-        rating: 4.4
       }
     ],
 
@@ -1073,21 +1003,18 @@ const divisionGuides = {
         area: 'বরিশাল',
         specialty: 'নারিকেলের বিভিন্ন পদ',
         price: '২০০-৫০০ টাকা',
-        rating: 4.7
       },
       {
         name: 'মাছের ঘর',
         area: 'কুয়াকাটা',
         specialty: 'তাজা সামুদ্রিক মাছ',
         price: '৩০০-৭০০ টাকা',
-        rating: 4.8
       },
       {
         name: 'নদী ক্যাফে',
         area: 'বরিশাল',
         specialty: 'স্থানীয় খাবার, পিঠা',
         price: '১৫০-৪০০ টাকা',
-        rating: 4.5
       }
     ],
 
@@ -1133,7 +1060,6 @@ const divisionGuides = {
         name: 'গারো পাহাড়',
         location: 'হালুয়াঘাট',
         type: 'প্রাকৃতিক',
-        rating: 4.7,
         time: 'সকাল ৮টা - বিকাল ৫টা',
         entryFee: 'ফ্রি',
         description: 'পাহাড়ি এলাকা, ক্ষুদ্র নৃগোষ্ঠীর বসবাস',
@@ -1145,7 +1071,6 @@ const divisionGuides = {
         name: 'মধুটিলা',
         location: 'হালুয়াঘাট',
         type: 'প্রাকৃতিক',
-        rating: 4.6,
         time: 'সকাল ৮টা - বিকাল ৫টা',
         entryFee: '৩০ টাকা',
         description: 'পাহাড়ের চূড়া থেকে চমৎকার দৃশ্য',
@@ -1157,7 +1082,6 @@ const divisionGuides = {
         name: 'শশী লজ',
         location: 'ময়মনসিংহ',
         type: 'ঐতিহাসিক',
-        rating: 4.6,
         time: 'সকাল ১০টা - বিকাল ৫টা (শুক্রবার বন্ধ)',
         entryFee: '৫০ টাকা',
         description: 'প্রাচীন রাজবাড়ি, বর্তমানে জাদুঘর',
@@ -1169,7 +1093,6 @@ const divisionGuides = {
         name: 'হাওর অঞ্চল',
         location: 'নেত্রকোণা',
         type: 'প্রাকৃতিক',
-        rating: 4.7,
         time: 'বর্ষাকালে',
         entryFee: 'ফ্রি',
         description: 'বিশাল হাওর, বর্ষাকালে পানিতে ভরা',
@@ -1199,7 +1122,6 @@ const divisionGuides = {
         type: '৪ স্টার',
         price: '৪,২০০+',
         contact: '০৯১-৬৩৪৫৬',
-        rating: 4.6
       },
       {
         name: 'হোটেল পাহাড়িকা',
@@ -1207,7 +1129,6 @@ const divisionGuides = {
         type: '৩ স্টার',
         price: '৩,০০০+',
         contact: '০৯৫-৬২৩৪৫',
-        rating: 4.5
       },
       {
         name: 'হোটেল হাওর ভিউ',
@@ -1215,7 +1136,6 @@ const divisionGuides = {
         type: '৩ স্টার',
         price: '২,৮০০+',
         contact: '০৯৬-৫৬৭৮৯',
-        rating: 4.4
       }
     ],
 
@@ -1225,21 +1145,18 @@ const divisionGuides = {
         area: 'নেত্রকোণা',
         specialty: 'হাওরের চালের পিঠা, মাছ',
         price: '২০০-৫০০ টাকা',
-        rating: 4.7
       },
       {
         name: 'মণ্ডা মিষ্টান্ন',
         area: 'ময়মনসিংহ',
         specialty: 'মণ্ডা, দই, মিষ্টি',
         price: '১৫০-৩০০ টাকা',
-        rating: 4.8
       },
       {
         name: 'পাহাড়ি ক্যাফে',
         area: 'হালুয়াঘাট',
         specialty: 'স্থানীয় খাবার, পাহাড়ি মুরগি',
         price: '২৫০-৫৫০ টাকা',
-        rating: 4.6
       }
     ],
 
@@ -1279,19 +1196,6 @@ const RegionalGuidePage = () => {
   const guideData = divisionGuides[divisionId] || divisionGuides.dhaka;
 
   // রেটিং দেখানোর জন্য স্টার জেনারেটর
-  const renderStars = (rating) => {
-    const stars = [];
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
-    
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(<StarIconSolid key={`full-${i}`} className="w-4 h-4 text-yellow-400" />);
-    }
-    if (hasHalfStar) {
-      stars.push(<StarIconSolid key="half" className="w-4 h-4 text-yellow-400 opacity-50" />);
-    }
-    return stars;
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -1454,10 +1358,7 @@ const RegionalGuidePage = () => {
                       <div className="p-8 flex-1">
                         <div className="flex justify-between items-start mb-4">
                           <h3 className="text-2xl font-bold text-gray-900">{place.name}</h3>
-                          <div className="flex items-center space-x-1 bg-yellow-50 px-3 py-1 rounded-full">
-                            {renderStars(place.rating)}
-                            <span className="ml-1 font-semibold text-gray-700">{place.rating}</span>
-                          </div>
+
                         </div>
                         
                         <p className="text-gray-600 mb-6 leading-relaxed">{place.description}</p>
@@ -1554,10 +1455,7 @@ const RegionalGuidePage = () => {
                   >
                     <div className="flex justify-between items-start mb-3">
                       <h4 className="text-xl font-bold text-gray-900">{restaurant.name}</h4>
-                      <div className="flex items-center space-x-1">
-                        {renderStars(restaurant.rating)}
-                        <span className="ml-1 font-semibold">{restaurant.rating}</span>
-                      </div>
+
                     </div>
                     <p className="text-gray-500 mb-2 flex items-center">
                       <MapPinIcon className="w-4 h-4 mr-1" />
@@ -1606,10 +1504,7 @@ const RegionalGuidePage = () => {
                     </div>
                     
                     <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center space-x-1">
-                        {renderStars(hotel.rating)}
-                        <span className="ml-1 font-semibold">{hotel.rating}</span>
-                      </div>
+
                       <span className="text-2xl font-bold text-blue-600">{hotel.price}</span>
                     </div>
                     

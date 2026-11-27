@@ -44,22 +44,16 @@ const divisionsData = [
     weather: 'মৃদু শীতকালীন',
     famousFood: ['বাকরখানি', 'হাজী বিরিয়ানি', 'ফুচকা', 'চটপটি'],
     attractions: [
-      { name: 'জাতীয় স্মৃতিসৌধ', type: 'ঐতিহাসিক', rating: 4.8 },
-      { name: 'লালবাগ কেল্লা', type: 'ঐতিহাসিক', rating: 4.7 },
-      { name: 'আহসান মঞ্জিল', type: 'ঐতিহাসিক', rating: 4.6 },
-      { name: 'জাদুঘর', type: 'সাংস্কৃতিক', rating: 4.5 }
+      { name: 'জাতীয় স্মৃতিসৌধ', type: 'ঐতিহাসিক' },
+      { name: 'লালবাগ কেল্লা', type: 'ঐতিহাসিক' },
+      { name: 'আহসান মঞ্জিল', type: 'ঐতিহাসিক' },
+      { name: 'জাদুঘর', type: 'সাংস্কৃতিক' }
     ],
     popularDestinations: [
       { name: 'সাভার', type: 'ঐতিহাসิก', image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523' },
       { name: 'সোনারগাঁও', type: 'ঐতিহাসিক', image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523' },
       { name: 'জাতীয় সংসদ', type: 'আধুনিক', image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523' }
     ],
-    stats: {
-      tourists: '৫০০০+ মাসিক',
-      packages: 45,
-      hotels: 230,
-      rating: 4.7
-    }
   },
   {
     id: 'chattogram',
@@ -73,22 +67,16 @@ const divisionsData = [
     weather: 'উষ্ণ ও আর্দ্র',
     famousFood: ['মেজবানি', 'কালাভুনা', 'দুরুস চকলেট', 'শুঁটকি মাছ'],
     attractions: [
-      { name: 'কক্সবাজার সমুদ্র সৈকত', type: 'প্রাকৃতিক', rating: 4.9 },
-      { name: 'সেন্ট মার্টিন দ্বীপ', type: 'প্রাকৃতিক', rating: 4.8 },
-      { name: 'বান্দরবান', type: 'পাহাড়ি', rating: 4.8 },
-      { name: 'রাঙ্গামাটি', type: 'লেক', rating: 4.7 }
+      { name: 'কক্সবাজার সমুদ্র সৈকত', type: 'প্রাকৃতিক' },
+      { name: 'সেন্ট মার্টিন দ্বীপ', type: 'প্রাকৃতিক' },
+      { name: 'বান্দরবান', type: 'পাহাড়ি' },
+      { name: 'রাঙ্গামাটি', type: 'লেক' }
     ],
     popularDestinations: [
       { name: 'কক্সবাজার', type: 'সমুদ্র সৈকত', image: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf' },
       { name: 'সেন্টমার্টিন', type: 'দ্বীপ', image: 'https://images.unsplash.com/photo-1580540149927-0d132125f11c' },
       { name: 'বান্দরবান', type: 'পাহাড়', image: 'https://images.unsplash.com/photo-1580136579312-94651dfd596d' }
     ],
-    stats: {
-      tourists: '১০,০০০+ মাসিক',
-      packages: 78,
-      hotels: 450,
-      rating: 4.9
-    }
   },
   {
     id: 'sylhet',
@@ -102,22 +90,16 @@ const divisionsData = [
     weather: 'শীতল ও সতেজ',
     famousFood: ['সাতকরার চা', 'পান্তা ইলিশ', 'টাং', 'শীতল পাটি'],
     attractions: [
-      { name: 'শ্রীমঙ্গল চা বাগান', type: 'প্রাকৃতিক', rating: 4.8 },
-      { name: 'জাফলং', type: 'প্রাকৃতিক', rating: 4.7 },
-      { name: 'রাতারগুল', type: 'জলাবন', rating: 4.6 },
-      { name: 'বিছানাকান্দি', type: 'প্রাকৃতিক', rating: 4.6 }
+      { name: 'শ্রীমঙ্গল চা বাগান', type: 'প্রাকৃতিক' },
+      { name: 'জাফলং', type: 'প্রাকৃতিক' },
+      { name: 'রাতারগুল', type: 'জলাবন' },
+      { name: 'বিছানাকান্দি', type: 'প্রাকৃতিক' }
     ],
     popularDestinations: [
       { name: 'শ্রীমঙ্গল', type: 'চা বাগান', image: 'https://images.unsplash.com/photo-1599059813005-11265ba4b4ce' },
       { name: 'জাফলং', type: 'পাহাড়ি', image: 'https://images.unsplash.com/photo-1599059813005-11265ba4b4ce' },
       { name: 'রাতারগুল', type: 'জলাবন', image: 'https://images.unsplash.com/photo-1599059813005-11265ba4b4ce' }
     ],
-    stats: {
-      tourists: '৭,০০০+ মাসিক',
-      packages: 52,
-      hotels: 180,
-      rating: 4.8
-    }
   },
   {
     id: 'khulna',
@@ -131,21 +113,15 @@ const divisionsData = [
     weather: 'মৃদু ও শুষ্ক',
     famousFood: ['চিংড়ি মাছ', 'মধু', 'খেজুরের গুড়', 'পায়েস'],
     attractions: [
-      { name: 'সুন্দরবন', type: 'ম্যানগ্রোভ', rating: 4.9 },
-      { name: 'মংলা বন্দর', type: 'বন্দর', rating: 4.3 },
-      { name: 'ষাট গম্বুজ মসজিদ', type: 'ঐতিহাসিক', rating: 4.7 },
-      { name: 'কাটকা বিচ', type: 'সমুদ্র সৈকত', rating: 4.5 }
+      { name: 'সুন্দরবন', type: 'ম্যানগ্রোভ' },
+      { name: 'মংলা বন্দর', type: 'বন্দর' },
+      { name: 'ষাট গম্বুজ মসজিদ', type: 'ঐতিহাসিক' },
+      { name: 'কাটকা বিচ', type: 'সমুদ্র সৈকত' }
     ],
     popularDestinations: [
       { name: 'সুন্দরবন', type: 'বন', image: 'https://images.unsplash.com/photo-1589197124730-8b87b5fc2acf' },
       { name: 'বাগেরহাট', type: 'ঐতিহাসিক', image: 'https://images.unsplash.com/photo-1589197124730-8b87b5fc2acf' }
     ],
-    stats: {
-      tourists: '৪,০০০+ মাসিক',
-      packages: 32,
-      hotels: 120,
-      rating: 4.7
-    }
   },
   {
     id: 'rajshahi',
@@ -157,20 +133,14 @@ const divisionsData = [
     weather: 'উষ্ণ ও শুষ্ক',
     famousFood: ['আম', 'মিষ্টি', 'সিল্ক', 'পিঠা'],
     attractions: [
-      { name: 'পাহাড়পুর বৌদ্ধ বিহার', type: 'ঐতিহাসিক', rating: 4.8 },
-      { name: 'মহাস্থানগড়', type: 'ঐতিহাসিক', rating: 4.7 },
-      { name: 'বরেন্দ্র জাদুঘর', type: 'জাদুঘর', rating: 4.5 }
+      { name: 'পাহাড়পুর বৌদ্ধ বিহার', type: 'ঐতিহাসিক' },
+      { name: 'মহাস্থানগড়', type: 'ঐতিহাসিক' },
+      { name: 'বরেন্দ্র জাদুঘর', type: 'জাদুঘর' }
     ],
     popularDestinations: [
       { name: 'পাহাড়পুর', type: 'ঐতিহাসিক', image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523' },
       { name: 'মহাস্থান', type: 'ঐতিহাসিক', image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523' }
     ],
-    stats: {
-      tourists: '৩,৫০০+ মাসিক',
-      packages: 28,
-      hotels: 95,
-      rating: 4.5
-    }
   },
   {
     id: 'rangpur',
@@ -184,20 +154,14 @@ const divisionsData = [
     weather: 'শীতল',
     famousFood: ['মিষ্টি দই', 'কারুশিল্প', 'হাজিরবাড়ি'],
     attractions: [
-      { name: 'তাজহাট রাজবাড়ি', type: 'ঐতিহাসিক', rating: 4.6 },
-      { name: 'কান্তজীর মন্দির', type: 'ঐতিহাসিক', rating: 4.7 },
-      { name: 'বিহার', type: 'ঐতিহাসিক', rating: 4.4 }
+      { name: 'তাজহাট রাজবাড়ি', type: 'ঐতিহাসিক' },
+      { name: 'কান্তজীর মন্দির', type: 'ঐতিহাসিক' },
+      { name: 'বিহার', type: 'ঐতিহাসিক' }
     ],
     popularDestinations: [
       { name: 'দিনাজপুর', type: 'ঐতিহাসিক', image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523' },
       { name: 'রংপুর', type: 'শহর', image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523' }
     ],
-    stats: {
-      tourists: '২,৫০০+ মাসিক',
-      packages: 22,
-      hotels: 70,
-      rating: 4.4
-    }
   },
   {
     id: 'barisal',
@@ -211,20 +175,14 @@ const divisionsData = [
     weather: 'মৃদু',
     famousFood: ['নারিকেল', 'চাল', 'মাছ', 'পিঠা'],
     attractions: [
-      { name: 'কুয়াকাটা সমুদ্র সৈকত', type: 'সমুদ্র', rating: 4.7 },
-      { name: 'মঠবাড়ি', type: 'ঐতিহাসিক', rating: 4.3 },
-      { name: 'দক্ষিণ ডিহি', type: 'প্রাকৃতিক', rating: 4.4 }
+      { name: 'কুয়াকাটা সমুদ্র সৈকত', type: 'সমুদ্র' },
+      { name: 'মঠবাড়ি', type: 'ঐতিহাসিক' },
+      { name: 'দক্ষিণ ডিহি', type: 'প্রাকৃতিক' }
     ],
     popularDestinations: [
       { name: 'কুয়াকাটা', type: 'সমুদ্র সৈকত', image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523' },
       { name: 'পটুয়াখালী', type: 'শহর', image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523' }
     ],
-    stats: {
-      tourists: '২,০০০+ মাসিক',
-      packages: 18,
-      hotels: 50,
-      rating: 4.3
-    }
   },
   {
     id: 'mymensingh',
@@ -238,20 +196,14 @@ const divisionsData = [
     weather: 'শীতল',
     famousFood: ['হাওরের চাল', 'মাছ', 'পিঠা'],
     attractions: [
-      { name: 'গারো পাহাড়', type: 'প্রাকৃতিক', rating: 4.6 },
-      { name: 'মধুটিলা', type: 'প্রাকৃতিক', rating: 4.5 },
-      { name: 'শশী লজ', type: 'ঐতিহাসিক', rating: 4.5 }
+      { name: 'গারো পাহাড়', type: 'প্রাকৃতিক' },
+      { name: 'মধুটিলা', type: 'প্রাকৃতিক' },
+      { name: 'শশী লজ', type: 'ঐতিহাসিক' }
     ],
     popularDestinations: [
       { name: 'গারো পাহাড়', type: 'পাহাড়', image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523' },
       { name: 'নেত্রকোণা', type: 'হাওর', image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523' }
     ],
-    stats: {
-      tourists: '১,৮০০+ মাসিক',
-      packages: 15,
-      hotels: 45,
-      rating: 4.4
-    }
   }
 ];
 
@@ -327,20 +279,20 @@ const RegionalDetails = () => {
               <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                 <div className="flex flex-wrap gap-6">
                   <div>
-                    <p className="text-3xl font-bold">{selectedDivision.stats.tourists}</p>
-                    <p className="text-sm opacity-90">পর্যটক</p>
+                    <p className="text-3xl font-bold">{selectedDivision.districts}টি</p>
+                    <p className="text-sm opacity-90">জেলা</p>
                   </div>
                   <div>
-                    <p className="text-3xl font-bold">{selectedDivision.stats.packages}</p>
-                    <p className="text-sm opacity-90">প্যাকেজ</p>
+                    <p className="text-2xl font-bold">{selectedDivision.bestTime || 'সারা বছর'}</p>
+                    <p className="text-sm opacity-90">যাওয়ার সেরা সময়</p>
                   </div>
                   <div>
-                    <p className="text-3xl font-bold">{selectedDivision.stats.hotels}</p>
-                    <p className="text-sm opacity-90">হোটেল</p>
+                    <p className="text-2xl font-bold">{selectedDivision.weather}</p>
+                    <p className="text-sm opacity-90">আবহাওয়া</p>
                   </div>
                   <div>
-                    <p className="text-3xl font-bold">⭐ {selectedDivision.stats.rating}</p>
-                    <p className="text-sm opacity-90">রেটিং</p>
+                    <p className="text-2xl font-bold">{selectedDivision.famousFood[0]}</p>
+                    <p className="text-sm opacity-90">বিখ্যাত খাবার</p>
                   </div>
                 </div>
               </div>
@@ -441,7 +393,7 @@ const RegionalDetails = () => {
                             </h4>
 
                             <Badge variant="success" size="sm">
-                              ⭐ {attraction.rating}
+                              {attraction.type}
                             </Badge>
                           </div>
 

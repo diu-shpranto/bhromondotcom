@@ -5,6 +5,9 @@ import Button from "../ui/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import packagesData from "../../data/packagesData";
+import destinationsData from "../../data/destinationsData";
+import companiesData from "../../data/companiesData";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -77,8 +80,9 @@ const handleSearch = () => {
               variants={itemVariants}
               className="text-base sm:text-lg md:text-xl text-gray-200 mb-8 leading-relaxed"
             >
-              দেশের সেরা ট্যুর প্যাকেজ সেরা মূল্যে।
-              আমাদের সাথে আপনার ভ্রমণ হোক স্মরণীয়।
+              BTG আর ভ্রমণ বাড়ির যাচাই করা ট্যুর — সাজেক, সেন্টমার্টিন,
+              কক্সবাজার, সুন্দরবন। দাম আর ছাড়ার তারিখ ওদের নিজের
+              Facebook পেজ থেকে নেওয়া, তাই যা দেখছেন সেটাই আসল।
             </motion.p>
 
             {/* Buttons */}
@@ -130,18 +134,20 @@ const handleSearch = () => {
               className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left"
             >
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white">৫০০+</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">{packagesData.length.toLocaleString("bn-BD")}+</h3>
                 <p className="text-gray-300 text-sm">ট্যুর প্যাকেজ</p>
               </div>
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white">১০,০০০+</h3>
-                <p className="text-gray-300 text-sm">খুশি গ্রাহক</p>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">{companiesData.length.toLocaleString("bn-BD")}টি</h3>
+                <p className="text-gray-300 text-sm">যাচাই করা কোম্পানি</p>
               </div>
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white">১০০+</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">{destinationsData.length.toLocaleString("bn-BD")}টি</h3>
                 <p className="text-gray-300 text-sm">গন্তব্য</p>
               </div>
               <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">৮টি</h3>
+                <p className="text-gray-300 text-sm">বিভাগের গাইড</p>
               </div>
             </motion.div>
 
