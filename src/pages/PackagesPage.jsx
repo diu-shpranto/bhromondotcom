@@ -1,5 +1,5 @@
 import { useSearchParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { HeartIcon } from "@heroicons/react/24/solid";
 import packagesData from "../data/packagesData";
@@ -10,13 +10,14 @@ import SavedHeart from "../components/packages/SavedHeart";
 import CompareTray from "../components/packages/CompareTray";
 import CompareDialog from "../components/packages/CompareDialog";
 
+// Display labels are Bangla; values stay English (filter logic + ?category= deep links use them)
 const categoriesList = [
-  "All",
-  "Single",
-  "Family",
-  "Couple",
-  "Group",
-  "Adventure"
+  { value: "All", label: "সব" },
+  { value: "Single", label: "একক" },
+  { value: "Family", label: "পরিবার" },
+  { value: "Couple", label: "কাপল" },
+  { value: "Group", label: "গ্রুপ" },
+  { value: "Adventure", label: "অ্যাডভেঞ্চার" },
 ];
 
 // Price bands in BDT — counts from the 20 live packages:
@@ -105,6 +106,19 @@ const PackagesPage = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // On mobile the chip rows scroll horizontally — keep the active chip in view
+  const categoryRowRef = useRef(null);
+  const priceRowRef = useRef(null);
+  const centerActiveChip = (row) => {
+    if (!row) return;
+    const active = row.querySelector('[data-active="true"]');
+    if (active) {
+      row.scrollTo({ left: active.offsetLeft - (row.clientWidth - active.clientWidth) / 2, behavior: "smooth" });
+    }
+  };
+  useEffect(() => { centerActiveChip(categoryRowRef.current); }, [category]);
+  useEffect(() => { centerActiveChip(priceRowRef.current); }, [priceRange]);
 
   let filteredPackages = packagesData.filter((pkg) => {
     const matchCategory =
@@ -202,14 +216,14 @@ const PackagesPage = () => {
 
       {/* PREMIUM STICKY FILTER */}
      <div
-  className={`sticky top-20 z-40 rounded-2xl p-5 mb-14 transition-all duration-500
+  className={`sticky top-20 z-40 rounded-2xl p-3.5 mb-8 transition-all duration-500
   ${
     scrolled
       ? "bg-white/95 backdrop-blur-xl shadow-xl ring-1 ring-stone-100"
       : "bg-white ring-1 ring-stone-100 shadow-sm"
   }`}
 >
-  <div className="flex flex-col gap-6">
+  <div className="flex flex-col gap-3">
 
     {/* Search + Sort — side by side on desktop, stacked on mobile */}
     <div className="flex flex-col md:flex-row gap-3">
@@ -218,13 +232,13 @@ const PackagesPage = () => {
         placeholder="প্যাকেজ খুঁজুন..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="flex-1 rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+        className="flex-1 rounded-2xl border border-stone-200 bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
       />
       <select
         value={sort}
         onChange={(e) => setSort(e.target.value)}
         aria-label="দাম অনুযায়ী সাজান"
-        className="md:w-60 shrink-0 rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+        className="md:w-60 shrink-0 rounded-2xl border border-stone-200 bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
       >
         <option value="default">সাজান: ডিফল্ট</option>
         <option value="low">দাম: কম থেকে বেশি</option>
@@ -233,17 +247,18 @@ const PackagesPage = () => {
     </div>
 
     {/* Category Pills */}
-    <div className="flex flex-wrap gap-2.5">
+    <div ref={categoryRowRef} className="flex flex-nowrap gap-2.5 overflow-x-auto scrollbar-hide pb-0.5 md:flex-wrap md:overflow-visible md:pb-0">
 
       {categoriesList.map((cat) => {
-        const isActive = category === cat;
+        const isActive = category === cat.value;
 
         return (
           <motion.button
-            key={cat}
-            onClick={() => setCategory(cat)}
+            key={cat.value}
+            data-active={isActive || undefined}
+            onClick={() => setCategory(cat.value)}
             whileTap={{ scale: 0.95 }}
-            className="relative px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap flex-shrink-0 bg-stone-100"
+            className="relative px-3.5 py-1.5 rounded-full text-[12.5px] leading-5 font-medium whitespace-nowrap flex-shrink-0 bg-stone-100"
           >
             {isActive && (
               <motion.div
@@ -262,7 +277,7 @@ const PackagesPage = () => {
                 isActive ? "text-white" : "text-stone-700"
               }`}
             >
-              {cat}
+              {cat.label}
             </span>
           </motion.button>
         );
@@ -270,14 +285,15 @@ const PackagesPage = () => {
     </div>
 
     {/* Price Range Chips */}
-    <div className="flex flex-wrap gap-2.5">
+    <div ref={priceRowRef} className="flex flex-nowrap gap-2.5 overflow-x-auto scrollbar-hide pb-0.5 md:flex-wrap md:overflow-visible md:pb-0">
       {priceRanges.map((range) => {
         const isActive = priceRange === range.id;
         return (
           <button
             key={range.id}
+            data-active={isActive || undefined}
             onClick={() => setPriceRange(range.id)}
-            className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors duration-200 ${
+            className={`px-3 py-1.5 rounded-full text-[12.5px] leading-5 font-medium whitespace-nowrap flex-shrink-0 transition-colors duration-200 ${
               isActive
                 ? "bg-emerald-600 text-white shadow-sm"
                 : "bg-stone-100 text-stone-700 hover:bg-emerald-50 hover:text-emerald-700"
@@ -294,16 +310,16 @@ const PackagesPage = () => {
       <button
         onClick={() => setSavedOnly(!savedOnly)}
         aria-pressed={savedOnly}
-        className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors duration-200 ${
+        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12.5px] leading-5 font-medium whitespace-nowrap transition-colors duration-200 ${
           savedOnly
             ? "bg-rose-600 text-white shadow-sm"
             : "bg-rose-50 text-rose-700 hover:bg-rose-100"
         }`}
       >
-        <HeartIcon className="w-4 h-4" />
+        <HeartIcon className="w-3.5 h-3.5" />
         পরে দেখব
         <span
-          className={`min-w-5 h-5 px-1 flex items-center justify-center rounded-full text-xs font-bold ${
+          className={`min-w-4 h-4 px-1 flex items-center justify-center rounded-full text-[11px] font-bold ${
             savedOnly ? "bg-white text-rose-600" : "bg-rose-600 text-white"
           }`}
         >

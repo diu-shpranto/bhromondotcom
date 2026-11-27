@@ -91,6 +91,15 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-dark);
 }
+
+/* Hide scrollbars on horizontal chip rows (mobile filter panel) */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 body {
   padding-left: 1rem;
   padding-right: 1rem;
