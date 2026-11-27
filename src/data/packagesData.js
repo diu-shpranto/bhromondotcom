@@ -185,16 +185,16 @@ categories: ["Single", "Family", "Couple", "Group"],
     title: "সেন্টমার্টিন ভ্রমণ",
     location: "কক্সবাজার - সেন্টমার্টিন",
     duration: "৪ রাত ৩ দিন",
-    tourStart: "Every Thursday",
+    tourStart: "সিজন: ১ নভেম্বর ২০২৬ – ১৫ মার্চ ২০২৭",
     image: "/images/company/btg/packages/saintmartin/btg-saintmartin.jpg",
 
     pricing: {
-      perPerson: 7999,
-      couplePrice: 17000,
+      perPerson: 6999,
+      couplePrice: null,
     },
 
     description:
-      "সেন্টমার্টিন দ্বীপ, নাফ নদী ও দারুচিনি দ্বীপ ভ্রমণ।",
+      "সেন্টমার্টিন দ্বীপ, নাফ নদী ও দারুচিনি দ্বীপ ভ্রমণ। সিজন ১ নভেম্বর ২০২৬ – ১৫ মার্চ ২০২৭; ট্রাভেল পাস ও জনপ্রতি ৳১০০ পরিবেশ ফি লাগবে। জাহাজ: কর্ণফুলী এক্সপ্রেস, বারো আউলিয়া, টেকনাফ। নভেম্বর ২০২৬-এ জাহাজের টিকিটে ৫% ছাড়।",
 
     included: [
       "বাস",
@@ -358,6 +358,310 @@ categories: ["Single", "Family", "Group"],
   ],
 },
 
+
+// ================= 9️⃣ VROMON BARI WEEKLY — COX BUDGET =================
+{
+  id: 908,
+  destinationSlug: "coxsbazar",
+  companyId: 2,
+  categories: ["Single", "Family", "Couple", "Group"],
+  title: "কক্সবাজার বাজেট ট্যুর",
+  location: "কক্সবাজার",
+  duration: "৩ রাত ২ দিন",
+  tourStart: "Every Thursday",
+  image: "/images/company/btg/packages/cox/coxs.jpg",
+  pricing: { perPerson: 2499, couplePrice: 6499 },
+  description:
+    "ভ্রমণ বাড়ির সাপ্তাহিক ট্যুর — প্রতি বৃহস্পতিবার রাতে সায়েদাবাদ থেকে ছাড়ে। হোটেল: Sea Welcome / Grand Beach বা সমমানের। বুকিং: ০১৫৩৩-০৯৬৮০৯।",
+  included: [
+    "সায়েদাবাদ - কক্সবাজার রিজার্ভ বাস",
+    "১ রাত নন-এসি রুম",
+    "৫ বেলা খাবার",
+    "গাইড",
+  ],
+  excluded: [
+    "মেরিন ড্রাইভ, হিমছড়ি ও লাল কাঁকড়া বিচ যাতায়াত",
+    "ব্যক্তিগত খরচ",
+  ],
+  tourPlan: [
+    { day: "Day 1", details: "বৃহস্পতিবার রাতে সায়েদাবাদ থেকে যাত্রা।" },
+    { day: "Day 2", details: "কক্সবাজার সমুদ্র ভ্রমণ।" },
+    { day: "Day 3", details: "সকালে ঘুরে ঢাকায় ফেরা।" },
+  ],
+  places: [
+    { name: "সুগন্ধা বিচ", image: "/images/places/sugandha.jpg" },
+    { name: "লাবনী বিচ", image: "/images/places/laboni.jpg" },
+    { name: "ইনানি বিচ", image: "/images/places/inani.webp" },
+  ],
+},
+// ================= 🔟 VROMON BARI — SAINT MARTIN =================
+{
+  id: 909,
+  destinationSlug: "saintmartin",
+  companyId: 2,
+  categories: ["Single", "Family", "Couple", "Group"],
+  title: "সেন্টমার্টিন ভ্রমণ",
+  location: "কক্সবাজার - সেন্টমার্টিন",
+  duration: "৪ রাত ৩ দিন",
+  tourStart: "Every Thursday",
+  image: "/images/destinations/saintmartin/cover.jpg",
+  pricing: { perPerson: 8499, couplePrice: 18499 },
+  description:
+    "ভ্রমণ বাড়ির সাপ্তাহিক ট্যুর — প্রতি বৃহস্পতিবার রাতে সায়েদাবাদ থেকে ছাড়ে। সিজন ১ নভেম্বর ২০২৬ – ১৫ মার্চ ২০২৭; ট্রাভেল পাস ও পরিবেশ ফি অন্তর্ভুক্ত। বুকিং: ০১৫৩৩-০৯৬৮০৯।",
+  included: [
+    "ঢাকা - কক্সবাজার - ঢাকা বাস",
+    "রিসোর্টে ২ রাত",
+    "জাহাজ টিকেট (বারো আউলিয়া / টেকনাফ / মালঞ্চ)",
+    "৭ বেলা খাবার",
+    "পরিবেশ ফি",
+  ],
+  excluded: [
+    "ছেঁড়া দ্বীপ ভ্রমণ খরচ",
+    "প্রথম দিনের সকালের নাস্তা ও যাত্রা/ফেরার দিনের রাতের খাবার",
+    "ব্যক্তিগত খরচ",
+  ],
+  tourPlan: [
+    { day: "Day 1", details: "বৃহস্পতিবার রাতে ঢাকা থেকে যাত্রা।" },
+    { day: "Day 2", details: "জাহাজে সেন্টমার্টিন যাত্রা।" },
+    { day: "Day 3", details: "সমুদ্র ও ফ্রি টাইম।" },
+    { day: "Day 4", details: "ফিরতি জাহাজ ও বাসে ঢাকায় ফেরা।" },
+  ],
+  places: [
+    { name: "সেন্টমার্টিন দ্বীপ", image: "/images/places/stmartin.jpg" },
+    { name: "নাফ নদী", image: "/images/places/naf.jpg" },
+    { name: "দারুচিনি দ্বীপ", image: "/images/places/daruchini.jpg" },
+  ],
+},
+// ================= 1️⃣1️⃣ VROMON BARI — COX PREMIUM SLEEPER =================
+{
+  id: 910,
+  destinationSlug: "coxsbazar",
+  companyId: 2,
+  categories: ["Family", "Couple", "Group"],
+  title: "কক্সবাজার প্রিমিয়াম স্লিপার ট্যুর",
+  location: "কক্সবাজার",
+  duration: "৪ রাত ৩ দিন",
+  tourStart: "Every Thursday",
+  image: "/images/company/btg/packages/cox/coxs.jpg",
+  pricing: { perPerson: 4999, couplePrice: null },
+  description:
+    "ভ্রমণ বাড়ির সাপ্তাহিক ট্যুর — প্রতি বৃহস্পতিবার রাতে সায়েদাবাদ থেকে ছাড়ে। বিস্তারিত ও বুকিং: ০১৫৩৩-০৯৬৮০৯।",
+  included: [ "ঢাকা - কক্সবাজার যাতায়াত", "হোটেলে থাকা", "খাবার", "গাইড সার্ভিস" ],
+  excluded: [ "ব্যক্তিগত খরচ", "সার্ভিস চার্জ" ],
+  tourPlan: [
+    { day: "Day 1", details: "বৃহস্পতিবার রাতে ঢাকা থেকে যাত্রা।" },
+    { day: "Day 2", details: "কক্সবাজার সমুদ্র ভ্রমণ।" },
+    { day: "Day 3", details: "ইনানি ও হিমছড়ি ভ্রমণ।" },
+    { day: "Day 4", details: "ঢাকায় ফেরা।" },
+  ],
+  places: [
+    { name: "সুগন্ধা বিচ", image: "/images/places/sugandha.jpg" },
+    { name: "লাবনী বিচ", image: "/images/places/laboni.jpg" },
+    { name: "ইনানি বিচ", image: "/images/places/inani.webp" },
+    { name: "হিমছড়ি", image: "/images/places/himchori.webp" },
+  ],
+},
+// ================= 1️⃣2️⃣ VROMON BARI — COX SAMUDRA BILAS =================
+{
+  id: 911,
+  destinationSlug: "coxsbazar",
+  companyId: 2,
+  categories: ["Family", "Couple", "Group"],
+  title: "কক্সবাজার সমুদ্র বিলাস ট্যুর",
+  location: "কক্সবাজার",
+  duration: "৪ রাত ৩ দিন",
+  tourStart: "Every Thursday",
+  image: "/images/company/btg/packages/cox/coxs.jpg",
+  pricing: { perPerson: 3499, couplePrice: null },
+  description:
+    "ভ্রমণ বাড়ির সাপ্তাহিক ট্যুর — প্রতি বৃহস্পতিবার রাতে সায়েদাবাদ থেকে ছাড়ে। বিস্তারিত ও বুকিং: ০১৫৩৩-০৯৬৮০৯।",
+  included: [ "ঢাকা - কক্সবাজার যাতায়াত", "হোটেলে থাকা", "খাবার", "গাইড সার্ভিস" ],
+  excluded: [ "ব্যক্তিগত খরচ", "সার্ভিস চার্জ" ],
+  tourPlan: [
+    { day: "Day 1", details: "বৃহস্পতিবার রাতে ঢাকা থেকে যাত্রা।" },
+    { day: "Day 2", details: "কক্সবাজার সমুদ্র ভ্রমণ।" },
+    { day: "Day 3", details: "ইনানি ও হিমছড়ি ভ্রমণ।" },
+    { day: "Day 4", details: "ঢাকায় ফেরা।" },
+  ],
+  places: [
+    { name: "সুগন্ধা বিচ", image: "/images/places/sugandha.jpg" },
+    { name: "লাবনী বিচ", image: "/images/places/laboni.jpg" },
+    { name: "ইনানি বিচ", image: "/images/places/inani.webp" },
+  ],
+},
+// ================= 1️⃣3️⃣ VROMON BARI — SYLHET RELAX =================
+{
+  id: 912,
+  destinationSlug: "sylhet",
+  companyId: 2,
+  categories: ["Family", "Couple", "Group"],
+  title: "সিলেট রিলাক্স ট্যুর",
+  location: "সিলেট",
+  duration: "৩ রাত ২ দিন",
+  tourStart: "Every Thursday",
+  image: "/images/destinations/sreemangal.jpg",
+  pricing: { perPerson: 3499, couplePrice: null },
+  description:
+    "ভ্রমণ বাড়ির সাপ্তাহিক ট্যুর — প্রতি বৃহস্পতিবার রাতে সায়েদাবাদ থেকে ছাড়ে। বিস্তারিত ও বুকিং: ০১৫৩৩-০৯৬৮০৯।",
+  included: [ "ঢাকা - সিলেট যাতায়াত", "হোটেলে থাকা", "খাবার", "গাইড সার্ভিস" ],
+  excluded: [ "ব্যক্তিগত খরচ", "এন্ট্রি ফি" ],
+  tourPlan: [
+    { day: "Day 1", details: "বৃহস্পতিবার রাতে ঢাকা থেকে যাত্রা।" },
+    { day: "Day 2", details: "সিলেটের দর্শনীয় স্থান ভ্রমণ।" },
+    { day: "Day 3", details: "ঘুরে ঢাকায় ফেরা।" },
+  ],
+},
+// ================= 1️⃣4️⃣ VROMON BARI — BANDARBAN RELAX =================
+{
+  id: 913,
+  destinationSlug: "bandarban",
+  companyId: 2,
+  categories: ["Family", "Couple", "Group"],
+  title: "বান্দরবান রিলাক্স ট্যুর",
+  location: "বান্দরবান",
+  duration: "৩ রাত ২ দিন",
+  tourStart: "Every Thursday",
+  image: "/images/destinations/bandarban/cover.jpg",
+  pricing: { perPerson: 3999, couplePrice: null },
+  description:
+    "ভ্রমণ বাড়ির সাপ্তাহিক ট্যুর — প্রতি বৃহস্পতিবার রাতে সায়েদাবাদ থেকে ছাড়ে। বিস্তারিত ও বুকিং: ০১৫৩৩-০৯৬৮০৯।",
+  included: [ "ঢাকা - বান্দরবান যাতায়াত", "হোটেলে থাকা", "খাবার", "গাইড সার্ভিস" ],
+  excluded: [ "চাঁদের গাড়ি খরচ", "এন্ট্রি ফি" ],
+  tourPlan: [
+    { day: "Day 1", details: "বৃহস্পতিবার রাতে ঢাকা থেকে যাত্রা।" },
+    { day: "Day 2", details: "নীলগিরি, নীলাচল, চিম্বুক পাহাড়।" },
+    { day: "Day 3", details: "ঘুরে ঢাকায় ফেরা।" },
+  ],
+  places: [
+    { name: "নীলগিরি", image: "/images/places/nilgiri.jpg" },
+    { name: "নীলাচল", image: "/images/places/nilachal.jpg" },
+    { name: "চিম্বুক পাহাড়", image: "/images/places/chimbuk.webp" },
+  ],
+},
+// ================= 1️⃣5️⃣ VROMON BARI — BOGALAKE & KEOKRADONG =================
+{
+  id: 914,
+  destinationSlug: "bandarban",
+  companyId: 2,
+  categories: ["Adventure", "Group"],
+  title: "বগালেক ও কেওক্রাডং রিলাক্স ট্যুর",
+  location: "বগালেক - বান্দরবান",
+  duration: "৩ রাত ২ দিন",
+  tourStart: "Every Thursday",
+  image: "/images/destinations/bandarban/cover.jpg",
+  pricing: { perPerson: 4499, couplePrice: null },
+  description:
+    "ভ্রমণ বাড়ির সাপ্তাহিক ট্যুর — প্রতি বৃহস্পতিবার রাতে সায়েদাবাদ থেকে ছাড়ে। বিস্তারিত ও বুকিং: ০১৫৩৩-০৯৬৮০৯।",
+  included: [ "ঢাকা - বান্দরবান যাতায়াত", "হোটেলে থাকা", "খাবার", "গাইড সার্ভিস" ],
+  excluded: [ "ব্যক্তিগত খরচ", "এন্ট্রি ফি" ],
+  tourPlan: [
+    { day: "Day 1", details: "বৃহস্পতিবার রাতে ঢাকা থেকে যাত্রা।" },
+    { day: "Day 2", details: "বগালেক ভ্রমণ।" },
+    { day: "Day 3", details: "কেওক্রাডং ঘুরে ঢাকায় ফেরা।" },
+  ],
+  places: [
+    { name: "নীলগিরি", image: "/images/places/nilgiri.jpg" },
+    { name: "নীলাচল", image: "/images/places/nilachal.jpg" },
+  ],
+},
+// ================= 1️⃣6️⃣ VROMON BARI — RANGAMATI DAY =================
+{
+  id: 915,
+  destinationSlug: "rangamati",
+  companyId: 2,
+  categories: ["Single", "Family", "Group"],
+  title: "রাঙ্গামাটি ডে ট্যুর",
+  location: "রাঙ্গামাটি - কাপ্তাই লেক",
+  duration: "২ রাত ১ দিন",
+  tourStart: "Every Thursday",
+  image: "/images/company/btg/packages/rangamati/btg-rangamati.jpg",
+  pricing: { perPerson: 1599, couplePrice: null },
+  description:
+    "ভ্রমণ বাড়ির সাপ্তাহিক ট্যুর — প্রতি বৃহস্পতিবার রাতে সায়েদাবাদ থেকে ছাড়ে। বিস্তারিত ও বুকিং: ০১৫৩৩-০৯৬৮০৯।",
+  included: [ "ঢাকা - রাঙ্গামাটি যাতায়াত", "খাবার", "ট্রলার ভাড়া", "গাইড সার্ভিস" ],
+  excluded: [ "ব্যক্তিগত খরচ", "সার্ভিস চার্জ" ],
+  tourPlan: [
+    { day: "Day 1", details: "বৃহস্পতিবার রাতে ঢাকা থেকে যাত্রা।" },
+    { day: "Day 2", details: "কাপ্তাই লেক ও শুভলং ঝর্ণা ভ্রমণ।" },
+  ],
+  places: [
+    { name: "কাপ্তাই লেক", image: "/images/places/kaptai.jpg" },
+    { name: "শুভলং ঝর্ণা", image: "/images/places/shuvolong.jpg" },
+    { name: "ঝুলন্ত ব্রিজ", image: "/images/places/bridge.jpg" },
+  ],
+},
+// ================= 1️⃣7️⃣ VROMON BARI — SYLHET BHOLAGANJ DAY =================
+{
+  id: 916,
+  destinationSlug: "sylhet",
+  companyId: 2,
+  categories: ["Single", "Family", "Group"],
+  title: "সিলেট ভোলাগঞ্জ ডে ট্যুর",
+  location: "সিলেট - ভোলাগঞ্জ",
+  duration: "২ রাত ১ দিন",
+  tourStart: "Every Thursday",
+  image: "/images/destinations/sreemangal.jpg",
+  pricing: { perPerson: 1599, couplePrice: null },
+  description:
+    "ভ্রমণ বাড়ির সাপ্তাহিক ট্যুর — প্রতি বৃহস্পতিবার রাতে সায়েদাবাদ থেকে ছাড়ে। বিস্তারিত ও বুকিং: ০১৫৩৩-০৯৬৮০৯।",
+  included: [ "ঢাকা - সিলেট যাতায়াত", "খাবার", "গাইড সার্ভিস" ],
+  excluded: [ "ব্যক্তিগত খরচ", "এন্ট্রি ফি" ],
+  tourPlan: [
+    { day: "Day 1", details: "বৃহস্পতিবার রাতে ঢাকা থেকে যাত্রা।" },
+    { day: "Day 2", details: "ভোলাগঞ্জ সাদা পাথর ভ্রমণ।" },
+  ],
+},
+// ================= 1️⃣8️⃣ VROMON BARI — BANDARBAN CITY DAY =================
+{
+  id: 917,
+  destinationSlug: "bandarban",
+  companyId: 2,
+  categories: ["Single", "Family", "Group"],
+  title: "বান্দরবান সিটি ডে ট্যুর",
+  location: "বান্দরবান",
+  duration: "২ রাত ১ দিন",
+  tourStart: "Every Thursday",
+  image: "/images/destinations/bandarban/cover.jpg",
+  pricing: { perPerson: 2199, couplePrice: null },
+  description:
+    "ভ্রমণ বাড়ির সাপ্তাহিক ট্যুর — প্রতি বৃহস্পতিবার রাতে সায়েদাবাদ থেকে ছাড়ে। বিস্তারিত ও বুকিং: ০১৫৩৩-০৯৬৮০৯।",
+  included: [ "ঢাকা - বান্দরবান যাতায়াত", "খাবার", "গাইড সার্ভিস" ],
+  excluded: [ "ব্যক্তিগত খরচ", "এন্ট্রি ফি" ],
+  tourPlan: [
+    { day: "Day 1", details: "বৃহস্পতিবার রাতে ঢাকা থেকে যাত্রা।" },
+    { day: "Day 2", details: "বান্দরবান শহর ও আশপাশ ভ্রমণ।" },
+  ],
+  places: [
+    { name: "নীলগিরি", image: "/images/places/nilgiri.jpg" },
+    { name: "নীলাচল", image: "/images/places/nilachal.jpg" },
+  ],
+},
+// ================= 1️⃣9️⃣ VROMON BARI — COX DAY =================
+{
+  id: 918,
+  destinationSlug: "coxsbazar",
+  companyId: 2,
+  categories: ["Single", "Family", "Group"],
+  title: "কক্সবাজার ডে ট্যুর",
+  location: "কক্সবাজার",
+  duration: "২ রাত ১ দিন",
+  tourStart: "Every Thursday",
+  image: "/images/company/btg/packages/cox/coxs.jpg",
+  pricing: { perPerson: 1599, couplePrice: null },
+  description:
+    "ভ্রমণ বাড়ির সাপ্তাহিক ট্যুর — প্রতি বৃহস্পতিবার রাতে সায়েদাবাদ থেকে ছাড়ে। বিস্তারিত ও বুকিং: ০১৫৩৩-০৯৬৮০৯।",
+  included: [ "ঢাকা - কক্সবাজার যাতায়াত", "খাবার", "গাইড সার্ভিস" ],
+  excluded: [ "ব্যক্তিগত খরচ", "এন্ট্রি ফি" ],
+  tourPlan: [
+    { day: "Day 1", details: "বৃহস্পতিবার রাতে ঢাকা থেকে যাত্রা।" },
+    { day: "Day 2", details: "কক্সবাজার সমুদ্র ভ্রমণ।" },
+  ],
+  places: [
+    { name: "সুগন্ধা বিচ", image: "/images/places/sugandha.jpg" },
+    { name: "লাবনী বিচ", image: "/images/places/laboni.jpg" },
+    { name: "ইনানি বিচ", image: "/images/places/inani.webp" },
+  ],
+},
 ];
 
 export default packagesData;
