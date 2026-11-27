@@ -166,7 +166,6 @@ const Navbar = () => {
               >
                 ভ্রমণ
                 <span className={clsx(
-                  "ml-1",
                   scrolled || !isHome ? "text-emerald-600" : "text-amber-300"
                 )}>
                   .কম
@@ -286,7 +285,7 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 h-screen w-[300px] sm:w-[340px] bg-white z-[100] shadow-2xl flex flex-col overflow-hidden rounded-r-[28px]"
+              className="fixed top-0 left-0 h-screen w-[280px] sm:w-[320px] bg-white z-[100] shadow-2xl flex flex-col overflow-hidden rounded-r-[28px]"
             >
               {/* Drawer Header — green gradient, curved decorations */}
               <div className="relative overflow-hidden bg-gradient-to-br from-[#00A86B] via-[#008F5A] to-[#006B46] px-5 pt-5 pb-5 text-white shrink-0">
@@ -384,7 +383,7 @@ const Navbar = () => {
                                           to={item.path}
                                           onClick={() => setIsOpen(false)}
                                           className={clsx(
-                                            "flex items-center gap-1.5 px-2.5 py-2 text-[13px] rounded-lg transition-all duration-200",
+                                            "flex items-center gap-1.5 px-2 py-2 text-xs whitespace-nowrap rounded-lg transition-all duration-200",
                                             subActive
                                               ? "bg-[#E8F8F0] text-[#006B46] font-semibold"
                                               : "text-stone-600 hover:text-[#006B46] hover:bg-[#E8F8F0]/60"

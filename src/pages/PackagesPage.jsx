@@ -97,7 +97,7 @@ const PackagesPage = () => {
     />
 
     {/* Category Pills */}
-    <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+    <div className="flex flex-wrap gap-2.5">
 
       {categoriesList.map((cat) => {
         const isActive = category === cat;
