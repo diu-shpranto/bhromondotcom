@@ -1,8 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Hero from '../components/home/Hero';
+import SeasonalPicks from '../components/home/SeasonalPicks';
 import Destinations from '../components/home/Destinations';
-import RegionalDetails from '../components/home/RegionalDetails'; //
+import SajekNotice from '../components/home/SajekNotice';
+import TrustStrip from '../components/home/TrustStrip';
+import HomeGuides from '../components/home/HomeGuides';
+import RegionalDetails from '../components/home/RegionalDetails';
 
 
 const HomePage = () => {
@@ -13,9 +17,13 @@ const HomePage = () => {
       exit={{ opacity: 0 }}
     >
       <Hero />
+      <SeasonalPicks />
       <Destinations />
-    <RegionalDetails />
-      
+      <SajekNotice />
+      <TrustStrip />
+      <HomeGuides />
+      <RegionalDetails />
+
     </motion.div>
   );
 };

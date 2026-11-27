@@ -2,6 +2,8 @@ import { useSearchParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import packagesData from "../data/packagesData";
+import destinationsData from "../data/destinationsData";
+import { isInSeason, monthLabel } from "../utils/season";
 
 const categoriesList = [
   "All",
@@ -23,18 +25,51 @@ const priceRanges = [
 ];
 
 const PackagesPage = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const categoryFromNav = searchParams.get("category");
+  const destinationFromNav = searchParams.get("destination");
+  const priceFromNav = searchParams.get("price");
+  const monthFromNav = searchParams.get("month");
+
+  // Validate deep-link params so a bad URL never yields a dead page.
+  const validDestination =
+    destinationFromNav &&
+    destinationsData.some((d) => d.slug === destinationFromNav)
+      ? destinationFromNav
+      : "all";
+  const validMonth =
+    monthFromNav && /^(1[0-2]|[1-9])$/.test(monthFromNav)
+      ? monthFromNav
+      : "all";
+  const validPrice = priceRanges.some((r) => r.id === priceFromNav)
+    ? priceFromNav
+    : "all";
 
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState(categoryFromNav || "All");
-  const [priceRange, setPriceRange] = useState("all");
+  const [destination, setDestination] = useState(validDestination);
+  const [month, setMonth] = useState(validMonth);
+  const [priceRange, setPriceRange] = useState(validPrice);
   const [sort, setSort] = useState("default");
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setCategory(categoryFromNav || "All");
-  }, [categoryFromNav]);
+    setDestination(validDestination);
+    setMonth(validMonth);
+    setPriceRange(validPrice);
+  }, [categoryFromNav, destinationFromNav, priceFromNav, monthFromNav]);
+
+  const clearParam = (key) => {
+    const next = new URLSearchParams(searchParams);
+    next.delete(key);
+    setSearchParams(next, { replace: true });
+  };
+
+  const activeDestination =
+    destination !== "all"
+      ? destinationsData.find((d) => d.slug === destination)
+      : null;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,6 +88,18 @@ const PackagesPage = () => {
               cat.toLowerCase() === category.toLowerCase()
           );
 
+    const matchDestination =
+      destination === "all" ? true : pkg.destinationSlug === destination;
+
+    const matchMonth =
+      month === "all"
+        ? true
+        : isInSeason(
+            destinationsData.find((d) => d.slug === pkg.destinationSlug)
+              ?.bestTime,
+            month
+          );
+
     const price = pkg.pricing?.perPerson;
     const matchPrice =
       priceRange === "all"
@@ -64,7 +111,7 @@ const PackagesPage = () => {
       .toLowerCase()
       .includes(search.toLowerCase());
 
-    return matchCategory && matchPrice && matchSearch;
+    return matchCategory && matchDestination && matchMonth && matchPrice && matchSearch;
   });
 
   if (sort === "low") {
@@ -80,12 +127,12 @@ const PackagesPage = () => {
   }
 
   return (
-    <div className="bg-stone-50">
+    <div className="bg-sand">
     <div className="max-w-7xl mx-auto px-6 py-16">
 
       {/* Header */}
       <div className="mb-10">
-        <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-2">
+        <h1 className="font-display text-3xl md:text-4xl font-bold text-stone-900 mb-2">
           সব প্যাকেজ
         </h1>
         <div className="h-1 w-16 rounded-full bg-emerald-600 mb-4" />
@@ -93,6 +140,36 @@ const PackagesPage = () => {
           {filteredPackages.length} টি প্যাকেজ পাওয়া গেছে
         </p>
       </div>
+
+      {/* Active deep-link filters (from home trip finder / quick chips) */}
+      {(activeDestination || month !== "all") && (
+        <div className="flex flex-wrap gap-2 mb-6">
+          {activeDestination && (
+            <span className="inline-flex items-center gap-2 bg-emerald-600 text-white text-sm font-medium pl-4 pr-2 py-1.5 rounded-full">
+              গন্তব্য: {activeDestination.name}
+              <button
+                onClick={() => clearParam("destination")}
+                aria-label="গন্তব্য ফিল্টার সরান"
+                className="w-5 h-5 flex items-center justify-center rounded-full bg-white/25 hover:bg-white/40 text-xs leading-none"
+              >
+                ✕
+              </button>
+            </span>
+          )}
+          {month !== "all" && (
+            <span className="inline-flex items-center gap-2 bg-emerald-600 text-white text-sm font-medium pl-4 pr-2 py-1.5 rounded-full">
+              মাস: {monthLabel(month)}
+              <button
+                onClick={() => clearParam("month")}
+                aria-label="মাস ফিল্টার সরান"
+                className="w-5 h-5 flex items-center justify-center rounded-full bg-white/25 hover:bg-white/40 text-xs leading-none"
+              >
+                ✕
+              </button>
+            </span>
+          )}
+        </div>
+      )}
 
       {/* PREMIUM STICKY FILTER */}
      <div

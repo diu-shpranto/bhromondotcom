@@ -5,6 +5,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        forest: "#0B3D2E",
+        sand: "#FAF7F2",
+        ink: "#1C1917",
         primary: {
           50: '#ecfdf5',
           100: '#d1fae5',
@@ -36,6 +39,7 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         bengali: ['Noto Sans Bengali', 'sans-serif'],
+        display: ['"Noto Serif Bengali"', '"Noto Sans Bengali"', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

@@ -1,30 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import Button from "../ui/Button";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import packagesData from "../../data/packagesData";
 import destinationsData from "../../data/destinationsData";
 import companiesData from "../../data/companiesData";
+import { MONTH_OPTIONS } from "../../utils/season";
+
+const PRICE_OPTIONS = [
+  { id: "all", label: "যেকোনো বাজেট" },
+  { id: "under2000", label: "৳২,০০০-এর নিচে" },
+  { id: "2000-5000", label: "৳২,০০০ – ৫,০০০" },
+  { id: "5000-10000", label: "৳৫,০০০ – ১০,০০০" },
+  { id: "over10000", label: "৳১০,০০০+" },
+];
+
+// One-tap shortcuts — each maps to a real /packages filter.
+const QUICK_CHIPS = [
+  { label: "সেন্টমার্টিন", to: "/packages?destination=saintmartin" },
+  { label: "কক্সবাজার", to: "/packages?destination=coxsbazar" },
+  { label: "৳২,০০০-এর নিচে", to: "/packages?price=under2000" },
+  { label: "কাপল ট্যুর", to: "/packages?category=Couple" },
+  { label: "ফ্যামিলি ট্যুর", to: "/packages?category=Family" },
+];
 
 const Hero = () => {
   const navigate = useNavigate();
-const [searchTerm, setSearchTerm] = useState("");
+  const [destination, setDestination] = useState("all");
+  const [month, setMonth] = useState("all");
+  const [budget, setBudget] = useState("all");
 
-const handleSearch = () => {
-  if (searchTerm.trim()) {
-    navigate(`/search?q=${searchTerm}`);
-  }
-};
+  const handleFinder = () => {
+    const params = new URLSearchParams();
+    if (destination !== "all") params.set("destination", destination);
+    if (month !== "all") params.set("month", month);
+    if (budget !== "all") params.set("price", budget);
+    const qs = params.toString();
+    navigate(qs ? `/packages?${qs}` : "/packages");
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
+        staggerChildren: 0.12,
+        delayChildren: 0.2,
       },
     },
   };
@@ -41,99 +62,179 @@ const handleSearch = () => {
     },
   };
 
-  return (
-    <section className="relative w-full min-h-screen overflow-hidden">
+  const homeDestinations = destinationsData.filter(
+    (d) => d.slug !== "maldives"
+  );
 
-      {/* Background */}
+  const selectClass =
+    "w-full rounded-xl border border-stone-200 bg-white px-3 py-3 text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500";
+
+  return (
+    <section className="relative w-full overflow-hidden">
+      {/* Background — Sajek clouds */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/bg1.jpg')" }}
+        style={{ backgroundImage: "url('/images/destinations/sajek/cover.jpg')" }}
       />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-emerald-950/65" />
+      {/* Overlay — deep forest green */}
+      <div className="absolute inset-0 bg-forest/75" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-forest/80 to-transparent" />
 
       {/* Main Content */}
-      <div className="relative z-10 min-h-screen flex items-center pt-28 md:pt-32">
+      <div className="relative z-10 pt-24 pb-14 md:pt-28 md:pb-20">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="max-w-3xl text-left"
           >
+            {/* Eyebrow */}
+            <motion.p
+              variants={itemVariants}
+              className="inline-block text-xs md:text-sm font-semibold tracking-wide text-amber-300 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-5"
+            >
+              বাংলাদেশের সেরা ট্যুর তথ্য
+            </motion.p>
 
             {/* Heading */}
             <motion.h1
               variants={itemVariants}
-              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
+              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4"
             >
-              আপনার স্বপ্নের
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-lime-300 to-amber-300">
-                ভ্রমণ শুরু হোক
-              </span>
+              এবার কোথায়
+              <span className="block text-amber-300">যাবেন?</span>
             </motion.h1>
 
+            <motion.p
+              variants={itemVariants}
+              className="text-stone-200 text-base md:text-lg mb-8 max-w-xl"
+            >
+              আসল দাম, আসল তারিখ, যাচাই করা কোম্পানি — সিদ্ধান্ত নিন ৫
+              মিনিটে।
+            </motion.p>
 
-            {/* Buttons */}
+            {/* Trip Finder */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 mt-6"
+              className="bg-white rounded-3xl shadow-2xl p-4 md:p-5 max-w-3xl"
             >
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_auto] gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-stone-500 mb-1">
+                    গন্তব্য
+                  </label>
+                  <select
+                    value={destination}
+                    onChange={(e) => setDestination(e.target.value)}
+                    aria-label="গন্তব্য বেছে নিন"
+                    className={selectClass}
+                  >
+                    <option value="all">যেকোনো জায়গা</option>
+                    {homeDestinations.map((d) => (
+                      <option key={d.slug} value={d.slug}>
+                        {d.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-stone-500 mb-1">
+                    কখন যাবেন
+                  </label>
+                  <select
+                    value={month}
+                    onChange={(e) => setMonth(e.target.value)}
+                    aria-label="মাস বেছে নিন"
+                    className={selectClass}
+                  >
+                    <option value="all">যেকোনো সময়</option>
+                    {MONTH_OPTIONS.map((m) => (
+                      <option key={m.value} value={m.value}>
+                        {m.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-stone-500 mb-1">
+                    বাজেট
+                  </label>
+                  <select
+                    value={budget}
+                    onChange={(e) => setBudget(e.target.value)}
+                    aria-label="বাজেট বেছে নিন"
+                    className={selectClass}
+                  >
+                    {PRICE_OPTIONS.map((p) => (
+                      <option key={p.id} value={p.id}>
+                        {p.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="flex items-end">
+                  <button
+                    onClick={handleFinder}
+                    className="w-full lg:w-auto px-6 py-3 bg-[#008F5A] rounded-xl font-semibold text-white hover:bg-forest transition-all duration-200 flex items-center justify-center gap-2 whitespace-nowrap"
+                  >
+                    <MagnifyingGlassIcon className="w-5 h-5" />
+                    <span>ট্যুর খুঁজুন</span>
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Quick chips */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap gap-2 mt-4"
+            >
+              {QUICK_CHIPS.map((chip) => (
+                <Link
+                  key={chip.label}
+                  to={chip.to}
+                  className="text-[13px] font-medium text-white bg-white/15 border border-white/25 backdrop-blur rounded-full px-3.5 py-1.5 hover:bg-white/25 transition-colors duration-200"
+                >
+                  {chip.label}
+                </Link>
+              ))}
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="mt-5">
               <Link
                 to="/packages"
-                className="w-full sm:w-auto text-center px-8 py-4 rounded-xl font-semibold text-white 
-                           bg-emerald-600
-                           hover:bg-emerald-700
-                           shadow-lg shadow-emerald-600/30
-                           transition-all duration-300"
+                className="text-sm font-semibold text-amber-300 hover:text-amber-200 transition-colors"
               >
-                প্যাকেজ দেখুন
+                সব প্যাকেজ দেখুন →
               </Link>
             </motion.div>
 
-            {/* Search Bar */}
-           <motion.div
-  variants={itemVariants}
-  className="mt-10 bg-white/10 backdrop-blur-md rounded-2xl p-4 max-w-3xl mx-auto"
->
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-               <input
-  type="text"
-  placeholder="লোকেশন, প্যাকেজ বা কোম্পানি..."
-  value={searchTerm}
-  onChange={(e) => setSearchTerm(e.target.value)}
-  onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-  className="w-full px-4 py-3 bg-white/20 rounded-lg text-white placeholder-stone-300 focus:outline-none focus:ring-2 focus:ring-white sm:col-span-2"
-/>
-
-
-             <button
-  onClick={handleSearch}
-  className="w-full px-6 py-3 bg-emerald-600 rounded-lg font-semibold hover:bg-emerald-700 transition-all duration-200 flex items-center justify-center space-x-2"
->
-  <MagnifyingGlassIcon className="w-5 h-5" />
-  <span>খুঁজুন</span>
-</button>
-              </div>
-            </motion.div>
-
-            {/* Stats */}
+            {/* Stats — live counts from data */}
             <motion.div
               variants={itemVariants}
-              className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left"
+              className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left"
             >
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white">{packagesData.length.toLocaleString("bn-BD")}+</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">
+                  {packagesData.length.toLocaleString("bn-BD")}+
+                </h3>
                 <p className="text-stone-300 text-sm">ট্যুর প্যাকেজ</p>
               </div>
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white">{companiesData.length.toLocaleString("bn-BD")}টি</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">
+                  {companiesData.length.toLocaleString("bn-BD")}টি
+                </h3>
                 <p className="text-stone-300 text-sm">যাচাই করা কোম্পানি</p>
               </div>
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white">{destinationsData.length.toLocaleString("bn-BD")}টি</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">
+                  {destinationsData.length.toLocaleString("bn-BD")}টি
+                </h3>
                 <p className="text-stone-300 text-sm">গন্তব্য</p>
               </div>
               <div>
@@ -141,13 +242,9 @@ const handleSearch = () => {
                 <p className="text-stone-300 text-sm">বিভাগের গাইড</p>
               </div>
             </motion.div>
-
           </motion.div>
-
         </div>
       </div>
-
-
     </section>
   );
 };
