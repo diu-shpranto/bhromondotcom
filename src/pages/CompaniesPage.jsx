@@ -20,6 +20,7 @@ const CompaniesPage = () => {
 
     const matchRating =
       ratingFilter === "all" ||
+      company.rating == null ||
       company.rating >= parseFloat(ratingFilter);
 
     return matchSearch && matchRating;
@@ -69,11 +70,17 @@ const CompaniesPage = () => {
 
             {/* BOLD COLOR HEADER */}
             <div className="bg-gradient-to-r from-indigo-500 to-purple-600 flex justify-center py-10">
-              <img
-                src={company.logo}
-                alt={company.name}
-                className="w-24 h-24 object-cover rounded-full border-4 border-white shadow-xl"
-              />
+              {company.logo ? (
+                <img
+                  src={company.logo}
+                  alt={company.name}
+                  className="w-24 h-24 object-cover rounded-full border-4 border-white shadow-xl"
+                />
+              ) : (
+                <div className="w-24 h-24 flex items-center justify-center bg-white text-indigo-600 text-4xl font-bold rounded-full border-4 border-white shadow-xl">
+                  {company.name.charAt(0)}
+                </div>
+              )}
             </div>
 
             {/* CONTENT */}
@@ -92,9 +99,11 @@ const CompaniesPage = () => {
               </p>
 
               <div className="flex justify-between items-center mt-4">
-                <span className="text-yellow-500 font-medium">
-                  ⭐ {company.rating}
-                </span>
+                {company.rating && (
+                  <span className="text-yellow-500 font-medium">
+                    ⭐ {company.rating}
+                  </span>
+                )}
 
                 <span className="text-blue-600 text-sm font-medium">
                   📦 {getPackageCount(company.id)} প্যাকেজ

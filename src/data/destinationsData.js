@@ -124,6 +124,17 @@ const destinationsData = [
       "/images/places/kaptai.jpg",
       "/images/company/btg/packages/rangamati/btg-rangamati.jpg"
     ]
+  },
+
+  {
+    id: 9,
+    slug: "maldives",
+    name: "মালদ্বীপ",
+    location: "মালদ্বীপ",
+    description: "ভারত মহাসাগরের প্রবাল দ্বীপপুঞ্জ — নীল লেগুন, সাদা বালি আর রিসোর্ট। দূরযাত্রার গ্রুপ ট্যুরে যাওয়া যায়।",
+    bestTime: "নভেম্বর – এপ্রিল",
+    famousFor: ["নীল লেগুন", "প্রবাল দ্বীপ", "রিসোর্ট"],
+    gallery: []
   }
 ];
 

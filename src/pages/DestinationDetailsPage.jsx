@@ -52,10 +52,12 @@ const DestinationDetailsPage = () => {
       {/* ================= HERO ================= */}
 
       <div
-        className="relative h-[520px] bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${destination.gallery?.[0] || "/images/default.jpg"})`,
-        }}
+        className={`relative h-[520px] bg-cover bg-center ${destination.gallery?.[0] ? "" : "bg-gradient-to-r from-teal-500 to-blue-600"}`}
+        style={
+          destination.gallery?.[0]
+            ? { backgroundImage: `url(${destination.gallery[0]})` }
+            : undefined
+        }
       >
         <div className="absolute inset-0 bg-black/60" />
 

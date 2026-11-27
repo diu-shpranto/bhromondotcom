@@ -27,8 +27,8 @@ const PackageDetailPage = () => {
 
       {/* ================= HERO ================= */}
       <div
-        className="relative h-[450px] md:h-[550px] bg-cover bg-center"
-        style={{ backgroundImage: `url(${pkg.image})` }}
+        className={`relative h-[450px] md:h-[550px] bg-cover bg-center ${pkg.image ? "" : "bg-gradient-to-r from-teal-500 to-blue-600"}`}
+        style={pkg.image ? { backgroundImage: `url(${pkg.image})` } : undefined}
       >
         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
 

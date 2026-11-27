@@ -162,11 +162,15 @@ const PackagesPage = () => {
     <div className="relative overflow-hidden">
 
       {/* Image */}
-      <img
-        src={pkg.image}
-        alt={pkg.title}
-        className="w-full h-64 object-cover transition duration-700 group-hover:scale-110"
-      />
+      {pkg.image ? (
+        <img
+          src={pkg.image}
+          alt={pkg.title}
+          className="w-full h-64 object-cover transition duration-700 group-hover:scale-110"
+        />
+      ) : (
+        <div className="w-full h-64 bg-gradient-to-r from-teal-500 to-blue-600" />
+      )}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />

@@ -27,11 +27,15 @@ const CompanyDetailPage = () => {
 
       {/* COVER SECTION */}
       <div className="relative">
-        <img
-          src={company.coverImage}
-          alt={company.name}
-          className="w-full h-64 object-cover"
-        />
+        {company.coverImage ? (
+          <img
+            src={company.coverImage}
+            alt={company.name}
+            className="w-full h-64 object-cover"
+          />
+        ) : (
+          <div className="w-full h-64 bg-gradient-to-r from-indigo-500 to-purple-600" />
+        )}
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
@@ -39,11 +43,17 @@ const CompanyDetailPage = () => {
       <div className="container-apple py-12">
 
         <div className="flex items-center gap-6 mb-8">
-          <img
-            src={company.logo}
-            alt={company.name}
-            className="w-24 h-24 object-contain bg-white rounded-full shadow-lg border"
-          />
+          {company.logo ? (
+            <img
+              src={company.logo}
+              alt={company.name}
+              className="w-24 h-24 object-contain bg-white rounded-full shadow-lg border"
+            />
+          ) : (
+            <div className="w-24 h-24 flex items-center justify-center bg-indigo-600 text-white text-4xl font-bold rounded-full shadow-lg border">
+              {company.name.charAt(0)}
+            </div>
+          )}
 
           <div>
             <h1 className="text-3xl font-bold flex items-center gap-2">
@@ -57,9 +67,11 @@ const CompanyDetailPage = () => {
               📍 {company.location}
             </p>
 
-            <p className="text-yellow-500 mt-1">
-              ⭐ {company.rating}
-            </p>
+            {company.rating && (
+              <p className="text-yellow-500 mt-1">
+                ⭐ {company.rating}
+              </p>
+            )}
           </div>
         </div>
 
@@ -69,11 +81,18 @@ const CompanyDetailPage = () => {
 
         {/* CONTACT INFO */}
         <div className="grid md:grid-cols-2 gap-6 mb-16 text-gray-600">
-          <p>📞 {company.phone}</p>
-          <p>📧 {company.email}</p>
-          <p>🌐 {company.website}</p>
-          <p>📘 {company.facebook}</p>
-           <p>📘 {company.facebook}</p>
+          {(company.phone || company.contact?.phone) && (
+            <p>📞 {company.phone || company.contact.phone}</p>
+          )}
+          {(company.email || company.contact?.email) && (
+            <p>📧 {company.email || company.contact.email}</p>
+          )}
+          {(company.website || company.contact?.website) && (
+            <p>🌐 {company.website || company.contact.website}</p>
+          )}
+          {(company.facebook || company.contact?.facebookPage) && (
+            <p>📘 {company.facebook || company.contact.facebookPage}</p>
+          )}
         </div>
 
         {/* COMPANY PACKAGES */}
@@ -92,11 +111,15 @@ const CompanyDetailPage = () => {
               to={`/package/${pkg.id}`}
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition"
             >
-              <img
-                src={pkg.image}
-                alt={pkg.title}
-                className="w-full h-48 object-cover"
-              />
+              {pkg.image ? (
+                <img
+                  src={pkg.image}
+                  alt={pkg.title}
+                  className="w-full h-48 object-cover"
+                />
+              ) : (
+                <div className="w-full h-48 bg-gradient-to-r from-teal-500 to-blue-600" />
+              )}
 
               <div className="p-6">
                 <h3 className="text-lg font-semibold mb-2">
@@ -108,7 +131,7 @@ const CompanyDetailPage = () => {
                 </p>
 
                 <p className="text-blue-600 font-bold">
-                  ৳{pkg.price}
+                  ৳{pkg.pricing?.perPerson}
                 </p>
               </div>
             </Link>

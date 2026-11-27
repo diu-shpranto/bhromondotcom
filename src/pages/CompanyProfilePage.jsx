@@ -31,11 +31,17 @@ const CompanyProfilePage = () => {
         <div className="bg-white rounded-3xl shadow-xl p-10 flex flex-col md:flex-row items-center gap-8">
 
           {/* Logo */}
-          <img
-            src={company.logo}
-            alt={company.name}
-            className="w-28 h-28 rounded-full object-cover shadow-md"
-          />
+          {company.logo ? (
+            <img
+              src={company.logo}
+              alt={company.name}
+              className="w-28 h-28 rounded-full object-cover shadow-md"
+            />
+          ) : (
+            <div className="w-28 h-28 flex items-center justify-center bg-indigo-600 text-white text-5xl font-bold rounded-full shadow-md">
+              {company.name.charAt(0)}
+            </div>
+          )}
 
           {/* Info */}
           <div className="flex-1 text-center md:text-left">
@@ -47,9 +53,11 @@ const CompanyProfilePage = () => {
               📍 {company.location}
             </p>
 
-            <p className="text-yellow-500 font-semibold mb-4">
-              ⭐ {company.rating} Rating
-            </p>
+            {company.rating && (
+              <p className="text-yellow-500 font-semibold mb-4">
+                ⭐ {company.rating} Rating
+              </p>
+            )}
 
             <p className="text-gray-700 max-w-2xl">
               {company.description}
@@ -109,11 +117,15 @@ const CompanyProfilePage = () => {
                 <Link to={`/package/${pkg.id}`}>
 
                   {/* Image */}
-                  <img
-                    src={pkg.image}
-                    alt={pkg.title}
-                    className="h-56 w-full object-cover"
-                  />
+                  {pkg.image ? (
+                    <img
+                      src={pkg.image}
+                      alt={pkg.title}
+                      className="h-56 w-full object-cover"
+                    />
+                  ) : (
+                    <div className="h-56 w-full bg-gradient-to-r from-teal-500 to-blue-600" />
+                  )}
 
                   {/* Content */}
                   <div className="p-6">

@@ -662,6 +662,30 @@ categories: ["Single", "Family", "Group"],
     { name: "ইনানি বিচ", image: "/images/places/inani.webp" },
   ],
 },
+// ================= DUR JATRA — MALDIVES + SRI LANKA =================
+{
+  id: 919,
+  destinationSlug: "maldives",
+  companyId: 3,
+  categories: ["Family", "Group"],
+  title: "মালদ্বীপ + শ্রীলঙ্কা গ্রুপ ট্যুর",
+  location: "মালদ্বীপ ও শ্রীলঙ্কা",
+  duration: "৬ রাত ৭ দিন",
+  tourStart: "২১ ডিসেম্বর ২০২৬",
+  pricing: { perPerson: 89999, couplePrice: null },
+  description:
+    "দূরযাত্রার গ্রুপ ট্যুর — ২১ ডিসেম্বর ২০২৬ যাত্রা। ২২ নভেম্বরের পোস্ট অনুযায়ী ৩টি সিট বাকি ছিল। ফিটসএয়ার ফ্লাইট, হোটেল, সকালের নাশতা ও ট্রান্সফার অন্তর্ভুক্ত। শ্রীলঙ্কার ভিসা ফি আলাদা। বুকিং মানি জনপ্রতি ৳৫০,০০০। বুকিং: ০১৯০৭-৭৮০৪১০।",
+  included: [
+    "ফিটসএয়ার ফ্লাইট",
+    "হোটেল",
+    "সকালের নাশতা",
+    "ট্রান্সফার",
+  ],
+  excluded: [
+    "শ্রীলঙ্কা ভিসা ফি USD ২৫ (প্রায় ৳৩,৫০০)",
+    "ব্যক্তিগত খরচ",
+  ],
+},
 ];
 
 export default packagesData;
