@@ -22,7 +22,7 @@ const PlaceAccordion = ({ place }) => {
         </div>
 
         <ChevronDownIcon
-          className={`w-5 h-5 text-emerald-700 transition-transform ${
+          className={`w-5 h-5 text-sky-700 transition-transform ${
             open ? "rotate-180" : ""
           }`}
         />
@@ -53,7 +53,7 @@ const PlaceAccordion = ({ place }) => {
             loading="lazy"
           />
 
-          <div className="bg-emerald-50 p-4 rounded-2xl">
+          <div className="bg-sky-50 p-4 rounded-2xl">
             <p className="font-semibold text-stone-900 mb-2">
               ভ্রমণ টিপস:
             </p>

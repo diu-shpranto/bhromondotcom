@@ -133,7 +133,7 @@ const PlaceDetailsPage = () => {
                       ⏳ {pkg.duration}
                     </p>
 
-                    <p className="text-emerald-700 font-bold">
+                    <p className="text-sky-700 font-bold">
                       ৳{pkg.pricing?.perPerson}
                     </p>
                   </div>

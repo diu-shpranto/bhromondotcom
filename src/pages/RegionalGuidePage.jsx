@@ -1200,10 +1200,10 @@ const RegionalGuidePage = () => {
   return (
     <div className="min-h-screen bg-stone-50">
       {/* হিরো সেকশন */}
-      <section className="relative bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 pt-24 pb-16 overflow-hidden">
+      <section className="relative bg-gradient-to-r from-sky-900 via-sky-800 to-sky-900 pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-sky-400/10 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container-custom relative z-10">
@@ -1231,7 +1231,7 @@ const RegionalGuidePage = () => {
                   className="w-full h-full object-cover"
                  loading="lazy" decoding="async" />
               </div>
-              <div className="absolute -bottom-2 -right-2 bg-emerald-500 w-6 h-6 rounded-full border-4 border-white"></div>
+              <div className="absolute -bottom-2 -right-2 bg-sky-500 w-6 h-6 rounded-full border-4 border-white"></div>
             </div>
             
             <div className="flex-1 text-center md:text-left">
@@ -1242,14 +1242,14 @@ const RegionalGuidePage = () => {
                 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-3 tracking-tight"
               >
                 {guideData.bnName}
-                <span className="block text-2xl md:text-3xl font-light text-emerald-200 mt-1">ভ্রমণ গাইড</span>
+                <span className="block text-2xl md:text-3xl font-light text-sky-200 mt-1">ভ্রমণ গাইড</span>
               </motion.h1>
               
               <motion.p 
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-lg text-emerald-100 mb-4 max-w-2xl mx-auto md:mx-0 leading-relaxed"
+                className="text-lg text-sky-100 mb-4 max-w-2xl mx-auto md:mx-0 leading-relaxed"
               >
                 {guideData.description}
               </motion.p>
@@ -1299,7 +1299,7 @@ const RegionalGuidePage = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center px-5 py-2.5 rounded-xl font-medium transition-all whitespace-nowrap ${
                     activeTab === tab.id 
-                      ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-500/30' 
+                      ? 'bg-sky-600 text-white shadow-lg shadow-sky-500/30' 
                       : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
                   }`}
                 >
@@ -1349,7 +1349,7 @@ const RegionalGuidePage = () => {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                          loading="lazy" decoding="async" />
                         <div className="absolute top-4 left-4">
-                          <Badge variant="primary" size="sm" className="bg-white/90 text-emerald-600">
+                          <Badge variant="primary" size="sm" className="bg-white/90 text-sky-600">
                             {place.type}
                           </Badge>
                         </div>
@@ -1366,14 +1366,14 @@ const RegionalGuidePage = () => {
                         <div className="grid md:grid-cols-2 gap-6">
                           <div className="space-y-3">
                             <div className="flex items-start space-x-3">
-                              <MapPinIcon className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                              <MapPinIcon className="w-5 h-5 text-sky-500 mt-0.5 flex-shrink-0" />
                               <div>
                                 <p className="text-sm font-medium text-stone-500">অবস্থান</p>
                                 <p className="font-semibold">{place.location}</p>
                               </div>
                             </div>
                             <div className="flex items-start space-x-3">
-                              <ClockIcon className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                              <ClockIcon className="w-5 h-5 text-sky-500 mt-0.5 flex-shrink-0" />
                               <div>
                                 <p className="text-sm font-medium text-stone-500">সময়</p>
                                 <p className="font-semibold">{place.time}</p>
@@ -1383,14 +1383,14 @@ const RegionalGuidePage = () => {
                           
                           <div className="space-y-3">
                             <div className="flex items-start space-x-3">
-                              <CurrencyDollarIcon className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                              <CurrencyDollarIcon className="w-5 h-5 text-sky-500 mt-0.5 flex-shrink-0" />
                               <div>
                                 <p className="text-sm font-medium text-stone-500">প্রবেশ মূল্য</p>
                                 <p className="font-semibold">{place.entryFee}</p>
                               </div>
                             </div>
                             <div className="flex items-start space-x-3">
-                              <TruckIcon className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                              <TruckIcon className="w-5 h-5 text-sky-500 mt-0.5 flex-shrink-0" />
                               <div>
                                 <p className="text-sm font-medium text-stone-500">কিভাবে যাবেন</p>
                                 <p className="text-sm">{place.howToGo}</p>
@@ -1399,8 +1399,8 @@ const RegionalGuidePage = () => {
                           </div>
                         </div>
                         
-                        <div className="mt-6 bg-emerald-50 p-4 rounded-xl ring-1 ring-emerald-100">
-                          <p className="text-sm text-emerald-800 flex items-start">
+                        <div className="mt-6 bg-sky-50 p-4 rounded-xl ring-1 ring-sky-100">
+                          <p className="text-sm text-sky-800 flex items-start">
                             <span className="font-bold mr-2">💡 টিপস:</span>
                             {place.tips}
                           </p>
@@ -1424,9 +1424,9 @@ const RegionalGuidePage = () => {
                 🍽️ স্থানীয় খাবার ও রেস্টুরেন্ট
               </h2>
               
-              <div className="bg-emerald-50 rounded-2xl p-8 mb-8 ring-1 ring-emerald-100">
+              <div className="bg-sky-50 rounded-2xl p-8 mb-8 ring-1 ring-sky-100">
                 <h3 className="text-xl font-bold mb-4 flex items-center">
-                  <CakeIcon className="w-6 h-6 text-emerald-500 mr-2" />
+                  <CakeIcon className="w-6 h-6 text-sky-500 mr-2" />
                   বিখ্যাত স্থানীয় খাবার
                 </h3>
                 <div className="flex flex-wrap gap-3">
@@ -1434,7 +1434,7 @@ const RegionalGuidePage = () => {
                     <motion.span
                       key={idx}
                       whileHover={{ scale: 1.05, y: -2 }}
-                      className="px-5 py-2.5 bg-white text-emerald-700 rounded-full text-sm font-medium shadow-sm border border-emerald-200"
+                      className="px-5 py-2.5 bg-white text-sky-700 rounded-full text-sm font-medium shadow-sm border border-sky-200"
                     >
                       {food}
                     </motion.span>
@@ -1462,7 +1462,7 @@ const RegionalGuidePage = () => {
                       {restaurant.area}
                     </p>
                     <p className="text-stone-700 mb-3 font-medium">🍳 {restaurant.specialty}</p>
-                    <p className="text-emerald-700 font-bold text-lg">{restaurant.price}</p>
+                    <p className="text-sky-700 font-bold text-lg">{restaurant.price}</p>
                   </motion.div>
                 ))}
               </div>
@@ -1498,14 +1498,14 @@ const RegionalGuidePage = () => {
                           {hotel.area}
                         </p>
                       </div>
-                      <Badge variant="primary" size="md" className="bg-emerald-600">
+                      <Badge variant="primary" size="md" className="bg-sky-600">
                         {hotel.type}
                       </Badge>
                     </div>
                     
                     <div className="flex items-center justify-between mb-4">
 
-                      <span className="text-2xl font-bold text-emerald-700">{hotel.price}</span>
+                      <span className="text-2xl font-bold text-sky-700">{hotel.price}</span>
                     </div>
                     
                     <div className="flex items-center text-stone-600 bg-stone-50 p-3 rounded-xl ring-1 ring-stone-100">
@@ -1533,9 +1533,9 @@ const RegionalGuidePage = () => {
                 {/* বাস */}
                 <motion.div
                   whileHover={{ y: -5 }}
-                  className="bg-emerald-50 rounded-2xl p-6 ring-1 ring-emerald-100 shadow-sm"
+                  className="bg-sky-50 rounded-2xl p-6 ring-1 ring-sky-100 shadow-sm"
                 >
-                  <div className="bg-emerald-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
+                  <div className="bg-sky-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
                     <TruckIcon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-4">বাস</h3>
@@ -1552,9 +1552,9 @@ const RegionalGuidePage = () => {
                 {/* ট্রেন */}
                 <motion.div
                   whileHover={{ y: -5 }}
-                  className="bg-emerald-50 rounded-2xl p-6 ring-1 ring-emerald-100 shadow-sm"
+                  className="bg-sky-50 rounded-2xl p-6 ring-1 ring-sky-100 shadow-sm"
                 >
-                  <div className="bg-emerald-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
+                  <div className="bg-sky-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
                     <BuildingOfficeIcon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-4">ট্রেন</h3>
@@ -1571,9 +1571,9 @@ const RegionalGuidePage = () => {
                 {/* বিমান */}
                 <motion.div
                   whileHover={{ y: -5 }}
-                  className="bg-emerald-50 rounded-2xl p-6 ring-1 ring-emerald-100 shadow-sm"
+                  className="bg-sky-50 rounded-2xl p-6 ring-1 ring-sky-100 shadow-sm"
                 >
-                  <div className="bg-emerald-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
+                  <div className="bg-sky-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
                     <PaperAirplaneIcon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-4">বিমান</h3>
@@ -1617,7 +1617,7 @@ const RegionalGuidePage = () => {
                       {shop.area}
                     </p>
                     <p className="text-stone-700 mb-3">{shop.items}</p>
-                    <div className="flex items-center text-emerald-600 bg-emerald-50 p-3 rounded-xl ring-1 ring-emerald-100">
+                    <div className="flex items-center text-sky-600 bg-sky-50 p-3 rounded-xl ring-1 ring-sky-100">
                       <ClockIcon className="w-4 h-4 mr-2" />
                       <span className="font-medium">⏰ {shop.bestTime}</span>
                     </div>
@@ -1673,10 +1673,10 @@ const RegionalGuidePage = () => {
                 {/* হাসপাতাল */}
                 <motion.div
                   whileHover={{ y: -5 }}
-                  className="bg-emerald-50 rounded-2xl p-6 ring-1 ring-emerald-100 shadow-sm"
+                  className="bg-sky-50 rounded-2xl p-6 ring-1 ring-sky-100 shadow-sm"
                 >
-                  <h3 className="text-xl font-bold mb-4 flex items-center text-emerald-700">
-                    <span className="w-8 h-8 bg-emerald-100 rounded-xl flex items-center justify-center mr-2">
+                  <h3 className="text-xl font-bold mb-4 flex items-center text-sky-700">
+                    <span className="w-8 h-8 bg-sky-100 rounded-xl flex items-center justify-center mr-2">
                       🏥
                     </span>
                     হাসপাতাল
@@ -1699,28 +1699,28 @@ const RegionalGuidePage = () => {
                 className="bg-white rounded-2xl p-8 ring-1 ring-stone-100 shadow-sm"
               >
                 <h3 className="text-2xl font-bold mb-6 flex items-center text-stone-900">
-                  <span className="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center mr-3">
+                  <span className="w-10 h-10 bg-sky-100 rounded-xl flex items-center justify-center mr-3">
                     💡
                   </span>
                   ভ্রমণ টিপস
                 </h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <h4 className="font-semibold text-emerald-600 mb-3 flex items-center">
-                      <span className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center mr-2">✅</span>
+                    <h4 className="font-semibold text-sky-600 mb-3 flex items-center">
+                      <span className="w-6 h-6 bg-sky-100 rounded-full flex items-center justify-center mr-2">✅</span>
                       করণীয়
                     </h4>
                     <ul className="space-y-2">
                       <li className="flex items-center text-stone-700">
-                        <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></span>
+                        <span className="w-1.5 h-1.5 bg-sky-500 rounded-full mr-2"></span>
                         আগে থেকে হোটেল বুক করুন (পিক সিজনে)
                       </li>
                       <li className="flex items-center text-stone-700">
-                        <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></span>
+                        <span className="w-1.5 h-1.5 bg-sky-500 rounded-full mr-2"></span>
                         পাহাড়ি এলাকায় স্থানীয় গাইড নিন
                       </li>
                       <li className="flex items-center text-stone-700">
-                        <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></span>
+                        <span className="w-1.5 h-1.5 bg-sky-500 rounded-full mr-2"></span>
                         প্রয়োজনীয় ওষুধ সাথে রাখুন
                       </li>
                     </ul>

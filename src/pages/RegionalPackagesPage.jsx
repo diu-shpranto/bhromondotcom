@@ -405,16 +405,16 @@ const RegionalPackagesPage = () => {
   return (
     <div className="min-h-screen bg-stone-50">
       {/* হিরো সেকশন */}
-      <section className="relative bg-gradient-to-r from-[#006B46] to-[#008F5A] py-16">
+      <section className="relative bg-gradient-to-r from-[#0C4A6E] to-[#0284C7] py-16">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-sky-400/10 rounded-full blur-3xl" />
         </div>
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <button
             onClick={() => navigate('/packages')}
-            className="flex items-center text-white mb-6 hover:text-emerald-200 transition-colors"
+            className="flex items-center text-white mb-6 hover:text-sky-200 transition-colors"
           >
             <ChevronLeftIcon className="w-5 h-5 mr-1" />
             <span>সব প্যাকেজে ফিরুন</span>
@@ -432,7 +432,7 @@ const RegionalPackagesPage = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
                 {divisionData.bnName}
               </h1>
-              <p className="text-xl text-emerald-100 mb-4">
+              <p className="text-xl text-sky-100 mb-4">
                 {divisionData.description}
               </p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
@@ -460,7 +460,7 @@ const RegionalPackagesPage = () => {
                   onClick={() => setFilterType(type.value)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                     filterType === type.value
-                      ? 'bg-emerald-600 text-white hover:bg-emerald-700'
+                      ? 'bg-sky-600 text-white hover:bg-sky-700'
                       : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
                   }`}
                 >
@@ -473,7 +473,7 @@ const RegionalPackagesPage = () => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="w-full md:w-auto rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+              className="w-full md:w-auto rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
             >
               <option value="popular">জনপ্রিয়</option>
               <option value="rating">রেটিং</option>
@@ -525,7 +525,7 @@ const RegionalPackagesPage = () => {
                         className="absolute top-4 right-4 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
                       >
                         {isInWishlist ? (
-                          <HeartIconSolid className="w-5 h-5 text-emerald-600" />
+                          <HeartIconSolid className="w-5 h-5 text-sky-600" />
                         ) : (
                           <HeartIcon className="w-5 h-5 text-stone-600" />
                         )}
@@ -565,7 +565,7 @@ const RegionalPackagesPage = () => {
                               ৳{pkg.price}
                             </span>
                           )}
-                          <span className="text-2xl font-bold text-emerald-700">
+                          <span className="text-2xl font-bold text-sky-700">
                             ৳{discountedPrice}
                           </span>
                         </div>

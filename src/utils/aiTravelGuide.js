@@ -68,7 +68,7 @@ const DestinationDetailsPage = () => {
           viewport={{ once: true }}
           className="bg-white p-8 rounded-3xl shadow-xl text-center hover:-translate-y-2 transition"
         >
-          <h3 className="text-4xl font-bold text-emerald-600">
+          <h3 className="text-4xl font-bold text-sky-600">
             <CountUp end={relatedPackages.length} duration={2} />
           </h3>
           <p className="mt-2 text-stone-600">Available Packages</p>
@@ -81,7 +81,7 @@ const DestinationDetailsPage = () => {
           viewport={{ once: true }}
           className="bg-white p-8 rounded-3xl shadow-xl text-center hover:-translate-y-2 transition"
         >
-          <h3 className="text-4xl font-bold text-emerald-500">
+          <h3 className="text-4xl font-bold text-sky-500">
             <CountUp end={5000} duration={2} />
           </h3>
           <p className="mt-2 text-stone-600">Monthly Visitors</p>
@@ -94,7 +94,7 @@ const DestinationDetailsPage = () => {
           viewport={{ once: true }}
           className="bg-white p-8 rounded-3xl shadow-xl text-center hover:-translate-y-2 transition"
         >
-          <h3 className="text-xl font-bold text-emerald-600">
+          <h3 className="text-xl font-bold text-sky-600">
             {destination.bestTime}
           </h3>
           <p className="mt-2 text-stone-600">Best Time</p>
@@ -172,7 +172,7 @@ const DestinationDetailsPage = () => {
                   <h3 className="font-semibold mb-2">
                     {pkg.title}
                   </h3>
-                  <p className="text-emerald-700 font-bold text-lg">
+                  <p className="text-sky-700 font-bold text-lg">
                     ৳{pkg.pricing?.perPerson}
                   </p>
                 </div>

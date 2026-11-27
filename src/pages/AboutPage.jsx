@@ -3,11 +3,11 @@ const AboutPage = () => {
     <div className="min-h-screen bg-stone-50">
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-emerald-700 to-emerald-800 py-24 text-center text-white">
+      <div className="bg-gradient-to-r from-sky-700 to-sky-800 py-24 text-center text-white">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           আমাদের সম্পর্কে
         </h1>
-        <p className="text-emerald-100 max-w-2xl mx-auto">
+        <p className="text-sky-100 max-w-2xl mx-auto">
           এটা কোনো বুকিং সাইট না। আমরা বাংলাদেশের ট্যুর কোম্পানিগুলোর আসল
           অফার এক জায়গায় সাজিয়ে দিই — যাতে আপনি দাম আর তারিখ মিলিয়ে
           নিজে সিদ্ধান্ত নিতে পারেন।

@@ -28,14 +28,14 @@ const PackageCard = ({ pkg }) => {
 
         {/* Discount Badge */}
         {pkg.discount && (
-          <div className="absolute top-3 left-3 bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full shadow">
+          <div className="absolute top-3 left-3 bg-sky-50 text-sky-700 text-xs font-semibold px-3 py-1 rounded-full shadow">
             {pkg.discount}% ছাড়
           </div>
         )}
 
         {/* Wishlist Button */}
-        <button className="absolute top-3 right-3 bg-white p-2 rounded-full shadow hover:bg-emerald-50 transition">
-          <HeartIcon className="w-5 h-5 text-stone-600 hover:text-emerald-600" />
+        <button className="absolute top-3 right-3 bg-white p-2 rounded-full shadow hover:bg-sky-50 transition">
+          <HeartIcon className="w-5 h-5 text-stone-600 hover:text-sky-600" />
         </button>
       </div>
 
@@ -44,7 +44,7 @@ const PackageCard = ({ pkg }) => {
         {/* Location + Rating */}
         <div className="flex justify-between items-center mb-2 text-sm text-stone-500">
           <div className="flex items-center space-x-1">
-            <MapPinIcon className="w-4 h-4 text-emerald-600" />
+            <MapPinIcon className="w-4 h-4 text-sky-600" />
             <span>{pkg.location}</span>
           </div>
 
@@ -67,7 +67,7 @@ const PackageCard = ({ pkg }) => {
 
         {/* Duration */}
         <div className="flex items-center text-sm text-stone-500 mb-3">
-          <ClockIcon className="w-4 h-4 mr-1 text-emerald-600" />
+          <ClockIcon className="w-4 h-4 mr-1 text-sky-600" />
           {pkg.duration}
         </div>
 
@@ -91,16 +91,16 @@ const PackageCard = ({ pkg }) => {
                 ৳{pkg.oldPrice}
               </span>
             )}
-            <span className="text-xl font-bold text-emerald-700">
+            <span className="text-xl font-bold text-sky-700">
               ৳{pkg.price}
             </span>
           </div>
 
           <div className="flex space-x-2">
-            <button className="px-4 py-2 border border-emerald-600 text-emerald-700 rounded-xl text-sm font-semibold hover:bg-emerald-50 transition">
+            <button className="px-4 py-2 border border-sky-600 text-sky-700 rounded-xl text-sm font-semibold hover:bg-sky-50 transition">
               বিস্তারিত
             </button>
-            <button className="px-4 py-2 bg-emerald-600 text-white rounded-xl text-sm font-semibold hover:bg-emerald-700 transition shadow-sm">
+            <button className="px-4 py-2 bg-sky-600 text-white rounded-xl text-sm font-semibold hover:bg-sky-700 transition shadow-sm">
               বুক করুন
             </button>
           </div>

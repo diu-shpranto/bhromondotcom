@@ -226,7 +226,7 @@ const RegionalDetails = () => {
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4">
             বিভাগভিত্তিক{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-800">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-sky-800">
               ভ্রমণ গাইড
             </span>
           </h2>
@@ -246,8 +246,8 @@ const RegionalDetails = () => {
                 onClick={() => setSelectedDivision(division)}
                 className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                   selectedDivision.id === division.id
-                    ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-500/30'
-                    : 'bg-white text-stone-700 hover:bg-emerald-50 hover:text-emerald-700 border border-stone-200'
+                    ? 'bg-sky-600 text-white shadow-lg shadow-sky-500/30'
+                    : 'bg-white text-stone-700 hover:bg-sky-50 hover:text-sky-700 border border-stone-200'
                 }`}
               >
                 {division.bnName}
@@ -305,7 +305,7 @@ const RegionalDetails = () => {
                   onClick={() => setActiveTab('overview')}
                   className={`py-4 px-2 font-medium transition-all duration-300 border-b-2 ${
                     activeTab === 'overview'
-                      ? 'border-emerald-600 text-emerald-600'
+                      ? 'border-sky-600 text-sky-600'
                       : 'border-transparent text-stone-500 hover:text-stone-700'
                   }`}
                 >
@@ -315,7 +315,7 @@ const RegionalDetails = () => {
                   onClick={() => setActiveTab('attractions')}
                   className={`py-4 px-2 font-medium transition-all duration-300 border-b-2 ${
                     activeTab === 'attractions'
-                      ? 'border-emerald-600 text-emerald-600'
+                      ? 'border-sky-600 text-sky-600'
                       : 'border-transparent text-stone-500 hover:text-stone-700'
                   }`}
                 >
@@ -325,7 +325,7 @@ const RegionalDetails = () => {
                   onClick={() => setActiveTab('food')}
                   className={`py-4 px-2 font-medium transition-all duration-300 border-b-2 ${
                     activeTab === 'food'
-                      ? 'border-emerald-600 text-emerald-600'
+                      ? 'border-sky-600 text-sky-600'
                       : 'border-transparent text-stone-500 hover:text-stone-700'
                   }`}
                 >
@@ -335,7 +335,7 @@ const RegionalDetails = () => {
                   onClick={() => setActiveTab('travel-tips')}
                   className={`py-4 px-2 font-medium transition-all duration-300 border-b-2 ${
                     activeTab === 'travel-tips'
-                      ? 'border-emerald-600 text-emerald-600'
+                      ? 'border-sky-600 text-sky-600'
                       : 'border-transparent text-stone-500 hover:text-stone-700'
                   }`}
                 >
@@ -423,9 +423,9 @@ const RegionalDetails = () => {
                         <motion.div
                           key={index}
                           whileHover={{ scale: 1.05 }}
-                          className="bg-emerald-50 p-6 rounded-2xl ring-1 ring-emerald-100 shadow-sm text-center"
+                          className="bg-sky-50 p-6 rounded-2xl ring-1 ring-sky-100 shadow-sm text-center"
                         >
-                          <CakeIcon className="w-10 h-10 text-emerald-600 mx-auto mb-3" />
+                          <CakeIcon className="w-10 h-10 text-sky-600 mx-auto mb-3" />
                           <p className="font-semibold">{food}</p>
                         </motion.div>
                       ))}
@@ -446,8 +446,8 @@ const RegionalDetails = () => {
                     </h3>
 
                     <div className="grid md:grid-cols-2 gap-6">
-                      <div className="bg-emerald-50 p-6 rounded-2xl ring-1 ring-emerald-100 shadow-sm">
-                        <h4 className="font-semibold text-emerald-800 mb-3">
+                      <div className="bg-sky-50 p-6 rounded-2xl ring-1 ring-sky-100 shadow-sm">
+                        <h4 className="font-semibold text-sky-800 mb-3">
                           ✅ করণীয়
                         </h4>
                         <ul className="space-y-2 text-stone-700">
@@ -502,7 +502,7 @@ const RegionalDetails = () => {
             <Link
               key={division.id}
               to={`/guide/${getDivisionEnglishName(division.bnName)}`}
-              className="p-3 bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-0.5 hover:border-emerald-500 transition-all text-center"
+              className="p-3 bg-white rounded-2xl ring-1 ring-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-0.5 hover:border-sky-500 transition-all text-center"
             >
               <p className="font-medium text-stone-900">
                 {division.bnName}

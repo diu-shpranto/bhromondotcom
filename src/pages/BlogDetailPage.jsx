@@ -75,7 +75,7 @@ const BlogDetailPage = () => {
 
       {/* ================= Progress Bar ================= */}
       <div
-        className="fixed top-0 left-0 h-1 bg-emerald-600 z-50 transition-all"
+        className="fixed top-0 left-0 h-1 bg-sky-600 z-50 transition-all"
         style={{ width: `${progress}%` }}
       />
 
@@ -113,7 +113,7 @@ const BlogDetailPage = () => {
         <div className="lg:col-span-2 space-y-12">
 
           {/* AI Summary Box */}
-          <div className="bg-emerald-50 p-6 rounded-2xl shadow">
+          <div className="bg-sky-50 p-6 rounded-2xl shadow">
             <h3 className="font-bold mb-3">
             সারাংশ
             </h3>
@@ -161,7 +161,7 @@ const BlogDetailPage = () => {
                       <h3 className="font-semibold">
                         {pkg.title}
                       </h3>
-                      <p className="text-emerald-700 font-bold">
+                      <p className="text-sky-700 font-bold">
                         ৳{pkg.pricing?.perPerson}
                       </p>
                     </div>
@@ -181,7 +181,7 @@ const BlogDetailPage = () => {
           {destination && (
             <div className="bg-white rounded-3xl shadow-sm ring-1 ring-stone-100 overflow-hidden">
               <div className="flex items-center gap-3 px-6 pt-6 pb-4">
-                <span className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                <span className="w-9 h-9 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0">
                   <MapPinIcon className="w-5 h-5" />
                 </span>
                 <h3 className="font-bold text-lg">
@@ -190,13 +190,13 @@ const BlogDetailPage = () => {
               </div>
               <div className="px-6 pb-6 space-y-3">
                 <div className="flex items-start gap-3 text-sm">
-                  <MapPinIcon className="w-5 h-5 text-emerald-600 shrink-0" />
+                  <MapPinIcon className="w-5 h-5 text-sky-600 shrink-0" />
                   <span className="text-stone-700">
                     {destination.location}
                   </span>
                 </div>
                 <div className="flex items-start gap-3 text-sm">
-                  <ClockIcon className="w-5 h-5 text-emerald-600 shrink-0" />
+                  <ClockIcon className="w-5 h-5 text-sky-600 shrink-0" />
                   <span className="text-stone-700">
                     সেরা সময়: {destination.bestTime}
                   </span>
@@ -206,7 +206,7 @@ const BlogDetailPage = () => {
                     {destination.famousFor.map((f) => (
                       <span
                         key={f}
-                        className="px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full text-xs font-medium"
+                        className="px-3 py-1 bg-sky-50 text-sky-700 rounded-full text-xs font-medium"
                       >
                         {f}
                       </span>
@@ -215,7 +215,7 @@ const BlogDetailPage = () => {
                 )}
                 <Link
                   to={`/destination/${destination.slug}`}
-                  className="inline-flex items-center gap-1.5 text-emerald-600 hover:text-emerald-700 font-semibold text-sm pt-1"
+                  className="inline-flex items-center gap-1.5 text-sky-600 hover:text-sky-700 font-semibold text-sm pt-1"
                 >
                   বিস্তারিত দেখুন
                   <ArrowRightIcon className="w-4 h-4" />
@@ -228,7 +228,7 @@ const BlogDetailPage = () => {
           {relatedBlogs.length > 0 && (
             <div className="bg-white rounded-3xl shadow-sm ring-1 ring-stone-100 overflow-hidden">
               <div className="flex items-center gap-3 px-6 pt-6 pb-4">
-                <span className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                <span className="w-9 h-9 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0">
                   <DocumentTextIcon className="w-5 h-5" />
                 </span>
                 <h3 className="font-bold text-lg">
@@ -248,10 +248,10 @@ const BlogDetailPage = () => {
                       alt=""
                      loading="lazy" decoding="async" />
                     <div className="min-w-0">
-                      <p className="text-xs font-semibold text-emerald-700">
+                      <p className="text-xs font-semibold text-sky-700">
                         {b.category}
                       </p>
-                      <p className="text-sm font-semibold leading-snug group-hover:text-emerald-600 transition">
+                      <p className="text-sm font-semibold leading-snug group-hover:text-sky-600 transition">
                         {b.title}
                       </p>
                       <p className="text-xs text-stone-400 mt-1">
@@ -265,16 +265,16 @@ const BlogDetailPage = () => {
           )}
 
           {/* Conversion CTA */}
-          <div className="relative overflow-hidden bg-emerald-700 text-white p-6 rounded-3xl shadow-lg">
-            <div className="absolute -top-10 -right-10 w-36 h-36 rounded-full bg-emerald-600/60" />
-            <div className="absolute -bottom-12 -left-8 w-32 h-32 rounded-full bg-emerald-800/70" />
+          <div className="relative overflow-hidden bg-sky-700 text-white p-6 rounded-3xl shadow-lg">
+            <div className="absolute -top-10 -right-10 w-36 h-36 rounded-full bg-sky-600/60" />
+            <div className="absolute -bottom-12 -left-8 w-32 h-32 rounded-full bg-sky-800/70" />
             <div className="relative">
               <h3 className="font-bold text-lg mb-4">
                 ভ্রমণে যেতে চান?
               </h3>
               <Link
                 to={`/destination/${blog.destinationSlug}`}
-                className="inline-flex items-center gap-2 bg-white text-emerald-700 px-5 py-2.5 rounded-xl font-semibold hover:bg-emerald-50 transition"
+                className="inline-flex items-center gap-2 bg-white text-sky-700 px-5 py-2.5 rounded-xl font-semibold hover:bg-sky-50 transition"
               >
                 প্যাকেজ দেখুন
                 <ArrowRightIcon className="w-4 h-4" />

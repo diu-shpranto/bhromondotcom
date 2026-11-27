@@ -38,7 +38,7 @@ const CompanyProfilePage = () => {
               className="w-28 h-28 rounded-full object-cover shadow-md"
              loading="lazy" decoding="async" />
           ) : (
-            <div className="w-28 h-28 flex items-center justify-center bg-emerald-600 text-white text-5xl font-bold rounded-full shadow-md">
+            <div className="w-28 h-28 flex items-center justify-center bg-sky-600 text-white text-5xl font-bold rounded-full shadow-md">
               {company.name.charAt(0)}
             </div>
           )}
@@ -71,7 +71,7 @@ const CompanyProfilePage = () => {
                   href={company.contact.whatsapp}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition"
+                  className="px-5 py-2.5 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition"
                 >
                   WhatsApp
                 </a>
@@ -82,7 +82,7 @@ const CompanyProfilePage = () => {
                   href={company.contact.messenger}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition"
+                  className="px-5 py-2.5 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition"
                 >
                   Messenger
                 </a>
@@ -100,7 +100,7 @@ const CompanyProfilePage = () => {
         <h2 className="text-3xl font-bold text-stone-900 mb-4 text-center">
           এই কোম্পানির সকল প্যাকেজ
         </h2>
-        <div className="mx-auto mb-10 h-1 w-16 rounded-full bg-emerald-600" />
+        <div className="mx-auto mb-10 h-1 w-16 rounded-full bg-sky-600" />
 
         {companyPackages.length === 0 ? (
           <p className="text-center text-stone-600">
@@ -125,7 +125,7 @@ const CompanyProfilePage = () => {
                       className="h-56 w-full object-cover group-hover:scale-105 transition duration-300"
                      loading="lazy" decoding="async" />
                   ) : (
-                    <div className="h-56 w-full bg-gradient-to-r from-emerald-500 to-emerald-600" />
+                    <div className="h-56 w-full bg-gradient-to-r from-sky-500 to-sky-600" />
                   )}
 
                   {/* Content */}
@@ -143,7 +143,7 @@ const CompanyProfilePage = () => {
                       ⏳ {pkg.duration}
                     </p>
 
-                    <p className="text-emerald-700 font-bold text-lg">
+                    <p className="text-sky-700 font-bold text-lg">
                       ৳{pkg.pricing?.perPerson}
                       {pkg.pricing?.couplePrice && (
                         <span className="text-sm text-stone-500 ml-2">

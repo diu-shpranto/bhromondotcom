@@ -133,7 +133,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
           >
             <div className="bg-white rounded-2xl ring-1 ring-stone-100 shadow-2xl overflow-hidden">
               {/* Header */}
-              <div className="relative bg-gradient-to-r from-emerald-600 to-emerald-800 px-6 py-8 text-white text-center">
+              <div className="relative bg-gradient-to-r from-sky-600 to-sky-800 px-6 py-8 text-white text-center">
                 <button
                   onClick={handleClose}
                   className="absolute right-4 top-4 p-1 hover:bg-white/20 rounded-xl transition-colors"
@@ -148,7 +148,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                 <h2 className="text-2xl font-bold mb-2">
                   {isLogin ? 'স্বাগতম!' : 'নতুন অ্যাকাউন্ট'}
                 </h2>
-                <p className="text-emerald-100">
+                <p className="text-sky-100">
                   {isLogin 
                     ? 'আপনার অ্যাকাউন্টে লগইন করুন' 
                     : 'রেজিস্টার করে ভ্রমণ শুরু করুন'}
@@ -170,7 +170,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="আপনার নাম লিখুন"
-                        className="w-full pl-10 pr-4 py-3 border border-stone-200 bg-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                        className="w-full pl-10 pr-4 py-3 border border-stone-200 bg-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
                         required={!isLogin}
                       />
                     </div>
@@ -189,7 +189,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="your@email.com"
-                      className="w-full pl-10 pr-4 py-3 border border-stone-200 bg-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                      className="w-full pl-10 pr-4 py-3 border border-stone-200 bg-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
                       required
                     />
                   </div>
@@ -207,7 +207,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                       value={formData.password}
                       onChange={handleInputChange}
                       placeholder="••••••••"
-                      className="w-full pl-10 pr-4 py-3 border border-stone-200 bg-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                      className="w-full pl-10 pr-4 py-3 border border-stone-200 bg-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
                       required
                     />
                   </div>
@@ -226,7 +226,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                         value={formData.confirmPassword}
                         onChange={handleInputChange}
                         placeholder="••••••••"
-                        className="w-full pl-10 pr-4 py-3 border border-stone-200 bg-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                        className="w-full pl-10 pr-4 py-3 border border-stone-200 bg-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
                         required={!isLogin}
                       />
                     </div>
@@ -248,7 +248,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                   fullWidth
                   size="lg"
                   disabled={loading}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white mb-4"
+                  className="bg-sky-600 hover:bg-sky-700 text-white mb-4"
                 >
                   {loading ? (
                     <div className="flex items-center justify-center">
@@ -271,8 +271,8 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                       onClick={() => fillDemoCredentials('user')}
                       className="p-3 border border-stone-200 rounded-2xl hover:bg-stone-50 transition-colors"
                     >
-                      <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <span className="text-emerald-600 font-bold">U</span>
+                      <div className="w-8 h-8 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span className="text-sky-600 font-bold">U</span>
                       </div>
                       <p className="text-xs font-medium">ব্যবহারকারী</p>
                       <p className="text-xs text-stone-500">user@bhromon.com</p>
@@ -283,8 +283,8 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                       onClick={() => fillDemoCredentials('admin')}
                       className="p-3 border border-stone-200 rounded-2xl hover:bg-stone-50 transition-colors"
                     >
-                      <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <span className="text-emerald-600 font-bold">A</span>
+                      <div className="w-8 h-8 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span className="text-sky-600 font-bold">A</span>
                       </div>
                       <p className="text-xs font-medium">অ্যাডমিন</p>
                       <p className="text-xs text-stone-500">admin@bhromon.com</p>
@@ -302,7 +302,7 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
                         setIsLogin(!isLogin);
                         setError('');
                       }}
-                      className="text-emerald-600 hover:text-emerald-700 font-medium"
+                      className="text-sky-600 hover:text-sky-700 font-medium"
                     >
                       {isLogin ? 'রেজিস্টার করুন' : 'লগইন করুন'}
                     </button>
@@ -314,9 +314,9 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
               <div className="px-6 py-4 bg-stone-50 border-t border-stone-200">
                 <p className="text-xs text-center text-stone-500">
                   লগইন করে আপনি আমাদের 
-                  <a href="/terms" className="text-emerald-600 hover:underline mx-1">শর্তাবলী</a>
+                  <a href="/terms" className="text-sky-600 hover:underline mx-1">শর্তাবলী</a>
                   এবং 
-                  <a href="/privacy" className="text-emerald-600 hover:underline mx-1">গোপনীয়তা নীতি</a>
+                  <a href="/privacy" className="text-sky-600 hover:underline mx-1">গোপনীয়তা নীতি</a>
                   মেনে নিচ্ছেন।
                 </p>
               </div>

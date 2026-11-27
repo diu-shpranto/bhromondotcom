@@ -47,7 +47,7 @@ const BlogPage = () => {
               {/* Search */}
               <div className="bg-white rounded-3xl shadow-sm ring-1 ring-stone-100 overflow-hidden">
                 <div className="flex items-center gap-3 px-6 pt-6 pb-4">
-                  <span className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                  <span className="w-9 h-9 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0">
                     <MagnifyingGlassIcon className="w-5 h-5" />
                   </span>
                   <h3 className="font-bold text-lg">ব্লগ খুঁজুন</h3>
@@ -58,7 +58,7 @@ const BlogPage = () => {
                     <input
                       type="text"
                       placeholder="Search..."
-                      className="w-full pl-11 pr-4 py-3 bg-stone-50 border border-stone-200 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 placeholder:text-stone-400"
+                      className="w-full pl-11 pr-4 py-3 bg-stone-50 border border-stone-200 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 placeholder:text-stone-400"
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
                     />
@@ -69,7 +69,7 @@ const BlogPage = () => {
               {/* Categories */}
               <div className="bg-white rounded-3xl shadow-sm ring-1 ring-stone-100 overflow-hidden">
                 <div className="flex items-center gap-3 px-6 pt-6 pb-4">
-                  <span className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                  <span className="w-9 h-9 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0">
                     <TagIcon className="w-5 h-5" />
                   </span>
                   <h3 className="font-bold text-lg">ক্যাটাগরি</h3>
@@ -86,8 +86,8 @@ const BlogPage = () => {
                         onClick={() => setCategory(cat)}
                         className={`flex items-center justify-between px-4 py-2.5 rounded-2xl text-sm font-medium transition ${
                           category === cat
-                            ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/25"
-                            : "text-stone-700 hover:bg-emerald-50 hover:text-emerald-700"
+                            ? "bg-sky-600 text-white shadow-md shadow-sky-600/25"
+                            : "text-stone-700 hover:bg-sky-50 hover:text-sky-700"
                         }`}
                       >
                         <span>{cat}</span>
@@ -109,7 +109,7 @@ const BlogPage = () => {
               {/* Popular Blogs */}
               <div className="bg-white rounded-3xl shadow-sm ring-1 ring-stone-100 overflow-hidden hidden lg:block">
                 <div className="flex items-center gap-3 px-6 pt-6 pb-4">
-                  <span className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                  <span className="w-9 h-9 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0">
                     <FireIcon className="w-5 h-5" />
                   </span>
                   <h3 className="font-bold text-lg">জনপ্রিয় ব্লগ</h3>
@@ -127,15 +127,15 @@ const BlogPage = () => {
                           className="w-20 h-16 object-cover rounded-2xl group-hover:scale-105 transition"
                           alt=""
                          loading="lazy" decoding="async" />
-                        <span className="absolute -top-2 -left-2 w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center shadow">
+                        <span className="absolute -top-2 -left-2 w-6 h-6 rounded-full bg-sky-600 text-white text-xs font-bold flex items-center justify-center shadow">
                           {(i + 1).toLocaleString("bn-BD")}
                         </span>
                       </div>
                       <div className="min-w-0">
-                        <p className="text-xs font-semibold text-emerald-700">
+                        <p className="text-xs font-semibold text-sky-700">
                           {blog.category}
                         </p>
-                        <p className="text-sm font-semibold leading-snug group-hover:text-emerald-600 transition">
+                        <p className="text-sm font-semibold leading-snug group-hover:text-sky-600 transition">
                           {blog.title}
                         </p>
                         <p className="text-xs text-stone-400 mt-1">
@@ -150,7 +150,7 @@ const BlogPage = () => {
               {/* Popular Destinations */}
               <div className="bg-white rounded-3xl shadow-sm ring-1 ring-stone-100 overflow-hidden hidden lg:block">
                 <div className="flex items-center gap-3 px-6 pt-6 pb-4">
-                  <span className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                  <span className="w-9 h-9 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0">
                     <MapPinIcon className="w-5 h-5" />
                   </span>
                   <h3 className="font-bold text-lg">জনপ্রিয় গন্তব্য</h3>
@@ -160,7 +160,7 @@ const BlogPage = () => {
                     <Link
                       key={dest.id}
                       to={`/destination/${dest.slug}`}
-                      className="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-full text-sm font-medium hover:bg-emerald-600 hover:text-white transition"
+                      className="px-4 py-2 bg-sky-50 text-sky-700 rounded-full text-sm font-medium hover:bg-sky-600 hover:text-white transition"
                     >
                       {dest.name}
                     </Link>
@@ -194,11 +194,11 @@ const BlogPage = () => {
                   </div>
 
                   <div className="p-6">
-                    <span className="text-xs bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full">
+                    <span className="text-xs bg-sky-100 text-sky-600 px-3 py-1 rounded-full">
                       {blog.category}
                     </span>
 
-                    <h3 className="text-xl font-bold mt-4 group-hover:text-emerald-600 transition">
+                    <h3 className="text-xl font-bold mt-4 group-hover:text-sky-600 transition">
                       {blog.title}
                     </h3>
 

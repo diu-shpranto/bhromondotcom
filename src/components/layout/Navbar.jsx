@@ -20,14 +20,14 @@ import clsx from 'clsx';
 const LogoMark = ({ className }) => (
   <div
     className={clsx(
-      "relative shrink-0 flex items-center justify-center bg-gradient-to-br from-[#00C078] via-[#008F5A] to-[#006B46] shadow-lg shadow-emerald-900/30 ring-1 ring-white/40",
+      "relative shrink-0 flex items-center justify-center bg-gradient-to-br from-[#38BDF8] via-[#0284C7] to-[#0C4A6E] shadow-lg shadow-sky-900/30 ring-1 ring-white/40",
       className
     )}
   >
     <span className="absolute inset-0 rounded-[inherit] bg-gradient-to-b from-white/25 via-transparent to-black/10" />
     <span className="relative text-white font-bold text-lg leading-none">ভ্র</span>
-    <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-md ring-1 ring-emerald-100">
-      <PaperAirplaneIcon className="w-3 h-3 text-[#008F5A]" />
+    <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-md ring-1 ring-sky-100">
+      <PaperAirplaneIcon className="w-3 h-3 text-[#0284C7]" />
     </span>
   </div>
 );
@@ -129,7 +129,7 @@ const Navbar = () => {
 
   // Text color based on scroll and page
   const textColor = scrolled || !isHome ? 'text-stone-800' : 'text-white';
-  const hoverColor = scrolled || !isHome ? 'hover:text-emerald-600' : 'hover:text-emerald-200';
+  const hoverColor = scrolled || !isHome ? 'hover:text-sky-600' : 'hover:text-sky-200';
   const bgColor = scrolled || !isHome 
     ? 'bg-white/90 backdrop-blur-xl shadow-lg' 
     : 'bg-transparent';
@@ -166,7 +166,7 @@ const Navbar = () => {
               >
                 ভ্রমণ
                 <span className={clsx(
-                  scrolled || !isHome ? "text-emerald-600" : "text-amber-300"
+                  scrolled || !isHome ? "text-sky-600" : "text-amber-300"
                 )}>
                   .কম
                 </span>
@@ -189,7 +189,7 @@ const Navbar = () => {
                       "relative px-4 py-2 font-medium rounded-lg transition-all duration-300 flex items-center space-x-2",
                       textColor,
                       hoverColor,
-                      location.pathname === link.path && (scrolled || !isHome ? "text-emerald-600" : "text-amber-300"),
+                      location.pathname === link.path && (scrolled || !isHome ? "text-sky-600" : "text-amber-300"),
                       "hover:bg-white/10"
                     )}
                   >
@@ -219,7 +219,7 @@ const Navbar = () => {
                               <React.Fragment key={item.path}>
                                 <Link
                                   to={item.path}
-                                  className="block px-4 py-2.5 text-sm text-stone-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200"
+                                  className="block px-4 py-2.5 text-sm text-stone-700 hover:bg-sky-50 hover:text-sky-600 transition-colors duration-200"
                                   onClick={() => setActiveDropdown(null)}
                                 >
                                   {item.name}
@@ -288,16 +288,16 @@ const Navbar = () => {
               className="fixed top-0 left-0 h-screen w-[280px] sm:w-[320px] bg-white z-[100] shadow-2xl flex flex-col overflow-hidden rounded-r-[28px]"
             >
               {/* Drawer Header — green gradient, curved decorations */}
-              <div className="relative overflow-hidden bg-gradient-to-br from-[#00A86B] via-[#008F5A] to-[#006B46] px-5 pt-5 pb-5 text-white shrink-0">
+              <div className="relative overflow-hidden bg-gradient-to-br from-[#0EA5E9] via-[#0284C7] to-[#0C4A6E] px-5 pt-5 pb-5 text-white shrink-0">
                 <div className="absolute -right-10 -top-14 w-40 h-40 rounded-full bg-white/10" />
                 <div className="absolute right-20 -bottom-10 w-28 h-28 rounded-full bg-white/10" />
-                <div className="absolute -left-8 -bottom-12 w-24 h-24 rounded-full bg-[#006B46]/50" />
+                <div className="absolute -left-8 -bottom-12 w-24 h-24 rounded-full bg-[#0C4A6E]/50" />
                 <div className="relative flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <LogoMark className="w-11 h-11 rounded-full" />
                     <div>
                       <h2 className="text-lg font-bold leading-tight">ভ্রমণ.কম</h2>
-                      <p className="text-xs text-[#D1F2E3]">আপনার ভ্রমণ সঙ্গী</p>
+                      <p className="text-xs text-[#E0F2FE]">আপনার ভ্রমণ সঙ্গী</p>
                     </div>
                   </div>
                   <button
@@ -321,16 +321,16 @@ const Navbar = () => {
                     const cardClass = clsx(
                       "relative flex items-center gap-3.5 w-full px-4 py-3 rounded-[20px] border transition-all duration-200 active:scale-[0.98]",
                       isActive
-                        ? "bg-[#E8F8F0] border-[#BFE9D6] shadow-sm"
-                        : "bg-white border-stone-100 shadow-sm hover:border-emerald-200 hover:bg-emerald-50/40"
+                        ? "bg-[#E0F2FE] border-[#BAE6FD] shadow-sm"
+                        : "bg-white border-stone-100 shadow-sm hover:border-sky-200 hover:bg-sky-50/40"
                     );
                     const iconChipClass = clsx(
                       "w-10 h-10 rounded-2xl flex items-center justify-center shrink-0 transition-colors duration-200",
-                      isActive ? "bg-[#008F5A] text-white" : "bg-[#E8F8F0] text-[#008F5A]"
+                      isActive ? "bg-[#0284C7] text-white" : "bg-[#E0F2FE] text-[#0284C7]"
                     );
                     const labelClass = clsx(
                       "font-semibold text-[15px] transition-colors duration-200",
-                      isActive ? "text-[#006B46]" : "text-[#242424]"
+                      isActive ? "text-[#0C4A6E]" : "text-[#242424]"
                     );
                     return (
                       <div key={link.path}>
@@ -342,7 +342,7 @@ const Navbar = () => {
                               className={cardClass}
                             >
                               {isActive && (
-                                <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-9 rounded-r-full bg-[#008F5A]" />
+                                <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-9 rounded-r-full bg-[#0284C7]" />
                               )}
                               <span className={iconChipClass}>
                                 {Icon && <Icon className="w-5 h-5" />}
@@ -351,7 +351,7 @@ const Navbar = () => {
                               <span
                                 className={clsx(
                                   "ml-auto w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors duration-200",
-                                  isExpanded ? "bg-[#008F5A] text-white" : "bg-stone-100 text-stone-500"
+                                  isExpanded ? "bg-[#0284C7] text-white" : "bg-stone-100 text-stone-500"
                                 )}
                               >
                                 <ChevronDownIcon
@@ -385,8 +385,8 @@ const Navbar = () => {
                                           className={clsx(
                                             "flex items-center gap-1.5 px-2 py-2 text-xs whitespace-nowrap rounded-lg transition-all duration-200",
                                             subActive
-                                              ? "bg-[#E8F8F0] text-[#006B46] font-semibold"
-                                              : "text-stone-600 hover:text-[#006B46] hover:bg-[#E8F8F0]/60"
+                                              ? "bg-[#E0F2FE] text-[#0C4A6E] font-semibold"
+                                              : "text-stone-600 hover:text-[#0C4A6E] hover:bg-[#E0F2FE]/60"
                                           )}
                                         >
                                           {item.name}
@@ -405,7 +405,7 @@ const Navbar = () => {
                             className={cardClass}
                           >
                             {isActive && (
-                              <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-9 rounded-r-full bg-[#008F5A]" />
+                              <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-9 rounded-r-full bg-[#0284C7]" />
                             )}
                             <span className={iconChipClass}>
                               {Icon && <Icon className="w-5 h-5" />}
@@ -426,12 +426,12 @@ const Navbar = () => {
                   alt=""
                   className="w-full h-full object-cover"
                  loading="lazy" decoding="async" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#006B46]/85 via-[#006B46]/35 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4A6E]/85 via-[#0C4A6E]/35 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 px-5 pb-4 text-center">
                   <p className="text-xs text-white font-medium">
                     © 2026 ভ্রমণ.কম - সমস্ত অধিকার সংরক্ষিত
                   </p>
-                  <p className="text-[11px] text-emerald-100 font-semibold mt-1">
+                  <p className="text-[11px] text-sky-100 font-semibold mt-1">
                     A XolveKart Product
                   </p>
                 </div>

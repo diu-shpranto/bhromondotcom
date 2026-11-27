@@ -51,7 +51,7 @@ const handleSearch = () => {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-emerald-950/65" />
+      <div className="absolute inset-0 bg-sky-950/65" />
 
       {/* Main Content */}
       <div className="relative z-10 min-h-screen flex items-center pt-28 md:pt-32">
@@ -70,7 +70,7 @@ const handleSearch = () => {
               className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
             >
               আপনার স্বপ্নের
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-lime-300 to-amber-300">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-amber-300">
                 ভ্রমণ শুরু হোক
               </span>
             </motion.h1>
@@ -84,9 +84,9 @@ const handleSearch = () => {
               <Link
                 to="/packages"
                 className="w-full sm:w-auto text-center px-8 py-4 rounded-xl font-semibold text-white 
-                           bg-emerald-600
-                           hover:bg-emerald-700
-                           shadow-lg shadow-emerald-600/30
+                           bg-sky-600
+                           hover:bg-sky-700
+                           shadow-lg shadow-sky-600/30
                            transition-all duration-300"
               >
                 প্যাকেজ দেখুন
@@ -111,7 +111,7 @@ const handleSearch = () => {
 
              <button
   onClick={handleSearch}
-  className="w-full px-6 py-3 bg-emerald-600 rounded-lg font-semibold hover:bg-emerald-700 transition-all duration-200 flex items-center justify-center space-x-2"
+  className="w-full px-6 py-3 bg-sky-600 rounded-lg font-semibold hover:bg-sky-700 transition-all duration-200 flex items-center justify-center space-x-2"
 >
   <MagnifyingGlassIcon className="w-5 h-5" />
   <span>খুঁজুন</span>

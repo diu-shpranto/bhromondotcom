@@ -34,7 +34,7 @@ const CompanyDetailPage = () => {
             className="w-full h-64 object-cover"
            loading="lazy" decoding="async" />
         ) : (
-          <div className="w-full h-64 bg-gradient-to-r from-emerald-500 to-emerald-600" />
+          <div className="w-full h-64 bg-gradient-to-r from-sky-500 to-sky-600" />
         )}
         <div className="absolute inset-0 bg-black/40" />
       </div>
@@ -50,7 +50,7 @@ const CompanyDetailPage = () => {
               className="w-24 h-24 object-contain bg-white rounded-full ring-1 ring-stone-100 shadow-sm"
              loading="lazy" decoding="async" />
           ) : (
-            <div className="w-24 h-24 flex items-center justify-center bg-emerald-600 text-white text-4xl font-bold rounded-full ring-1 ring-stone-100 shadow-sm">
+            <div className="w-24 h-24 flex items-center justify-center bg-sky-600 text-white text-4xl font-bold rounded-full ring-1 ring-stone-100 shadow-sm">
               {company.name.charAt(0)}
             </div>
           )}
@@ -59,7 +59,7 @@ const CompanyDetailPage = () => {
             <h1 className="text-3xl md:text-4xl font-bold text-stone-900 flex items-center gap-2">
               {company.name}
               {company.verified && (
-                <span className="text-emerald-600 text-lg">✔</span>
+                <span className="text-sky-600 text-lg">✔</span>
               )}
             </h1>
 
@@ -118,7 +118,7 @@ const CompanyDetailPage = () => {
                   className="w-full h-48 object-cover group-hover:scale-105 transition"
                  loading="lazy" decoding="async" />
               ) : (
-                <div className="w-full h-48 bg-gradient-to-r from-emerald-500 to-emerald-600" />
+                <div className="w-full h-48 bg-gradient-to-r from-sky-500 to-sky-600" />
               )}
 
               <div className="p-6">
@@ -130,7 +130,7 @@ const CompanyDetailPage = () => {
                   {pkg.duration}
                 </p>
 
-                <p className="text-emerald-700 font-bold">
+                <p className="text-sky-700 font-bold">
                   ৳{pkg.pricing?.perPerson}
                 </p>
               </div>

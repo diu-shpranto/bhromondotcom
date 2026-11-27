@@ -29,13 +29,13 @@ const Newsletter = () => {
           alt="Newsletter Background"
           className="w-full h-full object-cover"
          loading="lazy" decoding="async" />
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/95 to-emerald-900/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-950/95 to-sky-900/90" />
       </div>
 
       {/* Animated Shapes */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-sky-400/10 rounded-full blur-3xl animate-pulse" />
       </div>
 
       <div className="container-custom relative z-10">
@@ -49,7 +49,7 @@ const Newsletter = () => {
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-8"
+            className="w-20 h-20 bg-gradient-to-r from-sky-500 to-sky-600 rounded-2xl flex items-center justify-center mx-auto mb-8"
           >
             <EnvelopeIcon className="w-10 h-10 text-white" />
           </motion.div>

@@ -52,7 +52,7 @@ const DestinationDetailsPage = () => {
       {/* ================= HERO ================= */}
 
       <div
-        className={`relative h-[520px] bg-cover bg-center ${destination.gallery?.[0] ? "" : "bg-gradient-to-r from-emerald-500 to-emerald-600"}`}
+        className={`relative h-[520px] bg-cover bg-center ${destination.gallery?.[0] ? "" : "bg-gradient-to-r from-sky-500 to-sky-600"}`}
         style={
           destination.gallery?.[0]
             ? { backgroundImage: `url(${destination.gallery[0]})` }
@@ -129,7 +129,7 @@ const DestinationDetailsPage = () => {
                     {place.name}
                   </h3>
 
-                  <p className="text-sm text-emerald-700 font-semibold mt-2">
+                  <p className="text-sm text-sky-700 font-semibold mt-2">
                     বিস্তারিত দেখুন →
                   </p>
                 </div>
@@ -156,7 +156,7 @@ const DestinationDetailsPage = () => {
             step="500"
             value={maxPrice}
             onChange={(e) => setMaxPrice(e.target.value)}
-            className="w-full accent-emerald-600"
+            className="w-full accent-sky-600"
           />
         </div>
 
@@ -199,7 +199,7 @@ const DestinationDetailsPage = () => {
                         <span>🗓 {pkg.tourStart}</span>
                       </div>
 
-                      <p className="text-emerald-700 font-bold text-lg">
+                      <p className="text-sky-700 font-bold text-lg">
                         ৳{pkg.pricing.perPerson}
                       </p>
 
@@ -211,7 +211,7 @@ const DestinationDetailsPage = () => {
 
                       <Link
                         to={`/package/${pkg.id}`}
-                        className="mt-4 block text-center bg-emerald-600 text-white py-2.5 rounded-xl font-semibold hover:bg-emerald-700 transition"
+                        className="mt-4 block text-center bg-sky-600 text-white py-2.5 rounded-xl font-semibold hover:bg-sky-700 transition"
                       >
                         বিস্তারিত দেখুন
                       </Link>

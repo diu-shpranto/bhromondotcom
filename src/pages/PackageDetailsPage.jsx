@@ -27,7 +27,7 @@ const PackageDetailPage = () => {
 
       {/* ================= HERO ================= */}
       <div
-        className={`relative h-[450px] md:h-[550px] bg-cover bg-center ${pkg.image ? "" : "bg-gradient-to-r from-emerald-500 to-emerald-600"}`}
+        className={`relative h-[450px] md:h-[550px] bg-cover bg-center ${pkg.image ? "" : "bg-gradient-to-r from-sky-500 to-sky-600"}`}
         style={pkg.image ? { backgroundImage: `url(${pkg.image})` } : undefined}
       >
         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
@@ -69,13 +69,13 @@ const PackageDetailPage = () => {
           <section className="grid md:grid-cols-2 gap-8">
 
             <div className="bg-white p-6 rounded-2xl ring-1 ring-stone-100 shadow-sm">
-              <h3 className="text-lg font-semibold text-emerald-700 mb-4">
+              <h3 className="text-lg font-semibold text-sky-700 mb-4">
                 যা যা থাকছে
               </h3>
               <ul className="space-y-2">
                 {pkg.included?.map((item, i) => (
                   <li key={i} className="flex gap-2">
-                    <span className="text-emerald-500">✔</span>
+                    <span className="text-sky-500">✔</span>
                     {item}
                   </li>
                 ))}
@@ -114,13 +114,13 @@ const PackageDetailPage = () => {
         >
           {/* Step Indicator */}
           <div className="absolute -left-6 top-8">
-            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-emerald-600 text-white font-bold shadow-md">
+            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-sky-600 text-white font-bold shadow-md">
               {index + 1}
             </div>
           </div>
 
           <div className="pl-10">
-            <h3 className="text-xl font-semibold text-emerald-700 mb-3">
+            <h3 className="text-xl font-semibold text-sky-700 mb-3">
               {day.day}
             </h3>
 
@@ -177,7 +177,7 @@ const PackageDetailPage = () => {
               <h3 className="text-lg text-stone-600">
                 জনপ্রতি মূল্য
               </h3>
-              <p className="text-3xl font-bold text-emerald-700">
+              <p className="text-3xl font-bold text-sky-700">
                 ৳{pkg.pricing?.perPerson}
               </p>
 
@@ -198,7 +198,7 @@ const PackageDetailPage = () => {
 
                 <Link
                   to={`/company/${company.id}`}
-                  className="text-emerald-600 font-bold hover:underline"
+                  className="text-sky-600 font-bold hover:underline"
                 >
                   {company.name}
                 </Link>
@@ -210,7 +210,7 @@ const PackageDetailPage = () => {
                       href={company.contact.whatsapp}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex-1 text-center bg-emerald-600 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-emerald-700 transition"
+                      className="flex-1 text-center bg-sky-600 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-sky-700 transition"
                     >
                       WhatsApp
                     </a>
@@ -221,7 +221,7 @@ const PackageDetailPage = () => {
                       href={company.contact.messenger}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex-1 text-center bg-emerald-600 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-emerald-700 transition"
+                      className="flex-1 text-center bg-sky-600 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-sky-700 transition"
                     >
                       Messenger
                     </a>

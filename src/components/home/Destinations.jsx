@@ -116,7 +116,7 @@ const Destinations = () => {
                   </h3>
 
                   <div className="flex items-center text-stone-600 text-sm">
-                    <MapPinIcon className="w-4 h-4 mr-2 text-emerald-600" />
+                    <MapPinIcon className="w-4 h-4 mr-2 text-sky-600" />
                     {destination.location}
                   </div>
                 </div>

@@ -91,7 +91,7 @@ const SearchPage = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-2">
           "{query}" এর জন্য ফলাফল
         </h1>
-        <div className="h-1 w-16 rounded-full bg-emerald-600" />
+        <div className="h-1 w-16 rounded-full bg-sky-600" />
       </div>
 
       {/* DESTINATIONS */}

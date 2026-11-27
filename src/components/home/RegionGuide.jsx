@@ -83,7 +83,7 @@ const RegionGuide = () => {
                   <p className="text-sm text-stone-200 mt-1">
                     {region.highlight}
                   </p>
-                  <span className="mt-3 text-sm text-emerald-200 group-hover:text-white transition">
+                  <span className="mt-3 text-sm text-sky-200 group-hover:text-white transition">
                     গাইড দেখুন →
                   </span>
                 </div>

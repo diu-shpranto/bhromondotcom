@@ -46,7 +46,7 @@ const RegionDetailsPage = () => {
             <p className="text-stone-200 max-w-xl">
               {region.description}
             </p>
-            <p className="mt-4 text-emerald-200 font-semibold">
+            <p className="mt-4 text-sky-200 font-semibold">
               সেরা সময়: {region.bestTime}
             </p>
           </div>
@@ -61,7 +61,7 @@ const RegionDetailsPage = () => {
   <input
     type="text"
     placeholder="জায়গা খুঁজুন..."
-    className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 mb-6 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+    className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 mb-6 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
     value={search}
     onChange={(e) => setSearch(e.target.value)}
   />
@@ -111,7 +111,7 @@ const RegionDetailsPage = () => {
                     <h3 className="font-semibold text-stone-900">
                       {pkg.title}
                     </h3>
-                    <p className="text-emerald-700 font-bold mt-2">
+                    <p className="text-sky-700 font-bold mt-2">
                       ৳{pkg.pricing?.perPerson}
                     </p>
                   </div>

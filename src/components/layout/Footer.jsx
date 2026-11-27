@@ -54,7 +54,7 @@ const FooterLink = ({ to, children }) => (
   <li>
     <Link
       to={to}
-      className="text-sm text-stone-400 hover:text-emerald-400 transition-colors duration-200"
+      className="text-sm text-stone-400 hover:text-sky-400 transition-colors duration-200"
     >
       {children}
     </Link>
@@ -64,15 +64,15 @@ const FooterLink = ({ to, children }) => (
 const FooterHeading = ({ children }) => (
   <h3 className="text-white font-semibold text-base mb-5">
     {children}
-    <span className="block w-8 h-0.5 bg-emerald-500 rounded-full mt-2.5" />
+    <span className="block w-8 h-0.5 bg-sky-500 rounded-full mt-2.5" />
   </h3>
 );
 
 const Footer = () => {
   return (
-    <footer className="bg-emerald-950 text-stone-400">
+    <footer className="bg-sky-950 text-stone-400">
       {/* Gradient top strip */}
-      <div className="h-1 bg-gradient-to-r from-[#00C078] via-[#008F5A] to-[#006B46]" />
+      <div className="h-1 bg-gradient-to-r from-[#38BDF8] via-[#0284C7] to-[#0C4A6E]" />
 
       <div className="max-w-7xl mx-auto px-6 pt-12 pb-6">
         {/* Top Grid */}
@@ -81,15 +81,15 @@ const Footer = () => {
           <div className="col-span-2 lg:col-span-4">
             <Link to="/" className="flex items-center gap-3">
               <span className="relative shrink-0">
-                <span className="w-11 h-11 rounded-full bg-gradient-to-br from-[#00C078] via-[#008F5A] to-[#006B46] ring-2 ring-white/20 shadow-lg flex items-center justify-center text-white text-lg font-bold">
+                <span className="w-11 h-11 rounded-full bg-gradient-to-br from-[#38BDF8] via-[#0284C7] to-[#0C4A6E] ring-2 ring-white/20 shadow-lg flex items-center justify-center text-white text-lg font-bold">
                   ভ্র
                 </span>
-                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-white ring-2 ring-emerald-950 flex items-center justify-center">
-                  <PaperAirplaneIcon className="w-2.5 h-2.5 text-[#008F5A]" />
+                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-white ring-2 ring-sky-950 flex items-center justify-center">
+                  <PaperAirplaneIcon className="w-2.5 h-2.5 text-[#0284C7]" />
                 </span>
               </span>
               <span className="text-2xl font-bold text-white">
-                ভ্রমণ<span className="text-emerald-400">.com</span>
+                ভ্রমণ<span className="text-sky-400">.com</span>
               </span>
             </Link>
 
@@ -102,14 +102,14 @@ const Footer = () => {
 
             <div className="flex items-center gap-3 text-sm mt-6">
               <span className="w-8 h-8 rounded-lg bg-white/5 ring-1 ring-white/10 flex items-center justify-center shrink-0">
-                <MapPinIcon className="w-4 h-4 text-emerald-400" />
+                <MapPinIcon className="w-4 h-4 text-sky-400" />
               </span>
               <span className="text-stone-300">বাংলাদেশ</span>
             </div>
 
             <div className="flex items-center gap-3 text-sm mt-3">
               <span className="w-8 h-8 rounded-lg bg-white/5 ring-1 ring-white/10 flex items-center justify-center shrink-0">
-                <EnvelopeIcon className="w-4 h-4 text-emerald-400" />
+                <EnvelopeIcon className="w-4 h-4 text-sky-400" />
               </span>
               <span className="text-stone-300">legal@bhramon.com</span>
             </div>
@@ -126,7 +126,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={`XolveKart ${name}`}
-                  className="w-10 h-10 rounded-full bg-white/5 ring-1 ring-white/10 flex items-center justify-center text-stone-300 hover:bg-[#008F5A] hover:text-white hover:ring-[#008F5A] transition-colors duration-200"
+                  className="w-10 h-10 rounded-full bg-white/5 ring-1 ring-white/10 flex items-center justify-center text-stone-300 hover:bg-[#0284C7] hover:text-white hover:ring-[#0284C7] transition-colors duration-200"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -210,7 +210,7 @@ const Footer = () => {
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               aria-label="উপরে যান"
-              className="p-2.5 rounded-full bg-white/5 ring-1 ring-white/10 text-stone-300 hover:bg-emerald-600 hover:text-white hover:ring-emerald-600 transition-colors duration-200"
+              className="p-2.5 rounded-full bg-white/5 ring-1 ring-white/10 text-stone-300 hover:bg-sky-600 hover:text-white hover:ring-sky-600 transition-colors duration-200"
             >
               <ArrowUpIcon className="w-4 h-4" />
             </button>
