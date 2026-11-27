@@ -156,7 +156,7 @@ const Navbar = () => {
                 transition={{ duration: 0.5 }}
                 className="shrink-0"
               >
-                <LogoMark className="w-10 h-10 rounded-xl" />
+                <LogoMark className="w-10 h-10 rounded-full" />
               </motion.div>
               <span
                 className={clsx(
@@ -295,7 +295,7 @@ const Navbar = () => {
                 <div className="absolute -left-8 -bottom-12 w-24 h-24 rounded-full bg-[#006B46]/50" />
                 <div className="relative flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <LogoMark className="w-11 h-11 rounded-2xl" />
+                    <LogoMark className="w-11 h-11 rounded-full" />
                     <div>
                       <h2 className="text-lg font-bold leading-tight">ভ্রমণ.কম</h2>
                       <p className="text-xs text-[#D1F2E3]">আপনার ভ্রমণ সঙ্গী</p>
@@ -430,6 +430,9 @@ const Navbar = () => {
                   <div className="border-t border-stone-100 pt-4">
                     <p className="text-xs text-stone-400 text-center">
                       © 2026 ভ্রমণ.কম - সমস্ত অধিকার সংরক্ষিত
+                    </p>
+                    <p className="text-[11px] text-emerald-600 font-semibold text-center mt-1.5">
+                      A XolveKart Product
                     </p>
                   </div>
                   {/* Bangladesh-inspired decorative strip */}
