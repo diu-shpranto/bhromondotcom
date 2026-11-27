@@ -217,7 +217,7 @@ const Navbar = () => {
                     )}
                   </Link>
 
-                  {/* Desktop Dropdown */}
+                  {/* Desktop Dropdown — icon rows, same style as the mobile menu */}
                   {link.dropdown && (
                     <AnimatePresence>
                       {activeDropdown === link.name && (
@@ -226,23 +226,25 @@ const Navbar = () => {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl overflow-hidden z-30 border border-stone-100"
+                          className="absolute top-full left-0 mt-2 w-72 bg-white rounded-2xl shadow-2xl ring-1 ring-stone-100 z-30 p-2"
                         >
-                          <div className="py-1">
-                            {link.dropdown.map((item, index) => (
-                              <React.Fragment key={item.path}>
+                          <div className="space-y-1">
+                            {link.dropdown.map((item) => {
+                              const SubIcon = submenuIcons[item.name] || MapPinIcon;
+                              return (
                                 <Link
+                                  key={item.path}
                                   to={item.path}
-                                  className="block px-4 py-2.5 text-sm text-stone-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200"
+                                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-stone-700 hover:bg-[#E8F8F0] hover:text-[#006B46] transition-colors duration-200"
                                   onClick={() => setActiveDropdown(null)}
                                 >
+                                  <span className="w-8 h-8 rounded-lg bg-[#E8F8F0] text-[#008F5A] flex items-center justify-center shrink-0">
+                                    <SubIcon className="w-4 h-4" />
+                                  </span>
                                   {item.name}
                                 </Link>
-                                {index < link.dropdown.length - 1 && (
-                                  <div className="border-t border-stone-100 mx-2" />
-                                )}
-                              </React.Fragment>
-                            ))}
+                              );
+                            })}
                           </div>
                         </motion.div>
                       )}

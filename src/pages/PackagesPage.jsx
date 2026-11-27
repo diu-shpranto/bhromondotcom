@@ -12,12 +12,23 @@ const categoriesList = [
   "Adventure"
 ];
 
+// Price bands in BDT — counts from the 20 live packages:
+// under 2000: 6, 2000–5000: 9, 5000–10000: 4, 10000+: 1
+const priceRanges = [
+  { id: "all", label: "সব দাম", test: () => true },
+  { id: "under2000", label: "৳২,০০০-এর নিচে", test: (p) => p < 2000 },
+  { id: "2000-5000", label: "৳২,০০০–৫,০০০", test: (p) => p >= 2000 && p < 5000 },
+  { id: "5000-10000", label: "৳৫,০০০–১০,০০০", test: (p) => p >= 5000 && p < 10000 },
+  { id: "over10000", label: "৳১০,০০০+", test: (p) => p >= 10000 },
+];
+
 const PackagesPage = () => {
   const [searchParams] = useSearchParams();
   const categoryFromNav = searchParams.get("category");
 
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState(categoryFromNav || "All");
+  const [priceRange, setPriceRange] = useState("all");
   const [sort, setSort] = useState("default");
   const [scrolled, setScrolled] = useState(false);
 
@@ -42,22 +53,29 @@ const PackagesPage = () => {
               cat.toLowerCase() === category.toLowerCase()
           );
 
+    const price = pkg.pricing?.perPerson;
+    const matchPrice =
+      priceRange === "all"
+        ? true
+        : price != null &&
+          priceRanges.find((r) => r.id === priceRange).test(price);
+
     const matchSearch = pkg.title
       .toLowerCase()
       .includes(search.toLowerCase());
 
-    return matchCategory && matchSearch;
+    return matchCategory && matchPrice && matchSearch;
   });
 
   if (sort === "low") {
     filteredPackages.sort(
-      (a, b) => a.pricing.perPerson - b.pricing.perPerson
+      (a, b) => (a.pricing?.perPerson ?? Infinity) - (b.pricing?.perPerson ?? Infinity)
     );
   }
 
   if (sort === "high") {
     filteredPackages.sort(
-      (a, b) => b.pricing.perPerson - a.pricing.perPerson
+      (a, b) => (b.pricing?.perPerson ?? -Infinity) - (a.pricing?.perPerson ?? -Infinity)
     );
   }
 
@@ -87,14 +105,26 @@ const PackagesPage = () => {
 >
   <div className="flex flex-col gap-6">
 
-    {/* Search */}
-    <input
-      type="text"
-      placeholder="প্যাকেজ খুঁজুন..."
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-      className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-    />
+    {/* Search + Sort — side by side on desktop, stacked on mobile */}
+    <div className="flex flex-col md:flex-row gap-3">
+      <input
+        type="text"
+        placeholder="প্যাকেজ খুঁজুন..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="flex-1 rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+      />
+      <select
+        value={sort}
+        onChange={(e) => setSort(e.target.value)}
+        aria-label="দাম অনুযায়ী সাজান"
+        className="md:w-60 shrink-0 rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+      >
+        <option value="default">সাজান: ডিফল্ট</option>
+        <option value="low">দাম: কম থেকে বেশি</option>
+        <option value="high">দাম: বেশি থেকে কম</option>
+      </select>
+    </div>
 
     {/* Category Pills */}
     <div className="flex flex-wrap gap-2.5">
@@ -133,19 +163,36 @@ const PackagesPage = () => {
       })}
     </div>
 
-    {/* Sort */}
-    <select
-      value={sort}
-      onChange={(e) => setSort(e.target.value)}
-      className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-    >
-      <option value="default">Sort</option>
-      <option value="low">Price Low → High</option>
-      <option value="high">Price High → Low</option>
-    </select>
+    {/* Price Range Chips */}
+    <div className="flex flex-wrap gap-2.5">
+      {priceRanges.map((range) => {
+        const isActive = priceRange === range.id;
+        return (
+          <button
+            key={range.id}
+            onClick={() => setPriceRange(range.id)}
+            className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors duration-200 ${
+              isActive
+                ? "bg-emerald-600 text-white shadow-sm"
+                : "bg-stone-100 text-stone-700 hover:bg-emerald-50 hover:text-emerald-700"
+            }`}
+          >
+            {range.label}
+          </button>
+        );
+      })}
+    </div>
 
   </div>
 </div>
+
+      {/* Empty state */}
+      {filteredPackages.length === 0 && (
+        <div className="text-center py-16 bg-white rounded-3xl ring-1 ring-stone-100 shadow-sm">
+          <p className="text-lg font-semibold text-stone-800 mb-1">কোনো প্যাকেজ পাওয়া যায়নি</p>
+          <p className="text-stone-500 text-sm">খোঁজ বা ফিল্টার বদলে আবার চেষ্টা করুন</p>
+        </div>
+      )}
 
       {/* PREMIUM CARD GRID */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
