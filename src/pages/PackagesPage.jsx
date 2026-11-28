@@ -31,6 +31,132 @@ const priceRanges = [
   { id: "over10000", label: "৳১০,০০০+", test: (p) => p >= 10000 },
 ];
 
+// Shared filter controls, rendered twice: once inside the sticky card (desktop,
+// always open) and once in the mobile expanded panel (normal flow).
+// `variant` keeps the framer-motion layoutId unique per instance.
+function FilterControls({
+  variant,
+  search,
+  setSearch,
+  sort,
+  setSort,
+  category,
+  setCategory,
+  priceRange,
+  setPriceRange,
+  savedOnly,
+  setSavedOnly,
+  savedCount,
+  closeMobileFilter,
+}) {
+  return (
+    <div className="flex flex-col gap-3">
+      {/* Search + Sort — search is desktop-only here (mobile has it in the slim bar) */}
+      <div className="flex flex-col md:flex-row gap-3">
+        <input
+          type="text"
+          placeholder="প্যাকেজ খুঁজুন..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="hidden md:block flex-1 rounded-2xl border border-stone-200 bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+        />
+        <select
+          value={sort}
+          onChange={(e) => { setSort(e.target.value); closeMobileFilter(); }}
+          aria-label="দাম অনুযায়ী সাজান"
+          className="md:w-60 shrink-0 rounded-2xl border border-stone-200 bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+        >
+          <option value="default">সাজান: ডিফল্ট</option>
+          <option value="low">দাম: কম থেকে বেশি</option>
+          <option value="high">দাম: বেশি থেকে কম</option>
+        </select>
+      </div>
+
+      {/* Category Pills */}
+      <div className="flex flex-wrap gap-2.5">
+        {categoriesList.map((cat) => {
+          const isActive = category === cat.value;
+          return (
+            <motion.button
+              key={cat.value}
+              onClick={() => { setCategory(cat.value); closeMobileFilter(); }}
+              whileTap={{ scale: 0.95 }}
+              className="relative px-3.5 py-1.5 rounded-full text-[12.5px] leading-5 font-medium whitespace-nowrap flex-shrink-0 bg-stone-100"
+            >
+              {isActive && (
+                <motion.div
+                  layoutId={`activeCategory-${variant}`}
+                  className="absolute inset-0 bg-emerald-600 rounded-full"
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 25
+                  }}
+                />
+              )}
+              <span
+                className={`relative z-10 ${
+                  isActive ? "text-white" : "text-stone-700"
+                }`}
+              >
+                {cat.label}
+              </span>
+            </motion.button>
+          );
+        })}
+      </div>
+
+      {/* Price Range Chips */}
+      <div className="flex flex-wrap gap-2.5">
+        {priceRanges.map((range) => {
+          const isActive = priceRange === range.id;
+          return (
+            <button
+              key={range.id}
+              onClick={() => { setPriceRange(range.id); closeMobileFilter(); }}
+              className={`px-3 py-1.5 rounded-full text-[12.5px] leading-5 font-medium whitespace-nowrap flex-shrink-0 transition-colors duration-200 ${
+                isActive
+                  ? "bg-emerald-600 text-white shadow-sm"
+                  : "bg-stone-100 text-stone-700 hover:bg-emerald-50 hover:text-emerald-700"
+              }`}
+            >
+              {range.label}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Saved only — "পরে দেখব" তালিকা */}
+      <div className="flex flex-wrap gap-2.5">
+        <button
+          onClick={() => { setSavedOnly(!savedOnly); closeMobileFilter(); }}
+          aria-pressed={savedOnly}
+          className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12.5px] leading-5 font-medium whitespace-nowrap transition-colors duration-200 ${
+            savedOnly
+              ? "bg-rose-600 text-white shadow-sm"
+              : "bg-rose-50 text-rose-700 hover:bg-rose-100"
+          }`}
+        >
+          <HeartIcon className="w-3.5 h-3.5" />
+          পরে দেখব
+          <span
+            className={`min-w-4 h-4 px-1 flex items-center justify-center rounded-full text-[11px] font-bold ${
+              savedOnly ? "bg-white text-rose-600" : "bg-rose-600 text-white"
+            }`}
+          >
+            {savedCount}
+          </span>
+        </button>
+        {savedOnly && savedCount > 0 && (
+          <span className="self-center text-xs text-stone-500">
+            সেভ করা {savedCount}টি প্যাকেজ দেখানো হচ্ছে
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
+
 const PackagesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryFromNav = searchParams.get("category");
@@ -220,156 +346,87 @@ const PackagesPage = () => {
         </div>
       )}
 
-      {/* PREMIUM STICKY FILTER — mobile: slim bar, expandable; desktop: always open */}
-     <div
-  className={`sticky top-20 z-40 rounded-2xl p-3.5 mb-8 transition-all duration-500
-  ${
-    scrolled
-      ? "bg-white/95 backdrop-blur-xl shadow-xl ring-1 ring-stone-100"
-      : "bg-white ring-1 ring-stone-100 shadow-sm"
-  }`}
->
-  {/* Mobile slim bar: search + filter toggle (collapsed by default) */}
-  <div className="flex gap-2.5 md:hidden">
-    <input
-      type="text"
-      placeholder="প্যাকেজ খুঁজুন..."
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-      aria-label="প্যাকেজ খুঁজুন"
-      className="flex-1 min-w-0 rounded-2xl border border-stone-200 bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-    />
-    <button
-      onClick={() => setFilterOpen((o) => !o)}
-      aria-expanded={filterOpen}
-      aria-controls="mobile-filter-panel"
-      className="relative inline-flex shrink-0 items-center gap-1.5 rounded-2xl bg-emerald-600 px-3.5 py-2 text-sm font-semibold text-white hover:bg-emerald-700 transition"
-    >
-      <FunnelIcon className="w-4 h-4" />
-      ফিল্টার
-      {activeFilterCount > 0 && (
-        <span className="min-w-5 h-5 px-1 flex items-center justify-center rounded-full bg-white text-emerald-700 text-xs font-bold">
-          {activeFilterCount}
-        </span>
-      )}
-      <ChevronDownIcon className={`w-4 h-4 transition-transform duration-300 ${filterOpen ? "rotate-180" : ""}`} />
-    </button>
-  </div>
-
-  {/* Full controls: always open on desktop, expandable on mobile */}
-  <div
-    id="mobile-filter-panel"
-    className={`${filterOpen ? "flex" : "hidden"} md:flex flex-col gap-3 mt-3 md:mt-0`}
-  >
-
-    {/* Search + Sort — search is desktop-only here (mobile has it in the slim bar) */}
-    <div className="flex flex-col md:flex-row gap-3">
-      <input
-        type="text"
-        placeholder="প্যাকেজ খুঁজুন..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="hidden md:block flex-1 rounded-2xl border border-stone-200 bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-      />
-      <select
-        value={sort}
-        onChange={(e) => { setSort(e.target.value); closeMobileFilter(); }}
-        aria-label="দাম অনুযায়ী সাজান"
-        className="md:w-60 shrink-0 rounded-2xl border border-stone-200 bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-      >
-        <option value="default">সাজান: ডিফল্ট</option>
-        <option value="low">দাম: কম থেকে বেশি</option>
-        <option value="high">দাম: বেশি থেকে কম</option>
-      </select>
-    </div>
-
-    {/* Category Pills */}
-    <div className="flex flex-wrap gap-2.5">
-
-      {categoriesList.map((cat) => {
-        const isActive = category === cat.value;
-
-        return (
-          <motion.button
-            key={cat.value}
-            onClick={() => { setCategory(cat.value); closeMobileFilter(); }}
-            whileTap={{ scale: 0.95 }}
-            className="relative px-3.5 py-1.5 rounded-full text-[12.5px] leading-5 font-medium whitespace-nowrap flex-shrink-0 bg-stone-100"
-          >
-            {isActive && (
-              <motion.div
-                layoutId="activeCategory"
-                className="absolute inset-0 bg-emerald-600 rounded-full"
-                transition={{
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 25
-                }}
-              />
-            )}
-
-            <span
-              className={`relative z-10 ${
-                isActive ? "text-white" : "text-stone-700"
-              }`}
-            >
-              {cat.label}
-            </span>
-          </motion.button>
-        );
-      })}
-    </div>
-
-    {/* Price Range Chips */}
-    <div className="flex flex-wrap gap-2.5">
-      {priceRanges.map((range) => {
-        const isActive = priceRange === range.id;
-        return (
-          <button
-            key={range.id}
-            onClick={() => { setPriceRange(range.id); closeMobileFilter(); }}
-            className={`px-3 py-1.5 rounded-full text-[12.5px] leading-5 font-medium whitespace-nowrap flex-shrink-0 transition-colors duration-200 ${
-              isActive
-                ? "bg-emerald-600 text-white shadow-sm"
-                : "bg-stone-100 text-stone-700 hover:bg-emerald-50 hover:text-emerald-700"
-            }`}
-          >
-            {range.label}
-          </button>
-        );
-      })}
-    </div>
-
-    {/* Saved only — "পরে দেখব" তালিকা */}
-    <div className="flex flex-wrap gap-2.5">
-      <button
-        onClick={() => { setSavedOnly(!savedOnly); closeMobileFilter(); }}
-        aria-pressed={savedOnly}
-        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12.5px] leading-5 font-medium whitespace-nowrap transition-colors duration-200 ${
-          savedOnly
-            ? "bg-rose-600 text-white shadow-sm"
-            : "bg-rose-50 text-rose-700 hover:bg-rose-100"
+      {/* PREMIUM STICKY FILTER — mobile: only the slim bar sticks; the expanded
+          panel is normal flow below it and scrolls away with the page, so an open
+          filter never covers the package cards. Desktop: full panel, always open + sticky. */}
+      <div
+        className={`sticky top-20 z-40 rounded-2xl p-3.5 transition-all duration-500
+        ${filterOpen ? "mb-3" : "mb-8"} md:mb-8
+        ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-xl shadow-xl ring-1 ring-stone-100"
+            : "bg-white ring-1 ring-stone-100 shadow-sm"
         }`}
       >
-        <HeartIcon className="w-3.5 h-3.5" />
-        পরে দেখব
-        <span
-          className={`min-w-4 h-4 px-1 flex items-center justify-center rounded-full text-[11px] font-bold ${
-            savedOnly ? "bg-white text-rose-600" : "bg-rose-600 text-white"
-          }`}
-        >
-          {savedCount}
-        </span>
-      </button>
-      {savedOnly && savedCount > 0 && (
-        <span className="self-center text-xs text-stone-500">
-          সেভ করা {savedCount}টি প্যাকেজ দেখানো হচ্ছে
-        </span>
-      )}
-    </div>
+      {/* Mobile slim bar: search + filter toggle (collapsed by default) */}
+        <div className="flex gap-2.5 md:hidden">
+          <input
+            type="text"
+            placeholder="প্যাকেজ খুঁজুন..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            aria-label="প্যাকেজ খুঁজুন"
+            className="flex-1 min-w-0 rounded-2xl border border-stone-200 bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+          />
+          <button
+            onClick={() => setFilterOpen((o) => !o)}
+            aria-expanded={filterOpen}
+            aria-controls="mobile-filter-panel"
+            className="relative inline-flex shrink-0 items-center gap-1.5 rounded-2xl bg-emerald-600 px-3.5 py-2 text-sm font-semibold text-white hover:bg-emerald-700 transition"
+          >
+            <FunnelIcon className="w-4 h-4" />
+            ফিল্টার
+            {activeFilterCount > 0 && (
+              <span className="min-w-5 h-5 px-1 flex items-center justify-center rounded-full bg-white text-emerald-700 text-xs font-bold">
+                {activeFilterCount}
+              </span>
+            )}
+            <ChevronDownIcon className={`w-4 h-4 transition-transform duration-300 ${filterOpen ? "rotate-180" : ""}`} />
+          </button>
+        </div>
 
-  </div>
-</div>
+        {/* Desktop full controls: always open, inside the sticky card */}
+        <div className="hidden md:block">
+          <FilterControls
+            variant="desktop"
+            search={search}
+            setSearch={setSearch}
+            sort={sort}
+            setSort={setSort}
+            category={category}
+            setCategory={setCategory}
+            priceRange={priceRange}
+            setPriceRange={setPriceRange}
+            savedOnly={savedOnly}
+            setSavedOnly={setSavedOnly}
+            savedCount={savedCount}
+            closeMobileFilter={closeMobileFilter}
+          />
+        </div>
+      </div>
+
+      {/* Mobile expanded panel — normal flow (NOT sticky): scrolls away with the
+          page; only the slim bar above stays pinned. */}
+      <div
+        id="mobile-filter-panel"
+        className={`${filterOpen ? "block" : "hidden"} md:hidden rounded-2xl bg-white ring-1 ring-stone-100 shadow-sm p-3.5 mb-8`}
+      >
+        <FilterControls
+          variant="mobile"
+          search={search}
+            setSearch={setSearch}
+            sort={sort}
+            setSort={setSort}
+            category={category}
+            setCategory={setCategory}
+            priceRange={priceRange}
+            setPriceRange={setPriceRange}
+            savedOnly={savedOnly}
+            setSavedOnly={setSavedOnly}
+            savedCount={savedCount}
+            closeMobileFilter={closeMobileFilter}
+        />
+      </div>
 
       {/* Empty state — saved view */}
       {savedOnly && savedCount === 0 && (
