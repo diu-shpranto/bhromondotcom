@@ -221,7 +221,8 @@ const companiesData = [
     facebook: "https://www.facebook.com/Travelersbd.com.bd",
 
     destinations: [
-      "coxsbazar"
+      "coxsbazar",
+      "bandarban"
     ]
   },
 
@@ -249,7 +250,8 @@ const companiesData = [
     destinations: [
       "coxsbazar",
       "saintmartin",
-      "sajek"
+      "sajek",
+      "sundarban"
     ]
   }
 ];

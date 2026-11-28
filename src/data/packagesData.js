@@ -690,6 +690,69 @@ categories: ["Single", "Family", "Group"],
     "ব্যক্তিগত খরচ",
   ],
 },
+// ================= KITE — SUNDARBAN =================
+{
+  id: 920,
+  destinationSlug: "sundarban",
+  companyId: 8,
+  categories: ["Adventure", "Group"],
+  title: "সুন্দরবন ট্যুর — খুলনা থেকে",
+  location: "খুলনা - সুন্দরবন",
+  duration: "২ রাত ৩ দিন",
+  tourStart: "০৪ ডিসেম্বর ২০২৬",
+  image: "/images/destinations/sundarban/cover.jpg",
+  pricing: { perPerson: 18000, couplePrice: null },
+  description:
+    "কাইট বাংলাদেশ হলিডেজের সুন্দরবন ট্যুর — খুলনা থেকে সুন্দরবন, দাম ৳১৮,০০০ থেকে। যাত্রা: ৪–৬, ১০–১৩, ১৫–১৭ ও ২১–২৩ ডিসেম্বর; ৩১ ডিসেম্বর–২ জানুয়ারি; ৮–১০ ও ১১–১৩ জানুয়ারি। সব রুম এসি, অ্যাটাচড বাথ। আন্ধারমানিক, জামতলা সি বিচ, কটকা, কচিখালি, ডিমের চর, করমজাল ও খাল ক্রুজিং।",
+  included: [
+    "এসি রুম (অ্যাটাচড বাথ)",
+    "খাল ক্রুজিং",
+    "আন্ধারমানিক, কটকা, কচিখালি, করমজাল ভ্রমণ",
+  ],
+  excluded: [
+    "ব্যক্তিগত খরচ",
+  ],
+  places: [
+    { name: "করমজল", image: "/images/places/karamjal.jpg" },
+    { name: "কটকা", image: "/images/places/kotka.jpg" },
+    { name: "জামতলা সৈকত", image: "/images/places/jamtala.jpg" },
+  ],
+},
+// ================= TRAVELERS BD — BANDARBAN PREMIUM =================
+{
+  id: 921,
+  destinationSlug: "bandarban",
+  companyId: 7,
+  categories: ["Single", "Family", "Group"],
+  title: "বান্দরবান Premium Tour",
+  location: "বান্দরবান",
+  duration: "৩ রাত ২ দিন",
+  tourStart: "Every Thursday",
+  image: "/images/destinations/bandarban/cover.jpg",
+  pricing: { perPerson: 5999, couplePrice: null },
+  description:
+    "ট্রাভেলার্স বিডির বান্দরবান Premium Tour — ৩ রাত ২ দিন, ৳৫,৯৯৯/জন থেকে। প্রতি বৃহস্পতিবার রাতে গ্রুপ ছাড়ে। ঢাকা–বান্দরবান–ঢাকা রিজার্ভ বাস, ২ রাত হোটেল, ৬ বেলা খাবার, BBQ ডিনার ও সন্ধ্যার চা, সাইটসিয়িং জিপ। নীলগিরি, নীলাচল, মেঘলা, শৈল প্রপাত, স্বর্ণ মন্দির ও আরও। AC স্লিপার/বিজনেস আপগ্রেড ৳২,০০০/জন।",
+  included: [
+    "ঢাকা–বান্দরবান–ঢাকা রিজার্ভ বাস",
+    "২ রাত হোটেল",
+    "৬ বেলা খাবার",
+    "BBQ ডিনার ও সন্ধ্যার চা",
+    "সাইটসিয়িং জিপ",
+    "নির্বাচিত স্পটের এন্ট্রি টিকিট",
+  ],
+  excluded: [
+    "ব্যক্তিগত খরচ",
+  ],
+  tourPlan: [
+    { day: "Day 1", details: "বৃহস্পতিবার রাতে ঢাকা থেকে যাত্রা।" },
+    { day: "Day 2", details: "নীলগিরি, নীলাচল, মেঘলা ও শৈল প্রপাত ভ্রমণ।" },
+    { day: "Day 3", details: "স্বর্ণ মন্দির ঘুরে ঢাকায় ফেরা।" },
+  ],
+  places: [
+    { name: "নীলগিরি", image: "/images/places/nilgiri.jpg" },
+    { name: "নীলাচল", image: "/images/places/nilachal.jpg" },
+  ],
+},
 ];
 
 export default packagesData;
