@@ -132,6 +132,19 @@ const Footer = () => {
                 </a>
               ))}
             </div>
+
+            {/* Mother-brand email */}
+            <a
+              href="mailto:xolvekart@gmail.com"
+              className="flex items-center gap-3 text-sm mt-3"
+            >
+              <span className="w-8 h-8 rounded-lg bg-white/5 ring-1 ring-white/10 flex items-center justify-center shrink-0">
+                <EnvelopeIcon className="w-4 h-4 text-emerald-400" />
+              </span>
+              <span className="text-stone-300 hover:text-emerald-400 transition-colors duration-200">
+                xolvekart@gmail.com
+              </span>
+            </a>
           </div>
 
           {/* Destinations */}

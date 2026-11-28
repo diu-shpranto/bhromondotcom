@@ -2,7 +2,7 @@ import { useSearchParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HeartIcon } from "@heroicons/react/24/solid";
-import { ScaleIcon, CheckIcon } from "@heroicons/react/24/outline";
+import { ScaleIcon, CheckIcon, FunnelIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import packagesData from "../data/packagesData";
 import destinationsData from "../data/destinationsData";
 import { isInSeason, monthLabel } from "../utils/season";
@@ -66,6 +66,22 @@ const PackagesPage = () => {
   const [compareIds, setCompareIds] = useState([]);
   const [compareOpen, setCompareOpen] = useState(false);
   const [compareNotice, setCompareNotice] = useState("");
+
+  // Mobile filter panel is collapsed by default (slim bar); desktop is always open
+  const [filterOpen, setFilterOpen] = useState(false);
+
+  // Badge on the mobile filter toggle: how many filters differ from default
+  const activeFilterCount =
+    (category !== "All" ? 1 : 0) +
+    (priceRange !== "all" ? 1 : 0) +
+    (sort !== "default" ? 1 : 0) +
+    (savedOnly ? 1 : 0) +
+    (search.trim() !== "" ? 1 : 0) +
+    (destination !== "all" ? 1 : 0) +
+    (month !== "all" ? 1 : 0);
+
+  // On mobile the panel closes when a filter changes (tap the toggle to reopen)
+  const closeMobileFilter = () => setFilterOpen(false);
 
   const toggleCompare = (id) => {
     setCompareNotice("");
@@ -204,7 +220,7 @@ const PackagesPage = () => {
         </div>
       )}
 
-      {/* PREMIUM STICKY FILTER */}
+      {/* PREMIUM STICKY FILTER — mobile: slim bar, expandable; desktop: always open */}
      <div
   className={`sticky top-20 z-40 rounded-2xl p-3.5 mb-8 transition-all duration-500
   ${
@@ -213,20 +229,51 @@ const PackagesPage = () => {
       : "bg-white ring-1 ring-stone-100 shadow-sm"
   }`}
 >
-  <div className="flex flex-col gap-3">
+  {/* Mobile slim bar: search + filter toggle (collapsed by default) */}
+  <div className="flex gap-2.5 md:hidden">
+    <input
+      type="text"
+      placeholder="প্যাকেজ খুঁজুন..."
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+      aria-label="প্যাকেজ খুঁজুন"
+      className="flex-1 min-w-0 rounded-2xl border border-stone-200 bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+    />
+    <button
+      onClick={() => setFilterOpen((o) => !o)}
+      aria-expanded={filterOpen}
+      aria-controls="mobile-filter-panel"
+      className="relative inline-flex shrink-0 items-center gap-1.5 rounded-2xl bg-emerald-600 px-3.5 py-2 text-sm font-semibold text-white hover:bg-emerald-700 transition"
+    >
+      <FunnelIcon className="w-4 h-4" />
+      ফিল্টার
+      {activeFilterCount > 0 && (
+        <span className="min-w-5 h-5 px-1 flex items-center justify-center rounded-full bg-white text-emerald-700 text-xs font-bold">
+          {activeFilterCount}
+        </span>
+      )}
+      <ChevronDownIcon className={`w-4 h-4 transition-transform duration-300 ${filterOpen ? "rotate-180" : ""}`} />
+    </button>
+  </div>
 
-    {/* Search + Sort — side by side on desktop, stacked on mobile */}
+  {/* Full controls: always open on desktop, expandable on mobile */}
+  <div
+    id="mobile-filter-panel"
+    className={`${filterOpen ? "flex" : "hidden"} md:flex flex-col gap-3 mt-3 md:mt-0`}
+  >
+
+    {/* Search + Sort — search is desktop-only here (mobile has it in the slim bar) */}
     <div className="flex flex-col md:flex-row gap-3">
       <input
         type="text"
         placeholder="প্যাকেজ খুঁজুন..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="flex-1 rounded-2xl border border-stone-200 bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+        className="hidden md:block flex-1 rounded-2xl border border-stone-200 bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
       />
       <select
         value={sort}
-        onChange={(e) => setSort(e.target.value)}
+        onChange={(e) => { setSort(e.target.value); closeMobileFilter(); }}
         aria-label="দাম অনুযায়ী সাজান"
         className="md:w-60 shrink-0 rounded-2xl border border-stone-200 bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
       >
@@ -245,7 +292,7 @@ const PackagesPage = () => {
         return (
           <motion.button
             key={cat.value}
-            onClick={() => setCategory(cat.value)}
+            onClick={() => { setCategory(cat.value); closeMobileFilter(); }}
             whileTap={{ scale: 0.95 }}
             className="relative px-3.5 py-1.5 rounded-full text-[12.5px] leading-5 font-medium whitespace-nowrap flex-shrink-0 bg-stone-100"
           >
@@ -280,7 +327,7 @@ const PackagesPage = () => {
         return (
           <button
             key={range.id}
-            onClick={() => setPriceRange(range.id)}
+            onClick={() => { setPriceRange(range.id); closeMobileFilter(); }}
             className={`px-3 py-1.5 rounded-full text-[12.5px] leading-5 font-medium whitespace-nowrap flex-shrink-0 transition-colors duration-200 ${
               isActive
                 ? "bg-emerald-600 text-white shadow-sm"
@@ -296,7 +343,7 @@ const PackagesPage = () => {
     {/* Saved only — "পরে দেখব" তালিকা */}
     <div className="flex flex-wrap gap-2.5">
       <button
-        onClick={() => setSavedOnly(!savedOnly)}
+        onClick={() => { setSavedOnly(!savedOnly); closeMobileFilter(); }}
         aria-pressed={savedOnly}
         className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12.5px] leading-5 font-medium whitespace-nowrap transition-colors duration-200 ${
           savedOnly
