@@ -107,13 +107,6 @@ const Footer = () => {
               <span className="text-stone-300">বাংলাদেশ</span>
             </div>
 
-            <div className="flex items-center gap-3 text-sm mt-3">
-              <span className="w-8 h-8 rounded-lg bg-white/5 ring-1 ring-white/10 flex items-center justify-center shrink-0">
-                <EnvelopeIcon className="w-4 h-4 text-emerald-400" />
-              </span>
-              <span className="text-stone-300">legal@bhramon.com</span>
-            </div>
-
             {/* XolveKart social accounts */}
             <p className="text-xs text-stone-500 mt-7 mb-3">
               মাদার ব্র্যান্ড XolveKart-কে ফলো করুন
